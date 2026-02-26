@@ -1,26 +1,24 @@
 {
   "completed": [
     {
-      "title": "Project RuTHER",
-      "description": "Multi-game website project.",
-      "status": "Version 1"
+      "title": "Snake Game",
+      "description": "Classic JavaScript snake game with score tracking.",
+      "status": "Completed",
+      "link": "https://github.com/DEvBOLT19/snake-game"
     },
     {
       "title": "Coding Speed Challenge",
-      "description": "Browser-based typing and reaction game.",
-      "status": "Working Build"
+      "description": "Typing challenge built for Python learners.",
+      "status": "Completed",
+      "link": "https://github.com/DEvBOLT19/coding-speed"
     }
   ],
   "running": [
     {
-      "title": "RuTHER UI Improvements",
-      "description": "Enhancing layout and fixing interface bugs.",
-      "status": "In Progress"
-    },
-    {
-      "title": "Python Practice Scripts",
-      "description": "Learning-based automation and logic exercises.",
-      "status": "Learning Phase"
+      "title": "VOID Portfolio",
+      "description": "Minimal void-inspired personal developer website.",
+      "status": "In Progress",
+      "link": "https://github.com/DEvBOLT19/void-portfolio"
     }
   ]
 }
