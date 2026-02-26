@@ -1,0 +1,26 @@
+{
+  "completed": [
+    {
+      "title": "Project RuTHER",
+      "description": "Multi-game website project.",
+      "status": "Version 1"
+    },
+    {
+      "title": "Coding Speed Challenge",
+      "description": "Browser-based typing and reaction game.",
+      "status": "Working Build"
+    }
+  ],
+  "running": [
+    {
+      "title": "RuTHER UI Improvements",
+      "description": "Enhancing layout and fixing interface bugs.",
+      "status": "In Progress"
+    },
+    {
+      "title": "Python Practice Scripts",
+      "description": "Learning-based automation and logic exercises.",
+      "status": "Learning Phase"
+    }
+  ]
+}
