@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VOID // BOLT — Building in the Void.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─────────────────────────────────────────
+       RESET & BASE
+    ───────────────────────────────────────── */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg:        #0a0a0f;
+      --bg-card:   #111119;
+      --blue:      #00bfff;
+      --blue-dim:  rgba(0, 191, 255, 0.12);
+      --blue-mid:  rgba(0, 191, 255, 0.35);
+      --text:      #e8e8f0;
+      --muted:     #6b6b80;
+      --font-head: 'Syne', sans-serif;
+      --font-mono: 'DM Mono', monospace;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      background-color: var(--bg);
+      background-image:
+        radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0, 191, 255, 0.055) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 40% at 50% 100%, rgba(0, 100, 180, 0.04) 0%, transparent 60%);
+      color: var(--text);
+      font-family: var(--font-mono);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ─────────────────────────────────────────
+       SCROLLBAR
+    ───────────────────────────────────────── */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--blue-mid); border-radius: 2px; }
+
+    /* ─────────────────────────────────────────
+       LAYOUT
+    ───────────────────────────────────────── */
+    section {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 120px 28px;
+    }
+
+    /* ─────────────────────────────────────────
+       ANIMATION — FADE IN UP (IntersectionObserver)
+    ───────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─────────────────────────────────────────
+       TYPOGRAPHY
+    ───────────────────────────────────────── */
+    h1, h2, h3 {
+      font-family: var(--font-head);
+      letter-spacing: -0.01em;
+    }
+
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 12px;
+      opacity: 0.8;
+    }
+
+    .section-heading {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 48px;
+    }
+
+    /* ─────────────────────────────────────────
+       BUTTONS
+    ───────────────────────────────────────── */
+    .button {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--blue);
+      border: 1px solid var(--blue-mid);
+      padding: 10px 22px;
+      border-radius: 6px;
+      background: var(--blue-dim);
+      transition: background 0.25s, box-shadow 0.25s, transform 0.2s, border-color 0.25s;
+    }
+    .button:hover {
+      background: rgba(0, 191, 255, 0.18);
+      border-color: var(--blue);
+      box-shadow: 0 0 18px rgba(0, 191, 255, 0.28);
+      transform: translateY(-2px);
+    }
+
+    /* ─────────────────────────────────────────
+       NAV
+    ───────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 36px;
+      background: rgba(10, 10, 15, 0.82);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0, 191, 255, 0.06);
+    }
+
+    .nav-logo {
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: 0.88rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+    .nav-logo span { color: var(--blue); }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--blue); }
+
+    /* ─────────────────────────────────────────
+       HERO
+    ───────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 28px;
+      max-width: 100%;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: clamp(5rem, 16vw, 11rem);
+      letter-spacing: -0.03em;
+      line-height: 0.9;
+      color: var(--text);
+      text-shadow:
+        0 0 40px rgba(0, 191, 255, 0.2),
+        0 0 80px rgba(0, 191, 255, 0.08);
+      margin-bottom: 20px;
+    }
+
+    .hero-subtitle {
+      font-family: var(--font-mono);
+      font-size: clamp(0.85rem, 2vw, 1rem);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    /* THE WORLD WILL REMEMBER BOLT */
+    .hero-tagline {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--blue);
+      text-shadow:
+        0 0 8px rgba(0, 191, 255, 0.6),
+        0 0 20px rgba(0, 191, 255, 0.25);
+      margin-bottom: 44px;
+      animation: glow-pulse 3.5s ease-in-out infinite;
+    }
+
+    @keyframes glow-pulse {
+      0%, 100% {
+        text-shadow:
+          0 0 6px rgba(0, 191, 255, 0.5),
+          0 0 16px rgba(0, 191, 255, 0.2);
+        opacity: 0.85;
+      }
+      50% {
+        text-shadow:
+          0 0 10px rgba(0, 191, 255, 0.8),
+          0 0 28px rgba(0, 191, 255, 0.4);
+        opacity: 1;
+      }
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    /* ─────────────────────────────────────────
+       ABOUT
+    ───────────────────────────────────────── */
+    #about {
+      text-align: center;
+    }
+
+    .about-text {
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      line-height: 1.9;
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto;
+    }
+    .about-text strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* ─────────────────────────────────────────
+       DIVIDER
+    ───────────────────────────────────────── */
+    .divider {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 28px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--blue-mid), transparent);
+    }
+
+    /* ─────────────────────────────────────────
+       PROJECTS
+    ───────────────────────────────────────── */
+    #projects {
+      text-align: left;
+    }
+
+    .projects-sub-heading {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 20px;
+      opacity: 0.8;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 18px;
+      margin-bottom: 60px;
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(0, 191, 255, 0.08);
+      border-radius: 12px;
+      padding: 28px 24px;
+      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+                  border-color 0.3s,
+                  box-shadow 0.3s;
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(0, 191, 255, 0.38);
+      box-shadow: 0 0 28px rgba(0, 191, 255, 0.1), 0 8px 32px rgba(0, 0, 0, 0.4);
+    }
+
+    .project-card h3 {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    .project-card p {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+
+    .project-card .status {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--blue);
+      background: var(--blue-dim);
+      border: 1px solid rgba(0, 191, 255, 0.2);
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+
+    /* ─────────────────────────────────────────
+       GITHUB & DISCORD
+    ───────────────────────────────────────── */
+    #github, #discord {
+      text-align: center;
+    }
+
+    /* ─────────────────────────────────────────
+       FOOTER
+    ───────────────────────────────────────── */
+    .footer-divider {
+      max-width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, var(--blue-mid) 50%, transparent 100%);
+      box-shadow: 0 0 12px rgba(0, 191, 255, 0.15);
+    }
+
+    footer {
+      text-align: center;
+      padding: 36px 28px;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    footer span { color: rgba(0, 191, 255, 0.6); }
+
+    /* ─────────────────────────────────────────
+       RESPONSIVE
+    ───────────────────────────────────────── */
+    @media (max-width: 600px) {
+      nav { padding: 18px 20px; }
+      .nav-links { gap: 18px; }
+      .hero-actions { flex-direction: column; align-items: center; }
+      section { padding: 80px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">VOID <span>//</span> BOLT</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Work</a></li>
+      <li><a href="#github">GitHub</a></li>
+      <li><a href="#discord">Discord</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <p class="hero-eyebrow reveal">VOID // BOLT</p>
+    <h1 class="hero-title reveal">BOLT</h1>
+    <p class="hero-subtitle reveal">Building in the Void.</p>
+    <p class="hero-tagline reveal">THE WORLD WILL REMEMBER BOLT</p>
+    <div class="hero-actions reveal">
+      <a href="#projects" class="button">View Work</a>
+      <a href="https://github.com/DEvBOLT19" target="_blank" class="button">GitHub</a>
+      <a href="https://discord.com/users/1465964458282188820" target="_blank" class="button">Discord</a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <p class="section-label reveal">// 01 — About</p>
+    <h2 class="section-heading reveal">Who I Am</h2>
+    <p class="about-text reveal">
+      <strong>Self-taught developer.</strong> Learning Python and programming fundamentals. Building small web-based games and experiments. <strong>Focused on improving every day.</strong>
+    </p>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <p class="section-label reveal">// 02 — Projects</p>
+    <h2 class="section-heading reveal">The Work</h2>
+
+    <p class="projects-sub-heading reveal">Completed Projects</p>
+    <div id="completed-projects" class="project-grid"></div>
+
+    <p class="projects-sub-heading reveal">Running Projects</p>
+    <div id="running-projects" class="project-grid"></div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- GITHUB -->
+  <section id="github">
+    <p class="section-label reveal">// 03 — GitHub</p>
+    <h2 class="section-heading reveal">GitHub</h2>
+    <a href="https://github.com/DEvBOLT19" target="_blank" class="button reveal">View GitHub Profile</a>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- DISCORD -->
+  <section id="discord">
+    <p class="section-label reveal">// 04 — Discord</p>
+    <h2 class="section-heading reveal">Discord</h2>
+    <a href="https://discord.com/users/1465964458282188820" target="_blank" class="button reveal">Connect on Discord</a>
+  </section>
+
+  <!-- FOOTER -->
+  <div class="footer-divider"></div>
+  <footer>
+    Built in the Void. <span>©</span> <span id="footer-year"></span> BOLT
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    /* ── Dynamic year ── */
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+    /* ── IntersectionObserver fade-in ── */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach((el, i) => {
+      el.style.transitionDelay = `${(i % 5) * 80}ms`;
+      observer.observe(el);
+    });
+
+    /* ── Load projects from JSON ── */
+    fetch('projects.json')
+      .then(response => response.json())
+      .then(data => {
+
+        const completedContainer = document.getElementById("completed-projects");
+        const runningContainer   = document.getElementById("running-projects");
+
+        data.completed.forEach(project => {
+          completedContainer.innerHTML += `
+            <div class="project-card">
+              <h3>${project.title}</h3>
+              <p>${project.description}</p>
+              <span class="status">${project.status}</span>
+              <br><br>
+              <a href="${project.link}" target="_blank" class="button">
+                View Repository
+              </a>
+            </div>
+          `;
+        });
+
+        data.running.forEach(project => {
+          runningContainer.innerHTML += `
+            <div class="project-card">
+              <h3>${project.title}</h3>
+              <p>${project.description}</p>
+              <span class="status">${project.status}</span>
+              <br><br>
+              <a href="${project.link}" target="_blank" class="button">
+                View Repository
+              </a>
+            </div>
+          `;
+        });
+
+        /* Observe dynamically inserted cards */
+        document.querySelectorAll('.project-card').forEach(card => {
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(22px)';
+          card.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
+          observer.observe(card);
+        });
+
+      })
+      .catch(error => console.error("Error loading projects:", error));
+  </script>
+
+</body>
+</html>
