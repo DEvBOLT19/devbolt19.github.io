@@ -146,7 +146,9 @@
 
     /* PROJECTS */
     #projects{text-align:left;position:relative;z-index:1}
-    .p-tabs{display:flex;margin-bottom:32px;border:1px solid var(--border);border-radius:8px;overflow:hidden;width:fit-content}
+    .p-tabs{display:flex;margin-bottom:20px;border:1px solid var(--border);border-radius:8px;overflow:hidden;width:fit-content}
+    .p-edit-note{margin:0 0 24px;color:var(--muted2);font-size:.7rem}
+    .p-edit-note code{color:var(--blue);font-family:var(--fm)}
     .tbtn{font-family:var(--fm);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);background:transparent;border:none;padding:9px 20px;cursor:none;transition:color .2s,background .2s}
     .tbtn::after{content:attr(data-count);margin-left:5px;font-size:.56rem;background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:1px 6px;color:var(--muted)}
     .tbtn.active{color:var(--blue);background:var(--bdim)}
@@ -248,6 +250,13 @@
     footer a{color:rgba(0,200,255,.5);text-decoration:none;transition:color .2s}
     footer a:hover{color:var(--blue)}
 
+    /* MUSIC DOCK */
+    .music-dock{position:fixed;right:18px;bottom:18px;z-index:220;background:rgba(7,7,13,.9);border:1px solid var(--borderh);border-radius:12px;padding:10px 12px;display:flex;align-items:center;gap:10px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 0 20px rgba(0,200,255,.08)}
+    .music-btn{border:1px solid var(--borderh);background:linear-gradient(135deg,rgba(0,200,255,.2),rgba(0,200,255,.07));color:var(--blue);font-family:var(--fm);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;padding:8px 10px;border-radius:8px;cursor:none;min-width:78px}
+    .music-btn:hover{color:#fff;border-color:var(--blue);box-shadow:0 0 14px rgba(0,200,255,.25)}
+    .music-vol{width:92px;accent-color:#00c8ff}
+    .music-hint{font-size:.58rem;letter-spacing:.08em;color:var(--muted2)}
+
     /* Noise overlay */
     body::after{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.022;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px}
     #hero,#about,#projects,#connect,#contact,footer,.divider,.fdiv{position:relative;z-index:1}
@@ -267,7 +276,7 @@
       body{cursor:auto}
       #cd,#cr{display:none}
     }
-    @media(max-width:420px){.p-tabs{width:100%}.tbtn{flex:1;text-align:center}}
+    @media(max-width:420px){.p-tabs{width:100%}.tbtn{flex:1;text-align:center}.music-dock{left:12px;right:12px;bottom:12px;justify-content:space-between}.music-vol{width:84px}}
   </style>
 </head>
 <body>
@@ -380,6 +389,7 @@
     <button class="tbtn active" data-tab="done" data-count="2">Completed</button>
     <button class="tbtn"        data-tab="wip"  data-count="1">In Progress</button>
   </div>
+  <p class="p-edit-note reveal">Tip: Update project <code>status</code> and <code>pct</code> in the <code>projects</code> object inside this file.</p>
   <div class="tpane active" id="tab-done"><div class="pgrid" id="g-done"></div></div>
   <div class="tpane"        id="tab-wip" ><div class="pgrid" id="g-wip" ></div></div>
 </section>
@@ -461,6 +471,13 @@
   </div>
 </footer>
 
+<div class="music-dock reveal" id="musicDock">
+  <button class="music-btn" id="musicToggle" type="button">Play ♪</button>
+  <input class="music-vol" id="musicVol" type="range" min="0" max="100" value="28" aria-label="Music volume"/>
+  <span class="music-hint">ambient</span>
+  <audio id="bgm" loop preload="none" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3?filename=dreams-110734.mp3"></audio>
+</div>
+
 <script>
 /* CURSOR */
 const cd=document.getElementById('cd'),cr=document.getElementById('cr');
@@ -526,22 +543,98 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')document.getElementB
 /* YEAR */
 document.getElementById('yr').textContent=new Date().getFullYear();
 
+
+
+/* BACKGROUND MUSIC */
+(function(){
+  const audio=document.getElementById('bgm');
+  const btn=document.getElementById('musicToggle');
+  const vol=document.getElementById('musicVol');
+  const KEY_ON='bolt_music_on';
+  const KEY_VOL='bolt_music_vol';
+
+  const savedVol=Number(localStorage.getItem(KEY_VOL));
+  const startVol=Number.isFinite(savedVol)&&savedVol>=0&&savedVol<=100?savedVol:28;
+  vol.value=startVol;
+  audio.volume=startVol/100;
+
+  function paint(isOn){btn.textContent=isOn?'Pause ♪':'Play ♪';}
+  async function playAudio(){
+    try{await audio.play();localStorage.setItem(KEY_ON,'1');paint(true);}catch{paint(false);} 
+  }
+  function pauseAudio(){audio.pause();localStorage.setItem(KEY_ON,'0');paint(false);}
+
+  vol.addEventListener('input',()=>{audio.volume=Number(vol.value)/100;localStorage.setItem(KEY_VOL,String(vol.value));});
+  btn.addEventListener('click',()=>{if(audio.paused)playAudio();else pauseAudio();});
+
+  if(localStorage.getItem(KEY_ON)==='1'){
+    playAudio();
+  }else{paint(false);} 
+})();
 /* CONTRIBUTION GRAPH */
 (function(){
   const g=document.getElementById('cg');
   for(let w=0;w<26;w++){const wk=document.createElement('div');wk.className='cw';for(let d=0;d<7;d++){const day=document.createElement('div');day.className='cd';const r=Math.random();if(r>.85)day.dataset.l='1';if(r>.93)day.dataset.l='2';if(r>.97)day.dataset.l='3';if(r>.99)day.dataset.l='4';wk.appendChild(day);}g.appendChild(wk);}
 })();
 
-/* PROJECTS DATA — EDIT HERE */
+/* PROJECTS DATA — EDIT HERE
+   QUICK GUIDE
+   1) status: use "Completed" or "In Progress"
+   2) pct: keep 0–100 (100 means done)
+   3) Move projects between `done` and `wip` lists when needed
+   4) Keep status + pct aligned (Completed + 100 is recommended)
+*/
 const projects={
+  // Completed projects go here.
+  // Keep status:'Completed' and pct:100 for finished work.
   done:[
-    {title:'Russian Roulette',desc:'Minimal game built with Python and Pygame — pure mechanics and tense feedback loops.',status:'Completed',pct:100,tech:['Python','Pygame'],link:'https://github.com/DEvBOLT19/russian_roullete',bg:'#1a0808',accent:'#ff4444'},
-    {title:'Task Tracker',desc:'CLI task tracker with file I/O and data persistence. Blueprint from roadmap.sh.',status:'Completed',pct:100,tech:['Python','CLI','JSON'],link:'https://github.com/DEvBOLT19/task-tracker',bg:'#081a0a',accent:'#44dd77'}
+    {
+      title:'Russian Roulette',
+      desc:'Minimal game built with Python and Pygame — pure mechanics and tense feedback loops.',
+      status:'Completed', // <- change this label when state changes
+      pct:100,            // <- change completion percentage (0 to 100)
+      tech:['Python','Pygame'],
+      link:'https://github.com/DEvBOLT19/russian_roullete',
+      bg:'#1a0808',
+      accent:'#ff4444'
+    },
+    {
+      title:'Task Tracker',
+      desc:'CLI task tracker with file I/O and data persistence. Blueprint from roadmap.sh.',
+      status:'Completed',
+      pct:100,
+      tech:['Python','CLI','JSON'],
+      link:'https://github.com/DEvBOLT19/task-tracker',
+      bg:'#081a0a',
+      accent:'#44dd77'
+    }
   ],
+  // Work-in-progress projects go here.
+  // Keep status:'In Progress' and set pct between 0 and 99.
   wip:[
-    {title:'BOLT-AI',desc:'Neural network built from scratch with PyTorch. Currently learning the framework.',status:'In Progress',pct:15,tech:['Python','PyTorch','ML'],link:'https://github.com/DEvBOLT19/BOLT-AI',bg:'#08081a',accent:'#4488ff'}
+    {
+      title:'BOLT-AI',
+      desc:'Neural network built from scratch with PyTorch. Currently learning the framework.',
+      status:'In Progress',
+      pct:15,
+      tech:['Python','PyTorch','ML'],
+      link:'https://github.com/DEvBOLT19/BOLT-AI',
+      bg:'#08081a',
+      accent:'#4488ff'
+    }
   ]
 };
+
+function normalizeProject(p){
+  // If either field says the project is complete, make output consistent.
+  // This prevents mistakes like status:"In Progress" with pct:100.
+  const isComplete=p.status==='Completed' || Number(p.pct)>=100;
+  return {
+    ...p,
+    pct:isComplete?100:Math.max(0,Math.min(100,Number(p.pct)||0)),
+    status:isComplete?'Completed':'In Progress'
+  };
+}
 
 /* CIRCULAR PROGRESS */
 function cpSVG(pct,accent){
@@ -564,22 +657,23 @@ function cpSVG(pct,accent){
 function ghSVG(){return`<svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>`;}
 
 function renderCard(p){
-  const done=p.status==='Completed';
-  const tags=p.tech.map(t=>`<span class="ttag">${t}</span>`).join('');
+  const project=normalizeProject(p);
+  const done=project.status==='Completed';
+  const tags=project.tech.map(t=>`<span class="ttag">${t}</span>`).join('');
   return `<div class="pcard">
     <div class="c-banner">
-      <div class="c-banner-bg" style="background:linear-gradient(135deg,${p.bg},${p.accent}20)"></div>
-      <div class="c-banner-letter">${p.title.charAt(0)}</div>
-      ${cpSVG(p.pct,p.accent)}
+      <div class="c-banner-bg" style="background:linear-gradient(135deg,${project.bg},${project.accent}20)"></div>
+      <div class="c-banner-letter">${project.title.charAt(0)}</div>
+      ${cpSVG(project.pct,project.accent)}
     </div>
     <div class="c-body">
-      <div class="c-title">${p.title}</div>
-      <div class="c-desc">${p.desc}</div>
+      <div class="c-title">${project.title}</div>
+      <div class="c-desc">${project.desc}</div>
       <div class="c-tech">${tags}</div>
     </div>
     <div class="c-foot">
-      <span class="sbadge ${done?'s-done':'s-wip'}">${p.status}</span>
-      <a href="${p.link}" target="_blank" rel="noopener" class="c-link">${ghSVG()} Repo</a>
+      <span class="sbadge ${done?'s-done':'s-wip'}">${project.status}</span>
+      <a href="${project.link}" target="_blank" rel="noopener" class="c-link">${ghSVG()} Repo</a>
     </div>
   </div>`;
 }
