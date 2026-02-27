@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/music.css" />
+  <!-- NOTE: music.css removed since we handle music dock inline below -->
   <style>
     *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 
@@ -45,9 +45,12 @@
     ::-webkit-scrollbar-track{background:var(--bg)}
     ::-webkit-scrollbar-thumb{background:var(--bmid);border-radius:2px}
 
-    section{max-width:880px;margin:0 auto;padding:110px 28px}
+    /* Section base — glass-panel sections use reduced outer padding */
+    section{max-width:920px;margin:0 auto;padding:80px 28px}
+    /* Sections with glass panel get tighter outer padding — panel provides inner padding */
+    #about,#projects,#connect,#contact{padding:80px 28px}
 
-    /* REVEAL */
+    /* REVEAL — fade-in animation for elements entering viewport */
     .reveal{opacity:0;transform:translateY(22px);transition:opacity .65s cubic-bezier(.22,1,.36,1),transform .65s cubic-bezier(.22,1,.36,1)}
     .reveal.visible{opacity:1;transform:translateY(0)}
 
@@ -131,6 +134,64 @@
     /* DIVIDER */
     .divider{max-width:880px;margin:0 auto;height:1px;background:linear-gradient(90deg,transparent,var(--bmid),transparent)}
 
+    /* ========================================================
+       GLASSMORPHISM SECTION PANELS
+       Applied to About, Projects, Connect, Contact sections.
+       Each section's inner content is wrapped in a .glass-panel div.
+       To adjust blur strength: change backdrop-filter blur value.
+       To adjust glass opacity: change the rgba alpha on background.
+       To adjust glow intensity: change box-shadow spread/opacity.
+       To disable for a single section: remove class="glass-panel" from that section's wrapper.
+    ======================================================== */
+    .glass-panel{
+      /* Core glass effect */
+      background: linear-gradient(
+        135deg,
+        rgba(14,14,30,0.72) 0%,
+        rgba(18,18,38,0.58) 50%,
+        rgba(10,10,22,0.68) 100%
+      );
+      backdrop-filter: blur(22px);           /* <- increase for more blur */
+      -webkit-backdrop-filter: blur(22px);
+      border: 1px solid rgba(0,200,255,0.13); /* <- outer border tint */
+      border-radius: 20px;                    /* <- corner roundness */
+      box-shadow:
+        0 8px 48px rgba(0,0,0,0.55),          /* depth shadow */
+        0 0 0 1px rgba(255,255,255,0.03) inset, /* inner edge highlight */
+        0 0 60px rgba(0,200,255,0.04),          /* ambient blue glow */
+        0 1px 0 rgba(255,255,255,0.06) inset;  /* top glass sheen */
+      padding: 48px 44px;                     /* <- inner breathing room */
+      position: relative;
+      overflow: hidden;
+      transition: border-color .4s, box-shadow .4s;
+    }
+    .glass-panel:hover{
+      border-color: rgba(0,200,255,0.22);
+      box-shadow:
+        0 12px 64px rgba(0,0,0,0.6),
+        0 0 0 1px rgba(255,255,255,0.04) inset,
+        0 0 80px rgba(0,200,255,0.07),
+        0 1px 0 rgba(255,255,255,0.08) inset;
+    }
+    /* Top-left shimmer streak — pure CSS cosmetic decoration */
+    .glass-panel::before{
+      content:'';
+      position:absolute;
+      top:0;left:0;right:0;
+      height:1px;
+      background:linear-gradient(90deg,transparent,rgba(0,200,255,.18),rgba(0,255,225,.1),transparent);
+      pointer-events:none;
+    }
+    /* Subtle radial inner glow at top-left corner */
+    .glass-panel::after{
+      content:'';
+      position:absolute;
+      top:-60px;left:-40px;
+      width:240px;height:240px;
+      background:radial-gradient(circle,rgba(0,200,255,.06) 0%,transparent 70%);
+      pointer-events:none;
+    }
+
     /* ABOUT */
     #about{text-align:center;position:relative;z-index:1}
     .about-in{display:flex;flex-direction:column;align-items:center;gap:28px}
@@ -158,8 +219,8 @@
     .tpane.active{display:block}
     .pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(265px,1fr));gap:16px}
 
-    /* Card */
-    .pcard{background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:transform .35s cubic-bezier(.22,1,.36,1),border-color .3s,box-shadow .3s}
+    /* Card — semi-transparent inside glass panel */
+    .pcard{background:rgba(14,14,28,0.6);border:1px solid rgba(0,200,255,.09);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:transform .35s cubic-bezier(.22,1,.36,1),border-color .3s,box-shadow .3s;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
     .pcard:hover{transform:translateY(-5px);border-color:var(--borderh);box-shadow:0 0 28px rgba(0,200,255,.09),0 10px 36px rgba(0,0,0,.5)}
     .c-banner{height:94px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
     .c-banner-bg{position:absolute;inset:0;opacity:.5}
@@ -195,7 +256,8 @@
     #connect{text-align:center;position:relative;z-index:1}
     .con-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:800px;margin:0 auto}
 
-    .gh-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:26px 22px;text-align:left;display:flex;flex-direction:column;gap:20px;transition:border-color .3s,box-shadow .3s}
+    /* CONNECT inner cards — semi-transparent so outer glass shows through */
+    .gh-card{background:rgba(14,14,28,0.55);border:1px solid rgba(0,200,255,.12);border-radius:var(--r);padding:26px 22px;text-align:left;display:flex;flex-direction:column;gap:20px;transition:border-color .3s,box-shadow .3s;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
     .gh-card:hover{border-color:var(--borderh);box-shadow:0 0 22px rgba(0,200,255,.07)}
     .gh-hdr{display:flex;align-items:center;gap:12px}
     .gh-ico{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#161620,#202030);border:1px solid var(--borderh);display:flex;align-items:center;justify-content:center;flex-shrink:0}
@@ -211,7 +273,7 @@
     .cd[data-l="3"]{background:rgba(0,200,255,.58)}
     .cd[data-l="4"]{background:rgba(0,200,255,.82)}
 
-    .dc-card{background:var(--card);border:1px solid rgba(88,101,242,.22);border-radius:var(--r);padding:26px 22px;display:flex;flex-direction:column;gap:18px;transition:border-color .3s,box-shadow .3s}
+    .dc-card{background:rgba(12,12,28,0.5);border:1px solid rgba(88,101,242,.22);border-radius:var(--r);padding:26px 22px;display:flex;flex-direction:column;gap:18px;transition:border-color .3s,box-shadow .3s;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
     .dc-card:hover{border-color:rgba(88,101,242,.45);box-shadow:0 0 22px rgba(88,101,242,.08)}
     .dc-hdr{display:flex;align-items:center;gap:12px}
     .dc-ico{width:42px;height:42px;border-radius:10px;flex-shrink:0;background:linear-gradient(135deg,#5865f2,#4752c4);display:flex;align-items:center;justify-content:center}
@@ -225,13 +287,13 @@
     .dc-btn:hover{filter:brightness(1.14);transform:translateY(-2px)}
     .dc-btn svg{width:14px;height:14px;fill:currentColor}
 
-    /* CONTACT */
+    /* CONTACT — ct-wrap sits inside glass-panel so remove its own background/border */
     #contact{text-align:center;position:relative;z-index:1}
-    .ct-wrap{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:36px 32px;max-width:520px;margin:0 auto}
+    .ct-wrap{background:transparent;border:none;border-radius:var(--r);padding:0;max-width:520px;margin:0 auto}
     .cf-row{display:flex;flex-direction:column;gap:14px}
     .cf-g{display:flex;flex-direction:column;gap:6px;text-align:left}
     .cf-lbl{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);opacity:.8}
-    .cf-inp,.cf-ta{width:100%;background:var(--card2);border:1px solid var(--border);border-radius:6px;padding:10px 14px;color:var(--text);font-family:var(--fm);font-size:.8rem;outline:none;transition:border-color .2s,box-shadow .2s;resize:none}
+    .cf-inp,.cf-ta{width:100%;background:rgba(8,8,20,0.6);border:1px solid rgba(0,200,255,.12);border-radius:6px;padding:10px 14px;color:var(--text);font-family:var(--fm);font-size:.8rem;outline:none;transition:border-color .2s,box-shadow .2s;resize:none;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
     .cf-inp:focus,.cf-ta:focus{border-color:var(--bmid);box-shadow:0 0 0 2px rgba(0,200,255,.07)}
     .cf-inp::placeholder,.cf-ta::placeholder{color:var(--muted)}
     .cf-ta{height:106px}
@@ -253,7 +315,167 @@
 
     /* Noise overlay */
     body::after{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.022;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px}
-    #hero,#about,#projects,#connect,#contact,footer,.divider,.fdiv{position:relative;z-index:1}
+    #hero,#about,#projects,#learning,#connect,#contact,footer,.divider,.fdiv{position:relative;z-index:1}
+
+    /* ========================================================
+       MUSIC DOCK — Minimal play/pause button only.
+       Volume controller removed per update.
+       To style the dock, edit .music-dock styles here.
+       To reposition: change bottom/left values below.
+    ======================================================== */
+    .music-dock{
+      position:fixed;
+      bottom:24px;
+      left:24px;
+      z-index:300;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      background:rgba(10,10,20,.88);
+      border:1px solid rgba(0,200,255,.2);
+      border-radius:40px;
+      padding:9px 18px;
+      backdrop-filter:blur(14px);
+      -webkit-backdrop-filter:blur(14px);
+      transition:border-color .3s,box-shadow .3s;
+      /* Subtle pulse to hint that sound is available — stops once music starts */
+      animation:dockPulse 3s ease-in-out infinite;
+    }
+    /* Pulse stops when music is playing (JS removes class) */
+    .music-dock.playing{animation:none;border-color:rgba(0,200,255,.45);box-shadow:0 0 20px rgba(0,200,255,.12)}
+    .music-dock:hover{border-color:var(--borderh);box-shadow:0 0 20px rgba(0,200,255,.1);animation:none}
+    @keyframes dockPulse{
+      0%,100%{box-shadow:0 0 0 0 rgba(0,200,255,0);border-color:rgba(0,200,255,.2)}
+      50%{box-shadow:0 0 0 6px rgba(0,200,255,.06);border-color:rgba(0,200,255,.38)}
+    }
+
+    /* Play/Pause toggle button */
+    .music-btn{
+      background:none;
+      border:none;
+      color:var(--blue);
+      font-family:var(--fm);
+      font-size:.62rem;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      cursor:none;
+      padding:0;
+      display:flex;
+      align-items:center;
+      gap:6px;
+      transition:color .2s;
+      white-space:nowrap;
+    }
+    .music-btn:hover{color:var(--cyan)}
+
+    /* Animated waveform bars shown when music is playing */
+    .music-wave{display:flex;align-items:flex-end;gap:2px;height:12px}
+    .music-wave span{display:block;width:2px;background:var(--blue);border-radius:1px;animation:wave 1s ease-in-out infinite}
+    .music-wave span:nth-child(1){height:4px;animation-delay:0s}
+    .music-wave span:nth-child(2){height:8px;animation-delay:.15s}
+    .music-wave span:nth-child(3){height:12px;animation-delay:.3s}
+    .music-wave span:nth-child(4){height:6px;animation-delay:.45s}
+    .music-wave span:nth-child(5){height:10px;animation-delay:.6s}
+    .music-wave.paused span{animation-play-state:paused;opacity:.35}
+    @keyframes wave{0%,100%{transform:scaleY(1)}50%{transform:scaleY(.4)}}
+
+    .music-hint{font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);opacity:.6}
+
+    /* ========================================================
+       LEARNING SECTION — Floating skill cards with progress bars.
+       To add a new skill: add an object to the `skills` array in the script below.
+       Each skill has: name, pct (0-100), color (hex), icon (emoji or short text)
+    ======================================================== */
+    #learning{text-align:center;position:relative;z-index:1}
+
+    /* Floating container — the cards drift slightly with CSS animation */
+    .learn-float-wrap{
+      position:relative;
+      display:flex;
+      flex-wrap:wrap;
+      gap:16px;
+      justify-content:center;
+      padding:20px 0 30px;
+    }
+
+    /* Individual skill card */
+    .skill-card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:22px 20px;
+      min-width:160px;
+      max-width:180px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:14px;
+      transition:border-color .3s,box-shadow .3s,transform .35s cubic-bezier(.22,1,.36,1);
+      /* Each card gets its own float animation via JS (staggered delay) */
+      animation:cardFloat 4s ease-in-out infinite;
+      will-change:transform; /* GPU hint for smooth animation */
+    }
+    .skill-card:hover{
+      border-color:var(--borderh);
+      box-shadow:0 0 24px rgba(0,200,255,.1),0 8px 28px rgba(0,0,0,.4);
+    }
+    /* Float animation — gentle up-down drift */
+    @keyframes cardFloat{
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(-8px)}
+    }
+
+    /* Icon / emoji at top of card */
+    .skill-icon{
+      font-size:1.8rem;
+      line-height:1;
+    }
+
+    /* Skill name label */
+    .skill-name{
+      font-family:var(--fh);
+      font-size:.8rem;
+      font-weight:700;
+      color:var(--text);
+      letter-spacing:.04em;
+    }
+
+    /* Percentage ring (SVG circular progress) */
+    .skill-ring{position:relative;width:64px;height:64px}
+    .skill-ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+    .ring-track{fill:none;stroke:#1a1a2e;stroke-width:4}
+    .ring-fill{fill:none;stroke-width:4;stroke-linecap:round;transition:stroke-dashoffset 1.4s cubic-bezier(.22,1,.36,1)}
+    .ring-pct{
+      position:absolute;inset:0;
+      display:flex;align-items:center;justify-content:center;
+      font-family:var(--fh);font-size:.7rem;font-weight:700;
+      color:var(--text);
+    }
+
+    /* Linear progress bar below the ring */
+    .skill-bar-wrap{width:100%}
+    .skill-bar-label{
+      display:flex;justify-content:space-between;
+      font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;
+      color:var(--muted);margin-bottom:5px;
+    }
+    .skill-bar-track{
+      width:100%;height:3px;
+      background:#1a1a2e;
+      border-radius:2px;overflow:hidden;
+    }
+    .skill-bar-fill{
+      height:100%;border-radius:2px;
+      width:0%; /* animated via JS */
+      transition:width 1.4s cubic-bezier(.22,1,.36,1);
+    }
+
+    /* Section note below the cards */
+    .learn-note{
+      font-size:.68rem;color:var(--muted);
+      margin-top:8px;line-height:1.8;
+    }
+    .learn-note code{color:var(--blue);font-family:var(--fm)}
 
     /* MOBILE */
     @media(max-width:680px){
@@ -269,6 +491,11 @@
       .ct-wrap{padding:24px 18px}
       body{cursor:auto}
       #cd,#cr{display:none}
+      /* Stack skill cards on mobile */
+      .learn-float-wrap{gap:12px}
+      .skill-card{min-width:140px}
+      /* Move music dock to center-bottom on mobile */
+      .music-dock{bottom:16px;left:50%;transform:translateX(-50%);animation:none}
     }
     @media(max-width:420px){.p-tabs{width:100%}.tbtn{flex:1;text-align:center}}
   </style>
@@ -298,16 +525,18 @@
 <nav id="nav">
   <a href="#hero" class="nav-logo">VOID <span>//</span> BOLT</a>
   <ul class="nav-links" id="nls">
-    <li><a href="#about"   data-s="about">About</a></li>
+    <li><a href="#about"    data-s="about">About</a></li>
     <li><a href="#projects" data-s="projects">Work</a></li>
-    <li><a href="#connect" data-s="connect">Connect</a></li>
-    <li><a href="#contact" data-s="contact">Contact</a></li>
+    <li><a href="#learning" data-s="learning">Learning</a></li>
+    <li><a href="#connect"  data-s="connect">Connect</a></li>
+    <li><a href="#contact"  data-s="contact">Contact</a></li>
   </ul>
   <button class="nav-tog" id="ntog" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 <div class="nav-mob" id="nmob">
   <a href="#about"    onclick="cm()">About</a>
   <a href="#projects" onclick="cm()">Work</a>
+  <a href="#learning" onclick="cm()">Learning</a>
   <a href="#connect"  onclick="cm()">Connect</a>
   <a href="#contact"  onclick="cm()">Contact</a>
 </div>
@@ -351,49 +580,77 @@
 
 <!-- ABOUT -->
 <section id="about">
-  <p class="lbl reveal">// 01 — About</p>
-  <h2 class="hdg reveal">Who I Am</h2>
+<div class="glass-panel reveal">
+  <p class="lbl">// 01 — About</p>
+  <h2 class="hdg">Who I Am</h2>
   <div class="about-in">
-    <div class="ab-av reveal">B</div>
-    <p class="about-txt reveal">
+    <div class="ab-av">B</div>
+    <p class="about-txt">
       <strong>Self-taught developer.</strong> Learning Python and programming fundamentals.
       Building new projects and learning machine learning.
       <strong>Focused on improving every day.</strong>
     </p>
-    <blockquote class="about-quote reveal">
+    <blockquote class="about-quote">
       "The void isn't emptiness — it's potential. Every project starts from nothing.
       I build until the nothing becomes something."
       <cite>— RAGHVENDRA DODIYA @BOLT</cite>
     </blockquote>
-    <div class="a-stats reveal">
+    <div class="a-stats">
       <div class="stat"><div class="stat-n" data-target="3">0</div><div class="stat-l">Projects Built</div></div>
       <div class="stat"><div class="stat-n" data-target="1">0</div><div class="stat-l">In Progress</div></div>
       <div class="stat"><div class="stat-n">∞</div><div class="stat-l">To Build</div></div>
     </div>
   </div>
+</div>
 </section>
 
 <div class="divider"></div>
 
 <!-- PROJECTS -->
 <section id="projects">
-  <p class="lbl reveal">// 02 — Projects</p>
-  <h2 class="hdg reveal">The Work</h2>
-  <div class="p-tabs reveal">
+<div class="glass-panel reveal">
+  <p class="lbl">// 02 — Projects</p>
+  <h2 class="hdg">The Work</h2>
+  <div class="p-tabs">
     <button class="tbtn active" data-tab="done" data-count="2">Completed</button>
     <button class="tbtn"        data-tab="wip"  data-count="1">In Progress</button>
   </div>
-  <p class="p-edit-note reveal">Tip: Update project <code>status</code> and <code>pct</code> in the <code>projects</code> object inside this file.</p>
+  <!-- TIP REMOVED — to edit projects, update the `projects` object in the script below -->
   <div class="tpane active" id="tab-done"><div class="pgrid" id="g-done"></div></div>
   <div class="tpane"        id="tab-wip" ><div class="pgrid" id="g-wip" ></div></div>
+</div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ========================================================
+     LEARNING SECTION
+     This section shows languages / tools you are currently learning.
+     To edit skills: find the `skills` array in the <script> at the bottom.
+     Each skill card floats independently with a staggered animation delay.
+     The percentage ring + bar animate in on scroll via IntersectionObserver.
+======================================================== -->
+<section id="learning">
+  <p class="lbl reveal">// 03 — Currently Learning</p>
+  <h2 class="hdg reveal">What I'm Building Towards</h2>
+
+  <!-- Cards are injected here by JS. See the `skills` array in the script. -->
+  <div class="learn-float-wrap reveal" id="skillGrid"></div>
+
+  <!-- Update this note to reflect your actual learning journey -->
+  <p class="learn-note reveal">
+    Skills tracked in real-time — percentages reflect current confidence level.<br>
+    Edit the <code>skills</code> array in this file to add, remove, or update.
+  </p>
 </section>
 
 <div class="divider"></div>
 
 <!-- CONNECT — GitHub + Discord -->
 <section id="connect">
-  <p class="lbl reveal">// 03 — Connect</p>
-  <h2 class="hdg reveal">Find Me Online</h2>
+<div class="glass-panel reveal">
+  <p class="lbl" style="text-align:center">// 04 — Connect</p>
+  <h2 class="hdg" style="text-align:center">Find Me Online</h2>
 
   <div class="con-grid">
     <!-- GitHub -->
@@ -428,15 +685,18 @@
       </a>
     </div>
   </div>
+</div><!-- end .glass-panel -->
 </section>
 
 <div class="divider"></div>
 
 <!-- CONTACT -->
 <section id="contact">
-  <p class="lbl reveal">// 04 — Contact</p>
-  <h2 class="hdg reveal">Get In Touch</h2>
-  <div class="ct-wrap reveal">
+<div class="glass-panel reveal">
+  <p class="lbl" style="text-align:center">// 05 — Contact</p>
+  <h2 class="hdg" style="text-align:center">Get In Touch</h2>
+  <!-- ct-wrap border/bg removed — glass-panel provides the container styling -->
+  <div class="ct-wrap">
     <div class="cf-row">
       <div class="cf-g">
         <label class="cf-lbl" for="cfn">Name</label>
@@ -454,6 +714,7 @@
       <div id="cf-out"></div>
     </div>
   </div>
+</div><!-- end .glass-panel -->
 </section>
 
 <div class="fdiv"></div>
@@ -465,11 +726,21 @@
   </div>
 </footer>
 
-<div class="music-dock reveal" id="musicDock">
-  <button class="music-btn" id="musicToggle" type="button">Play ♪</button>
-  <input class="music-vol" id="musicVol" type="range" min="0" max="100" value="28" aria-label="Music volume"/>
-  <span class="music-hint">ambient</span>
-  <audio id="bgm" loop preload="none" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3?filename=dreams-110734.mp3"></audio>
+<!-- ========================================================
+     MUSIC DOCK
+     - BG music: Web Audio API synthwave generator (no external file = no CORS issues)
+     - Starts automatically on first user interaction (click or scroll anywhere)
+     - Dock button lets user toggle on/off manually at any time
+     - To adjust volume: edit MUSIC_VOL constant in the script below
+     - To adjust the drone frequency/mood: edit MUSIC_CONFIG in the script below
+======================================================== -->
+<div class="music-dock" id="musicDock">
+  <button class="music-btn" id="musicToggle" type="button" aria-label="Toggle ambient music">
+    <div class="music-wave paused" id="musicWave">
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <span id="musicLabel">loading...</span>
+  </button>
 </div>
 
 <script>
@@ -483,36 +754,70 @@ document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cd.style.lef
 (function(){
   const c=document.getElementById('sf'),ctx=c.getContext('2d');
   let W,H,S=[];
-  function init(){W=c.width=innerWidth;H=c.height=innerHeight;S=[];for(let i=0;i<150;i++)S.push({x:Math.random()*W,y:Math.random()*H,r:.2+Math.random()*1.1,vx:(Math.random()-.5)*.05,vy:(Math.random()-.5)*.05,a:Math.random(),da:(Math.random()-.5)*.007,col:Math.random()>.85?'#00ffe1':'#00c8ff'});}
+  function init(){
+    W=c.width=innerWidth;H=c.height=innerHeight;S=[];
+    for(let i=0;i<150;i++)
+      S.push({x:Math.random()*W,y:Math.random()*H,r:.2+Math.random()*1.1,
+              vx:(Math.random()-.5)*.05,vy:(Math.random()-.5)*.05,
+              a:Math.random(),da:(Math.random()-.5)*.007,
+              col:Math.random()>.85?'#00ffe1':'#00c8ff'});
+  }
   function draw(){
     ctx.clearRect(0,0,W,H);
-    S.forEach(s=>{s.x+=s.vx;s.y+=s.vy;s.a+=s.da;if(s.a<0||s.a>1)s.da*=-1;if(s.x<0)s.x=W;if(s.x>W)s.x=0;if(s.y<0)s.y=H;if(s.y>H)s.y=0;ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fillStyle=s.col;ctx.globalAlpha=s.a*.65;ctx.fill();});
+    S.forEach(s=>{
+      s.x+=s.vx;s.y+=s.vy;s.a+=s.da;
+      if(s.a<0||s.a>1)s.da*=-1;
+      if(s.x<0)s.x=W;if(s.x>W)s.x=0;
+      if(s.y<0)s.y=H;if(s.y>H)s.y=0;
+      ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+      ctx.fillStyle=s.col;ctx.globalAlpha=s.a*.65;ctx.fill();
+    });
     ctx.globalAlpha=1;
-    if(Math.random()<.003){const sx=Math.random()*W,sy=Math.random()*H*.5,len=50+Math.random()*80;const g=ctx.createLinearGradient(sx,sy,sx+len,sy+len*.3);g.addColorStop(0,'rgba(0,200,255,0)');g.addColorStop(.5,'rgba(0,200,255,.55)');g.addColorStop(1,'rgba(0,200,255,0)');ctx.beginPath();ctx.moveTo(sx,sy);ctx.lineTo(sx+len,sy+len*.3);ctx.strokeStyle=g;ctx.lineWidth=1.4;ctx.stroke();}
+    /* Occasional shooting star effect */
+    if(Math.random()<.003){
+      const sx=Math.random()*W,sy=Math.random()*H*.5,len=50+Math.random()*80;
+      const g=ctx.createLinearGradient(sx,sy,sx+len,sy+len*.3);
+      g.addColorStop(0,'rgba(0,200,255,0)');g.addColorStop(.5,'rgba(0,200,255,.55)');g.addColorStop(1,'rgba(0,200,255,0)');
+      ctx.beginPath();ctx.moveTo(sx,sy);ctx.lineTo(sx+len,sy+len*.3);
+      ctx.strokeStyle=g;ctx.lineWidth=1.4;ctx.stroke();
+    }
     requestAnimationFrame(draw);
   }
   window.addEventListener('resize',init);init();draw();
 })();
 
-/* TYPING */
+/* TYPING — phrases cycle through the hero subtitle */
 (function(){
   const phrases=['Building in the Void.','Learning every day.','Python · ML · Systems.','From zero to something.'];
   let pi=0,ci=0,del=false,el=document.getElementById('tt');
-  function tick(){const p=phrases[pi];if(!del){el.textContent=p.slice(0,++ci);if(ci===p.length){setTimeout(()=>{del=true;},1800);setTimeout(tick,100);return;}setTimeout(tick,75+Math.random()*40);}else{el.textContent=p.slice(0,--ci);if(ci===0){del=false;pi=(pi+1)%phrases.length;setTimeout(tick,350);return;}setTimeout(tick,38);}}
+  function tick(){
+    const p=phrases[pi];
+    if(!del){
+      el.textContent=p.slice(0,++ci);
+      if(ci===p.length){setTimeout(()=>{del=true;},1800);setTimeout(tick,100);return;}
+      setTimeout(tick,75+Math.random()*40);
+    }else{
+      el.textContent=p.slice(0,--ci);
+      if(ci===0){del=false;pi=(pi+1)%phrases.length;setTimeout(tick,350);return;}
+      setTimeout(tick,38);
+    }
+  }
   setTimeout(tick,700);
 })();
 
-/* PAGE PROGRESS */
+/* PAGE PROGRESS — thin bar at the top showing scroll depth */
 const pgb=document.getElementById('pgb');
 window.addEventListener('scroll',()=>{pgb.style.width=(scrollY/(document.body.scrollHeight-innerHeight)*100)+'%';},{passive:true});
 
-/* NAV */
+/* NAV — active link highlighting + hamburger menu */
 const mainNav=document.getElementById('nav');
 const navAs=document.querySelectorAll('.nav-links a[data-s]');
-const sIds=['about','projects','connect','contact'];
+// Add 'learning' to tracked sections since we added it
+const sIds=['about','projects','learning','connect','contact'];
 window.addEventListener('scroll',()=>{
   mainNav.classList.toggle('scrolled',scrollY>40);
-  let cur='';sIds.forEach(id=>{const el=document.getElementById(id);if(el&&scrollY>=el.offsetTop-130)cur=id;});
+  let cur='';
+  sIds.forEach(id=>{const el=document.getElementById(id);if(el&&scrollY>=el.offsetTop-130)cur=id;});
   navAs.forEach(a=>a.classList.toggle('active',a.dataset.s===cur));
 },{passive:true});
 
@@ -520,15 +825,26 @@ const ntog=document.getElementById('ntog'),nmob=document.getElementById('nmob');
 ntog.addEventListener('click',()=>{ntog.classList.toggle('open');nmob.classList.toggle('open');});
 function cm(){ntog.classList.remove('open');nmob.classList.remove('open');}
 
-/* REVEAL */
-const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:.05,rootMargin:'0px 0px -20px 0px'});
+/* REVEAL — IntersectionObserver fade-in for .reveal elements */
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
+},{threshold:.05,rootMargin:'0px 0px -20px 0px'});
 document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=`${(i%5)*75}ms`;obs.observe(el);});
 
-/* STAT COUNTER */
-const sObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(!e.isIntersecting)return;const el=e.target,t=+el.dataset.target;let s=0;const step=ts=>{if(!s)s=ts;const p=Math.min((ts-s)/1100,1);el.textContent=Math.floor(p*t);if(p<1)requestAnimationFrame(step);else el.textContent=t;};requestAnimationFrame(step);sObs.unobserve(el);});},{threshold:.5});
+/* STAT COUNTER — animated number count-up on scroll */
+const sObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(!e.isIntersecting)return;
+    const el=e.target,t=+el.dataset.target;
+    let s=0;
+    const step=ts=>{if(!s)s=ts;const p=Math.min((ts-s)/1100,1);el.textContent=Math.floor(p*t);if(p<1)requestAnimationFrame(step);else el.textContent=t;};
+    requestAnimationFrame(step);
+    sObs.unobserve(el);
+  });
+},{threshold:.5});
 document.querySelectorAll('.stat-n[data-target]').forEach(el=>sObs.observe(el));
 
-/* EASTER EGG */
+/* EASTER EGG — click BOLT title 3 times to unlock */
 let ec=0;
 document.getElementById('etrig').addEventListener('click',()=>{ec++;if(ec>=3){document.getElementById('egg').classList.add('show');ec=0;}});
 document.getElementById('eggX').addEventListener('click',()=>document.getElementById('egg').classList.remove('show'));
@@ -537,12 +853,22 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')document.getElementB
 /* YEAR */
 document.getElementById('yr').textContent=new Date().getFullYear();
 
-
-
-/* CONTRIBUTION GRAPH */
+/* CONTRIBUTION GRAPH — random activity squares (cosmetic) */
 (function(){
   const g=document.getElementById('cg');
-  for(let w=0;w<26;w++){const wk=document.createElement('div');wk.className='cw';for(let d=0;d<7;d++){const day=document.createElement('div');day.className='cd';const r=Math.random();if(r>.85)day.dataset.l='1';if(r>.93)day.dataset.l='2';if(r>.97)day.dataset.l='3';if(r>.99)day.dataset.l='4';wk.appendChild(day);}g.appendChild(wk);}
+  for(let w=0;w<26;w++){
+    const wk=document.createElement('div');wk.className='cw';
+    for(let d=0;d<7;d++){
+      const day=document.createElement('div');day.className='cd';
+      const r=Math.random();
+      if(r>.85)day.dataset.l='1';
+      if(r>.93)day.dataset.l='2';
+      if(r>.97)day.dataset.l='3';
+      if(r>.99)day.dataset.l='4';
+      wk.appendChild(day);
+    }
+    g.appendChild(wk);
+  }
 })();
 
 /* PROJECTS DATA — EDIT HERE
@@ -694,7 +1020,320 @@ document.getElementById('cfs').addEventListener('click',()=>{
   out.textContent='// Message sent. Talk soon.';out.className='ok';
   setTimeout(()=>{document.getElementById('cfn').value='';document.getElementById('cfe').value='';document.getElementById('cfm').value='';out.textContent='';},3500);
 });
+
+/* ========================================================
+   SYNTHWAVE BG MUSIC ENGINE — Web Audio API
+   No external files, no CORS, works everywhere.
+   Auto-starts on first click or scroll anywhere on the page.
+
+   HOW TO CUSTOMIZE:
+   - MUSIC_VOL      → master volume (0.0 silent → 1.0 full). Default: 0.18
+   - MUSIC_BPM      → tempo of the beat pattern. Default: 75 (slow, chill)
+   - BASE_FREQ      → root note frequency in Hz. 55=A1, 65=C2, 73=D2. Default: 55
+   - PAD_DETUNE     → chorus detune in cents (warmth). Default: 8
+   To fully mute a layer set its gain to 0 in the layers array below.
+======================================================== */
+(function(){
+  const MUSIC_VOL  = 0.18;  // <- master volume (0.0 to 1.0)
+  const MUSIC_BPM  = 75;    // <- beat tempo
+  const BASE_FREQ  = 55;    // <- root note Hz (55=A1, 65=C2)
+  const PAD_DETUNE = 8;     // <- chorus detune cents
+
+  const btn  = document.getElementById('musicToggle');
+  const wave = document.getElementById('musicWave');
+  const lbl  = document.getElementById('musicLabel');
+
+  let actx = null;
+  let masterGain = null;
+  let isPlaying = false;
+  let started = false;
+  let beatTimer = null;
+  let beatStep = 0;
+
+  /* ---- BUILD THE AUDIO GRAPH ---- */
+  function buildEngine(actx) {
+    masterGain = actx.createGain();
+    masterGain.gain.setValueAtTime(0, actx.currentTime);
+    masterGain.gain.linearRampToValueAtTime(MUSIC_VOL, actx.currentTime + 2.5); // fade in
+    masterGain.connect(actx.destination);
+
+    /* REVERB — convolver for a spacious room feel */
+    const rev = actx.createConvolver();
+    const revBuf = makeReverb(actx, 3.2, 0.5);
+    rev.buffer = revBuf;
+    const revGain = actx.createGain();
+    revGain.gain.value = 0.38; // <- reverb wet amount
+    rev.connect(revGain);
+    revGain.connect(masterGain);
+
+    /* FILTER — low-pass to keep it warm, not harsh */
+    const lpf = actx.createBiquadFilter();
+    lpf.type = 'lowpass';
+    lpf.frequency.value = 1800; // <- cutoff Hz, lower = darker
+    lpf.Q.value = 0.7;
+    lpf.connect(masterGain);
+    lpf.connect(rev);
+
+    /* LAYER 1 — deep sub bass drone */
+    spawnPad(actx, lpf, BASE_FREQ,      'sine',     0.60, 0);
+    spawnPad(actx, lpf, BASE_FREQ*2,    'sine',     0.28, PAD_DETUNE);
+    spawnPad(actx, lpf, BASE_FREQ*2,    'sine',     0.28, -PAD_DETUNE);
+
+    /* LAYER 2 — mid synthwave pad (5th above root) */
+    spawnPad(actx, lpf, BASE_FREQ*1.5,  'triangle', 0.18, PAD_DETUNE*1.5);
+    spawnPad(actx, lpf, BASE_FREQ*1.5,  'triangle', 0.18, -PAD_DETUNE*1.5);
+
+    /* LAYER 3 — high shimmer (octave + major 3rd) */
+    spawnPad(actx, lpf, BASE_FREQ*5,    'sine',     0.06, PAD_DETUNE*2);
+
+    /* LAYER 4 — slow LFO pitch wobble on root for analog feel */
+    const lfo = actx.createOscillator();
+    const lfoG = actx.createGain();
+    lfo.frequency.value = 0.08; // <- wobble speed Hz
+    lfoG.gain.value = 2;        // <- wobble depth cents
+    lfo.connect(lfoG);
+    lfo.start();
+
+    /* BEAT SEQUENCER — subtle kick + hi-hat pattern */
+    startBeat(actx, masterGain);
+  }
+
+  /* Create a looping oscillator pad with slow volume LFO */
+  function spawnPad(actx, dest, freq, type, vol, detune) {
+    const osc = actx.createOscillator();
+    const g   = actx.createGain();
+    const lfo = actx.createOscillator();
+    const lg  = actx.createGain();
+
+    osc.type = type;
+    osc.frequency.value = freq;
+    osc.detune.value = detune;
+
+    /* Slow breathing volume LFO */
+    lfo.frequency.value = 0.07 + Math.random() * 0.05;
+    lg.gain.value = vol * 0.12;
+    lfo.connect(lg);
+    lg.connect(g.gain);
+
+    g.gain.value = vol;
+    osc.connect(g);
+    g.connect(dest);
+
+    lfo.start();
+    osc.start();
+  }
+
+  /* Procedural reverb impulse — creates a realistic room tail */
+  function makeReverb(actx, duration, decay) {
+    const sr   = actx.sampleRate;
+    const len  = sr * duration;
+    const buf  = actx.createBuffer(2, len, sr);
+    for (let ch = 0; ch < 2; ch++) {
+      const d = buf.getChannelData(ch);
+      for (let i = 0; i < len; i++) {
+        d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, decay);
+      }
+    }
+    return buf;
+  }
+
+  /* Beat sequencer — kick on 1&3, soft hi-hat on every step */
+  function startBeat(actx, dest) {
+    // Beat pattern: 1=kick, 2=hihat, 0=silence
+    // 16-step pattern at BPM — edit this array to change the groove
+    // Steps: [1,2,3,4, 1e,2e,3e,4e, 1a,2a,3a,4a, 1&,2&,3&,4&]
+    const pattern = [1,0,2,0,  1,0,2,0,  1,0,2,2,  1,2,1,0]; // <- change for different groove
+
+    const stepLen = (60 / MUSIC_BPM) / 4; // 16th note duration in seconds
+
+    function scheduleStep() {
+      const now = actx.currentTime;
+      const step = beatStep % pattern.length;
+      const type = pattern[step];
+
+      if (type === 1) kick(actx, dest, now);
+      if (type === 2) hihat(actx, dest, now);
+
+      beatStep++;
+      beatTimer = setTimeout(scheduleStep, stepLen * 1000 - 10);
+    }
+    scheduleStep();
+  }
+
+  /* Kick drum — sine sweep down */
+  function kick(actx, dest, t) {
+    const osc = actx.createOscillator();
+    const env = actx.createGain();
+    osc.frequency.setValueAtTime(140, t);
+    osc.frequency.exponentialRampToValueAtTime(40, t + 0.12);
+    env.gain.setValueAtTime(0.32, t); // <- kick volume
+    env.gain.exponentialRampToValueAtTime(0.001, t + 0.28);
+    osc.connect(env); env.connect(dest);
+    osc.start(t); osc.stop(t + 0.3);
+  }
+
+  /* Hi-hat — short filtered noise burst */
+  function hihat(actx, dest, t) {
+    const buf  = actx.createBuffer(1, actx.sampleRate * 0.05, actx.sampleRate);
+    const data = buf.getChannelData(0);
+    for (let i = 0; i < data.length; i++) data[i] = Math.random() * 2 - 1;
+
+    const src = actx.createBufferSource();
+    src.buffer = buf;
+
+    const hpf = actx.createBiquadFilter();
+    hpf.type = 'highpass';
+    hpf.frequency.value = 7000;
+
+    const env = actx.createGain();
+    env.gain.setValueAtTime(0.055, t); // <- hi-hat volume
+    env.gain.exponentialRampToValueAtTime(0.001, t + 0.04);
+
+    src.connect(hpf); hpf.connect(env); env.connect(dest);
+    src.start(t); src.stop(t + 0.05);
+  }
+
+  /* ---- START / STOP ---- */
+  function startMusic() {
+    if (started) return;
+    started = true;
+
+    actx = new (window.AudioContext || window.webkitAudioContext)();
+    // Resume if browser suspended it
+    if (actx.state === 'suspended') actx.resume();
+
+    buildEngine(actx);
+    isPlaying = true;
+    updateUI();
+  }
+
+  function toggleMusic() {
+    if (!started) { startMusic(); return; }
+
+    if (isPlaying) {
+      // Fade out then suspend
+      masterGain.gain.linearRampToValueAtTime(0, actx.currentTime + 0.8);
+      setTimeout(() => { actx.suspend(); }, 850);
+      clearTimeout(beatTimer);
+      isPlaying = false;
+    } else {
+      actx.resume();
+      masterGain.gain.linearRampToValueAtTime(MUSIC_VOL, actx.currentTime + 0.8);
+      startBeat(actx, masterGain); // restart beat sequencer
+      isPlaying = true;
+    }
+    updateUI();
+  }
+
+  function updateUI() {
+    wave.classList.toggle('paused', !isPlaying);
+    lbl.textContent = isPlaying ? 'pause' : 'play';
+    document.getElementById('musicDock').classList.toggle('playing', isPlaying);
+  }
+
+  /* ---- AUTOSTART on first interaction ---- */
+  // Plays automatically the moment user first clicks or scrolls anywhere
+  function onFirstInteraction() {
+    startMusic();
+    document.removeEventListener('click', onFirstInteraction);
+    document.removeEventListener('scroll', onFirstInteraction);
+    document.removeEventListener('keydown', onFirstInteraction);
+    document.removeEventListener('touchstart', onFirstInteraction);
+  }
+  document.addEventListener('click',      onFirstInteraction, { once: true, passive: true });
+  document.addEventListener('scroll',     onFirstInteraction, { once: true, passive: true });
+  document.addEventListener('keydown',    onFirstInteraction, { once: true, passive: true });
+  document.addEventListener('touchstart', onFirstInteraction, { once: true, passive: true });
+
+  /* Dock button — manual toggle */
+  btn.addEventListener('click', e => {
+    e.stopPropagation(); // don't double-trigger autostart
+    toggleMusic();
+  });
+
+  /* Show initial label */
+  lbl.textContent = 'ambient';
+})();
+
+/* ========================================================
+   LEARNING SECTION — Skills Data
+   HOW TO EDIT:
+   - Add a new object to the array below to add a skill card.
+   - `name`  : Display name shown on the card
+   - `icon`  : Emoji shown at the top of the card
+   - `pct`   : Your confidence/progress level (0 to 100)
+   - `color` : Hex color for the ring + bar accent
+   Change pct over time as you improve — it animates automatically.
+======================================================== */
+const skills=[
+  // CURRENT SKILLS — update pct as you learn more
+  {name:'Python',          icon:'🐍', pct:65, color:'#4488ff'},
+  {name:'HTML',            icon:'🌐', pct:55, color:'#ff6b35'},
+  {name:'CSS',             icon:'🎨', pct:45, color:'#c678dd'},
+  {name:'Machine Learning',icon:'🤖', pct:20, color:'#00ffe1'},
+  // ADD MORE SKILLS HERE — copy a line above and paste below
+  // Example: {name:'JavaScript', icon:'⚡', pct:30, color:'#f0db4f'},
+];
+
+(function renderSkills(){
+  const grid=document.getElementById('skillGrid');
+  if(!grid)return;
+
+  skills.forEach((sk,i)=>{
+    const r=28,circ=+(2*Math.PI*r).toFixed(2);
+    const off=+(circ-(sk.pct/100)*circ).toFixed(2);
+
+    const card=document.createElement('div');
+    card.className='skill-card';
+    // Stagger the float animation so cards don't all move in sync
+    card.style.animationDelay=`${i*0.55}s`;
+
+    card.innerHTML=`
+      <div class="skill-icon">${sk.icon}</div>
+      <div class="skill-name">${sk.name}</div>
+      <!-- Circular ring percentage widget -->
+      <div class="skill-ring">
+        <svg viewBox="0 0 64 64">
+          <circle class="ring-track" cx="32" cy="32" r="${r}"/>
+          <circle class="ring-fill" cx="32" cy="32" r="${r}"
+            stroke="${sk.color}"
+            style="stroke-dasharray:${circ};stroke-dashoffset:${circ}"
+            data-off="${off}"/>
+        </svg>
+        <div class="ring-pct">${sk.pct}%</div>
+      </div>
+      <!-- Linear bar for a second visual representation -->
+      <div class="skill-bar-wrap">
+        <div class="skill-bar-label">
+          <span>${sk.name}</span><span>${sk.pct}%</span>
+        </div>
+        <div class="skill-bar-track">
+          <div class="skill-bar-fill"
+            style="background:${sk.color}"
+            data-pct="${sk.pct}"></div>
+        </div>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+
+  /* Animate rings + bars when the section scrolls into view */
+  const skillObs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(!e.isIntersecting)return;
+      e.target.querySelectorAll('.ring-fill').forEach(f=>{
+        setTimeout(()=>{f.style.strokeDashoffset=f.dataset.off;},120);
+      });
+      e.target.querySelectorAll('.skill-bar-fill').forEach(b=>{
+        setTimeout(()=>{b.style.width=b.dataset.pct+'%';},120);
+      });
+      skillObs.unobserve(e.target);
+    });
+  },{threshold:.25});
+
+  grid.querySelectorAll('.skill-card').forEach(c=>skillObs.observe(c));
+})();
 </script>
-<script src="assets/music.js"></script>
+<!-- NOTE: music.js external script removed; music is handled inline above -->
 </body>
 </html>
