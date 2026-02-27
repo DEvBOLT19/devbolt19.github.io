@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/music.css" />
   <style>
     *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 
@@ -464,6 +465,13 @@
   </div>
 </footer>
 
+<div class="music-dock reveal" id="musicDock">
+  <button class="music-btn" id="musicToggle" type="button">Play ♪</button>
+  <input class="music-vol" id="musicVol" type="range" min="0" max="100" value="28" aria-label="Music volume"/>
+  <span class="music-hint">ambient</span>
+  <audio id="bgm" loop preload="none" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3?filename=dreams-110734.mp3"></audio>
+</div>
+
 <script>
 /* CURSOR */
 const cd=document.getElementById('cd'),cr=document.getElementById('cr');
@@ -529,6 +537,8 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')document.getElementB
 /* YEAR */
 document.getElementById('yr').textContent=new Date().getFullYear();
 
+
+
 /* CONTRIBUTION GRAPH */
 (function(){
   const g=document.getElementById('cg');
@@ -543,6 +553,8 @@ document.getElementById('yr').textContent=new Date().getFullYear();
    4) Keep status + pct aligned (Completed + 100 is recommended)
 */
 const projects={
+  // Completed projects go here.
+  // Keep status:'Completed' and pct:100 for finished work.
   done:[
     {
       title:'Russian Roulette',
@@ -565,6 +577,8 @@ const projects={
       accent:'#44dd77'
     }
   ],
+  // Work-in-progress projects go here.
+  // Keep status:'In Progress' and set pct between 0 and 99.
   wip:[
     {
       title:'BOLT-AI',
@@ -681,5 +695,6 @@ document.getElementById('cfs').addEventListener('click',()=>{
   setTimeout(()=>{document.getElementById('cfn').value='';document.getElementById('cfe').value='';document.getElementById('cfm').value='';out.textContent='';},3500);
 });
 </script>
+<script src="assets/music.js"></script>
 </body>
 </html>

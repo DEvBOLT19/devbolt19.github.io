@@ -1,0 +1,8 @@
+/* MUSIC DOCK */
+.music-dock{position:fixed;right:18px;bottom:18px;z-index:220;background:rgba(7,7,13,.9);border:1px solid var(--borderh);border-radius:12px;padding:10px 12px;display:flex;align-items:center;gap:10px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 0 20px rgba(0,200,255,.08)}
+.music-btn{border:1px solid var(--borderh);background:linear-gradient(135deg,rgba(0,200,255,.2),rgba(0,200,255,.07));color:var(--blue);font-family:var(--fm);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;padding:8px 10px;border-radius:8px;cursor:none;min-width:78px}
+.music-btn:hover{color:#fff;border-color:var(--blue);box-shadow:0 0 14px rgba(0,200,255,.25)}
+.music-vol{width:92px;accent-color:#00c8ff}
+.music-hint{font-size:.58rem;letter-spacing:.08em;color:var(--muted2)}
+
+@media(max-width:420px){.music-dock{left:12px;right:12px;bottom:12px;justify-content:space-between}.music-vol{width:84px}}
