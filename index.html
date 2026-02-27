@@ -595,7 +595,6 @@ const projects={
 
 function normalizeProject(p){
   // If either field says the project is complete, make output consistent.
-  // This prevents mistakes like status:"In Progress" with pct:100.
   const isComplete=p.status==='Completed' || Number(p.pct)>=100;
   return {
     ...p,
