@@ -784,10 +784,10 @@
       I build until the nothing becomes something."
       <cite>— RAGHVENDRA DODIYA @BOLT</cite>
     </blockquote>
-    <!-- ✏️ STATS — change data-target to the number you want to count up to
+    <!-- ❤️ STATS — change data-target to the number you want to count up to
          The ∞ stat has no target and displays as-is — edit the symbol or text directly -->
     <div class="a-stats">
-      <div class="stat"><div class="stat-n" data-target="3">0</div><div class="stat-l">Projects Built</div></div>
+      <div class="stat"><div class="stat-n" data-target="4">0</div><div class="stat-l">Projects Built</div></div>
       <div class="stat"><div class="stat-n" data-target="1">0</div><div class="stat-l">In Progress</div></div>
       <div class="stat"><div class="stat-n">∞</div><div class="stat-l">To Build</div></div>
     </div>
@@ -797,13 +797,13 @@
 
 <div class="divider"></div>
 
-<!-- PROJECTS -->
+<!--❤️ PROJECTS -->
 <section id="projects">
 <div class="glass-panel reveal">
   <p class="lbl">// 02 — Projects</p>
   <h2 class="hdg">The Work</h2>
   <div class="p-tabs">
-    <button class="tbtn active" data-tab="done" data-count="2">Completed</button>
+    <button class="tbtn active" data-tab="done" data-count="3">Completed</button>
     <button class="tbtn"        data-tab="wip"  data-count="1">In Progress</button>
   </div>
   <!-- TIP REMOVED — to edit projects, update the `projects` object in the script below -->
@@ -1160,7 +1160,7 @@ document.querySelectorAll('.stat-n[data-target]').forEach(el=>sObs.observe(el));
   const input  = document.getElementById('termInput');
   const closeB = document.getElementById('termClose');
 
-  // ✏️ TERMINAL COMMANDS — edit the text responses below
+  // ❤️ TERMINAL COMMANDS — edit the text responses below
   // To add a new command: add a new key-value pair matching the pattern below
   // The key is what the user types, the value is a function returning HTML to display
   const CMDS = {
@@ -1328,7 +1328,7 @@ document.getElementById('etrig').addEventListener('click',()=>{
    Order: newest first (top of list = most recent)
 ======================================================== */
 (function(){
-  // ✏️ TIMELINE — your learning journey milestones
+  // ❤️ TIMELINE — your learning journey milestones
   // Add a new object to add a milestone. Most recent entry should be FIRST.
   // Fields: date (any string), title (short name), desc (1-2 sentences)
   const TIMELINE_DATA=[
@@ -1436,7 +1436,7 @@ document.getElementById('yr').textContent=new Date().getFullYear();
   }
 })();
 
-/* PROJECTS DATA — EDIT HERE
+/* ❤️ PROJECTS DATA — EDIT HERE
    QUICK GUIDE
    1) status: use "Completed" or "In Progress"
    2) pct: keep 0–100 (100 means done)
@@ -1869,14 +1869,14 @@ document.getElementById('cfs').addEventListener('click',()=>{
    - `color` : Hex color for the ring + bar accent
    Change pct over time as you improve — it animates automatically.
 ======================================================== */
-// ✏️ SKILLS — your current learning progress shown as floating cards
+// ❤️ SKILLS — your current learning progress shown as floating cards
 // Fields: name (label), icon (emoji), pct (0-100 confidence), color (hex accent)
 // To add a skill: copy any line and paste it below. To remove: delete the line.
 const skills=[
   // CURRENT SKILLS — update pct as you learn more
-  {name:'Python',          icon:'🐍', pct:65, color:'#4488ff'},
-  {name:'HTML',            icon:'🌐', pct:55, color:'#ff6b35'},
-  {name:'CSS',             icon:'🎨', pct:45, color:'#c678dd'},
+  {name:'Python',          icon:'🐍', pct:35, color:'#4488ff'},
+  {name:'HTML',            icon:'🌐', pct:5, color:'#ff6b35'},
+  {name:'CSS',             icon:'🎨', pct:5, color:'#c678dd'},
   {name:'Machine Learning',icon:'🤖', pct:20, color:'#00ffe1'},
   // ADD MORE SKILLS HERE — copy a line above and paste below
   // Example: {name:'JavaScript', icon:'⚡', pct:30, color:'#f0db4f'},
