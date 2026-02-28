@@ -883,12 +883,12 @@
         </div>
         <div><div class="dc-name">BOLT</div><div class="dc-tag">Discord</div></div>
       </div>
-      <!-- STATUS DOT — change color + text to reflect your real status
+      <!-- ❤️ STATUS DOT — change color + text to reflect your real status
            Online:    background:#3ba55c  text: Online
            Idle:      background:#faa61a  text: Idle
            DND:       background:#ed4245  text: Do Not Disturb
            Offline:   background:#747f8d  text: Offline / Invisible -->
-      <div class="dc-status"><div class="st-dot" style="background:#747f8d;box-shadow:0 0 6px #747f8d"></div>Offline — DM to connect</div>
+      <div class="dc-status"><div class="st-dot" style="background:#faa61a ;box-shadow:0 0 6px #747f8d"></div>Idle — DM to connect</div>
       <!-- ✏️ DISCORD NOTE — the description shown on your Discord card -->
       <p class="dc-note">Open to collabs, feedback, and talking about code. Always building — always open to connect.</p>
       <a href="https://discord.com/users/1465964458282188820" target="_blank" rel="noopener" class="dc-btn">
@@ -1592,7 +1592,7 @@ document.getElementById('cfs').addEventListener('click',()=>{
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)){out.textContent='// Invalid email.';out.className='err';return;}
   const sub=encodeURIComponent(`Message from ${n} — VOID//BOLT`);
   const body=encodeURIComponent(`Name: ${n}\nEmail: ${e}\n\n${m}`);
-  window.location.href=`mailto:your@email.com?subject=${sub}&body=${body}`; // ✏️ EMAIL — replace your@email.com with your real email address
+  window.location.href=`mailto:congresbjp420@email.com?subject=${sub}&body=${body}`; // ✏️ EMAIL — replace your@email.com with your real email address
   out.textContent='// Message sent. Talk soon.';out.className='ok';
   setTimeout(()=>{document.getElementById('cfn').value='';document.getElementById('cfe').value='';document.getElementById('cfm').value='';out.textContent='';},3500);
 });
