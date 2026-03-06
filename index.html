@@ -1,1262 +1,846 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 
-  <!-- ========================================================
-    PAGE TITLE — edit your name here
-  ======================================================== -->
-  <title>BOLT — Raghvendra Dodiya</title>
-  <meta name="description" content="BOLT — Self-taught developer from India. Building in the void with Python, HTML, CSS and JavaScript."/>
+<!-- ╔══════════════════════════════════════════╗
+     ║  PAGE META  — ← EDIT these              ║
+     ╚══════════════════════════════════════════╝ -->
+<title>BOLT — Raghvendra Dodiya</title>
+<meta name="description" content="BOLT — Self-taught developer from India. Building with Python, HTML, CSS and JavaScript."/>
 
-  <!-- Fonts (no need to change these) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,700;0,900;1,700;1,900&family=IBM+Plex+Mono:wght@300;400;500&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<!-- FAVICON — inline SVG bolt, no file needed  ← EDIT colors if rebranding -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='5' fill='%230c0c0c'/><polygon points='19,3 7,18 15.5,18 13,29 25,14 16.5,14' fill='%23f0ede6'/><circle cx='19' cy='3' r='2' fill='%23c9373a'/><circle cx='13' cy='29' r='2' fill='%23c9373a'/></svg>"/>
 
-  <!-- Libraries (no need to change these) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<!-- OPEN GRAPH — Discord/Twitter/WhatsApp preview card
+     ← EDIT og:image: upload a 1200×630 screenshot to your repo
+             and replace the URL e.g. /assets/og.png             -->
+<meta property="og:type"        content="website"/>
+<meta property="og:url"         content="https://devbolt19.github.io"/>
+<meta property="og:title"       content="BOLT — Raghvendra Dodiya"/>
+<meta property="og:description" content="Self-taught developer from India. Building in the void — Python, HTML, CSS, JS and Machine Learning."/>
+<meta property="og:image"       content="https://devbolt19.github.io/assets/og.png"/>
+<meta name="twitter:card"       content="summary_large_image"/>
+<meta name="twitter:title"      content="BOLT — Raghvendra Dodiya"/>
+<meta name="twitter:description" content="Self-taught developer from India. Building in the void."/>
+<meta name="twitter:image"      content="https://devbolt19.github.io/assets/og.png"/>
 
-  <style>
-    /* ========================================================
-       DESIGN TOKENS — edit colors here if you want to retheme
-       ======================================================== */
-    :root {
-      --bg:   #f0ede6;   /* page background — warm paper white        */
-      --ink:  #0c0c0c;   /* primary text + elements — near black       */
-      --ink2: #3d3d3d;   /* secondary text — dark grey                 */
-      --ink3: #8c8c8c;   /* muted text — mid grey                      */
-      --rule: rgba(12,12,12,.10); /* divider line color                */
-      --red:  #c9373a;   /* accent color — only used as a pop of red   */
-      --mono: 'IBM Plex Mono', monospace;
-      --disp: 'Barlow Condensed', sans-serif;
-      --body: 'Barlow', sans-serif;
-    }
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,700;0,900;1,700;1,900&family=IBM+Plex+Mono:wght@300;400;500&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      background: var(--bg);
-      color: var(--ink);
-      font-family: var(--body);
-      overflow-x: hidden;
-      cursor: none;
-      -webkit-font-smoothing: antialiased;
-    }
+<style>
+/* ═══════════════════════════════════════════════════
+   TOKENS  ← EDIT these to retheme the whole site
+═══════════════════════════════════════════════════ */
+:root{
+  --bg:   #f0ede6;
+  --ink:  #0c0c0c;
+  --ink2: #3d3d3d;
+  --ink3: #8c8c8c;
+  --rule: rgba(12,12,12,.10);
+  --red:  #c9373a;
+  --mono: 'IBM Plex Mono',monospace;
+  --disp: 'Barlow Condensed',sans-serif;
+  --body: 'Barlow',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:auto;} /* transitions handle scroll, not CSS */
+body{background:var(--bg);color:var(--ink);font-family:var(--body);overflow-x:hidden;cursor:none;-webkit-font-smoothing:antialiased;}
 
-    /* ========================================================
-       CURSOR
-       — dot (#cur-dot) and ring (#cur-ring) are SEPARATE
-         fixed elements so they never glitch or offset each other
-       ======================================================== */
-    #cur-dot,
-    #cur-ring {
-      position: fixed;
-      top: 0; left: 0;
-      pointer-events: none;
-      z-index: 9999;
-      border-radius: 50%;
-      transform: translate(-50%, -50%);
-      will-change: left, top;
-    }
-    #cur-dot {
-      width: 8px; height: 8px;
-      background: var(--ink);
-      transition: background 0.2s;
-    }
-    #cur-ring {
-      width: 36px; height: 36px;
-      border: 1px solid var(--ink);
-      background: transparent;
-      opacity: 0.22;
-      transition: width  0.35s cubic-bezier(.34,1.56,.64,1),
-                  height 0.35s cubic-bezier(.34,1.56,.64,1),
-                  border-color 0.2s,
-                  opacity 0.2s;
-    }
-    /* Hover states — ring expands, dot turns red */
-    body.cur-hover #cur-ring {
-      width: 56px; height: 56px;
-      opacity: 0.14;
-      border-color: var(--red);
-    }
-    body.cur-hover #cur-dot { background: var(--red); }
+/* ═══════════════════════════════════════════════════
+   SCROLL PROGRESS BAR — 2px red line at very top
+═══════════════════════════════════════════════════ */
+#prog{
+  position:fixed;top:0;left:0;height:2px;width:0%;
+  background:var(--red);z-index:10001;pointer-events:none;
+  transition:width .04s linear;
+}
 
-    /* ========================================================
-       THREE.JS CANVAS — very faint wireframe on paper bg
-       ======================================================== */
-    #cv {
-      position: fixed; inset: 0;
-      z-index: 0;
-      pointer-events: none;
-      opacity: 0.055; /* lower = more subtle, higher = more visible */
-    }
+/* ═══════════════════════════════════════════════════
+   PAGE TRANSITION — ink-wipe panels
+   Panel A = dark  sweeps IN  from left (covers page)
+   Panel B = light sweeps OUT to right (reveals target)
+═══════════════════════════════════════════════════ */
+#ta,#tb{
+  position:fixed;inset:0;z-index:9997;pointer-events:none;
+  transform:scaleX(0);will-change:transform;
+}
+#ta{background:var(--ink);transform-origin:left;}
+#tb{background:var(--bg); transform-origin:right;}
 
-    /* ========================================================
-       FLOATING NAV PILL
-       ======================================================== */
-    #nav {
-      position: fixed; top: 22px; left: 50%;
-      transform: translateX(-50%);
-      z-index: 1000;
-      display: flex; align-items: center;
-      background: var(--ink);
-      border-radius: 2px;
-      padding: 0 6px;
-      box-shadow: 0 4px 28px rgba(12,12,12,.18);
-      transition: transform .5s cubic-bezier(.76,0,.24,1);
-    }
-    #nav.off { transform: translateX(-50%) translateY(-160%); }
+/* ═══════════════════════════════════════════════════
+   CURSOR — dot snaps, ring lerps (no nesting = no glitch)
+═══════════════════════════════════════════════════ */
+#cdot,#cring{
+  position:fixed;top:0;left:0;
+  pointer-events:none;z-index:9999;
+  border-radius:50%;transform:translate(-50%,-50%);
+  will-change:left,top;
+}
+#cdot{width:8px;height:8px;background:var(--ink);transition:background .2s;}
+#cring{
+  width:36px;height:36px;border:1px solid var(--ink);opacity:.22;
+  transition:width .35s cubic-bezier(.34,1.56,.64,1),
+             height .35s cubic-bezier(.34,1.56,.64,1),
+             border-color .2s,opacity .2s;
+}
+body.ch #cring{width:56px;height:56px;opacity:.14;border-color:var(--red);}
+body.ch #cdot{background:var(--red);}
 
-    .nb {
-      font-family: var(--mono);
-      font-size: 9.5px; letter-spacing: .16em; text-transform: uppercase;
-      color: rgba(240,237,230,.4);
-      background: transparent; border: none;
-      padding: 11px 15px; cursor: none;
-      transition: color .2s; white-space: nowrap;
-      position: relative;
-    }
-    .nb + .nb::before {
-      content: ''; position: absolute; left: 0; top: 28%; bottom: 28%;
-      width: 1px; background: rgba(240,237,230,.10);
-    }
-    .nb:hover, .nb.on { color: #f0ede6; }
+/* ═══════════════════════════════════════════════════
+   THREE.JS CANVAS
+═══════════════════════════════════════════════════ */
+#cv{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.055;}
 
-    /* ========================================================
-       GLOBAL LAYOUT
-       ======================================================== */
-    .w { max-width: 1240px; margin: 0 auto; padding: 0 52px; }
-    @media(max-width:680px) { .w { padding: 0 24px; } }
-    .rule { border: none; border-top: 1px solid var(--rule); }
+/* ═══════════════════════════════════════════════════
+   NAV
+═══════════════════════════════════════════════════ */
+#nav{
+  position:fixed;top:22px;left:50%;transform:translateX(-50%);
+  z-index:1000;display:flex;align-items:center;
+  background:var(--ink);border-radius:2px;padding:0 6px;
+  box-shadow:0 4px 28px rgba(12,12,12,.18);
+  transition:transform .5s cubic-bezier(.76,0,.24,1);
+}
+#nav.off{transform:translateX(-50%) translateY(-160%);}
+.nb{
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;
+  text-transform:uppercase;color:rgba(240,237,230,.4);
+  background:transparent;border:none;padding:11px 15px;cursor:none;
+  transition:color .2s;white-space:nowrap;position:relative;
+}
+.nb+.nb::before{content:'';position:absolute;left:0;top:28%;bottom:28%;width:1px;background:rgba(240,237,230,.1);}
+.nb:hover,.nb.on{color:#f0ede6;}
 
-    /* Small mono labels */
-    .sn {
-      font-family: var(--mono); font-size: 9.5px;
-      letter-spacing: .22em; text-transform: uppercase;
-      color: var(--ink3); display: block; margin-bottom: 20px;
-    }
-    /* Vertical side labels */
-    .side {
-      position: absolute; right: 52px; top: 52px;
-      font-family: var(--mono); font-size: 8.5px;
-      letter-spacing: .32em; text-transform: uppercase;
-      color: var(--ink3); opacity: .35; pointer-events: none;
-      writing-mode: vertical-rl;
-    }
-    @media(max-width:900px) { .side { display: none; } }
+/* ═══════════════════════════════════════════════════
+   LAYOUT HELPERS
+═══════════════════════════════════════════════════ */
+.w{max-width:1240px;margin:0 auto;padding:0 52px;}
+@media(max-width:680px){.w{padding:0 24px;}}
+.rule{border:none;border-top:1px solid var(--rule);}
+.sn{font-family:var(--mono);font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink3);display:block;margin-bottom:20px;}
+.side{position:absolute;right:52px;top:52px;font-family:var(--mono);font-size:8.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--ink3);opacity:.35;pointer-events:none;writing-mode:vertical-rl;}
+@media(max-width:900px){.side{display:none;}}
+.st{font-family:var(--disp);font-size:clamp(52px,7.5vw,90px);font-weight:900;line-height:.88;letter-spacing:-.015em;}
+.st .it{font-style:italic;font-weight:700;color:transparent;-webkit-text-stroke:1.5px var(--ink);}
+.rv{opacity:0;transform:translateY(32px);}
 
-    /* Big section headings */
-    .st {
-      font-family: var(--disp);
-      font-size: clamp(52px, 7.5vw, 90px);
-      font-weight: 900; line-height: .88; letter-spacing: -.015em;
-      color: var(--ink);
-    }
-    .st .it {
-      font-style: italic; font-weight: 700;
-      color: transparent; -webkit-text-stroke: 1.5px var(--ink);
-    }
+/* ═══════════════════════════════════════════════════
+   BUTTONS
+═══════════════════════════════════════════════════ */
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;
+  padding:13px 24px;border-radius:2px;text-decoration:none;cursor:none;
+  position:relative;overflow:hidden;transition:transform .3s cubic-bezier(.34,1.56,.64,1),color .25s;
+}
+.btn::before{content:'';position:absolute;inset:0;transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.76,0,.24,1);}
+.btn:hover::before{transform:scaleX(1);}
+.btn>*{position:relative;z-index:1;}
+.btn-s{color:var(--bg);background:var(--ink);border:none;}
+.btn-s::before{background:var(--red);}
+.btn-o{color:var(--ink);background:transparent;border:1px solid var(--ink);}
+.btn-o::before{background:var(--ink);}
+.btn-o:hover{color:var(--bg);}
 
-    /* ========================================================
-       SECTION 01 — HOME
-       ======================================================== */
-    #home {
-      position: relative; z-index: 1;
-      min-height: 100vh;
-      display: flex; flex-direction: column; justify-content: flex-end;
-      padding-bottom: 72px;
-      border-bottom: 1px solid var(--rule);
-    }
+/* ═══════════════════════════════════════════════════
+   SECTION 01 — HOME
+═══════════════════════════════════════════════════ */
+#home{
+  position:relative;z-index:1;min-height:100vh;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding-bottom:72px;border-bottom:1px solid var(--rule);
+}
+#logo{position:absolute;top:26px;left:52px;z-index:10;opacity:0;display:flex;align-items:center;gap:11px;}
+@media(max-width:680px){#logo{left:24px;}}
+#logo-t{font-family:var(--disp);font-size:14px;font-weight:900;letter-spacing:.25em;text-transform:uppercase;color:var(--ink);}
+.h-pre{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink3);margin-bottom:18px;opacity:0;transform:translateY(10px);}
+.h-pre .dtag{color:var(--red);font-size:9px;letter-spacing:.1em;vertical-align:middle;margin-left:4px;}
+.h-title{font-family:var(--disp);font-size:clamp(96px,17vw,218px);font-weight:900;line-height:.86;letter-spacing:-.02em;}
+.h-title .ln{display:block;overflow:hidden;}
+.h-title .wd{display:inline-block;transform:translateY(110%);}
+.h-title .wd.it{font-style:italic;font-weight:700;color:transparent;-webkit-text-stroke:2px var(--ink);}
+.h-foot{display:flex;align-items:flex-end;justify-content:space-between;gap:32px;margin-top:52px;flex-wrap:wrap;}
+.h-sub{max-width:460px;font-size:17px;font-weight:300;line-height:1.72;color:var(--ink2);opacity:0;}
+.h-sub strong{font-weight:600;color:var(--ink);}
+.h-cta{display:flex;gap:12px;flex-wrap:wrap;opacity:0;align-items:center;}
+.scrl{display:flex;align-items:center;gap:14px;opacity:0;}
+.scrl-l{width:1px;height:52px;background:var(--ink);transform-origin:top;transform:scaleY(0);transition:transform .9s cubic-bezier(.76,0,.24,1) .1s;}
+.scrl-l.go{transform:scaleY(1);}
+.scrl-lbl{font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:var(--ink3);text-transform:uppercase;writing-mode:vertical-rl;}
 
-    /* BOLT Logo — top left */
-    #logo {
-      position: absolute; top: 26px; left: 52px;
-      z-index: 10; opacity: 0;
-      display: flex; align-items: center; gap: 11px;
-    }
-    @media(max-width:680px) { #logo { left: 24px; } }
-    #logo-t {
-      font-family: var(--disp); font-size: 14px; font-weight: 900;
-      letter-spacing: .25em; text-transform: uppercase; color: var(--ink);
-    }
+/* ═══════════════════════════════════════════════════
+   MARQUEE
+═══════════════════════════════════════════════════ */
+.mw{overflow:hidden;position:relative;z-index:1;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:11px 0;}
+.mt{display:flex;width:max-content;animation:mq 28s linear infinite;}
+.mi{font-family:var(--disp);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);padding:0 26px;white-space:nowrap;}
+.mi .s{color:var(--red);margin-right:26px;}
+@keyframes mq{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 
-    /* Hero eyebrow line */
-    .h-pre {
-      font-family: var(--mono); font-size: 10.5px;
-      letter-spacing: .22em; text-transform: uppercase; color: var(--ink3);
-      margin-bottom: 18px; opacity: 0; transform: translateY(10px);
-    }
+/* ═══════════════════════════════════════════════════
+   SECTION 02 — ABOUT
+═══════════════════════════════════════════════════ */
+#about{position:relative;z-index:1;padding:120px 0 108px;border-bottom:1px solid var(--rule);}
+.ag{display:grid;grid-template-columns:260px 1fr;gap:88px;align-items:start;}
+@media(max-width:860px){.ag{grid-template-columns:1fr;gap:52px;}}
+.al{position:sticky;top:120px;}
 
-    /* Giant hero title */
-    .h-title {
-      font-family: var(--disp);
-      font-size: clamp(96px, 17vw, 218px);
-      font-weight: 900; line-height: .86; letter-spacing: -.02em; color: var(--ink);
-    }
-    .h-title .ln { display: block; overflow: hidden; }
-    .h-title .wd { display: inline-block; transform: translateY(110%); }
-    .h-title .wd.it {
-      font-style: italic; font-weight: 700;
-      color: transparent; -webkit-text-stroke: 2px var(--ink);
-    }
+/* ── AVATAR — reimagined geometric bolt monogram ── */
+.av{width:224px;height:290px;background:var(--ink);margin-top:36px;position:relative;overflow:hidden;border-radius:2px;}
+.av-art{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;}
+.av-l{position:absolute;bottom:12px;left:14px;font-family:var(--mono);font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(240,237,230,.3);}
 
-    /* Footer row of hero */
-    .h-foot {
-      display: flex; align-items: flex-end;
-      justify-content: space-between; gap: 32px;
-      margin-top: 52px; flex-wrap: wrap;
-    }
-    .h-sub {
-      max-width: 460px; font-size: 17px; font-weight: 300;
-      line-height: 1.72; color: var(--ink2); opacity: 0;
-    }
-    .h-sub strong { font-weight: 600; color: var(--ink); }
-    .h-cta { display: flex; gap: 12px; flex-wrap: wrap; opacity: 0; align-items: center; }
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px;}
+.tp{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);border:1px solid var(--rule);padding:5px 12px;border-radius:2px;}
+.tp.a{color:var(--red);border-color:rgba(201,55,58,.25);background:rgba(201,55,58,.05);}
+.tp .d{display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--red);margin-right:6px;vertical-align:middle;}
+.qb{border-left:2.5px solid var(--ink);padding:20px 24px;margin-bottom:40px;background:rgba(12,12,12,.03);}
+.qb q{font-family:var(--disp);font-style:italic;font-size:clamp(17px,2.1vw,23px);font-weight:700;line-height:1.42;color:var(--ink);quotes:none;display:block;margin-bottom:10px;}
+.qb cite{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink3);font-style:normal;}
+.ap{font-size:16px;font-weight:300;line-height:1.82;color:var(--ink2);margin-bottom:22px;}
+.ap strong{font-weight:600;color:var(--ink);}
+.ap .hi{color:var(--red);font-weight:500;}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--rule);margin:52px 0;}
+.stat{padding:26px 22px;border-right:1px solid var(--rule);}
+.stat:last-child{border-right:none;}
+.sn2{font-family:var(--disp);font-size:58px;font-weight:900;line-height:1;letter-spacing:-.02em;color:var(--ink);}
+.sl{font-family:var(--mono);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);margin-top:5px;}
+.socials{display:flex;gap:10px;flex-wrap:wrap;margin-top:36px;}
+.sb{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);text-decoration:none;border:1px solid var(--ink);padding:11px 18px;border-radius:2px;cursor:none;position:relative;overflow:hidden;transition:color .3s;}
+.sb::before{content:'';position:absolute;inset:0;background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.76,0,.24,1);}
+.sb:hover::before{transform:scaleX(1);}
+.sb:hover{color:var(--bg);}
+.sb>*{position:relative;z-index:1;}
+.sb svg{width:13px;height:13px;}
 
-    /* Scroll indicator */
-    .scrl { display: flex; align-items: center; gap: 14px; opacity: 0; }
-    .scrl-l {
-      width: 1px; height: 52px; background: var(--ink);
-      transform-origin: top; transform: scaleY(0);
-      transition: transform .9s cubic-bezier(.76,0,.24,1) .1s;
-    }
-    .scrl-l.go { transform: scaleY(1); }
-    .scrl-lbl {
-      font-family: var(--mono); font-size: 9px;
-      letter-spacing: .2em; color: var(--ink3);
-      text-transform: uppercase; writing-mode: vertical-rl;
-    }
+/* ═══════════════════════════════════════════════════
+   SECTION 03 — PROJECTS
+═══════════════════════════════════════════════════ */
+#projects{position:relative;z-index:1;padding:120px 0 108px;border-bottom:1px solid var(--rule);}
+.ph{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:72px;}
+@media(max-width:680px){.ph{grid-template-columns:1fr;}}
+.ps{font-size:15px;font-weight:300;line-height:1.72;color:var(--ink2);max-width:360px;}
+.pl{display:flex;flex-direction:column;}
+.pr{display:grid;grid-template-columns:44px 1fr auto;gap:24px;align-items:center;padding:28px 0;border-top:1px solid var(--rule);cursor:none;text-decoration:none;color:var(--ink);position:relative;transition:background .18s;}
+.pr:last-child{border-bottom:1px solid var(--rule);}
+.pr:hover{background:rgba(12,12,12,.03);}
+.pr:hover .pr-n{transform:translateX(10px);}
+.pr-i{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--ink3);}
+.pr-n{font-family:var(--disp);font-size:clamp(24px,3.2vw,40px);font-weight:700;letter-spacing:-.01em;transition:transform .4s cubic-bezier(.34,1.56,.64,1);}
+.pr-d{font-family:var(--mono);font-size:10px;letter-spacing:.05em;color:var(--ink3);margin-top:4px;}
+.pr-t{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);border:1px solid var(--rule);padding:4px 11px;border-radius:2px;white-space:nowrap;}
+.pr-t.py{color:var(--red);border-color:rgba(201,55,58,.25);}
+.pr-t.ht{color:#966200;border-color:rgba(150,98,0,.25);}
+.pr:hover::after{content:'↗';position:absolute;right:0;top:50%;transform:translateY(-50%);font-size:18px;color:var(--ink3);}
 
-    /* ========================================================
-       BUTTONS
-       ======================================================== */
-    .btn {
-      display: inline-flex; align-items: center; gap: 10px;
-      font-family: var(--mono); font-size: 10.5px;
-      letter-spacing: .15em; text-transform: uppercase;
-      padding: 13px 24px; border-radius: 2px;
-      text-decoration: none; cursor: none;
-      position: relative; overflow: hidden;
-      transition: transform .3s cubic-bezier(.34,1.56,.64,1), color .25s;
-    }
-    /* Sliding fill on hover */
-    .btn::before {
-      content: ''; position: absolute; inset: 0;
-      transform: scaleX(0); transform-origin: left;
-      transition: transform .4s cubic-bezier(.76,0,.24,1);
-    }
-    .btn:hover::before { transform: scaleX(1); }
-    .btn:hover { transform: scale(1.02); }
-    .btn > * { position: relative; z-index: 1; }
+/* ═══════════════════════════════════════════════════
+   SECTION 04 — LEARNING
+═══════════════════════════════════════════════════ */
+#learning{position:relative;z-index:1;padding:120px 0 108px;border-bottom:1px solid var(--rule);}
+.lh{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:72px;}
+@media(max-width:680px){.lh{grid-template-columns:1fr;}}
+.ls2{font-size:15px;font-weight:300;line-height:1.72;color:var(--ink2);max-width:380px;}
+.sk-list{display:flex;flex-direction:column;}
+.sk{display:grid;grid-template-columns:40px 1fr 60px 140px;gap:24px;align-items:center;padding:22px 0;border-top:1px solid var(--rule);cursor:none;position:relative;transition:background .15s;}
+.sk:last-child{border-bottom:1px solid var(--rule);}
+.sk:hover{background:rgba(12,12,12,.025);}
+@media(max-width:720px){.sk{grid-template-columns:36px 1fr 52px;}.sk-bw{display:none;}}
+.sk-ix{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;color:var(--ink3);}
+.sk-n{font-family:var(--disp);font-size:clamp(22px,2.8vw,34px);font-weight:700;letter-spacing:-.01em;transition:transform .4s cubic-bezier(.34,1.56,.64,1);}
+.sk:hover .sk-n{transform:translateX(8px);}
+.sk-s{font-family:var(--mono);font-size:9.5px;letter-spacing:.05em;color:var(--ink3);margin-top:3px;}
+.sk-p{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--ink3);text-align:right;}
+.sk-bw{height:2px;background:rgba(12,12,12,.09);overflow:hidden;}
+.sk-b{height:100%;background:var(--ink);transform-origin:left;transform:scaleX(0);transition:transform 1.1s cubic-bezier(.76,0,.24,1);}
+.sk.vis .sk-b{transform:scaleX(var(--p));}
+.sk:hover::after{content:'';position:absolute;right:0;top:50%;width:5px;height:5px;border-radius:50%;background:var(--red);transform:translateY(-50%);}
 
-    /* Solid dark button — fills red on hover */
-    .btn-s { color: var(--bg); background: var(--ink); border: none; }
-    .btn-s::before { background: var(--red); }
+/* ═══════════════════════════════════════════════════
+   SECTION 05 — CONNECT
+═══════════════════════════════════════════════════ */
+#connect{position:relative;z-index:1;padding:120px 0 108px;border-bottom:1px solid var(--rule);}
+.cb{font-family:var(--disp);font-size:clamp(70px,13vw,170px);font-weight:900;line-height:.86;letter-spacing:-.025em;margin:48px 0 80px;overflow:hidden;}
+.cb .ln{display:block;overflow:hidden;}
+.cb .wd{display:inline-block;transform:translateY(110%);}
+.cb .wd.it{font-style:italic;font-weight:700;color:transparent;-webkit-text-stroke:2.5px var(--ink);}
+.pg{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);}
+@media(max-width:680px){.pg{grid-template-columns:1fr;}}
+.pc{background:var(--bg);padding:52px 44px;text-decoration:none;color:var(--ink);cursor:none;position:relative;overflow:hidden;display:flex;flex-direction:column;transition:background .3s;}
+.pc::before{content:'';position:absolute;inset:0;background:var(--ink);transform:scaleY(0);transform-origin:bottom;transition:transform .55s cubic-bezier(.76,0,.24,1);}
+.pc:hover::before{transform:scaleY(1);}
+.pc>*{position:relative;z-index:1;}
+.pc:hover .pc-n,.pc:hover .pc-h,.pc:hover .pc-d,.pc:hover .pc-a{color:var(--bg);}
+.pc:hover .pc-ic path{fill:var(--bg);}
+.pc-ic{display:block;margin-bottom:36px;}
+.pc-ic path{transition:fill .3s;fill:var(--ink);}
+.pc-n{font-family:var(--disp);font-size:52px;font-weight:900;line-height:1;letter-spacing:-.02em;transition:color .3s;}
+.pc-h{font-family:var(--mono);font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink3);margin:6px 0 24px;transition:color .3s;}
+.pc-d{font-size:14px;font-weight:300;line-height:1.75;color:var(--ink2);flex:1;transition:color .3s;}
+.pc-a{margin-top:40px;font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);display:flex;align-items:center;gap:12px;transition:color .3s,gap .4s cubic-bezier(.34,1.56,.64,1);}
+.pc:hover .pc-a{gap:22px;color:var(--bg);}
 
-    /* Outline button — fills dark on hover */
-    .btn-o { color: var(--ink); background: transparent; border: 1px solid var(--ink); }
-    .btn-o::before { background: var(--ink); }
-    .btn-o:hover { color: var(--bg); }
+/* ═══════════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════════ */
+footer{position:relative;z-index:1;padding:36px 0;}
+.fi{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.fl,.fr{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink3);}
 
-    /* ========================================================
-       MARQUEE STRIP
-       ======================================================== */
-    .mw {
-      overflow: hidden; position: relative; z-index: 1;
-      border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
-      padding: 11px 0;
-    }
-    .mt { display: flex; width: max-content; animation: mq 28s linear infinite; }
-    .mi {
-      font-family: var(--disp); font-size: 12px; font-weight: 700;
-      letter-spacing: .14em; text-transform: uppercase;
-      color: var(--ink3); padding: 0 26px; white-space: nowrap;
-    }
-    .mi .s { color: var(--red); margin-right: 26px; }
-    @keyframes mq { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-
-    /* ========================================================
-       SECTION 02 — ABOUT
-       ======================================================== */
-    #about {
-      position: relative; z-index: 1;
-      padding: 120px 0 108px; border-bottom: 1px solid var(--rule);
-    }
-    .ag {
-      display: grid; grid-template-columns: 260px 1fr;
-      gap: 88px; align-items: start;
-    }
-    @media(max-width:860px) { .ag { grid-template-columns: 1fr; gap: 52px; } }
-    .al { position: sticky; top: 120px; }
-
-    /* Avatar / photo block */
-    .av {
-      width: 224px; height: 290px;
-      background: var(--ink); margin-top: 36px;
-      position: relative; overflow: hidden; border-radius: 2px;
-    }
-    .av-i {
-      position: absolute; inset: 0;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .av-i span {
-      font-family: var(--disp); font-size: 80px; font-weight: 900;
-      color: rgba(240,237,230,.12); line-height: 1; letter-spacing: -.02em;
-    }
-    .av-l {
-      position: absolute; bottom: 12px; left: 14px;
-      font-family: var(--mono); font-size: 8.5px;
-      letter-spacing: .14em; text-transform: uppercase;
-      color: rgba(240,237,230,.3);
-    }
-
-    /* Small tag pills */
-    .tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 20px; }
-    .tp {
-      font-family: var(--mono); font-size: 9px;
-      letter-spacing: .14em; text-transform: uppercase;
-      color: var(--ink3); border: 1px solid var(--rule);
-      padding: 5px 12px; border-radius: 2px;
-    }
-    .tp.a { color: var(--red); border-color: rgba(201,55,58,.25); background: rgba(201,55,58,.05); }
-    .tp .d {
-      display: inline-block; width: 5px; height: 5px;
-      border-radius: 50%; background: var(--red);
-      margin-right: 6px; vertical-align: middle;
-    }
-
-    /* Quote block */
-    .qb {
-      border-left: 2.5px solid var(--ink);
-      padding: 20px 24px; margin-bottom: 40px;
-      background: rgba(12,12,12,.03);
-    }
-    .qb q {
-      font-family: var(--disp); font-style: italic;
-      font-size: clamp(17px,2.1vw,23px); font-weight: 700;
-      line-height: 1.42; color: var(--ink); quotes: none;
-      display: block; margin-bottom: 10px;
-    }
-    .qb cite {
-      font-family: var(--mono); font-size: 9.5px;
-      letter-spacing: .16em; text-transform: uppercase;
-      color: var(--ink3); font-style: normal;
-    }
-
-    /* Body paragraphs */
-    .ap { font-size: 16px; font-weight: 300; line-height: 1.82; color: var(--ink2); margin-bottom: 22px; }
-    .ap strong { font-weight: 600; color: var(--ink); }
-    .ap .hi { color: var(--red); font-weight: 500; }
-
-    /* Stats grid */
-    .stats {
-      display: grid; grid-template-columns: repeat(3,1fr);
-      border: 1px solid var(--rule); margin: 52px 0;
-    }
-    .stat { padding: 26px 22px; border-right: 1px solid var(--rule); }
-    .stat:last-child { border-right: none; }
-    .sn2 {
-      font-family: var(--disp); font-size: 58px; font-weight: 900;
-      line-height: 1; letter-spacing: -.02em; color: var(--ink);
-    }
-    .sl {
-      font-family: var(--mono); font-size: 9px;
-      letter-spacing: .18em; text-transform: uppercase;
-      color: var(--ink3); margin-top: 5px;
-    }
-
-    /* Social link buttons */
-    .socials { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 36px; }
-    .sb {
-      display: inline-flex; align-items: center; gap: 9px;
-      font-family: var(--mono); font-size: 10px;
-      letter-spacing: .12em; text-transform: uppercase;
-      color: var(--ink); text-decoration: none;
-      border: 1px solid var(--ink); padding: 11px 18px;
-      border-radius: 2px; cursor: none;
-      position: relative; overflow: hidden; transition: color .3s;
-    }
-    .sb::before {
-      content: ''; position: absolute; inset: 0;
-      background: var(--ink); transform: scaleX(0);
-      transform-origin: left; transition: transform .4s cubic-bezier(.76,0,.24,1);
-    }
-    .sb:hover::before { transform: scaleX(1); }
-    .sb:hover { color: var(--bg); }
-    .sb > * { position: relative; z-index: 1; }
-    .sb svg { width: 13px; height: 13px; }
-
-    /* ========================================================
-       SECTION 03 — PROJECTS
-       ======================================================== */
-    #projects {
-      position: relative; z-index: 1;
-      padding: 120px 0 108px; border-bottom: 1px solid var(--rule);
-    }
-    .ph {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 40px; align-items: end; margin-bottom: 72px;
-    }
-    @media(max-width:680px) { .ph { grid-template-columns: 1fr; } }
-    .ps { font-size: 15px; font-weight: 300; line-height: 1.72; color: var(--ink2); max-width: 360px; }
-
-    /* Project rows */
-    .pl { display: flex; flex-direction: column; }
-    .pr {
-      display: grid; grid-template-columns: 44px 1fr auto;
-      gap: 24px; align-items: center; padding: 28px 0;
-      border-top: 1px solid var(--rule); cursor: none;
-      text-decoration: none; color: var(--ink);
-      position: relative; transition: background .18s;
-    }
-    .pr:last-child { border-bottom: 1px solid var(--rule); }
-    .pr:hover { background: rgba(12,12,12,.03); }
-    .pr:hover .pr-n { transform: translateX(10px); }
-    .pr-i { font-family: var(--mono); font-size: 10px; letter-spacing: .1em; color: var(--ink3); }
-    .pr-n {
-      font-family: var(--disp); font-size: clamp(24px,3.2vw,40px);
-      font-weight: 700; letter-spacing: -.01em;
-      transition: transform .4s cubic-bezier(.34,1.56,.64,1);
-    }
-    .pr-d { font-family: var(--mono); font-size: 10px; letter-spacing: .05em; color: var(--ink3); margin-top: 4px; }
-    .pr-t {
-      font-family: var(--mono); font-size: 9px; letter-spacing: .14em;
-      text-transform: uppercase; color: var(--ink3);
-      border: 1px solid var(--rule); padding: 4px 11px; border-radius: 2px; white-space: nowrap;
-    }
-    /* Python tag colour */
-    .pr-t.py { color: var(--red); border-color: rgba(201,55,58,.25); }
-    /* HTML/CSS/JS tag colour */
-    .pr-t.ht { color: #966200; border-color: rgba(150,98,0,.25); }
-    .pr:hover::after {
-      content: '↗'; position: absolute; right: 0; top: 50%;
-      transform: translateY(-50%); font-size: 18px; color: var(--ink3);
-    }
-
-    /* ========================================================
-       SECTION 04 — LEARNING / SKILLS
-       ======================================================== */
-    #learning {
-      position: relative; z-index: 1;
-      padding: 120px 0 108px; border-bottom: 1px solid var(--rule);
-    }
-    .lh {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 40px; align-items: end; margin-bottom: 72px;
-    }
-    @media(max-width:680px) { .lh { grid-template-columns: 1fr; } }
-    .ls2 { font-size: 15px; font-weight: 300; line-height: 1.72; color: var(--ink2); max-width: 380px; }
-
-    /* Skill rows */
-    .sk-list { display: flex; flex-direction: column; }
-    .sk {
-      display: grid; grid-template-columns: 40px 1fr 60px 140px;
-      gap: 24px; align-items: center; padding: 22px 0;
-      border-top: 1px solid var(--rule);
-      cursor: none; position: relative; transition: background .15s;
-    }
-    .sk:last-child { border-bottom: 1px solid var(--rule); }
-    .sk:hover { background: rgba(12,12,12,.025); }
-    @media(max-width:720px) { .sk { grid-template-columns: 36px 1fr 52px; } .sk-bw { display: none; } }
-    .sk-ix { font-family: var(--mono); font-size: 9.5px; letter-spacing: .1em; color: var(--ink3); }
-    .sk-n {
-      font-family: var(--disp); font-size: clamp(22px,2.8vw,34px);
-      font-weight: 700; letter-spacing: -.01em;
-      transition: transform .4s cubic-bezier(.34,1.56,.64,1);
-    }
-    .sk:hover .sk-n { transform: translateX(8px); }
-    .sk-s { font-family: var(--mono); font-size: 9.5px; letter-spacing: .05em; color: var(--ink3); margin-top: 3px; }
-    .sk-p { font-family: var(--mono); font-size: 10px; letter-spacing: .1em; color: var(--ink3); text-align: right; }
-    .sk-bw { height: 2px; background: rgba(12,12,12,.09); overflow: hidden; }
-    .sk-b {
-      height: 100%; background: var(--ink);
-      transform-origin: left; transform: scaleX(0);
-      transition: transform 1.1s cubic-bezier(.76,0,.24,1) .05s;
-    }
-    /* Triggered by JS when row enters viewport */
-    .sk.vis .sk-b { transform: scaleX(var(--p)); }
-    .sk:hover::after {
-      content: ''; position: absolute; right: 0; top: 50%;
-      width: 5px; height: 5px; border-radius: 50%;
-      background: var(--red); transform: translateY(-50%);
-    }
-
-    /* ========================================================
-       SECTION 05 — CONNECT
-       ======================================================== */
-    #connect {
-      position: relative; z-index: 1;
-      padding: 120px 0 108px; border-bottom: 1px solid var(--rule);
-    }
-    .cb {
-      font-family: var(--disp);
-      font-size: clamp(70px,13vw,170px);
-      font-weight: 900; line-height: .86; letter-spacing: -.025em;
-      color: var(--ink); margin: 48px 0 80px; overflow: hidden;
-    }
-    .cb .ln { display: block; overflow: hidden; }
-    .cb .wd { display: inline-block; transform: translateY(110%); }
-    .cb .wd.it { font-style: italic; font-weight: 700; color: transparent; -webkit-text-stroke: 2.5px var(--ink); }
-
-    /* Profile cards grid */
-    .pg {
-      display: grid; grid-template-columns: repeat(2,1fr);
-      gap: 1px; background: var(--rule); border: 1px solid var(--rule);
-    }
-    @media(max-width:680px) { .pg { grid-template-columns: 1fr; } }
-
-    .pc {
-      background: var(--bg); padding: 52px 44px;
-      text-decoration: none; color: var(--ink);
-      cursor: none; position: relative; overflow: hidden;
-      display: flex; flex-direction: column; transition: background .3s;
-    }
-    /* Full card fill on hover */
-    .pc::before {
-      content: ''; position: absolute; inset: 0;
-      background: var(--ink); transform: scaleY(0); transform-origin: bottom;
-      transition: transform .55s cubic-bezier(.76,0,.24,1);
-    }
-    .pc:hover::before { transform: scaleY(1); }
-    .pc > * { position: relative; z-index: 1; }
-    /* Text colour flips to white when card fills */
-    .pc:hover .pc-n, .pc:hover .pc-h,
-    .pc:hover .pc-d, .pc:hover .pc-a { color: var(--bg); }
-    .pc:hover .pc-ic path { fill: var(--bg); }
-
-    .pc-ic { display: block; margin-bottom: 36px; }
-    .pc-ic path { transition: fill .3s; fill: var(--ink); }
-    .pc-n { font-family: var(--disp); font-size: 52px; font-weight: 900; line-height: 1; letter-spacing: -.02em; transition: color .3s; }
-    .pc-h { font-family: var(--mono); font-size: 10.5px; letter-spacing: .15em; text-transform: uppercase; color: var(--ink3); margin: 6px 0 24px; transition: color .3s; }
-    .pc-d { font-size: 14px; font-weight: 300; line-height: 1.75; color: var(--ink2); flex: 1; transition: color .3s; }
-    .pc-a {
-      margin-top: 40px; font-family: var(--mono); font-size: 10.5px;
-      letter-spacing: .18em; text-transform: uppercase; color: var(--ink3);
-      display: flex; align-items: center; gap: 12px;
-      transition: color .3s, gap .4s cubic-bezier(.34,1.56,.64,1);
-    }
-    .pc:hover .pc-a { gap: 22px; color: var(--bg); }
-
-    /* ========================================================
-       FOOTER
-       ======================================================== */
-    footer { position: relative; z-index: 1; padding: 36px 0; }
-    .fi { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
-    .fl, .fr { font-family: var(--mono); font-size: 9.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--ink3); }
-
-    /* ========================================================
-       SCROLL REVEAL UTILITY CLASS
-       ======================================================== */
-    .rv { opacity: 0; transform: translateY(32px); }
-
-    /* ========================================================
-       PAPER NOISE OVERLAY — subtle texture on top of everything
-       ======================================================== */
-    body::after {
-      content: ''; position: fixed; inset: 0;
-      z-index: 9998; pointer-events: none; opacity: .022;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-      background-size: 200px;
-    }
-  </style>
+/* ═══════════════════════════════════════════════════
+   NOISE OVERLAY
+═══════════════════════════════════════════════════ */
+body::after{content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;opacity:.022;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px;}
+</style>
 </head>
 <body>
 
-  <!-- ========================================================
-       CURSOR — two separate fixed elements (no nesting = no glitch)
-       ======================================================== -->
-  <div id="cur-dot"></div>
-  <div id="cur-ring"></div>
+<!-- Scroll progress bar -->
+<div id="prog"></div>
+<!-- Page-transition panels -->
+<div id="ta"></div>
+<div id="tb"></div>
+<!-- Custom cursor -->
+<div id="cdot"></div>
+<div id="cring"></div>
+<!-- Three.js canvas -->
+<canvas id="cv"></canvas>
 
-  <!-- Three.js background canvas -->
-  <canvas id="cv"></canvas>
-
-  <!-- ========================================================
-       FLOATING NAV
-       — edit button labels if you rename sections
-       ======================================================== -->
-  <nav id="nav">
-    <button class="nb on"  onclick="gt('#home')">Home</button>
-    <button class="nb"     onclick="gt('#about')">About</button>
-    <button class="nb"     onclick="gt('#projects')">Work</button>
-    <button class="nb"     onclick="gt('#learning')">Learning</button>
-    <button class="nb"     onclick="gt('#connect')">Connect</button>
-  </nav>
+<!-- ════ NAV ════════════════════════════════════════
+     ← EDIT: button labels / section IDs             -->
+<nav id="nav">
+  <button class="nb on"  onclick="go('#home')">Home</button>
+  <button class="nb"     onclick="go('#about')">About</button>
+  <button class="nb"     onclick="go('#projects')">Work</button>
+  <button class="nb"     onclick="go('#learning')">Learning</button>
+  <button class="nb"     onclick="go('#connect')">Connect</button>
+</nav>
 
 
-  <!-- ════════════════════════════════════════════════════════
-       SECTION 01 — HOME
-       ════════════════════════════════════════════════════════ -->
-  <section id="home">
-    <span class="side">01 / HOME</span>
+<!-- ════════════════════════════════════════════════
+     01 — HOME
+════════════════════════════════════════════════ -->
+<section id="home">
+  <span class="side">01 / HOME</span>
 
-    <!-- ── LOGO (top-left) ──────────────────────────────────
-         The lightning-bolt SVG is your custom BOLT logo.
-         Replace the SVG or the text below if you rebrand.
-    ──────────────────────────────────────────────────────── -->
-    <div id="logo">
-      <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
-        <path d="M15 2 L5 15 L12.5 15 L11 24 L21 11 L13.5 11 Z" fill="#0c0c0c"/>
-        <path d="M15 2 L5 15 L12.5 15 L11 24 L21 11 L13.5 11 Z"
-              fill="none" stroke="#c9373a" stroke-width=".8" stroke-linejoin="round"/>
-        <circle cx="15" cy="2"  r="1.4" fill="#c9373a"/>
-        <circle cx="11" cy="24" r="1.4" fill="#c9373a"/>
-      </svg>
-      <!-- ← EDIT: logo wordmark -->
-      <span id="logo-t">BOLT</span>
+  <!-- BOLT Logo top-left
+       ← EDIT: logo-t text if you rename -->
+  <div id="logo">
+    <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+      <path d="M15 2 L5 15 L12.5 15 L11 24 L21 11 L13.5 11 Z" fill="#0c0c0c"/>
+      <path d="M15 2 L5 15 L12.5 15 L11 24 L21 11 L13.5 11 Z" fill="none" stroke="#c9373a" stroke-width=".8" stroke-linejoin="round"/>
+      <circle cx="15" cy="2"  r="1.4" fill="#c9373a"/>
+      <circle cx="11" cy="24" r="1.4" fill="#c9373a"/>
+    </svg>
+    <span id="logo-t">BOLT</span><!-- ← EDIT -->
+  </div>
+
+  <div class="w" style="position:relative;z-index:1;">
+
+    <!-- ← EDIT: eyebrow line — name · BOLT#tag · location
+         Discord tag appears only after BOLT, nowhere else   -->
+    <p class="h-pre" id="hp">
+      Raghvendra Dodiya &nbsp;·&nbsp;
+      BOLT<span class="dtag" style="color:var(--red);font-size:9px;letter-spacing:.1em;margin-left:3px;">#1465964458282188820</span>
+      &nbsp;·&nbsp; India
+    </p>
+
+    <!-- ← EDIT: hero title words — keep .ln/.wd structure for animation -->
+    <h1 class="h-title" id="hh">
+      <span class="ln"><span class="wd">BOLT</span></span>
+      <span class="ln"><span class="wd it">Building</span></span>
+      <span class="ln"><span class="wd">in the void.</span></span>
+    </h1>
+
+    <div class="h-foot">
+      <!-- ← EDIT: hero tagline -->
+      <p class="h-sub" id="hs">
+        Self-taught developer from <strong>India</strong>. Learning Python
+        and programming fundamentals — building real projects from
+        <strong>zero to something</strong>, one commit at a time.
+      </p>
+      <!-- ← EDIT: CTA button labels / hrefs -->
+      <div class="h-cta" id="hc">
+        <a class="btn btn-s" href="#projects" onclick="event.preventDefault();go('#projects')">
+          <span>View Work</span>
+          <svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 4h10M7 1l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </a>
+        <a class="btn btn-o" href="https://github.com/DEvBOLT19" target="_blank" rel="noopener"><span>GitHub</span></a>
+      </div>
     </div>
 
-    <div class="w" style="position:relative;z-index:1;">
+    <div class="scrl" id="sc">
+      <div class="scrl-l" id="sl"></div>
+      <span class="scrl-lbl">Scroll to explore</span>
+    </div>
 
-      <!-- ← EDIT: eyebrow — your name · role · location -->
-      <p class="h-pre" id="hp">Raghvendra Dodiya &nbsp;·&nbsp; Student Developer &nbsp;·&nbsp; India</p>
+  </div>
+</section>
 
-      <!-- ← EDIT: hero words — keep .ln/.wd structure for the animation -->
-      <h1 class="h-title" id="hh" aria-label="BOLT — Building in the Void">
-        <span class="ln"><span class="wd">BOLT</span></span>
-        <span class="ln"><span class="wd it">Building</span></span>
-        <span class="ln"><span class="wd">in the void.</span></span>
-      </h1>
 
-      <div class="h-foot">
+<!-- MARQUEE — ← EDIT items in JS CONFIG block below -->
+<div class="mw"><div class="mt" id="mt"></div></div>
 
-        <!-- ← EDIT: hero tagline paragraph -->
-        <p class="h-sub" id="hs">
-          Self-taught developer from <strong>India</strong>. Learning Python
-          and programming fundamentals — building real projects from
-          <strong>zero to something</strong>, one commit at a time.
+
+<!-- ════════════════════════════════════════════════
+     02 — ABOUT
+════════════════════════════════════════════════ -->
+<section id="about">
+  <span class="side">02 / ABOUT</span>
+  <div class="w">
+    <div class="ag">
+
+      <!-- LEFT sticky column -->
+      <div class="al rv">
+        <span class="sn">02 — Introduction</span>
+        <h2 class="st">Who<br/><span class="it">I am.</span></h2>
+
+        <!-- ── REIMAGINED AVATAR ──────────────────────────
+             Geometric bolt monogram — dark card with SVG art
+             ← EDIT: swap .av-art div for a real <img> photo:
+             <img style="width:100%;height:100%;object-fit:cover;
+             filter:grayscale(1) contrast(1.1);" src="photo.jpg"/>
+        ───────────────────────────────────────────────── -->
+        <div class="av">
+          <div class="av-art">
+            <svg viewBox="0 0 200 240" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:90%;height:90%;">
+              <!-- grid -->
+              <line x1="0"   y1="60"  x2="200" y2="60"  stroke="rgba(240,237,230,.05)" stroke-width="1"/>
+              <line x1="0"   y1="120" x2="200" y2="120" stroke="rgba(240,237,230,.05)" stroke-width="1"/>
+              <line x1="0"   y1="180" x2="200" y2="180" stroke="rgba(240,237,230,.05)" stroke-width="1"/>
+              <line x1="50"  y1="0"   x2="50"  y2="240" stroke="rgba(240,237,230,.05)" stroke-width="1"/>
+              <line x1="100" y1="0"   x2="100" y2="240" stroke="rgba(240,237,230,.05)" stroke-width="1"/>
+              <line x1="150" y1="0"   x2="150" y2="240" stroke="rgba(240,237,230,.05)" stroke-width="1"/>
+              <!-- bolt fill (ghost) -->
+              <polygon points="118,22 60,118 98,118 80,218 140,122 102,122"
+                fill="rgba(240,237,230,.06)" stroke="rgba(240,237,230,.14)" stroke-width="1.5" stroke-linejoin="round"/>
+              <!-- bolt outline (solid) -->
+              <polygon points="118,22 60,118 98,118 80,218 140,122 102,122"
+                fill="none" stroke="rgba(240,237,230,.72)" stroke-width="2.5" stroke-linejoin="round"/>
+              <!-- red accent nodes -->
+              <circle cx="118" cy="22"  r="4.5" fill="#c9373a"/>
+              <circle cx="80"  cy="218" r="4.5" fill="#c9373a"/>
+              <!-- crosshair on top node -->
+              <line x1="113" y1="22" x2="123" y2="22" stroke="#c9373a" stroke-width="1.2"/>
+              <line x1="118" y1="17" x2="118" y2="27" stroke="#c9373a" stroke-width="1.2"/>
+              <!-- corner brackets -->
+              <polyline points="8,8 8,22 22,22"   stroke="rgba(240,237,230,.18)" stroke-width="1" fill="none"/>
+              <polyline points="192,8 192,22 178,22" stroke="rgba(240,237,230,.18)" stroke-width="1" fill="none"/>
+              <polyline points="8,232 8,218 22,218"  stroke="rgba(240,237,230,.18)" stroke-width="1" fill="none"/>
+              <polyline points="192,232 192,218 178,218" stroke="rgba(240,237,230,.18)" stroke-width="1" fill="none"/>
+              <!-- BOLT mono label -->
+              <text x="100" y="236" text-anchor="middle"
+                font-family="'IBM Plex Mono',monospace" font-size="7.5"
+                letter-spacing="5" fill="rgba(240,237,230,.22)">BOLT</text>
+            </svg>
+          </div>
+          <div class="av-l">BOLT · @DEvBOLT19 · India</div><!-- ← EDIT -->
+        </div>
+
+        <!-- ← EDIT: tag pills -->
+        <div class="tags">
+          <span class="tp a"><span class="d"></span>Learning</span>
+          <span class="tp">Student</span>
+          <span class="tp">India</span>
+          <span class="tp">Python</span>
+        </div>
+      </div>
+
+      <!-- RIGHT content -->
+      <div>
+        <!-- ← EDIT: your quote -->
+        <div class="qb rv">
+          <q>The void isn't emptiness — it's potential. Every project starts from nothing. I build until the nothing becomes something.</q>
+          <cite>— Raghvendra Dodiya · @BOLT</cite>
+        </div>
+
+        <!-- ← EDIT: bio paragraphs -->
+        <p class="ap rv">
+          Hey, I'm <strong>BOLT</strong> — Raghvendra Dodiya, a
+          <span class="hi">self-taught developer from India</span>. I started
+          my journey through YouTube, watching, experimenting, and eventually
+          building real things. No shortcuts — just curiosity and code.
+        </p>
+        <p class="ap rv">
+          I'm specialising in <strong>Python</strong> along with web
+          fundamentals — HTML, CSS and JavaScript. I build games, experimental
+          websites, and dark-themed developer projects. Every project is a
+          new problem to crack.
+        </p>
+        <p class="ap rv">
+          Currently on a mission: <strong>master Python and machine
+          learning</strong>. Focused on improving every single day —
+          building new projects and stacking skills from the void up.
         </p>
 
-        <!-- ← EDIT: CTA button labels / hrefs -->
-        <div class="h-cta" id="hc">
-          <a class="btn btn-s" href="#projects" onclick="event.preventDefault();gt('#projects')">
-            <span>View Work</span>
-            <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
-              <path d="M1 4h10M7 1l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
+        <!-- STATS — ← EDIT data-t = number to count to, .sl = label -->
+        <div class="stats rv">
+          <div class="stat"><div class="sn2" data-t="9">0</div><div class="sl">Repositories</div></div>
+          <div class="stat"><div class="sn2" data-t="2">0</div><div class="sl">Projects Live</div></div>
+          <div class="stat"><div class="sn2" data-t="5">0</div><div class="sl">Languages</div></div>
+        </div>
+
+        <!-- SOCIALS — ← EDIT hrefs to update your links
+             Add more .sb buttons here to add more social links -->
+        <div class="socials rv">
+          <a class="sb" href="https://github.com/DEvBOLT19" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            <span>DEvBOLT19</span><!-- ← EDIT label -->
           </a>
-          <a class="btn btn-o" href="https://github.com/DEvBOLT19" target="_blank" rel="noopener">
-            <span>GitHub</span>
+          <a class="sb" href="https://discord.com/users/1465964458282188820" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+            <span>Discord</span><!-- ← EDIT label -->
           </a>
         </div>
-
-      </div>
-
-      <div class="scrl" id="sc">
-        <div class="scrl-l" id="sl"></div>
-        <span class="scrl-lbl">Scroll to explore</span>
       </div>
 
     </div>
-  </section>
+  </div>
+</section>
 
 
-  <!-- ── MARQUEE STRIP ────────────────────────────────────────
-       ← EDIT: items in the JS CONFIG block at the bottom
-  ────────────────────────────────────────────────────────── -->
-  <div class="mw"><div class="mt" id="mt"></div></div>
+<!-- ════════════════════════════════════════════════
+     03 — PROJECTS
+════════════════════════════════════════════════ -->
+<section id="projects">
+  <span class="side">03 / WORK</span>
+  <div class="w">
+    <div class="ph">
+      <div>
+        <span class="sn rv">03 — The Work</span>
+        <h2 class="st rv">What I've<br/><span class="it">built.</span></h2>
+      </div>
+      <p class="ps rv">Projects built from the void — each one a proof of concept, a new lesson, a step forward.</p><!-- ← EDIT -->
+    </div>
+    <div class="pl">
 
-
-  <!-- ════════════════════════════════════════════════════════
-       SECTION 02 — ABOUT / INTRODUCTION
-       ════════════════════════════════════════════════════════ -->
-  <section id="about">
-    <span class="side">02 / ABOUT</span>
-    <div class="w">
-      <div class="ag">
-
-        <!-- ── LEFT STICKY COLUMN ── -->
-        <div class="al rv">
-          <span class="sn">02 — Introduction</span>
-          <h2 class="st">Who<br/><span class="it">I am.</span></h2>
-
-          <!-- ── AVATAR BLOCK ──────────────────────────────
-               To use your real photo replace the .av-i div
-               with: <img style="width:100%;height:100%;
-               object-fit:cover;filter:grayscale(1) contrast(1.1);"
-               src="your-photo.jpg" alt="BOLT"/>
-          ──────────────────────────────────────────────── -->
-          <div class="av">
-            <div class="av-i">
-              <!-- ← EDIT: change to your initials -->
-              <span>RD</span>
-            </div>
-            <!-- ← EDIT: your handle + location label -->
-            <div class="av-l">BOLT · @DEvBOLT19 · India</div>
-          </div>
-
-          <!-- ← EDIT: add / remove / rename tag pills -->
-          <div class="tags">
-            <span class="tp a"><span class="d"></span>Learning</span>
-            <span class="tp">Student</span>
-            <span class="tp">India</span>
-            <span class="tp">Python</span>
-          </div>
-        </div>
-
-        <!-- ── RIGHT CONTENT COLUMN ── -->
+      <!-- ← EDIT: href, .pr-n name, .pr-d desc, .pr-t tag class (py/ht) -->
+      <a class="pr rv" href="https://devbolt19.github.io" target="_blank" rel="noopener">
+        <span class="pr-i">01</span>
         <div>
+          <div class="pr-n">VOID // BOLT</div>
+          <div class="pr-d">devbolt19.github.io · Personal portfolio &amp; developer journal. Dark, void-inspired.</div>
+        </div>
+        <span class="pr-t ht">HTML · CSS · JS</span>
+      </a>
 
-          <!-- ← EDIT: your personal quote -->
-          <div class="qb rv">
-            <q>The void isn't emptiness — it's potential. Every project starts from nothing. I build until the nothing becomes something.</q>
-            <cite>— Raghvendra Dodiya · @BOLT</cite>
-          </div>
-
-          <!-- ← EDIT: bio paragraphs — as many as you need -->
-          <p class="ap rv">
-            Hey, I'm <strong>BOLT</strong> — Raghvendra Dodiya, a
-            <span class="hi">self-taught developer from India</span>. I started
-            my journey through YouTube, watching, experimenting, and eventually
-            building real things. No shortcuts — just curiosity and code.
-          </p>
-
-          <p class="ap rv">
-            I'm specialising in <strong>Python</strong> along with web
-            fundamentals — HTML, CSS and JavaScript. I build games, experimental
-            websites, and dark-themed developer projects. Every project is a
-            new problem to crack.
-          </p>
-
-          <p class="ap rv">
-            Currently on a mission: <strong>master Python and machine
-            learning</strong>. Focused on improving every single day —
-            building new projects and stacking skills from the void up.
-          </p>
-
-          <!-- ── STATS ─────────────────────────────────────
-               ← EDIT: data-t = the number to count up to
-               ← EDIT: .sl text = the label below the number
-          ──────────────────────────────────────────────── -->
-          <div class="stats rv">
-            <div class="stat">
-              <div class="sn2" data-t="9">0</div>
-              <div class="sl">Repositories</div>
-            </div>
-            <div class="stat">
-              <div class="sn2" data-t="2">0</div>
-              <div class="sl">Projects Live</div>
-            </div>
-            <div class="stat">
-              <div class="sn2" data-t="5">0</div>
-              <div class="sl">Languages</div>
-            </div>
-          </div>
-
-          <!-- ── SOCIAL LINKS ──────────────────────────────
-               ← EDIT: update href to your real URLs
-          ──────────────────────────────────────────────── -->
-          <div class="socials rv">
-
-            <!-- GitHub -->
-            <a class="sb" href="https://github.com/DEvBOLT19" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
-              </svg>
-              <!-- ← EDIT: button label -->
-              <span>DEvBOLT19</span>
-            </a>
-
-            <!-- Discord -->
-            <a class="sb" href="https://discord.com/users/1465964458282188820" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
-              </svg>
-              <span>Discord</span>
-            </a>
-
-            <!-- Live site -->
-            <a class="sb" href="https://devbolt19.github.io" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/>
-                <path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/>
-              </svg>
-              <span>Live Site</span>
-            </a>
-
-          </div>
-        </div><!-- /right column -->
-      </div><!-- /grid -->
-    </div>
-  </section>
-
-
-  <!-- ════════════════════════════════════════════════════════
-       SECTION 03 — PROJECTS / WORK
-       ════════════════════════════════════════════════════════ -->
-  <section id="projects">
-    <span class="side">03 / WORK</span>
-    <div class="w">
-
-      <div class="ph">
+      <a class="pr rv" href="https://github.com/DEvBOLT19/ECLIPSE" target="_blank" rel="noopener">
+        <span class="pr-i">02</span>
         <div>
-          <span class="sn rv">03 — The Work</span>
-          <h2 class="st rv">What I've<br/><span class="it">built.</span></h2>
+          <div class="pr-n">ECLIPSE</div>
+          <div class="pr-d">github.com/DEvBOLT19/ECLIPSE · Python project — built in the dark.</div>
         </div>
-        <!-- ← EDIT: projects section subtitle -->
-        <p class="ps rv">Projects built from the void — each one a proof of concept, a new lesson, a step forward.</p>
-      </div>
+        <span class="pr-t py">Python</span>
+      </a>
 
-      <div class="pl">
-
-        <!-- ── PROJECT ROW ─────────────────────────────────
-             ← EDIT: href = project URL
-             ← EDIT: .pr-n = project name
-             ← EDIT: .pr-d = short description
-             ← EDIT: .pr-t class: use .py for Python, .ht for HTML/web
-             Duplicate this block to add more projects
-        ──────────────────────────────────────────────── -->
-
-        <!-- Project 1 -->
-        <a class="pr rv" href="https://devbolt19.github.io" target="_blank" rel="noopener">
-          <span class="pr-i">01</span>
-          <div>
-            <div class="pr-n">VOID // BOLT</div>
-            <div class="pr-d">devbolt19.github.io · Personal portfolio &amp; developer journal. Dark, void-inspired.</div>
-          </div>
-          <span class="pr-t ht">HTML · CSS · JS</span>
-        </a>
-
-        <!-- Project 2 -->
-        <a class="pr rv" href="https://github.com/DEvBOLT19/ECLIPSE" target="_blank" rel="noopener">
-          <span class="pr-i">02</span>
-          <div>
-            <div class="pr-n">ECLIPSE</div>
-            <div class="pr-d">github.com/DEvBOLT19/ECLIPSE · Python project — built in the dark.</div>
-          </div>
-          <span class="pr-t py">Python</span>
-        </a>
-
-        <!-- Project 3 — placeholder, set pointer-events:none until ready -->
-        <div class="pr rv" style="pointer-events:none; opacity:.32;">
-          <span class="pr-i">03</span>
-          <div>
-            <!-- ← EDIT: replace with your next project name when ready -->
-            <div class="pr-n" style="color:var(--ink3);">Next project…</div>
-            <div class="pr-d">Currently in the void. Building in progress.</div>
-          </div>
-          <span class="pr-t">Soon</span>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ════════════════════════════════════════════════════════
-       SECTION 04 — LEARNING / SKILLS
-       ════════════════════════════════════════════════════════ -->
-  <section id="learning">
-    <span class="side">04 / LEARNING</span>
-    <div class="w">
-
-      <div class="lh">
+      <!-- placeholder — remove pointer-events when project is ready -->
+      <div class="pr rv" style="pointer-events:none;opacity:.3;">
+        <span class="pr-i">03</span>
         <div>
-          <span class="sn rv">04 — Currently</span>
-          <h2 class="st rv">What I'm<br/><span class="it">mastering.</span></h2>
+          <div class="pr-n" style="color:var(--ink3);">Next project…</div><!-- ← EDIT when ready -->
+          <div class="pr-d">Currently in the void. Building in progress.</div>
         </div>
-        <!-- ← EDIT: learning subtitle -->
-        <p class="ls2 rv">Skills tracked in real-time. Percentages reflect current confidence. Always levelling up, one commit at a time.</p>
+        <span class="pr-t">Soon</span>
       </div>
 
-      <div class="sk-list">
+    </div>
+  </div>
+</section>
 
-        <!-- ── SKILL ROW ──────────────────────────────────
-             ← EDIT: style="--p:0.72"  →  progress 0.0–1.0
-             ← EDIT: .sk-n = skill name
-             ← EDIT: .sk-s = sub-description
-             ← EDIT: .sk-p = percentage label (match --p × 100)
-             Duplicate a row to add more skills
-        ──────────────────────────────────────────────── -->
 
-        <div class="sk rv" style="--p:0.72">
-          <span class="sk-ix">01</span>
-          <div>
-            <div class="sk-n">Python</div>
-            <div class="sk-s">Core language · Scripts · Games · Machine Learning</div>
-          </div>
-          <span class="sk-p">72%</span>
-          <div class="sk-bw"><div class="sk-b"></div></div>
-        </div>
-
-        <div class="sk rv" style="--p:0.65">
-          <span class="sk-ix">02</span>
-          <div>
-            <div class="sk-n">HTML</div>
-            <div class="sk-s">Semantic markup · Structure · Accessibility</div>
-          </div>
-          <span class="sk-p">65%</span>
-          <div class="sk-bw"><div class="sk-b"></div></div>
-        </div>
-
-        <div class="sk rv" style="--p:0.58">
-          <span class="sk-ix">03</span>
-          <div>
-            <div class="sk-n">CSS</div>
-            <div class="sk-s">Layouts · Animations · Dark themes · Design</div>
-          </div>
-          <span class="sk-p">58%</span>
-          <div class="sk-bw"><div class="sk-b"></div></div>
-        </div>
-
-        <div class="sk rv" style="--p:0.45">
-          <span class="sk-ix">04</span>
-          <div>
-            <div class="sk-n">JavaScript</div>
-            <div class="sk-s">DOM · Events · Interactivity · Logic</div>
-          </div>
-          <span class="sk-p">45%</span>
-          <div class="sk-bw"><div class="sk-b"></div></div>
-        </div>
-
-        <div class="sk rv" style="--p:0.28">
-          <span class="sk-ix">05</span>
-          <div>
-            <div class="sk-n">Machine Learning</div>
-            <div class="sk-s">Fundamentals · Models · Python libraries</div>
-          </div>
-          <span class="sk-p">28%</span>
-          <div class="sk-bw"><div class="sk-b"></div></div>
-        </div>
-
-        <div class="sk rv" style="--p:0.55">
-          <span class="sk-ix">06</span>
-          <div>
-            <div class="sk-n">Git &amp; GitHub</div>
-            <div class="sk-s">Version control · Repos · Open source</div>
-          </div>
-          <span class="sk-p">55%</span>
-          <div class="sk-bw"><div class="sk-b"></div></div>
-        </div>
-
+<!-- ════════════════════════════════════════════════
+     04 — LEARNING
+════════════════════════════════════════════════ -->
+<section id="learning">
+  <span class="side">04 / LEARNING</span>
+  <div class="w">
+    <div class="lh">
+      <div>
+        <span class="sn rv">04 — Currently</span>
+        <h2 class="st rv">What I'm<br/><span class="it">mastering.</span></h2>
       </div>
+      <p class="ls2 rv">Skills tracked in real-time. Percentages reflect current confidence. Always levelling up.</p>
     </div>
-  </section>
-
-
-  <!-- ════════════════════════════════════════════════════════
-       SECTION 05 — CONNECT
-       ════════════════════════════════════════════════════════ -->
-  <section id="connect">
-    <span class="side">05 / CONNECT</span>
-    <div class="w">
-
-      <span class="sn rv">05 — Find me</span>
-
-      <!-- ← EDIT: connect section big heading words -->
-      <h2 class="cb" id="ctitle">
-        <span class="ln"><span class="wd">Let's</span></span>
-        <span class="ln"><span class="wd it">connect.</span></span>
-      </h2>
-
-      <div class="pg rv">
-
-        <!-- ── GITHUB CARD ──────────────────────────────
-             ← EDIT: href, .pc-n, .pc-h, .pc-d, .pc-a label
-        ──────────────────────────────────────────────── -->
-        <a class="pc" href="https://github.com/DEvBOLT19" target="_blank" rel="noopener">
-          <svg class="pc-ic" width="28" height="28" viewBox="0 0 24 24">
-            <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
-          </svg>
-          <div class="pc-n">GitHub</div>
-          <!-- ← EDIT: your GitHub URL slug -->
-          <div class="pc-h">github.com/DEvBOLT19</div>
-          <!-- ← EDIT: card description -->
-          <p class="pc-d">9 repositories and counting. Check out ECLIPSE, VOID // BOLT, and everything else built from scratch. All the code lives here.</p>
-          <!-- ← EDIT: CTA label -->
-          <div class="pc-a">
-            View Profile
-            <svg width="14" height="9" viewBox="0 0 14 9" fill="none">
-              <path d="M1 4.5h12M8 1l3 3.5-3 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
-          </div>
-        </a>
-
-        <!-- ── DISCORD CARD ──────────────────────────────
-             ← EDIT: href to your discord profile link
-        ──────────────────────────────────────────────── -->
-        <a class="pc" href="https://discord.com/users/1465964458282188820" target="_blank" rel="noopener">
-          <svg class="pc-ic" width="28" height="28" viewBox="0 0 24 24">
-            <path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
-          </svg>
-          <div class="pc-n">Discord</div>
-          <!-- ← EDIT: your Discord username / ID display -->
-          <div class="pc-h">ID · 1465964458282188820</div>
-          <!-- ← EDIT: card description -->
-          <p class="pc-d">Open to collabs, feedback, and talking about code. Always building — always open to connect with other devs. DM to say hi.</p>
-          <div class="pc-a">
-            Add on Discord
-            <svg width="14" height="9" viewBox="0 0 14 9" fill="none">
-              <path d="M1 4.5h12M8 1l3 3.5-3 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
-          </div>
-        </a>
-
-      </div><!-- /profile grid -->
+    <div class="sk-list">
+      <!-- ← EDIT each row: --p = progress 0–1, .sk-p = label, .sk-n = name -->
+      <div class="sk rv" style="--p:0.72"><span class="sk-ix">01</span><div><div class="sk-n">Python</div><div class="sk-s">Core language · Scripts · Games · ML</div></div><span class="sk-p">72%</span><div class="sk-bw"><div class="sk-b"></div></div></div>
+      <div class="sk rv" style="--p:0.65"><span class="sk-ix">02</span><div><div class="sk-n">HTML</div><div class="sk-s">Semantic markup · Structure · Accessibility</div></div><span class="sk-p">65%</span><div class="sk-bw"><div class="sk-b"></div></div></div>
+      <div class="sk rv" style="--p:0.58"><span class="sk-ix">03</span><div><div class="sk-n">CSS</div><div class="sk-s">Layouts · Animations · Dark themes</div></div><span class="sk-p">58%</span><div class="sk-bw"><div class="sk-b"></div></div></div>
+      <div class="sk rv" style="--p:0.45"><span class="sk-ix">04</span><div><div class="sk-n">JavaScript</div><div class="sk-s">DOM · Events · Interactivity · Logic</div></div><span class="sk-p">45%</span><div class="sk-bw"><div class="sk-b"></div></div></div>
+      <div class="sk rv" style="--p:0.28"><span class="sk-ix">05</span><div><div class="sk-n">Machine Learning</div><div class="sk-s">Fundamentals · Models · Python libs</div></div><span class="sk-p">28%</span><div class="sk-bw"><div class="sk-b"></div></div></div>
+      <div class="sk rv" style="--p:0.55"><span class="sk-ix">06</span><div><div class="sk-n">Git &amp; GitHub</div><div class="sk-s">Version control · Repos · Open source</div></div><span class="sk-p">55%</span><div class="sk-bw"><div class="sk-b"></div></div></div>
     </div>
-  </section>
+  </div>
+</section>
 
 
-  <!-- ════════════════════════════════════════════════════════
-       FOOTER
-       ════════════════════════════════════════════════════════ -->
-  <footer>
-    <div class="w">
-      <hr class="rule" style="margin-bottom:28px"/>
-      <div class="fi">
-        <!-- ← EDIT: footer left text -->
-        <span class="fl">BOLT — Raghvendra Dodiya · India · 2025</span>
-        <!-- ← EDIT: footer right text -->
-        <span class="fr">Built in the void · devbolt19.github.io</span>
-      </div>
+<!-- ════════════════════════════════════════════════
+     05 — CONNECT
+════════════════════════════════════════════════ -->
+<section id="connect">
+  <span class="side">05 / CONNECT</span>
+  <div class="w">
+    <span class="sn rv">05 — Find me</span>
+
+    <!-- ← EDIT: heading words -->
+    <h2 class="cb" id="ctitle">
+      <span class="ln"><span class="wd">Let's</span></span>
+      <span class="ln"><span class="wd it">connect.</span></span>
+    </h2>
+
+    <div class="pg rv">
+
+      <!-- GitHub card — ← EDIT href / pc-h / pc-d -->
+      <a class="pc" href="https://github.com/DEvBOLT19" target="_blank" rel="noopener">
+        <svg class="pc-ic" width="28" height="28" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        <div class="pc-n">GitHub</div>
+        <div class="pc-h">github.com/DEvBOLT19</div>
+        <p class="pc-d">9 repositories and counting. ECLIPSE, VOID // BOLT, and everything else — all built from scratch. All the code lives here.</p>
+        <div class="pc-a">View Profile <svg width="14" height="9" viewBox="0 0 14 9" fill="none"><path d="M1 4.5h12M8 1l3 3.5-3 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      </a>
+
+      <!-- Discord card — ← EDIT href / pc-h / pc-d -->
+      <a class="pc" href="https://discord.com/users/1465964458282188820" target="_blank" rel="noopener">
+        <svg class="pc-ic" width="28" height="28" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+        <div class="pc-n">Discord</div>
+        <div class="pc-h">BOLT · #1465964458282188820</div>
+        <p class="pc-d">Open to collabs, feedback, and talking code. Always building — always open to connect. DM to say hi.</p>
+        <div class="pc-a">Add on Discord <svg width="14" height="9" viewBox="0 0 14 9" fill="none"><path d="M1 4.5h12M8 1l3 3.5-3 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+      </a>
+
     </div>
-  </footer>
+  </div>
+</section>
 
 
-  <script>
-  (() => {
-    'use strict';
+<!-- FOOTER — ← EDIT text -->
+<footer>
+  <div class="w">
+    <hr class="rule" style="margin-bottom:28px"/>
+    <div class="fi">
+      <span class="fl">BOLT — Raghvendra Dodiya · India · 2025</span>
+      <span class="fr">Built in the void · devbolt19.github.io</span>
+    </div>
+  </div>
+</footer>
 
-    /* ========================================================
-       CONFIG — edit these arrays / values to update content
-       ======================================================== */
 
-    // ← EDIT: words that scroll across the marquee strip
-    const MARQUEE_ITEMS = [
-      'Python', 'HTML', 'CSS', 'JavaScript', 'Machine Learning',
-      'Git', 'GitHub', 'VOID // BOLT', 'Dark Themes', 'Building from Zero', 'ECLIPSE',
-    ];
+<script>
+(() => {
+'use strict';
 
-    /* ========================================================
-       CURSOR — dot and ring are SEPARATE fixed elements.
-       The dot follows instantly; the ring lerps behind it.
-       This is the correct way — no parent/child nesting.
-       ======================================================== */
-    const dot  = document.getElementById('cur-dot');
-    const ring = document.getElementById('cur-ring');
+/* ════════════════════════════════════════════════════
+   CONFIG  ← EDIT this block to change site-wide values
+════════════════════════════════════════════════════ */
+const MARQUEE = [             // ← EDIT: words in the scrolling strip
+  'Python','HTML','CSS','JavaScript','Machine Learning',
+  'Git','GitHub','VOID // BOLT','Dark Themes','Building from Zero','ECLIPSE',
+];
 
-    // Current mouse position (dot snaps here instantly)
-    let mx = window.innerWidth  / 2;
-    let my = window.innerHeight / 2;
+// ← EDIT: section IDs in order — must match section id="" attributes
+const SECTIONS = ['home','about','projects','learning','connect'];
 
-    // Ring's lagging position
-    let rx = mx;
-    let ry = my;
+/* ════════════════════════════════════════════════════
+   SCROLL PROGRESS BAR
+════════════════════════════════════════════════════ */
+const prog = document.getElementById('prog');
+window.addEventListener('scroll', () => {
+  const pct = window.scrollY / (document.documentElement.scrollHeight - innerHeight) * 100;
+  prog.style.width = pct + '%';
+}, { passive: true });
 
-    // Move dot instantly on every mouse move
-    document.addEventListener('mousemove', e => {
-      mx = e.clientX;
-      my = e.clientY;
-      dot.style.left = mx + 'px';
-      dot.style.top  = my + 'px';
-    });
+/* ════════════════════════════════════════════════════
+   PAGE TRANSITION — ink wipe on nav click
+   A (dark) sweeps in → scroll jumps → A sweeps out
+════════════════════════════════════════════════════ */
+const ta = document.getElementById('ta');
+let busy = false;
 
-    // Ring lerps toward mouse position every frame
-    (function ringLoop() {
-      rx += (mx - rx) * 0.10;
-      ry += (my - ry) * 0.10;
-      ring.style.left = rx + 'px';
-      ring.style.top  = ry + 'px';
-      requestAnimationFrame(ringLoop);
-    })();
+window.go = function(sel) {
+  const target = document.querySelector(sel);
+  if (!target || busy) return;
 
-    // Grow ring + turn red when hovering interactive elements
-    document.querySelectorAll('a, button, .pc, .sk, .pr').forEach(el => {
-      el.addEventListener('mouseenter', () => document.body.classList.add('cur-hover'));
-      el.addEventListener('mouseleave', () => document.body.classList.remove('cur-hover'));
-    });
+  // plain smooth scroll for hero CTA (same-page, no flash needed)
+  if (sel === '#projects' && window.scrollY < 100) {
+    target.scrollIntoView({ behavior: 'smooth' });
+    return;
+  }
 
-    /* ========================================================
-       SMOOTH SCROLL helper used by nav buttons
-       ======================================================== */
-    window.gt = sel => {
-      const el = document.querySelector(sel);
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    };
-
-    /* ========================================================
-       NAV — hide on scroll down, show on scroll up
-       ======================================================== */
-    const nav = document.getElementById('nav');
-    const nbs = document.querySelectorAll('.nb');
-    let lastScroll = 0;
-
-    window.addEventListener('scroll', () => {
-      const y = window.scrollY;
-      // Hide nav when scrolling down past 100px
-      nav.classList.toggle('off', y > lastScroll && y > 100);
-      lastScroll = y;
-
-      // Highlight correct nav button for current section
-      ['home', 'about', 'projects', 'learning', 'connect'].forEach((id, i) => {
-        const el = document.getElementById(id);
-        if (!el) return;
-        const r = el.getBoundingClientRect();
-        if (r.top <= 110 && r.bottom > 110) {
-          nbs.forEach(b => b.classList.remove('on'));
-          if (nbs[i]) nbs[i].classList.add('on');
-        }
-      });
-    });
-
-    /* ========================================================
-       BUILD MARQUEE from MARQUEE_ITEMS array
-       ======================================================== */
-    const mt = document.getElementById('mt');
-    // Double the items so the loop is seamless
-    [...MARQUEE_ITEMS, ...MARQUEE_ITEMS].forEach(t => {
-      const s = document.createElement('span');
-      s.className = 'mi';
-      s.innerHTML = `<span class="s">✦</span>${t}`;
-      mt.appendChild(s);
-    });
-
-    /* ========================================================
-       THREE.JS — subtle wireframe spheres + lines on background
-       ======================================================== */
-    const canvas   = document.getElementById('cv');
-    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-    renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
-    renderer.setSize(innerWidth, innerHeight);
-
-    const scene  = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(55, innerWidth / innerHeight, 0.1, 200);
-    camera.position.set(0, 0, 28);
-
-    // Helper: wireframe material
-    const wm = () => new THREE.MeshBasicMaterial({
-      color: 0x0c0c0c, wireframe: true, transparent: true, opacity: 1
-    });
-
-    // Large icosahedron — right side
-    const s1 = new THREE.Mesh(new THREE.IcosahedronGeometry(8.5, 2), wm());
-    s1.position.set(13, -1, -2);
-    scene.add(s1);
-
-    // Medium icosahedron — left side
-    const s2 = new THREE.Mesh(new THREE.IcosahedronGeometry(4.5, 1), wm());
-    s2.position.set(-15, 5, -6);
-    scene.add(s2);
-
-    // Small octahedron — top
-    const s3mat = wm(); s3mat.opacity = 0.5;
-    const s3 = new THREE.Mesh(new THREE.OctahedronGeometry(2.5, 0), s3mat);
-    s3.position.set(4, 9, -12);
-    scene.add(s3);
-
-    // Sparse floating lines
-    const lm = new THREE.LineBasicMaterial({ color: 0x0c0c0c, transparent: true, opacity: 0.16 });
-    for (let i = 0; i < 14; i++) {
-      const pts = [
-        new THREE.Vector3((Math.random()-.5)*70, (Math.random()-.5)*55, (Math.random()-.5)*22),
-        new THREE.Vector3((Math.random()-.5)*70, (Math.random()-.5)*55, (Math.random()-.5)*22),
-      ];
-      scene.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), lm));
+  busy = true;
+  // Sweep dark panel IN from left
+  gsap.fromTo(ta,
+    { scaleX: 0, transformOrigin: 'left' },
+    { scaleX: 1, duration: 0.38, ease: 'power3.inOut',
+      onComplete() {
+        // Jump while hidden
+        target.scrollIntoView({ behavior: 'instant' });
+        // Sweep dark panel OUT to right
+        gsap.fromTo(ta,
+          { scaleX: 1, transformOrigin: 'right' },
+          { scaleX: 0, duration: 0.38, ease: 'power3.inOut',
+            onComplete() { busy = false; }
+          }
+        );
+      }
     }
+  );
+};
 
-    // Mouse parallax targets
-    let tParX = 0, tParY = 0, cParX = 0, cParY = 0, tick = 0;
-    document.addEventListener('mousemove', e => {
-      tParX = (e.clientX / innerWidth  - 0.5) *  0.28;
-      tParY = (e.clientY / innerHeight - 0.5) * -0.14;
-    });
+/* ════════════════════════════════════════════════════
+   CURSOR — dot snaps instantly, ring lerps
+════════════════════════════════════════════════════ */
+const dot  = document.getElementById('cdot');
+const ring = document.getElementById('cring');
+let mx = innerWidth / 2, my = innerHeight / 2;
+let rx = mx, ry = my;
 
-    // Render loop
-    (function frame() {
-      requestAnimationFrame(frame);
-      tick += 0.005;
-      cParX += (tParX - cParX) * 0.04;
-      cParY += (tParY - cParY) * 0.04;
-      camera.rotation.y = cParX;
-      camera.rotation.x = cParY;
-      s1.rotation.y = tick * 0.16; s1.rotation.x = tick * 0.08;
-      s2.rotation.y = -tick * 0.11; s2.rotation.z = tick * 0.05;
-      s3.rotation.x = tick * 0.18;  s3.rotation.y = tick * 0.12;
-      renderer.render(scene, camera);
-    })();
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  dot.style.left = mx + 'px';
+  dot.style.top  = my + 'px';
+});
+(function rl() {
+  rx += (mx - rx) * .10;
+  ry += (my - ry) * .10;
+  ring.style.left = rx + 'px';
+  ring.style.top  = ry + 'px';
+  requestAnimationFrame(rl);
+})();
+document.querySelectorAll('a,button,.pc,.sk,.pr').forEach(el => {
+  el.addEventListener('mouseenter', () => document.body.classList.add('ch'));
+  el.addEventListener('mouseleave', () => document.body.classList.remove('ch'));
+});
 
-    window.addEventListener('resize', () => {
-      camera.aspect = innerWidth / innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(innerWidth, innerHeight);
-    });
+/* ════════════════════════════════════════════════════
+   NAV — hide/show + active highlight
+════════════════════════════════════════════════════ */
+const nav = document.getElementById('nav');
+const nbs = [...document.querySelectorAll('.nb')];
+let lastY = 0;
+window.addEventListener('scroll', () => {
+  const y = scrollY;
+  nav.classList.toggle('off', y > lastY && y > 100);
+  lastY = y;
+  SECTIONS.forEach((id, i) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    if (r.top <= 110 && r.bottom > 110) {
+      nbs.forEach(b => b.classList.remove('on'));
+      if (nbs[i]) nbs[i].classList.add('on');
+    }
+  });
+}, { passive: true });
 
-    /* ========================================================
-       GSAP — hero entrance animation
-       ======================================================== */
-    gsap.registerPlugin(ScrollTrigger);
+/* ════════════════════════════════════════════════════
+   MARQUEE
+════════════════════════════════════════════════════ */
+const mt = document.getElementById('mt');
+[...MARQUEE, ...MARQUEE].forEach(t => {
+  const s = document.createElement('span');
+  s.className = 'mi';
+  s.innerHTML = `<span class="s">✦</span>${t}`;
+  mt.appendChild(s);
+});
 
-    const tl = gsap.timeline({ delay: 0.15 });
-    tl.to('#logo',     { opacity: 1, duration: .6, ease: 'power2.out' }, 0)
-      .to('#hp',       { opacity: 1, y: 0, duration: .7, ease: 'power3.out' }, '.3')
-      .to('#hh .wd',   { y: '0%', duration: 1.1, stagger: .11, ease: 'power4.out' }, '.4')
-      .to('#hs',       { opacity: 1, duration: .8, ease: 'power2.out' }, '.9')
-      .to('#hc',       { opacity: 1, duration: .6, ease: 'power2.out' }, '1.1')
-      .to('#sc',       { opacity: 1, duration: .5, ease: 'power2.out' }, '1.3')
-      .call(() => document.getElementById('sl').classList.add('go'), [], '1.45');
+/* ════════════════════════════════════════════════════
+   THREE.JS — subtle wireframe spheres on bg
+════════════════════════════════════════════════════ */
+const cv = document.getElementById('cv');
+const renderer = new THREE.WebGLRenderer({ canvas: cv, alpha: true, antialias: true });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.setSize(innerWidth, innerHeight);
+const scene  = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(55, innerWidth / innerHeight, .1, 200);
+camera.position.set(0, 0, 28);
+const wm = () => new THREE.MeshBasicMaterial({ color: 0x0c0c0c, wireframe: true, transparent: true, opacity: 1 });
+const s1 = new THREE.Mesh(new THREE.IcosahedronGeometry(8.5, 2), wm());
+s1.position.set(13, -1, -2); scene.add(s1);
+const s2 = new THREE.Mesh(new THREE.IcosahedronGeometry(4.5, 1), wm());
+s2.position.set(-15, 5, -6); scene.add(s2);
+const s3m = wm(); s3m.opacity = .5;
+const s3 = new THREE.Mesh(new THREE.OctahedronGeometry(2.5, 0), s3m);
+s3.position.set(4, 9, -12); scene.add(s3);
+const lm = new THREE.LineBasicMaterial({ color: 0x0c0c0c, transparent: true, opacity: .16 });
+for (let i = 0; i < 14; i++) {
+  const pts = [
+    new THREE.Vector3((Math.random()-.5)*70, (Math.random()-.5)*55, (Math.random()-.5)*22),
+    new THREE.Vector3((Math.random()-.5)*70, (Math.random()-.5)*55, (Math.random()-.5)*22),
+  ];
+  scene.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), lm));
+}
+let tpx=0,tpy=0,cpx=0,cpy=0,tick=0;
+document.addEventListener('mousemove', e => {
+  tpx = (e.clientX/innerWidth  - .5) *  .28;
+  tpy = (e.clientY/innerHeight - .5) * -.14;
+});
+(function fl() {
+  requestAnimationFrame(fl); tick += .005;
+  cpx += (tpx-cpx)*.04; cpy += (tpy-cpy)*.04;
+  camera.rotation.y = cpx; camera.rotation.x = cpy;
+  s1.rotation.y = tick*.16; s1.rotation.x = tick*.08;
+  s2.rotation.y = -tick*.11; s2.rotation.z = tick*.05;
+  s3.rotation.x = tick*.18; s3.rotation.y = tick*.12;
+  renderer.render(scene, camera);
+})();
+window.addEventListener('resize', () => {
+  camera.aspect = innerWidth / innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(innerWidth, innerHeight);
+});
 
-    /* ========================================================
-       GSAP — scroll reveal for .rv elements
-       ======================================================== */
-    document.querySelectorAll('.rv').forEach((el, i) => {
-      gsap.fromTo(el,
-        { opacity: 0, y: 36 },
-        {
-          opacity: 1, y: 0, duration: .88, ease: 'power3.out',
-          delay: (i % 4) * 0.06,
-          scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' }
-        }
-      );
-    });
+/* ════════════════════════════════════════════════════
+   GSAP — hero entrance
+════════════════════════════════════════════════════ */
+gsap.registerPlugin(ScrollTrigger);
+gsap.timeline({ delay: .15 })
+  .to('#logo',   { opacity:1, duration:.6, ease:'power2.out' }, 0)
+  .to('#hp',     { opacity:1, y:0, duration:.7, ease:'power3.out' }, '.3')
+  .to('#hh .wd', { y:'0%', duration:1.1, stagger:.11, ease:'power4.out' }, '.4')
+  .to('#hs',     { opacity:1, duration:.8, ease:'power2.out' }, '.9')
+  .to('#hc',     { opacity:1, duration:.6, ease:'power2.out' }, '1.1')
+  .to('#sc',     { opacity:1, duration:.5, ease:'power2.out' }, '1.3')
+  .call(() => document.getElementById('sl').classList.add('go'), [], '1.45');
 
-    // Connect section big title word-by-word reveal
-    gsap.to('#ctitle .wd', {
-      y: '0%', duration: 1, stagger: .12, ease: 'power4.out',
-      scrollTrigger: { trigger: '#ctitle', start: 'top 78%', toggleActions: 'play none none none' }
-    });
+/* scroll reveals */
+document.querySelectorAll('.rv').forEach((el, i) => {
+  gsap.fromTo(el, { opacity:0, y:36 }, {
+    opacity:1, y:0, duration:.88, ease:'power3.out', delay:(i%4)*.06,
+    scrollTrigger: { trigger:el, start:'top 88%', toggleActions:'play none none none' }
+  });
+});
+gsap.to('#ctitle .wd', {
+  y:'0%', duration:1, stagger:.12, ease:'power4.out',
+  scrollTrigger: { trigger:'#ctitle', start:'top 78%', toggleActions:'play none none none' }
+});
 
-    /* ========================================================
-       SKILL BARS — animate in when row enters viewport
-       ======================================================== */
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
-    }, { threshold: 0.3 });
-    document.querySelectorAll('.sk').forEach(r => io.observe(r));
+/* skill bars */
+const sio = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting) e.target.classList.add('vis'); }), { threshold:.3 });
+document.querySelectorAll('.sk').forEach(r => sio.observe(r));
 
-    /* ========================================================
-       STAT COUNTERS — count up when scrolled into view
-       ======================================================== */
-    document.querySelectorAll('.sn2[data-t]').forEach(el => {
-      const target = +el.dataset.t;
-      ScrollTrigger.create({
-        trigger: el, start: 'top 85%',
-        onEnter: () => {
-          gsap.to({ v: 0 }, {
-            v: target, duration: 1.5, ease: 'power2.out',
-            onUpdate() { el.textContent = Math.round(this.targets()[0].v); }
-          });
-        }
-      });
-    });
+/* stat counters */
+document.querySelectorAll('.sn2[data-t]').forEach(el => {
+  ScrollTrigger.create({ trigger:el, start:'top 85%', onEnter() {
+    gsap.to({v:0},{v:+el.dataset.t, duration:1.5, ease:'power2.out',
+      onUpdate(){ el.textContent = Math.round(this.targets()[0].v); }});
+  }});
+});
 
-    /* ========================================================
-       MAGNETIC BUTTONS — slight drift toward cursor on hover
-       ======================================================== */
-    document.querySelectorAll('.btn, .sb').forEach(b => {
-      b.addEventListener('mousemove', e => {
-        const r  = b.getBoundingClientRect();
-        const dx = (e.clientX - r.left - r.width  / 2) * 0.16;
-        const dy = (e.clientY - r.top  - r.height / 2) * 0.16;
-        b.style.transform = `translate(${dx}px, ${dy}px)`;
-      });
-      b.addEventListener('mouseleave', () => { b.style.transform = ''; });
-    });
+/* magnetic buttons */
+document.querySelectorAll('.btn,.sb').forEach(b => {
+  b.addEventListener('mousemove', e => {
+    const r = b.getBoundingClientRect();
+    b.style.transform = `translate(${(e.clientX-r.left-r.width/2)*.16}px,${(e.clientY-r.top-r.height/2)*.16}px)`;
+  });
+  b.addEventListener('mouseleave', () => { b.style.transform = ''; });
+});
 
-  })();
-  </script>
+})();
+</script>
 </body>
 </html>
