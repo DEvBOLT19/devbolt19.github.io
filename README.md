@@ -1,9 +1,9 @@
-🧱 PHASE 1 — CORE FOUNDATION (Day 1–20)
-🎯 Goal: Absolute clarity + zero confusion later
-📅 Day 1
+# 🧱 PHASE 1 — CORE FOUNDATION (Day 1–20)
+## 🎯 Goal: Absolute clarity + zero confusion later
+```📅 Day 1
 How Python works (interpreter, execution)
 Running scripts, REPL
-Variables, dynamic typing
+Variables, dynamic typing```
 📅 Day 2
 Data types (int, float, bool, str)
 Memory references (id, type)
