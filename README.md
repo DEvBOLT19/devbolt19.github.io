@@ -1,9 +1,9 @@
 # 🧱 PHASE 1 — CORE FOUNDATION (Day 1–20)
 ## 🎯 Goal: Absolute clarity + zero confusion later
-```📅 Day 1
+📅 Day 1
 How Python works (interpreter, execution)
 Running scripts, REPL
-Variables, dynamic typing```
+Variables, dynamic typing 
 📅 Day 2
 Data types (int, float, bool, str)
 Memory references (id, type)
@@ -63,7 +63,7 @@ LEGB rule
 📅 Day 20 🔁 REVISION
 Revise EVERYTHING deeply
 Fix weak areas
-⚙️ PHASE 2 — CORE FEATURES (Day 21–40)
+## ⚙️ PHASE 2 — CORE FEATURES (Day 21–40)
 📅 Day 21–22
 File handling (FULL)
 text + binary
