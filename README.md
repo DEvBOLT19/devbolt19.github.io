@@ -57,6 +57,7 @@
 - REPL vs scripts✅
 - Variables, dynamic typing✅
 - `print`, `input` basics✅
+- typecasting ✅
 
 ### 📅 Day 2 — Data Types + Memory
 - `int`, `float`, `bool`, `str`
