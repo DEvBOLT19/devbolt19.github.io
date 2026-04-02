@@ -1,4 +1,4 @@
-# 🐍🤖 300-Day Python → ML Engineer Roadmap
+# 🐍🤖 360-Day Python → ML Engineer Roadmap
 ### Goal: Computer Vision + NLP/LLM Engineer
 ### Daily Commitment: 3–4 hours/day
 
@@ -18,19 +18,32 @@
 | 3 | OOP + Advanced Python | 46–70 |
 | 4 | Python Internals + Concurrency | 71–90 |
 | 5 | Dev Tooling + Packaging | 91–100 |
-| 6 | Math + DSA in Pure Python | 101–125 |
-| 7 | NumPy ⭐ | 126–140 |
-| 8 | Pandas ⭐ | 141–155 |
-| 9 | Data Visualization | 156–163 |
-| 10 | Scikit-learn + Classical ML | 164–185 |
-| 11 | PyTorch ⭐🔥 | 186–220 |
-| 12 | Computer Vision (OpenCV + PyTorch) ⭐ | 221–250 |
-| 13 | NLP + LLMs ⭐🔥 | 251–280 |
-| 14 | ML Engineering + Deployment | 281–295 |
-| 15 | Final Capstone Projects | 296–300 |
+| 6 | Math Foundation (NEW) 🔥 | 101–120 |
+| 7 | DSA in Pure Python | 121–140 |
+| 8 | SQL (NEW) 🔥 | 141–144 |
+| 9 | Jupyter + Colab + `requests` (NEW) | 145–148 |
+| 10 | NumPy ⭐ | 149–163 |
+| 11 | `scipy` basics (NEW) | 164–166 |
+| 12 | Pandas ⭐ | 167–181 |
+| 13 | `polars` basics (NEW) ⭐ | 182–184 |
+| 14 | Data Visualization | 185–192 |
+| 15 | Scikit-learn + Classical ML | 193–214 |
+| 16 | PyTorch ⭐🔥 | 215–252 |
+| 17 | `einops` (NEW) ⭐ | 253–254 |
+| 18 | Computer Vision (OpenCV + PyTorch) ⭐ | 255–284 |
+| 19 | `timm` deep (NEW) ⭐ | 285–286 |
+| 20 | CV Evaluation deep (NEW) 🔥 | 287–289 |
+| 21 | Stable Diffusion deep (NEW) ⭐🔥 | 290–293 |
+| 22 | Audio + Whisper (NEW) ⭐ | 294–296 |
+| 23 | NLP + LLMs ⭐🔥 | 297–326 |
+| 24 | Retrieval Systems deep (NEW) ⭐🔥 | 327–329 |
+| 25 | RLHF + DPO (NEW) ⭐🔥 | 330–333 |
+| 26 | LLM Evaluation (NEW) ⭐ | 334–335 |
+| 27 | ML Engineering + Deployment | 336–350 |
+| 28 | Paper Reading + Implementation (NEW) 🔥 | 351–354 |
+| 29 | Final Capstone Projects | 355–360 |
 
 ---
-
 ---
 
 # 🧱 PHASE 1 — CORE PYTHON FOUNDATION (Day 1–20)
@@ -39,8 +52,8 @@
 ---
 
 ### 📅 Day 1 — How Python Works
-- How the interpreter runs your code ✅ 
-- Bytecode overview (`.pyc`)
+- How the interpreter runs your code ✅
+- Bytecode overview (`.pyc`) 
 - REPL vs scripts
 - Variables, dynamic typing
 - `print`, `input` basics
@@ -68,8 +81,8 @@
 - Raw strings, escape characters
 
 ### 📅 Day 5 — Strings (Part 2)
-- All string methods (`upper`, `lower`, `strip`, `split`, `join`, `replace`, `find`, `count`, etc.)
-- f-strings (deep) ⭐
+- All string methods
+- f-strings deep ⭐
 - String formatting (`.format()`, `%`)
 - Encoding basics (UTF-8, ASCII)
 - `encode()`, `decode()`
@@ -106,7 +119,7 @@
 - `for` loops — iteration model
 - `while` loops
 - `break`, `continue`, `pass`
-- `else` on loops (underused feature)
+- `else` on loops
 - `range()` internals
 - Nested loops + performance awareness
 
@@ -158,7 +171,7 @@
 ### 📅 Day 17 — Lambda + Closures 🔥
 - Lambda functions — limits and anti-patterns
 - Closures — what they capture
-- LEGB rule (Local, Enclosing, Global, Built-in)
+- LEGB rule
 - `nonlocal`, `global`
 - Cell variables
 
@@ -174,11 +187,9 @@
 - `raise`, `raise from`
 - Exception chaining
 - Warnings (`warnings` module)
-- Best practices for error handling
+- Best practices
 
 ### 📅 Day 20 🔁 — REVISION + MINI PROJECT
-- Revise Days 1–19 deeply
-- Fix all weak areas
 
 ### 🛠️ PROJECT 1: Pure Python CLI Calculator
 - OOP based
@@ -187,7 +198,6 @@
 - Uses: functions, loops, exceptions, f-strings
 
 ---
-
 ---
 
 # ⚙️ PHASE 2 — CORE PYTHON FEATURES (Day 21–45)
@@ -203,8 +213,7 @@
 
 ### 📅 Day 22 — Python Execution Model
 - Bytecode compilation
-- `.pyc` files
-- `__pycache__`
+- `.pyc` files, `__pycache__`
 - `compile()`, `exec()`, `eval()`
 - Code objects intro
 
@@ -213,7 +222,7 @@
 - Text vs binary files
 - `read()`, `readline()`, `readlines()`
 - `write()`, `writelines()`
-- `with` statement (context manager preview)
+- `with` statement preview
 
 ### 📅 Day 24 — File Handling (Part 2)
 - `seek()`, `tell()`
@@ -224,24 +233,24 @@
 
 ### 📅 Day 25 — Filesystem (`os`, `pathlib`) ⭐
 - `os.path` basics
-- `pathlib.Path` (modern standard) ⭐🔥
+- `pathlib.Path` ⭐🔥
 - File/directory operations
 - `shutil` — copy, move, delete
-- `tempfile` — temp files/dirs
+- `tempfile`
 - Glob patterns
 
 ### 📅 Day 26 — `os`, `sys`, `subprocess`
-- `os.environ` — environment variables
+- `os.environ`
 - `os.getcwd()`, `os.listdir()`
 - `sys.argv`, `sys.exit`, `sys.path`
-- `subprocess` — running shell commands
+- `subprocess`
 - `signal` module basics
 
 ### 📅 Day 27 — `collections` Module 🔥
 - `Counter`
 - `defaultdict`
 - `OrderedDict`
-- `deque` (double-ended queue)
+- `deque`
 - `namedtuple`
 - `ChainMap`
 
@@ -263,7 +272,7 @@
 ### 📅 Day 30 — Generators (Part 1) 🔥
 - `yield` deep
 - Generator functions vs regular functions
-- Lazy evaluation — why it matters
+- Lazy evaluation
 - `next()`, `StopIteration`
 - Generator state
 
@@ -275,73 +284,70 @@
 - Pipelines with generators
 
 ### 📅 Day 32 — Regex (`re`) 🔥
-- Basic patterns (`\d`, `\w`, `\s`, `.`, `*`, `+`, `?`)
+- Basic patterns
 - Groups, named groups
 - Lookahead, lookbehind
 - `re.match`, `re.search`, `re.findall`, `re.sub`
-- Compiled patterns
-- Flags
+- Compiled patterns, flags
+- Regex for text preprocessing (NLP preview)
 
 ### 📅 Day 33 — Serialization 🔥
-- JSON (`json` module) deep
-- `json.dumps`, `json.loads`, custom encoders
+- JSON deep — `dumps`, `loads`, custom encoders
 - Pickle — how it works + security risks 🔥
 - `struct` — binary data packing
-- `marshal` — bytecode serialization
+- `marshal`
 
 ### 📅 Day 34 — Date, Time, Math
-- `datetime` — dates, times, timedelta
-- `time` — timestamps, sleep
-- `calendar`
-- `math` module — all important functions
+- `datetime`, `time`, `calendar`
+- `math` module
 - `statistics` module
 - `decimal` — precision handling 🔥
 - Floating point behavior 🔥
 
 ### 📅 Day 35 — `random` + `secrets`
 - `random` module deep
-- `secrets` — cryptographically secure random ⭐
-- `hashlib` — hashing (MD5, SHA256)
-- `hmac` — message authentication
+- `secrets` ⭐
+- `hashlib`
+- `hmac`
 - Timing attacks + `hmac.compare_digest` 🔥
 
 ### 📅 Day 36 — CLI Tools
 - `sys.argv` deep
-- `argparse` — full usage 🔥
-- Subcommands, types, defaults, help
-- `configparser` — config files
-- `tomllib` ⭐ — modern config (Python 3.11+)
+- `argparse` full usage 🔥
+- Subcommands, types, defaults
+- `configparser`
+- `tomllib` ⭐
 
-### 📅 Day 37 — `urllib` (Pure Python HTTP)
-- `urllib.request` — making HTTP requests
-- `urllib.parse` — URL parsing
-- `urllib.error` — error handling
-- JSON APIs with urllib
-- HTTP concepts (GET, POST, headers, status codes)
+### 📅 Day 37 — `requests` + `httpx` (NEW) ⭐🔥
+- `requests` — GET, POST, headers, params
+- Downloading datasets with `requests`
+- Calling REST APIs (HuggingFace, OpenAI)
+- `httpx` — async HTTP client ⭐
+- Error handling in HTTP calls
+- JSON response handling
 
 ### 📅 Day 38 — `sqlite3` 🔥
 - Connecting, creating tables
 - CRUD operations
-- Parameterized queries (SQL injection prevention)
+- Parameterized queries
 - Transactions
 - Row factories
-- `executemany`, bulk inserts
+- `executemany`
 
 ### 📅 Day 39 — `enum`, `dataclasses` deep ⭐
 - `enum.Enum`, `IntEnum`, `Flag`
-- `dataclasses` — `@dataclass`
+- `@dataclass`
 - `field()`, `__post_init__`
 - Frozen dataclasses
-- `dataclasses` vs `namedtuple` vs plain class
+- `dataclasses` vs `namedtuple`
 
 ### 📅 Day 40 — `typing` Module ⭐🔥
 - Basic annotations
 - `List`, `Dict`, `Tuple`, `Optional`, `Union`
-- `Any`, `Callable`
 - `TypeVar`, generics ⭐
 - `Protocol` ⭐🔥
 - `Literal`, `Final`, `ClassVar`
-- `ParamSpec`, `TypeVarTuple` ⭐
+- `ParamSpec` ⭐
 - `Annotated`, `Self` ⭐
 - `TypeGuard`, `Overload`
 
@@ -359,14 +365,12 @@
 - `inspect.getmembers`
 - `dir()`, `getattr()`, `setattr()`, `hasattr()`
 - `vars()`, `__dict__`
-- `callable()`
 
 ### 📅 Day 43 — `logging` Module 🔥
 - Logger, Handler, Formatter
 - Log levels
 - File + console handlers
 - Structured logging ⭐
-- `logging.config`
 - Best practices
 
 ### 📅 Day 44 — `unittest` + `pytest` 🔥
@@ -375,20 +379,18 @@
 - `pytest` basics ⭐
 - Fixtures, parametrize
 - Coverage intro
-- TDD mindset
 
 ### 📅 Day 45 🔁 — REVISION + PROJECT
 
 ### 🛠️ PROJECT 2: OOP Task Manager
 - Full CRUD with `sqlite3`
 - `dataclasses` for models
-- `argparse` CLI interface
+- `argparse` CLI
 - `logging` for all actions
 - `unittest` tests
 - `pathlib` for file ops
 
 ---
-
 ---
 
 # 🧠 PHASE 3 — OOP + ADVANCED PYTHON (Day 46–70)
@@ -411,7 +413,7 @@
 
 ### 📅 Day 48 — Method Types 🔥
 - Instance methods
-- `@classmethod` — `cls`
+- `@classmethod`
 - `@staticmethod`
 - When to use each
 - `__new__` vs `__init__` 🔥
@@ -425,30 +427,29 @@
 
 ### 📅 Day 50 — Inheritance (Part 2) + MRO 🔥
 - Multiple inheritance
-- MRO (Method Resolution Order) — C3 linearization 🔥
+- MRO — C3 linearization 🔥
 - Diamond problem
 - `__mro__`
 - Mixin pattern 🔥
 
 ### 📅 Day 51 — Polymorphism + Duck Typing 🔥
 - Method overriding
-- Operator overloading (`__add__`, `__mul__`, etc.)
+- Operator overloading
 - Duck typing philosophy
-- `__call__` — callable objects
+- `__call__`
 - `__init_subclass__` ⭐
 
 ### 📅 Day 52 — Encapsulation + Properties 🔥
-- Public, protected, private (`_`, `__`)
+- Public, protected, private
 - Name mangling
 - `@property` 🔥
 - `@setter`, `@deleter`
-- `__slots__` — memory optimization 🔥
+- `__slots__` 🔥
 
 ### 📅 Day 53 — Abstraction 🔥
 - `abc` module
 - `ABC`, `ABCMeta`
 - `@abstractmethod`
-- `@abstractproperty`
 - Abstract class patterns
 - Composition vs inheritance 🔥
 
@@ -458,11 +459,10 @@
 - `__get__`, `__set__`, `__delete__`
 - `__set_name__` ⭐🔥
 - How `@property` works internally
-- How `@classmethod` works internally
 
 ### 📅 Day 55 — Decorators (Part 1) 🔥
-- Decorator basics — functions wrapping functions
-- `@wraps` — preserving metadata
+- Decorator basics
+- `@wraps`
 - Stacking decorators
 - Decorators with arguments
 - Class-based decorators 🔥
@@ -472,7 +472,7 @@
 - `@staticmethod`, `@classmethod` internals
 - `@lru_cache`, `@cache` ⭐
 - `@dataclass` internals
-- Real-world decorator patterns
+- Real-world patterns
 
 ### 📅 Day 57 — Metaclasses 🔥
 - What metaclasses are
@@ -480,14 +480,12 @@
 - Custom metaclass
 - `__prepare__` 🔥
 - `__build_class__` 🔥
-- When to use metaclasses
 
 ### 📅 Day 58 — Object Model Deep 🔥
 - `__getattr__` vs `__getattribute__` 🔥
 - `__setattr__`, `__delattr__`
 - `__dict__` vs `__slots__`
 - `__del__` finalizers
-- `__new__` deep
 - Object lifecycle
 
 ### 📅 Day 59 — Design Patterns (Pythonic) 🔥
@@ -506,8 +504,7 @@
 - Custom `Model` base class with metaclass
 - Descriptors for field definitions
 - `sqlite3` backend
-- `SELECT`, `INSERT`, `UPDATE`, `DELETE`
-- Relationships (ForeignKey concept)
+- Full CRUD + relationships
 - Query chaining API
 
 ---
@@ -516,42 +513,36 @@
 - Custom iterators
 - Infinite iterators
 - Chaining iterables
-- `itertools` combinations with generators
 - Memory-efficient pipelines
 
 ### 📅 Day 62 — Advanced Generators 🔥
 - Coroutines via generators
 - `yield from` deep ⭐
 - Generator-based state machines
-- Pipelines
 - `throw()` and `close()` patterns
 
 ### 📅 Day 63 — Advanced Closures + Scoping
 - Cell variables deep
-- Late binding in closures 🔥 (classic bug)
+- Late binding in closures 🔥
 - `nonlocal` patterns
 - Factory functions
-- Partial application
 
 ### 📅 Day 64 — Advanced Type System ⭐🔥
-- `Protocol` deep — structural subtyping
+- `Protocol` deep
 - `TypeVar` bounds + constraints
 - Generic classes
 - `overload` decorator
 - `mypy` — running type checks
-- `pyright` intro
 
 ### 📅 Day 65 — `__future__` + Compatibility ⭐
 - `from __future__ import annotations`
 - PEP 563 vs PEP 649 ⭐
 - Python version differences
-- `sys.version_info`
 - Compatibility patterns
 
 ### 📅 Day 66 — Advanced `dataclasses` ⭐
 - `__post_init__` patterns
-- `InitVar`
-- `KW_ONLY` ⭐
+- `InitVar`, `KW_ONLY` ⭐
 - `field(default_factory=)`
 - Inheritance with dataclasses
 - `dataclasses.replace()`
@@ -559,11 +550,10 @@
 ### 📅 Day 67 — Advanced Error Handling
 - Exception groups ⭐ (Python 3.11+)
 - `ExceptionGroup`, `except*` ⭐🔥
-- `BaseExceptionGroup`
 - Error handling strategies
 - Retry patterns
 
-### 📅 Day 68 — Advanced `collections` + Data Structures
+### 📅 Day 68 — Advanced Data Structures
 - Implementing linked list
 - Stack, queue from scratch
 - Binary search tree
@@ -571,24 +561,21 @@
 - `heapq` module
 
 ### 📅 Day 69 — `weakref` + Memory Patterns
-- Weak references — why they exist
+- Weak references
 - `weakref.ref`, `WeakValueDictionary`
 - Circular references
-- `__del__` and garbage collection interaction
 - Observer pattern with weakrefs
 
 ### 📅 Day 70 🔁 — REVISION + PROJECT
 
 ### 🛠️ PROJECT 4: Design Patterns Showcase
-- Implement 5 design patterns in one project
 - Event system (Observer)
 - Plugin system (Factory + Registry)
 - Configuration system (Singleton + Strategy)
-- Full type hints throughout
-- `pytest` tests for all patterns
+- Full type hints
+- `pytest` tests
 
 ---
-
 ---
 
 # 🧬 PHASE 4 — INTERNALS + CONCURRENCY (Day 71–90)
@@ -598,7 +585,6 @@
 ### 📅 Day 71 — Memory Management 🔥
 - Reference counting deep
 - `sys.getrefcount()`
-- `ctypes.c_long.from_address(id(obj))`
 - Object size (`sys.getsizeof`)
 - Memory layout of Python objects
 
@@ -606,143 +592,111 @@
 - `gc` module deep
 - Cyclic garbage collector
 - Generations (0, 1, 2)
-- `gc.collect()`, `gc.disable()`
-- `tracemalloc` — memory profiling ⭐
+- `tracemalloc` ⭐
 - Finding memory leaks
 
 ### 📅 Day 73 — Python Object Model 🔥
 - Everything is an object
 - Type hierarchy
-- `type(type)` is `type`
 - Frame objects (`sys._getframe`) 🔥
 - Code objects (`__code__`) 🔥
 - Python startup sequence
 
 ### 📅 Day 74 — Bytecode + AST 🔥
-- `dis` module — disassembling bytecode
+- `dis` module
 - Reading bytecode output
-- `ast` module — Abstract Syntax Trees
+- `ast` module
 - `ast.parse()`, `ast.dump()`
-- AST visitors
 - `compile()` pipeline
 
 ### 📅 Day 75 — Import System Deep 🔥
 - `importlib` deep
 - Import hooks
 - `sys.meta_path`
-- `sys.path_hooks`
 - Custom importers
-- `importlib.util`
 
 ### 📅 Day 76 — GIL 🔥
 - What GIL is and why it exists
 - GIL impact on threading
-- GIL and C extensions
 - GIL removal in Python 3.13 ⭐🔥
-- When GIL matters, when it doesn't
+- When GIL matters
 
 ### 📅 Day 77 — Threading 🔥
 - `threading.Thread`
-- Locks, RLocks
-- Semaphores, Events, Barriers
-- `threading.local()`
+- Locks, RLocks, Semaphores, Events
 - Race conditions 🔥
 - Thread safety patterns
-- `queue.Queue` — thread-safe communication
+- `queue.Queue`
 
 ### 📅 Day 78 — Multiprocessing 🔥
 - `multiprocessing.Process`
 - `Pool`, `map`, `starmap`
 - Shared memory ⭐
-- `Manager`
 - `Pipe`, `Queue`
-- IPC patterns
 
 ### 📅 Day 79 — `concurrent.futures` ⭐🔥
 - `ThreadPoolExecutor`
 - `ProcessPoolExecutor`
 - `Future` objects
 - `as_completed`, `wait`
-- Choosing threads vs processes
 - Error handling in futures
 
 ### 📅 Day 80 — Async Python (Part 1) 🔥
 - `async def`, `await`
-- Coroutines vs threads
 - `asyncio.run()` ⭐
 - `asyncio.create_task()`
 - `asyncio.gather()`
 - Event loop basics
 
 ### 📅 Day 81 — Async Python (Part 2) ⭐🔥
-- `asyncio.TaskGroup` ⭐ (Python 3.11+)
+- `asyncio.TaskGroup` ⭐
 - Task cancellation
 - `asyncio.timeout()` ⭐
 - `asyncio.Queue`
-- Async context managers
 - Async generators ⭐
-- Async iterators
 
 ### 📅 Day 82 — Async Python (Part 3) 🔥
 - Event loop deep
 - `asyncio` protocols + transports
-- Low-level async networking
 - `asyncio.StreamReader`, `StreamWriter`
-- `asyncio` + `subprocess`
 
 ### 📅 Day 83 — Sockets 🔥
 - TCP/IP basics
-- `socket` module — raw networking
+- `socket` module
 - TCP server + client
-- UDP sockets
 - Non-blocking sockets
-- `select`, `poll`
-- `ssl` module — secure sockets
+- `ssl` module
 
 ### 📅 Day 84 — Profiling + Optimization 🔥
 - `cProfile`, `profile`
-- `pstats`
-- `time` + `timeit`
-- `tracemalloc` for memory
-- `sys.getsizeof`
+- `timeit`
+- `tracemalloc`
 - Optimization strategies
-- Time complexity awareness
 
 ### 📅 Day 85 — `ctypes` + C Interop
 - `ctypes` — calling C libraries
-- Data types in ctypes
-- Structs in ctypes
 - Why NumPy is fast (C under hood)
-- Concept of Cython (no deep dive)
+- Concept of Cython
 
 ### 📅 Day 86 — Debugging 🔥
-- `pdb` deep usage
-- Breakpoints (`breakpoint()`) ⭐
+- `pdb` deep
+- `breakpoint()` ⭐
 - Stack traces
-- `trace` module
-- `faulthandler`
 - Debugging async code
 
-### 📅 Day 87 — `mmap` + Binary Data
-- `mmap` — memory-mapped files
-- `struct` deep — pack/unpack
-- Binary file formats
-- Reading `.pyc` files manually
-
-### 📅 Day 88 — Python 3.12/3.13 New Features ⭐🔥
-- Type parameter syntax (`type X = ...`) ⭐
+### 📅 Day 87 — Python 3.12/3.13 New Features ⭐🔥
+- Type parameter syntax ⭐
 - `@override` decorator ⭐
-- `f-string` improvements ⭐
+- f-string improvements ⭐
 - GIL removal (3.13) ⭐
-- `pathlib` improvements ⭐
-- `tomllib` (3.11) ⭐
 - `ExceptionGroup` (3.11) ⭐
 
-### 📅 Day 89 — Reading Large Codebases
+### 📅 Day 88 — Reading Large Codebases
 - How to navigate big projects
 - Understanding `__init__.py` structure
 - Reading CPython source (intro)
-- Documentation reading strategy
+
+### 📅 Day 89 🔁 — REVISION
 
 ### 📅 Day 90 🔁 — REVISION + PROJECT
 
@@ -750,12 +704,10 @@
 - Pure `socket` + `threading`
 - Multi-client server
 - `asyncio` version (refactor)
-- Message protocol design
 - `logging` throughout
 - Zero external libraries
 
 ---
-
 ---
 
 # 🛠️ PHASE 5 — DEV TOOLING + PACKAGING (Day 91–100)
@@ -767,12 +719,9 @@
 - Branching, merging
 - `.gitignore` for Python
 - `git log`, `git diff`
-- Resolving conflicts
 
 ### 📅 Day 92 — Git Advanced + GitHub
-- Rebasing
-- Stashing
-- Tags, releases
+- Rebasing, stashing
 - GitHub workflow
 - Pull requests
 - GitHub Actions basics ⭐
@@ -780,37 +729,28 @@
 ### 📅 Day 93 — Virtual Environments + `pip`
 - `venv` deep
 - `pip` — install, freeze, requirements
-- `pip-tools` ⭐
 - Environment isolation
-- `.python-version`
 
 ### 📅 Day 94 — Modern Packaging ⭐🔥
-- `pyproject.toml` (modern standard) ⭐🔥
-- `poetry` — full usage ⭐
-- `hatch` intro ⭐
+- `pyproject.toml` ⭐🔥
+- `poetry` ⭐
 - Building wheels
 - Publishing to PyPI
 
 ### 📅 Day 95 — Code Quality Tools ⭐
-- `black` — formatting ⭐
-- `ruff` — linting ⭐🔥 (replaces flake8, isort, pylint)
-- `mypy` — type checking ⭐
-- `pre-commit` hooks ⭐
-- `bandit` — security linting
+- `black` ⭐
+- `ruff` ⭐🔥
+- `mypy` ⭐
+- `pre-commit` ⭐
 
 ### 📅 Day 96 — `pytest` Deep ⭐🔥
-- Fixtures (scope, yield fixtures)
-- `parametrize`
-- Markers
-- `monkeypatch`
-- `tmp_path`
+- Fixtures (scope, yield)
+- `parametrize`, markers
+- `monkeypatch`, `tmp_path`
 - Coverage (`pytest-cov`) ⭐
-- Plugins
 
 ### 📅 Day 97 — Documentation
 - Docstrings (Google, NumPy style) ⭐
-- `sphinx` intro
-- `mkdocs` intro
 - README best practices
 - Type hints as documentation
 
@@ -818,1240 +758,1505 @@
 - GitHub Actions for Python ⭐
 - Running tests on push
 - Linting in CI
-- Coverage reports
 - Docker basics for Python
 
 ### 📅 Day 99 — Project Structure Best Practices
 - `src` layout vs flat layout ⭐
-- `__init__.py` design
 - Configuration management
-- Environment variables (`python-dotenv`)
-- Logging setup in projects
+- Environment variables
+- Logging setup
 
 ### 📅 Day 100 🔁 — REVISION + PROJECT
 
 ### 🛠️ PROJECT 6: Professional Python Library
-- Build a small reusable utility library
+- Small reusable utility library
 - Full `pyproject.toml`
-- `pytest` tests with 90%+ coverage
+- `pytest` tests 90%+ coverage
 - Type hints throughout
 - `ruff` + `mypy` clean
-- Published to TestPyPI
 - GitHub Actions CI
 
 ---
+---
+
+# 📐 PHASE 6 — MATH FOUNDATION (NEW) 🔥 (Day 101–120)
+### 🎯 Goal: Understand WHY ML works, not just HOW to run it
 
 ---
 
-# 📐 PHASE 6 — MATH + DSA IN PURE PYTHON (Day 101–125)
-
----
-
-### 📅 Day 101 — Number Theory Basics
-- Integers, floats, complex numbers in Python
-- `math` module deep
-- `cmath` for complex
-- Floating point precision 🔥
-- `decimal.Decimal` for precision
-- `fractions.Fraction`
-
-### 📅 Day 102 — Linear Algebra (Pure Python) 🔥
-- Vectors as lists
-- Matrix as list of lists
+### 📅 Day 101 — Linear Algebra (Part 1) 🔥
+- Scalars, vectors, matrices — proper definitions
+- Vector operations (add, subtract, dot product)
 - Matrix addition, subtraction
 - Scalar multiplication
-- Dot product
-- Matrix multiplication (manual) 🔥
+- Implementing in pure Python 🔥
 
-### 📅 Day 103 — Linear Algebra (Part 2) 🔥
+### 📅 Day 102 — Linear Algebra (Part 2) 🔥
+- Matrix multiplication (manual) 🔥
 - Transpose
+- Identity matrix
+- Why matrix multiplication matters in neural networks 🔥
+
+### 📅 Day 103 — Linear Algebra (Part 3) 🔥
 - Determinant
 - Inverse matrix
-- Identity matrix
-- Why this matters for NumPy/PyTorch
+- Linear systems (Ax = b)
+- Eigenvalues + eigenvectors concept 🔥
+- SVD concept 🔥
+- How PCA uses SVD (preview)
 
-### 📅 Day 104 — Statistics Basics 🔥
-- Mean, median, mode
-- Variance, standard deviation
-- `statistics` module
-- Normal distribution concept
-- Correlation, covariance
-- Why this matters for ML
+### 📅 Day 104 — Linear Algebra (Part 4) — Spaces 🔥
+- Vector spaces
+- Span, basis, rank
+- Orthogonality
+- Projections 🔥
+- Why this matters for attention mechanism (preview)
 
-### 📅 Day 105 — Probability Basics 🔥
-- Probability concepts
-- Conditional probability
-- Bayes theorem
+### 📅 Day 105 — Calculus (Part 1) 🔥
+- Derivatives — proper understanding
+- Rules (chain rule, product rule) 🔥
+- Partial derivatives 🔥
+- Gradients 🔥
+- Implementing numerical gradients in Python
+
+### 📅 Day 106 — Calculus (Part 2) 🔥
+- Chain rule deep — this IS backpropagation 🔥
+- Computational graphs manually 🔥
+- Implementing autodiff from scratch 🔥
+- Why PyTorch autograd works the way it does
+
+### 📅 Day 107 — Calculus (Part 3) — Optimization 🔥
+- Gradient descent from scratch 🔥
+- Learning rate — what it really does 🔥
+- Convex vs non-convex functions
+- Local minima, saddle points
+- Momentum concept
+
+### 📅 Day 108 — Probability (Part 1) 🔥
+- Sample space, events
+- Probability rules
+- Conditional probability 🔥
+- Bayes theorem 🔥 — this is everywhere in ML
+- Implementing in Python
+
+### 📅 Day 109 — Probability (Part 2) 🔥
 - Random variables
-- Distributions (normal, uniform, binomial)
-- Why this matters for ML
+- Distributions (uniform, normal, binomial, Bernoulli)
+- PDF, CDF
+- Expectation, variance
+- Central Limit Theorem 🔥
 
-### 📅 Day 106 — Calculus Concepts (No Code)
-- Derivatives — concept only
-- Gradients — concept only
-- Chain rule — concept only 🔥
-- Why gradients matter in ML (backprop preview)
+### 📅 Day 110 — Probability (Part 3) — ML Probability 🔥
+- Maximum Likelihood Estimation (MLE) 🔥
+- MAP estimation
+- Why cross-entropy IS negative log likelihood 🔥
+- Gaussian distributions in ML
 
-### 📅 Day 107 — Big O + Complexity 🔥
-- Time complexity
-- Space complexity
-- O(1), O(n), O(n²), O(log n)
-- Best/worst/average case
+### 📅 Day 111 — Statistics (Part 1) 🔥
+- Descriptive statistics deep
+- Mean, median, mode, variance, std
+- Covariance, correlation 🔥
+- `statistics` module
+- Implementing from scratch
+
+### 📅 Day 112 — Statistics (Part 2) 🔥
+- Hypothesis testing concept
+- p-values (concept only)
+- Confidence intervals
+- A/B testing basics
+- Why this matters for ML evaluation
+
+### 📅 Day 113 — Information Theory 🔥🔥
+- Entropy — what it really means 🔥
+- Cross-entropy 🔥 — this IS your classification loss
+- KL divergence 🔥 — used in VAEs, RL
+- Mutual information
+- Implementing all from scratch in Python
+
+### 📅 Day 114 — Math for Neural Networks 🔥🔥
+- Forward pass as matrix multiplication 🔥
+- Loss functions mathematically 🔥
+- Backpropagation full math 🔥
+- Gradient flow through layers
+- Vanishing/exploding gradients — math reason 🔥
+
+### 📅 Day 115 — Math for CV 🔥
+- Convolution operation mathematically 🔥
+- Correlation vs convolution
+- Fourier transform concept
+- Why convolutions detect features
+- Implementing 2D convolution from scratch
+
+### 📅 Day 116 — Math for NLP 🔥
+- Dot product similarity 🔥
+- Cosine similarity 🔥
+- Softmax — math + implementation 🔥
+- Attention score math 🔥
+- Word embeddings as vector spaces
+
+### 📅 Day 117 — Numerical Computing 🔥
+- Floating point precision issues 🔥
+- Numerical stability (log-sum-exp trick) 🔥
+- `math` vs `numpy` precision
+- `decimal` for exact computation
+- Why this matters in loss functions
+
+### 📅 Day 118 — Pure Python ML Math Implementation 🔥
+- Implement: sigmoid, ReLU, tanh, softmax
+- Implement: MSE, cross-entropy, binary cross-entropy
+- Implement: gradient descent
+- Implement: simple linear regression with math
+
+### 📅 Day 119 — Pure Python Neural Network 🔥🔥
+- Build a 2-layer neural network from scratch
+- Forward pass
+- Backpropagation from scratch 🔥🔥
+- Weight updates
+- Train on simple dataset
+
+### 📅 Day 120 🔁 — REVISION + PROJECT
+
+### 🛠️ PROJECT 7: Pure Python ML Library
+- Linear regression
+- Logistic regression
+- 2-layer neural network
+- All math implemented from scratch
+- No NumPy — pure Python only
+- `pytest` tests
+
+---
+---
+
+# 🔢 PHASE 7 — DSA IN PURE PYTHON (Day 121–140)
+
+---
+
+### 📅 Day 121 — Complexity Analysis 🔥
+- Big O notation
+- Time + space complexity
+- O(1), O(n), O(n²), O(log n), O(n log n)
 - Analyzing Python code complexity
+- Best/worst/average case
 
-### 📅 Day 108 — Arrays + Linked Lists
+### 📅 Day 122 — Arrays + Linked Lists
 - Array internals
-- Linked list (singly, doubly) from scratch
+- Singly linked list from scratch
+- Doubly linked list
 - Time complexity comparison
-- When to use each
 
-### 📅 Day 109 — Stacks + Queues
+### 📅 Day 123 — Stacks + Queues
 - Stack from scratch
 - Queue from scratch
 - Deque from scratch
 - Applications (balanced brackets, BFS)
 
-### 📅 Day 110 — Hash Maps + Sets from Scratch 🔥
+### 📅 Day 124 — Hash Maps from Scratch 🔥
 - Hash function design
-- Collision handling (chaining, open addressing)
+- Collision handling
 - Building a HashMap class
 - Why Python dict is O(1)
 
-### 📅 Day 111 — Trees (Part 1)
+### 📅 Day 125 — Trees (Part 1)
 - Binary tree
 - BST (Binary Search Tree)
 - Traversals (inorder, preorder, postorder)
-- BFS, DFS
 
-### 📅 Day 112 — Trees (Part 2)
+### 📅 Day 126 — Trees (Part 2) + Heaps
+- BFS, DFS
 - Heap from scratch
 - `heapq` module
 - Priority queue
-- Applications
 
-### 📅 Day 113 — Graphs
+### 📅 Day 127 — Graphs
 - Adjacency list, adjacency matrix
 - BFS, DFS on graphs
-- Shortest path (Dijkstra concept)
-- Applications in ML (graph neural networks preview)
+- Shortest path concept
+- Applications in ML (GNN preview)
 
-### 📅 Day 114 — Sorting Algorithms 🔥
+### 📅 Day 128 — Sorting Algorithms 🔥
 - Bubble, selection, insertion
 - Merge sort 🔥
 - Quick sort 🔥
-- Counting sort, radix sort
 - Python's Timsort
 
-### 📅 Day 115 — Searching + Two Pointers
+### 📅 Day 129 — Searching + Two Pointers
 - Binary search 🔥
-- Linear search
 - Two pointer technique
 - Sliding window
 
-### 📅 Day 116 — Recursion + Dynamic Programming
+### 📅 Day 130 — Recursion + Dynamic Programming
 - Recursion patterns
 - Memoization 🔥
 - Tabulation
-- Classic DP problems (fibonacci, knapsack)
+- Classic DP (fibonacci, knapsack)
 
-### 📅 Day 117 — String Algorithms
+### 📅 Day 131 — String Algorithms
 - String matching
-- KMP algorithm concept
 - Trie data structure
-- Why this matters for NLP
+- Why this matters for NLP tokenization
 
-### 📅 Day 118 — Matrix Algorithms 🔥
+### 📅 Day 132 — Matrix Algorithms 🔥
 - Matrix traversal
-- Spiral order
-- Rotate matrix
+- Spiral order, rotate matrix
 - Why this matters for CV
 
-### 📅 Day 119 — Bit Manipulation
+### 📅 Day 133 — Bit Manipulation
 - Bit operations
 - Common tricks
 - XOR patterns
-- Practical applications
 
-### 📅 Day 120 🔁 — REVISION
+### 📅 Day 134 — DSA Practice (Part 1)
+- 15 problems: arrays, strings, linked lists
 
-### 📅 Day 121 — Pure Python ML Math
-- Implementing gradient descent from scratch 🔥
-- Linear regression from scratch
-- Cost function, MSE
+### 📅 Day 135 — DSA Practice (Part 2)
+- 15 problems: trees, graphs, DP
 
-### 📅 Day 122 — Pure Python ML (Part 2)
-- Logistic regression from scratch
-- Sigmoid function
-- Binary cross-entropy
+### 📅 Day 136–139 — DSA Practice (Part 3)
+- 20 problems: mixed difficulty
+- Focus on patterns used in ML code
 
-### 📅 Day 123 — Pure Python Neural Network 🔥
-- Single neuron from scratch
-- Forward pass
-- Backpropagation from scratch 🔥
-- Weight updates
+### 📅 Day 140 🔁 — REVISION + PROJECT
 
-### 📅 Day 124 — Pure Python Neural Network (Part 2)
-- Multi-layer network
-- Activation functions (ReLU, sigmoid, tanh)
-- Training loop
-- Why NumPy/PyTorch are needed
-
-### 📅 Day 125 🔁 — REVISION + PROJECT
-
-### 🛠️ PROJECT 7: Pure Python ML Library
-- Linear regression
-- Logistic regression
-- Simple neural network
-- No NumPy — pure Python math
+### 🛠️ PROJECT 8: Data Structures Library
+- Implement all major data structures
 - Full OOP design
-- `pytest` tests
+- `pytest` tests for all
+- Time complexity documented
+
+---
+---
+
+# 🗄️ PHASE 8 — SQL (NEW) 🔥 (Day 141–144)
 
 ---
 
+### 📅 Day 141 — SQL Fundamentals 🔥
+- `SELECT`, `WHERE`, `ORDER BY`, `LIMIT`
+- `INSERT`, `UPDATE`, `DELETE`
+- Data types in SQL
+- `CREATE TABLE`, `ALTER TABLE`
+- Primary keys, foreign keys
+- Using `sqlite3` for all practice
+
+### 📅 Day 142 — SQL Intermediate 🔥
+- `JOIN` (INNER, LEFT, RIGHT, FULL) 🔥
+- `GROUP BY`, `HAVING`
+- Aggregate functions (`COUNT`, `SUM`, `AVG`, `MIN`, `MAX`)
+- Subqueries
+- `UNION`, `INTERSECT`
+
+### 📅 Day 143 — SQL Advanced
+- Window functions 🔥 (`ROW_NUMBER`, `RANK`, `LAG`, `LEAD`)
+- CTEs (Common Table Expressions) 🔥
+- Indexes — what they are and why they matter
+- Transactions (`COMMIT`, `ROLLBACK`)
+- Query optimization basics
+
+### 📅 Day 144 — SQL + Python Integration 🔥
+- `sqlite3` deep revisit
+- SQL + Pandas (`pd.read_sql`) ⭐
+- Building a data pipeline with SQL + Python
+- Real dataset: query, analyze, export
+
+---
 ---
 
-# 🔢 PHASE 7 — NUMPY ⭐ (Day 126–140)
-
-> ⭐ NumPy 2.0 changed significantly — starred items reflect new behavior
+# 📓 PHASE 9 — JUPYTER + COLAB + REQUESTS (NEW) (Day 145–148)
 
 ---
 
-### 📅 Day 126 — NumPy Basics ⭐
-- Installing, importing
+### 📅 Day 145 — Jupyter Workflow 🔥
+- Jupyter notebook basics
+- Cell types (code, markdown, raw)
+- Magic commands (`%timeit`, `%matplotlib inline`, `%%time`)
+- Keyboard shortcuts
+- Notebook best practices
+- Organizing ML experiments in notebooks
+
+### 📅 Day 146 — Google Colab 🔥
+- Colab interface
+- Connecting to GPU/TPU ⭐
+- Mounting Google Drive
+- Installing packages in Colab
+- Running training in Colab
+- Saving checkpoints to Drive
+- Colab Pro tips ⭐
+
+### 📅 Day 147 — `requests` Deep ⭐🔥
+- Already introduced Day 37 — now go deep
+- Sessions, authentication
+- Downloading large files with progress
+- Streaming responses
+- Rate limiting + retry logic
+- Calling HuggingFace API
+- Calling OpenAI API
+
+### 📅 Day 148 — `httpx` + REST APIs ⭐
+- `httpx` async client ⭐
+- Async API calls in ML pipelines
+- HuggingFace Hub API deep ⭐
+- Kaggle API — downloading datasets ⭐
+- Building a dataset downloader tool
+
+---
+---
+
+# 🔢 PHASE 10 — NUMPY ⭐ (Day 149–163)
+
+> ⭐ NumPy 2.0 changed significantly
+
+---
+
+### 📅 Day 149 — NumPy Basics ⭐
 - `ndarray` — the core object
 - Creating arrays (`array`, `zeros`, `ones`, `arange`, `linspace`)
-- `dtype` ⭐ — data types
+- `dtype` ⭐
 - `shape`, `ndim`, `size`
 
-### 📅 Day 127 — NumPy Indexing + Slicing 🔥
+### 📅 Day 150 — NumPy Indexing + Slicing 🔥
 - Basic indexing
 - Slicing (views vs copies) 🔥
 - Boolean indexing 🔥
 - Fancy indexing
-- `np.newaxis`
-- Ellipsis (`...`)
+- `np.newaxis`, Ellipsis
 
-### 📅 Day 128 — NumPy Operations 🔥
+### 📅 Day 151 — NumPy Operations 🔥
 - Element-wise operations
 - Broadcasting 🔥🔥
 - Universal functions (ufuncs)
-- `np.sum`, `np.mean`, `np.std`, `np.min`, `np.max`
+- `np.sum`, `np.mean`, `np.std`
 - Axis parameter 🔥
 
-### 📅 Day 129 — NumPy Linear Algebra 🔥
-- `np.dot`, `np.matmul`, `@` operator
+### 📅 Day 152 — NumPy Linear Algebra 🔥
+- `np.dot`, `np.matmul`, `@`
 - `np.linalg.inv`, `np.linalg.det`
-- `np.linalg.eig` (eigenvalues)
+- `np.linalg.eig`
 - `np.linalg.svd`
 - `np.linalg.solve`
 
-### 📅 Day 130 — NumPy Reshaping + Manipulation
+### 📅 Day 153 — NumPy Reshaping + Manipulation
 - `reshape`, `ravel`, `flatten`
 - `transpose`, `.T`
 - `stack`, `hstack`, `vstack`, `concatenate`
-- `split`, `hsplit`, `vsplit`
 - `squeeze`, `expand_dims`
 
-### 📅 Day 131 — NumPy Random ⭐🔥
-- `np.random.Generator` ⭐ (new API)
+### 📅 Day 154 — NumPy Random ⭐🔥
+- `np.random.Generator` ⭐
 - `rng = np.random.default_rng()` ⭐
-- `rng.random()`, `rng.integers()`, `rng.normal()`
 - Seeding properly ⭐
-- Old `np.random.seed` vs new API 🔥
+- Old vs new random API 🔥
 
-### 📅 Day 132 — NumPy Memory + Performance 🔥
+### 📅 Day 155 — NumPy Memory + Performance 🔥
 - C-contiguous vs F-contiguous
 - Views vs copies 🔥
-- `np.ascontiguousarray`
 - Memory layout and speed
-- `np.frompyfunc` vs vectorize
-- `numba` concept (preview)
+- `np.ascontiguousarray`
 
-### 📅 Day 133 — NumPy Advanced ⭐
-- Structured arrays
+### 📅 Day 156 — NumPy Advanced ⭐
 - `np.where` 🔥
-- `np.select`
-- `np.clip`
-- `np.unique`
-- `np.argsort`, `np.argmax`, `np.argmin`
+- `np.select`, `np.clip`
+- `np.unique`, `np.argsort`
 - `np.nan` handling ⭐
+- Structured arrays
 
-### 📅 Day 134 — NumPy 2.0 Changes ⭐🔥
-- Breaking changes in NumPy 2.0 ⭐
+### 📅 Day 157 — NumPy 2.0 Changes ⭐🔥
+- Breaking changes ⭐
 - `copy` keyword changes ⭐
-- `__array_function__` protocol
 - `StringDType` ⭐
 - Deprecated features removed ⭐
 
-### 📅 Day 135 — NumPy for ML 🔥
-- Implementing matrix operations
-- Batch operations
+### 📅 Day 158 — NumPy for ML 🔥
 - Vectorizing ML math
-- Why NumPy ops are faster than loops 🔥
+- Batch operations
+- Why NumPy ops faster than loops 🔥
+- Implementing matrix ops from Phase 6 in NumPy
 
-### 📅 Day 136 — NumPy File I/O
-- `np.save`, `np.load`
-- `np.savetxt`, `np.loadtxt`
-- `.npy`, `.npz` formats
-- Reading CSVs with NumPy
+### 📅 Day 159 — NumPy FFT + Signal Processing 🔥
+- `np.fft.fft`, `np.fft.ifft`
+- `np.fft.fft2` for images
+- Frequency domain concept 🔥
+- Why FFT matters for audio/CV
 
-### 📅 Day 137 — NumPy + Images (Preview) 🔥
+### 📅 Day 160 — NumPy + Images 🔥
 - Images as NumPy arrays
 - RGB channels
 - Pixel manipulation
-- Resizing concept
 - Normalization 🔥
+- Resizing concept
 
-### 📅 Day 138 — NumPy Masked Arrays + Polynomials
-- Masked arrays (`np.ma`)
-- `np.polyfit`, `np.poly1d`
-- Numerical integration (`np.trapz`)
+### 📅 Day 161 — NumPy File I/O
+- `np.save`, `np.load`
+- `.npy`, `.npz` formats
+- Reading CSVs with NumPy
 
-### 📅 Day 139 — NumPy Practice
+### 📅 Day 162 — NumPy Practice
 - 20 problems mixing all NumPy concepts
 - Focus on broadcasting, indexing, linalg
 
-### 📅 Day 140 🔁 — REVISION + PROJECT
+### 📅 Day 163 🔁 — REVISION + PROJECT
 
-### 🛠️ PROJECT 8: NumPy Image Processor
+### 🛠️ PROJECT 9: NumPy Image Processor
 - Load images as NumPy arrays
-- Implement filters (blur, sharpen, edge detect) manually
+- Implement filters manually
 - Histogram equalization
-- Channel manipulation
-- No OpenCV yet — pure NumPy
+- FFT-based frequency filtering
+- No OpenCV — pure NumPy
+
+---
+---
+
+# 🔬 PHASE 11 — SCIPY BASICS (NEW) 🔥 (Day 164–166)
 
 ---
 
+### 📅 Day 164 — `scipy.linalg` + `scipy.stats` 🔥
+- `scipy.linalg` — more complete than `np.linalg`
+- `scipy.stats` — statistical distributions 🔥
+- Statistical tests (`ttest`, `chi2`)
+- `norm.pdf`, `norm.cdf`
+- Why this matters for ML evaluation
+
+### 📅 Day 165 — `scipy.signal` 🔥
+- Convolution (`scipy.signal.convolve2d`) 🔥
+- Filtering (low-pass, high-pass, band-pass)
+- Spectrogram (`scipy.signal.spectrogram`)
+- Why this matters for audio ML
+- Comparing with manual implementation
+
+### 📅 Day 166 — `scipy.optimize` + `scipy.spatial`
+- `scipy.optimize.minimize` 🔥
+- Curve fitting
+- `scipy.spatial.distance` — distance metrics 🔥
+- Cosine distance, euclidean distance
+- Why distance metrics matter for embeddings/RAG
+
+---
 ---
 
-# 🐼 PHASE 8 — PANDAS ⭐ (Day 141–155)
+# 🐼 PHASE 12 — PANDAS ⭐ (Day 167–181)
 
 > ⭐ Pandas 2.0 + 3.0 changed significantly
 
 ---
 
-### 📅 Day 141 — Pandas Basics ⭐
+### 📅 Day 167 — Pandas Basics ⭐
 - `Series` and `DataFrame`
 - Creating from dicts, lists, CSV
-- `dtype` improvements ⭐
-- `pd.ArrowDtype` ⭐ (Pandas 2.0)
+- `pd.ArrowDtype` ⭐
 - Basic inspection (`head`, `info`, `describe`)
 
-### 📅 Day 142 — Pandas Indexing 🔥
+### 📅 Day 168 — Pandas Indexing 🔥
 - `loc` vs `iloc` 🔥
 - Boolean indexing
-- `at`, `iat` for single values
-- MultiIndex
-- Setting index
+- `at`, `iat`
+- MultiIndex, setting index
 
-### 📅 Day 143 — Pandas Data Cleaning 🔥
-- Handling missing data (`NaN`, `pd.NA`) ⭐
+### 📅 Day 169 — Pandas Data Cleaning 🔥
+- Handling missing data
 - `dropna`, `fillna`, `interpolate`
-- Duplicates (`drop_duplicates`)
-- Data type conversion
+- `drop_duplicates`
 - `pd.NA` vs `np.nan` ⭐🔥
 
-### 📅 Day 144 — Pandas Operations
+### 📅 Day 170 — Pandas Operations
 - Arithmetic operations
-- `apply`, `map` ⭐ (`applymap` deprecated) ⭐
-- `transform`
-- `assign`
+- `apply`, `map` ⭐ (`applymap` deprecated)
+- `transform`, `assign`
 - String operations (`.str`)
 
-### 📅 Day 145 — Pandas GroupBy 🔥
+### 📅 Day 171 — Pandas GroupBy 🔥
 - `groupby` deep
 - Aggregation functions
 - `agg` with multiple functions
-- `transform` vs `agg`
 - Named aggregations ⭐
 
-### 📅 Day 146 — Pandas Merging + Joining 🔥
+### 📅 Day 172 — Pandas Merging + Joining 🔥
 - `merge` (inner, outer, left, right)
-- `join`
-- `concat`
+- `join`, `concat`
 - `merge_asof` ⭐
-- Key differences
 
-### 📅 Day 147 — Pandas Reshaping
+### 📅 Day 173 — Pandas Reshaping
 - `pivot`, `pivot_table`
-- `melt`
-- `stack`, `unstack`
+- `melt`, `stack`, `unstack`
 - `crosstab`
 
-### 📅 Day 148 — Pandas Time Series ⭐
+### 📅 Day 174 — Pandas Time Series ⭐
 - `DatetimeIndex`
 - `resample`
 - Rolling, expanding windows
 - Time zone handling ⭐
-- `pd.Timestamp`
 
-### 📅 Day 149 — Pandas Performance ⭐🔥
-- Copy-on-Write (CoW) ⭐🔥 (Pandas 2.0 default in 3.0)
+### 📅 Day 175 — Pandas Performance ⭐🔥
+- Copy-on-Write (CoW) ⭐🔥
 - `inplace` deprecation ⭐
-- Using `query` for speed
-- `eval` for expressions
+- `query`, `eval`
 - Arrow backend ⭐
 
-### 📅 Day 150 — Pandas I/O ⭐
-- CSV (`read_csv`) — all params
-- Excel (`read_excel`)
-- JSON (`read_json`)
-- Parquet ⭐🔥 (recommended format now)
+### 📅 Day 176 — Pandas I/O ⭐
+- CSV, Excel, JSON
+- Parquet ⭐🔥
 - SQL with Pandas
 
-### 📅 Day 151 — Pandas 2.x / 3.x Changes ⭐🔥
-- Copy-on-Write full explanation ⭐🔥
-- `DataFrame.map` replacing `applymap` ⭐
+### 📅 Day 177 — Pandas 2.x/3.x Changes ⭐🔥
+- CoW full explanation ⭐🔥
 - Nullable dtypes ⭐
-- `pd.options.future` flags ⭐
-- Migration guide from 1.x ⭐
+- Migration guide ⭐
 
-### 📅 Day 152 — Pandas + NumPy Integration 🔥
-- `.to_numpy()` ⭐ (vs `.values`)
+### 📅 Day 178 — Pandas + NumPy Integration 🔥
+- `.to_numpy()` ⭐
 - `__array__` protocol
 - Efficient conversion
-- When to use each
 
-### 📅 Day 153–154 — Pandas Practice
+### 📅 Day 179–180 — Pandas Practice
 - EDA on real dataset
-- Full data cleaning pipeline
-- Feature engineering basics
+- Full cleaning + feature engineering pipeline
 
-### 📅 Day 155 🔁 — REVISION + PROJECT
+### 📅 Day 181 🔁 — REVISION + PROJECT
 
-### 🛠️ PROJECT 9: End-to-End EDA + Feature Engineering
-- Real dataset (e.g. Titanic, housing)
+### 🛠️ PROJECT 10: End-to-End EDA Pipeline
+- Real dataset
 - Full cleaning pipeline
 - Feature engineering
 - Statistical analysis
 - Export clean data for ML
-- Full type hints, docstrings
+
+---
+---
+
+# 🐻‍❄️ PHASE 13 — POLARS BASICS (NEW) ⭐🔥 (Day 182–184)
 
 ---
 
+### 📅 Day 182 — Polars Basics ⭐🔥
+- Why Polars exists (faster than Pandas for large data)
+- `DataFrame` + `Series` in Polars
+- Lazy vs eager API 🔥
+- `pl.scan_csv` vs `pl.read_csv`
+- Basic operations
+
+### 📅 Day 183 — Polars Operations ⭐🔥
+- `select`, `filter`, `with_columns`
+- `groupby`, `agg`
+- `join` types
+- Expression API 🔥
+- Polars vs Pandas syntax comparison
+
+### 📅 Day 184 — Polars for ML Pipelines ⭐
+- When to use Polars vs Pandas 🔥
+- Large dataset processing
+- Converting to NumPy/PyTorch tensors
+- Parquet with Polars ⭐
+- Building a data pipeline
+
+---
 ---
 
-# 📊 PHASE 9 — DATA VISUALIZATION (Day 156–163)
+# 📊 PHASE 14 — DATA VISUALIZATION (Day 185–192)
 
 ---
 
-### 📅 Day 156 — Matplotlib Basics ⭐
+### 📅 Day 185 — Matplotlib Basics ⭐
 - Figure, Axes model 🔥
 - Line, scatter, bar, histogram
-- Subplots
-- Styling
+- Subplots, styling
 
-### 📅 Day 157 — Matplotlib Advanced
-- Annotations
-- Custom ticks
-- Twin axes
-- 3D plots basics
+### 📅 Day 186 — Matplotlib Advanced
+- Annotations, custom ticks
+- Twin axes, 3D plots basics
 - Saving figures
 
-### 📅 Day 158 — Seaborn ⭐
+### 📅 Day 187 — Seaborn ⭐
 - `seaborn` v0.13 changes ⭐
 - Statistical plots
 - `displot`, `relplot`, `catplot`
 - Heatmaps 🔥
-- Pair plots
 
-### 📅 Day 159 — Plotly ⭐
+### 📅 Day 188 — Plotly ⭐
 - Interactive plots ⭐
 - `plotly.express`
 - 3D scatter, surface
-- Why interactive matters for ML
 
-### 📅 Day 160 — ML Visualizations 🔥
+### 📅 Day 189 — ML Visualizations 🔥
 - Confusion matrix heatmap
 - ROC curve
 - Learning curves
 - Feature importance plots
-- t-SNE visualization preview
 
-### 📅 Day 161 — Image Visualization
+### 📅 Day 190 — Image Visualization
 - Plotting images with matplotlib
-- Plotting filters, kernels
 - Grid of images
+- Plotting filters, kernels
 - Activation maps preview
 
-### 📅 Day 162 — Data Visualization Best Practices
+### 📅 Day 191 — Visualization Best Practices
 - Choosing right chart
 - Color theory basics
-- Avoiding misleading charts
 - Telling a story with data
 
-### 📅 Day 163 🔁 — REVISION + PROJECT
+### 📅 Day 192 🔁 — REVISION + PROJECT
 
-### 🛠️ PROJECT 10: Full Data Story
+### 🛠️ PROJECT 11: Full Data Story
 - Dataset → Clean → Analyze → Visualize
-- 10+ different chart types
+- 10+ chart types
 - Interactive Plotly dashboard
 
 ---
+---
+
+# 🤖 PHASE 15 — SCIKIT-LEARN + CLASSICAL ML (Day 193–214)
 
 ---
 
-# 🤖 PHASE 10 — SCIKIT-LEARN + CLASSICAL ML (Day 164–185)
-
----
-
-### 📅 Day 164 — ML Fundamentals 🔥
+### 📅 Day 193 — ML Fundamentals 🔥
 - Supervised vs unsupervised
 - Classification vs regression
-- Training, validation, test split
+- Train/val/test split
 - Overfitting, underfitting 🔥
 - Bias-variance tradeoff 🔥
 
-### 📅 Day 165 — Scikit-learn API ⭐🔥
+### 📅 Day 194 — Scikit-learn API ⭐🔥
 - `fit`, `transform`, `predict`
 - `Pipeline` 🔥
 - `ColumnTransformer` ⭐
 - `set_output(transform="pandas")` ⭐
-- Estimator interface
 
-### 📅 Day 166 — Data Preprocessing 🔥
+### 📅 Day 195 — Data Preprocessing 🔥
 - `StandardScaler`, `MinMaxScaler`
 - `LabelEncoder`, `OneHotEncoder` ⭐
 - `SimpleImputer`
-- `PolynomialFeatures`
 - Feature scaling importance
 
-### 📅 Day 167 — Linear Models 🔥
+### 📅 Day 196 — Linear Models 🔥
 - Linear Regression
 - Logistic Regression
 - Ridge, Lasso, ElasticNet
 - Regularization deep 🔥
 
-### 📅 Day 168 — Tree Models 🔥
+### 📅 Day 197 — Tree Models 🔥
 - Decision Tree
 - How trees split (Gini, entropy)
 - Overfitting in trees
-- `max_depth`, `min_samples`
 
-### 📅 Day 169 — Ensemble Methods 🔥
+### 📅 Day 198 — Ensemble Methods 🔥
 - Random Forest 🔥
 - Bagging concept
 - Boosting concept
-- `GradientBoostingClassifier`
 - Feature importance
 
-### 📅 Day 170 — XGBoost + LightGBM ⭐🔥
-- XGBoost — how it differs ⭐
-- LightGBM — why it's faster ⭐
-- Hyperparameters to tune
-- Early stopping ⭐
+### 📅 Day 199 — XGBoost + LightGBM ⭐🔥
+- XGBoost ⭐
+- LightGBM ⭐
+- Hyperparameters + early stopping ⭐
 
-### 📅 Day 171 — SVM + KNN
+### 📅 Day 200 — SVM + KNN
 - Support Vector Machine
 - Kernel trick
 - KNN — distance metrics
-- When to use each
 
-### 📅 Day 172 — Clustering 🔥
+### 📅 Day 201 — Clustering 🔥
 - K-Means
 - DBSCAN
-- Hierarchical clustering
 - Evaluation (silhouette score)
 
-### 📅 Day 173 — Dimensionality Reduction 🔥
+### 📅 Day 202 — Dimensionality Reduction 🔥
 - PCA — math intuition 🔥
 - t-SNE 🔥
 - UMAP ⭐
-- When to use each
 
-### 📅 Day 174 — Model Evaluation 🔥
+### 📅 Day 203 — Model Evaluation 🔥
 - Accuracy, precision, recall, F1
 - ROC-AUC 🔥
 - Confusion matrix
-- `classification_report`
 - Regression metrics (MAE, MSE, R²)
 
-### 📅 Day 175 — Cross Validation + Hyperparameter Tuning 🔥
+### 📅 Day 204 — Cross Validation + Hyperparameter Tuning 🔥
 - `KFold`, `StratifiedKFold`
 - `GridSearchCV`, `RandomizedSearchCV`
 - `HalvingGridSearchCV` ⭐
 - `Optuna` intro ⭐
 
-### 📅 Day 176 — Pipelines Deep ⭐🔥
+### 📅 Day 205 — Pipelines Deep ⭐🔥
 - Full pipeline with preprocessing + model
-- `FeatureUnion`
 - Custom transformers
 - `set_output` API ⭐
 
-### 📅 Day 177 — Scikit-learn 1.x New Features ⭐
-- `set_output` API ⭐
-- `HalvingGridSearchCV` ⭐
-- `HistGradientBoosting` improvements ⭐
-- Metadata routing ⭐ (1.3+)
-
-### 📅 Day 178 — Feature Engineering for ML 🔥
+### 📅 Day 206 — Feature Engineering for ML 🔥
 - Creating features
-- Interaction terms
 - Target encoding ⭐
-- Feature selection (`SelectKBest`, `RFE`)
+- Feature selection
 
-### 📅 Day 179 — Imbalanced Data ⭐
-- Oversampling (SMOTE) ⭐
-- Undersampling
+### 📅 Day 207 — Imbalanced Data ⭐
+- SMOTE ⭐
 - Class weights
 - Evaluation on imbalanced data
 
-### 📅 Day 180 — ML Project Workflow 🔥
+### 📅 Day 208 — Scikit-learn New Features ⭐
+- `set_output` API ⭐
+- `HalvingGridSearchCV` ⭐
+- Metadata routing ⭐
+
+### 📅 Day 209 — ML Project Workflow 🔥
 - Problem framing
-- Data collection strategy
 - EDA → Feature engineering → Model → Evaluate → Deploy
 
-### 📅 Day 181–184 — Classical ML Practice
-- 2 full ML projects end-to-end
+### 📅 Day 210–213 — Classical ML Practice
+- 2 full end-to-end ML projects
 
-### 📅 Day 185 🔁 — REVISION + PROJECT
+### 📅 Day 214 🔁 — REVISION + PROJECT
 
-### 🛠️ PROJECT 11: End-to-End Classical ML Pipeline
+### 🛠️ PROJECT 12: End-to-End Classical ML Pipeline
 - Real dataset
 - Full preprocessing pipeline
-- Multiple models comparison
+- Multiple models + comparison
 - Hyperparameter tuning
 - Full evaluation report
-- `mlflow` tracking intro ⭐
+- `mlflow` tracking ⭐
+
+---
+---
+
+# 🔥 PHASE 16 — PYTORCH ⭐🔥 (Day 215–252)
+
+> ⭐ PyTorch 2.x changed significantly
 
 ---
 
----
-
-# 🔥 PHASE 11 — PYTORCH ⭐🔥 (Day 186–220)
-
-> ⭐ PyTorch 2.x changed significantly — many starred items
-
----
-
-### 📅 Day 186 — PyTorch Basics ⭐🔥
+### 📅 Day 215 — PyTorch Basics ⭐🔥
 - Tensors — the core object
 - Creating tensors
 - `dtype`, `device` 🔥
 - CPU vs GPU tensors
 - `torch.tensor` vs `torch.Tensor` ⭐
 
-### 📅 Day 187 — Tensor Operations 🔥
+### 📅 Day 216 — Tensor Operations 🔥
 - Arithmetic, broadcasting
 - `torch.matmul`, `@`
 - Indexing, slicing
 - `view`, `reshape` ⭐🔥
 - `contiguous()` 🔥
 
-### 📅 Day 188 — Autograd 🔥🔥
+### 📅 Day 217 — Autograd 🔥🔥
 - `requires_grad=True`
 - `.backward()` 🔥
-- `.grad`
 - Computation graph 🔥
 - `torch.no_grad()` ⭐🔥
 - `detach()` 🔥
 
-### 📅 Day 189 — `nn.Module` 🔥🔥
+### 📅 Day 218 — `nn.Module` 🔥🔥
 - Building models with `nn.Module`
 - `__init__` + `forward()`
 - `parameters()`, `named_parameters()`
 - `state_dict()`, `load_state_dict()` 🔥
-- Model saving/loading ⭐
 
-### 📅 Day 190 — Loss Functions + Optimizers 🔥
+### 📅 Day 219 — Loss Functions + Optimizers 🔥
 - `nn.MSELoss`, `nn.CrossEntropyLoss`, `nn.BCELoss`
 - `torch.optim.SGD`, `Adam`, `AdamW` ⭐🔥
 - Learning rate schedulers ⭐
 - `optimizer.zero_grad()` 🔥
 - Gradient clipping 🔥
 
-### 📅 Day 191 — Training Loop 🔥🔥
+### 📅 Day 220 — Training Loop 🔥🔥
 - Full training loop pattern
 - `model.train()`, `model.eval()` 🔥
 - Validation loop
 - Saving best model
-- `torch.compile()` ⭐🔥 (PyTorch 2.0)
+- `torch.compile()` ⭐🔥
 
-### 📅 Day 192 — Datasets + DataLoaders ⭐🔥
+### 📅 Day 221 — Datasets + DataLoaders ⭐🔥
 - `torch.utils.data.Dataset`
 - Custom `Dataset` class 🔥
 - `DataLoader` — batching, shuffling
 - `num_workers`, `pin_memory` ⭐
 - Transforms
 
-### 📅 Day 193 — Neural Network Layers 🔥
+### 📅 Day 222 — Neural Network Layers 🔥
 - `nn.Linear`
-- `nn.ReLU`, activation functions
+- Activation functions
 - `nn.Dropout` ⭐
 - `nn.BatchNorm1d`, `nn.LayerNorm` 🔥
 - `nn.Sequential`
 
-### 📅 Day 194 — Convolutional Layers 🔥🔥
+### 📅 Day 223 — Convolutional Layers 🔥🔥
 - `nn.Conv2d` deep
 - Kernels, stride, padding 🔥
 - `nn.MaxPool2d`
 - Feature maps
 - Receptive field
 
-### 📅 Day 195 — CNN Architecture 🔥
-- Building a CNN from scratch
-- LeNet architecture
-- AlexNet concept
+### 📅 Day 224 — CNN Architecture 🔥
+- Building CNN from scratch
+- LeNet, AlexNet concept
 - VGG concept
 - Skip connections concept
 
-### 📅 Day 196 — Transfer Learning ⭐🔥
+### 📅 Day 225 — Transfer Learning ⭐🔥
 - `torchvision.models` ⭐
 - Pretrained models (ResNet, EfficientNet, ViT) ⭐
 - Freezing layers 🔥
 - Fine-tuning 🔥
-- Feature extraction
 
-### 📅 Day 197 — `torch.compile` + PyTorch 2.x ⭐🔥
-- `torch.compile()` ⭐🔥 — graph compilation
-- `torch.compile` modes ⭐
-- `torch.amp` (mixed precision) ⭐🔥
+### 📅 Day 226 — `torch.compile` + PyTorch 2.x ⭐🔥
+- `torch.compile()` ⭐🔥
+- `torch.amp` mixed precision ⭐🔥
 - `torch.autocast` ⭐
-- Performance improvements in 2.x ⭐
+- Performance improvements ⭐
 
-### 📅 Day 198 — RNN + LSTM + GRU 🔥
+### 📅 Day 227 — RNN + LSTM + GRU 🔥
 - Recurrent networks concept
 - `nn.RNN`, `nn.LSTM`, `nn.GRU`
 - Hidden state, cell state 🔥
-- Sequence modeling
 - Bidirectional RNNs
 
-### 📅 Day 199 — Attention Mechanism 🔥🔥
+### 📅 Day 228 — Attention Mechanism 🔥🔥
 - Self-attention deep 🔥🔥
 - Query, Key, Value 🔥
 - Scaled dot-product attention
 - Multi-head attention 🔥
-- Why attention replaced RNNs
 
-### 📅 Day 200 — Transformer Architecture 🔥🔥
+### 📅 Day 229 — Transformer Architecture 🔥🔥
 - Encoder-decoder structure 🔥
 - Positional encoding 🔥
 - Feed-forward layers
 - Layer normalization 🔥
 - Building transformer from scratch
 
-### 📅 Day 201 — PyTorch GPU + CUDA ⭐🔥
+### 📅 Day 230 — PyTorch GPU + CUDA ⭐🔥
 - `.to(device)` pattern
-- `torch.cuda.is_available()`
-- Moving data to GPU 🔥
 - GPU memory management ⭐
 - `torch.cuda.empty_cache()` ⭐
 
-### 📅 Day 202 — Mixed Precision Training ⭐🔥
+### 📅 Day 231 — Mixed Precision Training ⭐🔥
 - `torch.amp.autocast` ⭐
 - `GradScaler` ⭐
 - Why FP16/BF16 matters ⭐🔥
-- Memory savings
-- Speed improvements
 
-### 📅 Day 203 — Model Checkpointing + Experiment Tracking ⭐
-- Saving/loading checkpoints
+### 📅 Day 232 — Experiment Tracking ⭐
 - `mlflow` ⭐
 - `wandb` ⭐🔥
 - Logging metrics, params, artifacts
 
-### 📅 Day 204 — Regularization Techniques 🔥
+### 📅 Day 233 — Regularization Techniques 🔥
 - L1, L2 regularization
 - Dropout patterns
 - `BatchNorm` as regularizer
-- Data augmentation as regularization
 - Early stopping
 
-### 📅 Day 205 — Custom Loss Functions + Layers 🔥
-- Writing custom `nn.Module` layers
+### 📅 Day 234 — Custom Loss + Layers 🔥
+- Custom `nn.Module` layers
 - Custom loss functions
 - `torch.autograd.Function` 🔥
 - Gradient hooks
 
-### 📅 Day 206 — `torchvision` ⭐🔥
+### 📅 Day 235 — `torchvision` ⭐🔥
 - `torchvision.transforms` v2 ⭐🔥
 - `torchvision.datasets`
 - `torchvision.models` ⭐
-- `torchvision.ops` (NMS, RoI, etc.) ⭐
+- `torchvision.ops` ⭐
 
-### 📅 Day 207 — `torchaudio` intro (for NLP/multimodal)
-- Audio as tensors
-- Spectrograms
-- MFCC features
-- Why audio matters for modern NLP
-
-### 📅 Day 208 — Distributed Training Concept ⭐
-- `DataParallel` vs `DistributedDataParallel` ⭐
-- `torch.distributed` intro
-- Multi-GPU concept
-- When you need it
-
-### 📅 Day 209 — PyTorch Profiler ⭐
-- `torch.profiler` ⭐
-- Finding bottlenecks
-- Memory profiling
-- Optimizing training loops
-
-### 📅 Day 210 🔁 — REVISION
-
-### 📅 Day 211–215 — Deep Learning Theory 🔥
-- Backpropagation math (deep) 🔥
+### 📅 Day 236 — Deep Learning Theory 🔥
+- Backpropagation math deep 🔥
 - Vanishing/exploding gradients 🔥
 - Weight initialization (Xavier, He) 🔥
-- Optimizers comparison (SGD, Adam, AdamW) 🔥
-- Learning rate scheduling strategies 🔥
 
-### 📅 Day 216–219 — PyTorch Practice
+### 📅 Day 237 — Optimizers Deep 🔥
+- SGD, Adam, AdamW comparison 🔥
+- Learning rate scheduling strategies 🔥
+- `CosineAnnealingLR` ⭐
+- `OneCycleLR` ⭐
+
+### 📅 Day 238 — PyTorch Profiler ⭐
+- `torch.profiler` ⭐
+- Finding bottlenecks
+- Optimizing training loops
+
+### 📅 Day 239 — Model Checkpointing + Deployment Prep
+- Saving/loading checkpoints
+- TorchScript ⭐
+- ONNX export ⭐🔥
+
+### 📅 Day 240–245 — PyTorch Practice
 - Build and train 3 models from scratch
 
-### 📅 Day 220 🔁 — REVISION + PROJECT
+### 📅 Day 246 🔁 — REVISION
 
-### 🛠️ PROJECT 12: Image Classifier (OOP PyTorch)
+### 📅 Day 247–251 — PyTorch Deep Practice
+- Implement attention from scratch
+- Implement transformer from scratch
+- Train on real dataset
+
+### 📅 Day 252 🔁 — REVISION + PROJECT
+
+### 🛠️ PROJECT 13: Image Classifier (Full PyTorch)
 - Custom `Dataset` + `DataLoader`
 - CNN architecture (custom)
 - Transfer learning (ResNet fine-tune)
-- Training loop with mixed precision ⭐
+- Mixed precision training ⭐
 - `wandb` experiment tracking ⭐
 - Full evaluation + visualization
 
 ---
+---
+
+# 🔀 PHASE 17 — EINOPS (NEW) ⭐🔥 (Day 253–254)
 
 ---
 
-# 👁️ PHASE 12 — COMPUTER VISION (Day 221–250)
+### 📅 Day 253 — `einops` Basics ⭐🔥
+- Why `einops` exists — tensor manipulation problem
+- `rearrange` — reshape with named dimensions 🔥
+- `reduce` — reduction with names
+- `repeat` — broadcasting with names
+- Reading einops notation 🔥
+
+### 📅 Day 254 — `einops` in Practice ⭐🔥
+- Using `einops` in CNN code
+- Using `einops` in Transformer code
+- `einops.layers.torch` for `nn.Module`
+- Reading modern paper code with einops 🔥
+- Rewriting Phase 16 transformer code with einops
+
+---
+---
+
+# 👁️ PHASE 18 — COMPUTER VISION (Day 255–284)
 
 ---
 
-### 📅 Day 221 — OpenCV Basics ⭐
-- Installing, `cv2` intro
+### 📅 Day 255 — OpenCV Basics ⭐
+- `cv2` intro
 - Reading, displaying, saving images
 - Color spaces (BGR vs RGB) 🔥
 - `cv2.cvtColor`
-- Image properties
 
-### 📅 Day 222 — OpenCV Image Operations
+### 📅 Day 256 — OpenCV Image Operations
 - Resizing, cropping, rotating
 - Flipping
-- `cv2.resize`
 - Geometric transforms
 
-### 📅 Day 223 — Color + Thresholding 🔥
+### 📅 Day 257 — Color + Thresholding 🔥
 - HSV color space 🔥
-- `cv2.inRange` — color masking
-- Binary thresholding
-- Otsu's thresholding
-- Adaptive thresholding
+- `cv2.inRange`
+- Binary + Otsu + Adaptive thresholding
 
-### 📅 Day 224 — Filtering + Edge Detection 🔥
-- Gaussian blur
-- Median blur
+### 📅 Day 258 — Filtering + Edge Detection 🔥
+- Gaussian blur, Median blur
 - Bilateral filter
 - Canny edge detection 🔥
 - Sobel, Laplacian
 
-### 📅 Day 225 — Morphological Operations
+### 📅 Day 259 — Morphological Operations
 - Erosion, dilation
 - Opening, closing
-- Morphological gradient
 - Applications
 
-### 📅 Day 226 — Contours + Shape Analysis 🔥
+### 📅 Day 260 — Contours + Shape Analysis 🔥
 - `cv2.findContours`
-- `cv2.drawContours`
 - Bounding boxes
-- Convex hull
-- Shape moments
+- Convex hull, shape moments
 
-### 📅 Day 227 — Feature Detection ⭐🔥
-- `SIFT` ⭐ (now free)
-- `ORB`
-- `FAST`
-- Feature matching
-- Homography
+### 📅 Day 261 — Feature Detection ⭐🔥
+- `SIFT` ⭐
+- `ORB`, `FAST`
+- Feature matching, homography
 
-### 📅 Day 228 — Video Processing 🔥
+### 📅 Day 262 — Video Processing 🔥
 - `cv2.VideoCapture`
 - Frame reading loop
-- Video writing
-- FPS handling
-- Webcam input
+- Video writing, FPS handling
 
-### 📅 Day 229 — Object Detection Basics 🔥
+### 📅 Day 263 — Object Detection Basics 🔥
 - Sliding window concept
-- IoU (Intersection over Union) 🔥
-- NMS (Non-Maximum Suppression) 🔥
+- IoU 🔥
+- NMS 🔥
 - Anchor boxes concept
 
-### 📅 Day 230 — YOLO ⭐🔥
-- YOLO architecture concept 🔥
+### 📅 Day 264 — YOLO ⭐🔥
+- YOLO architecture 🔥
 - YOLOv8 / YOLO11 ⭐🔥
 - `ultralytics` library ⭐
 - Running inference
 - Custom training intro
 
-### 📅 Day 231 — Image Segmentation 🔥
+### 📅 Day 265 — Image Segmentation 🔥
 - Semantic vs instance segmentation
 - U-Net architecture 🔥
 - `torchvision` segmentation models ⭐
 - Mask R-CNN concept ⭐
 
-### 📅 Day 232 — Face Detection + Recognition
-- `cv2` Haar cascades
-- DNN face detector
-- Face landmarks
-- `deepface` concept ⭐
-
-### 📅 Day 233 — OCR + Document Analysis
-- Tesseract + `pytesseract`
-- Preprocessing for OCR
-- Document layout analysis concept
-- DocTR ⭐
-
-### 📅 Day 234 — Image Augmentation ⭐🔥
+### 📅 Day 266 — Image Augmentation ⭐🔥
 - `torchvision.transforms.v2` ⭐🔥
 - `albumentations` ⭐🔥
-- Augmentation strategies for CV
+- Augmentation strategies
 - Cutmix, Mixup ⭐
 
-### 📅 Day 235 — Vision Transformers (ViT) ⭐🔥
+### 📅 Day 267 — Vision Transformers (ViT) ⭐🔥
 - ViT architecture 🔥🔥
 - Patch embeddings 🔥
-- `timm` library ⭐🔥
 - ViT vs CNN comparison
 - Swin Transformer ⭐
 
-### 📅 Day 236 — Diffusion Models Intro ⭐🔥
-- Stable Diffusion concept ⭐
-- `diffusers` library ⭐🔥
-- DDPM basics
-- Running inference
+### 📅 Day 268 — Face Detection + OCR
+- DNN face detector
+- Face landmarks
+- Tesseract + `pytesseract`
+- Preprocessing for OCR
 
-### 📅 Day 237 — Multimodal Models ⭐🔥
-- CLIP ⭐🔥 — vision + language
-- `openai/clip` usage ⭐
+### 📅 Day 269 — Multimodal CV ⭐🔥
+- CLIP ⭐🔥
 - Zero-shot classification with CLIP ⭐
-- BLIP, LLaVA concept ⭐
+- BLIP concept ⭐
 
-### 📅 Day 238 — Depth Estimation + 3D Vision ⭐
+### 📅 Day 270 — Depth + 3D Vision ⭐
 - Monocular depth estimation
 - `DPT`, `ZoeDepth` ⭐
 - Point clouds concept
-- NeRF concept ⭐
 
-### 📅 Day 239 — CV Model Deployment Prep 🔥
-- ONNX export ⭐🔥
-- TorchScript ⭐
-- Model quantization ⭐
-- OpenVINO concept ⭐
+### 📅 Day 271–275 — CV Projects
 
-### 📅 Day 240–244 — CV Projects
-
-### 🛠️ PROJECT 13: Real-Time Object Detection
-- YOLOv8/11 fine-tuned on custom data ⭐
+### 🛠️ PROJECT 14: Real-Time Object Detection
+- YOLOv8/11 fine-tuned ⭐
 - Live webcam inference
-- OpenCV for visualization
+- OpenCV visualization
 - `FastAPI` serving ⭐
 
-### 🛠️ PROJECT 14: Image Segmentation Pipeline
-- U-Net from scratch in PyTorch
+### 🛠️ PROJECT 15: Image Segmentation Pipeline
+- U-Net from scratch
 - Custom dataset + augmentation
-- Full training pipeline
-- Evaluation (IoU, Dice score)
+- Training pipeline
+- Evaluation (IoU, Dice)
 
-### 📅 Day 245–249 — CV Deep Practice
-- 3 mini CV projects
+### 📅 Day 276–283 — CV Deep Practice
+- 4 mini CV projects
 
-### 📅 Day 250 🔁 — REVISION
+### 📅 Day 284 🔁 — REVISION
+
+---
+---
+
+# 🏆 PHASE 19 — TIMM DEEP (NEW) ⭐🔥 (Day 285–286)
 
 ---
 
+### 📅 Day 285 — `timm` Model Zoo ⭐🔥
+- What `timm` is — 700+ pretrained CV models ⭐
+- Loading models with `timm.create_model` ⭐
+- Feature extraction mode ⭐
+- `timm` vs `torchvision.models` ⭐
+- Model discovery + benchmarks
+
+### 📅 Day 286 — `timm` Training Features ⭐🔥
+- `timm` augmentation (`RandAugment`, `Mixup`, `CutMix`) ⭐
+- `timm` schedulers + optimizers ⭐
+- `timm` training scripts ⭐
+- Fine-tuning with `timm` ⭐
+- Using `timm` in custom training loops
+
+---
 ---
 
-# 💬 PHASE 13 — NLP + LLMs ⭐🔥 (Day 251–280)
-
-> This field changes fastest — ALL items here are subject to rapid change
+# 📏 PHASE 20 — CV EVALUATION DEEP (NEW) 🔥 (Day 287–289)
 
 ---
 
-### 📅 Day 251 — NLP Fundamentals 🔥
-- Tokenization
-- Text preprocessing
-- Vocabulary, corpus
-- N-grams
-- Bag of Words
+### 📅 Day 287 — IoU + Dice Deep 🔥
+- IoU (Intersection over Union) math 🔥
+- GIoU, DIoU, CIoU ⭐
+- Dice coefficient 🔥
+- Dice loss implementation
+- When to use each metric
+
+### 📅 Day 288 — mAP Deep 🔥🔥
+- Precision-Recall curve 🔥
+- Average Precision (AP) 🔥
+- mAP@50, mAP@50:95 🔥🔥
+- COCO evaluation API ⭐
+- Implementing AP from scratch
+
+### 📅 Day 289 — Segmentation Metrics + Benchmarking
+- Pixel accuracy
+- Mean IoU (mIoU) 🔥
+- Boundary F1 score
+- COCO panoptic metrics ⭐
+- Building evaluation pipeline
+
+---
+---
+
+# 🎨 PHASE 21 — STABLE DIFFUSION DEEP (NEW) ⭐🔥 (Day 290–293)
+
+---
+
+### 📅 Day 290 — Diffusion Models Math ⭐🔥
+- DDPM (Denoising Diffusion Probabilistic Models) 🔥
+- Forward process (adding noise) 🔥
+- Reverse process (denoising) 🔥
+- Score matching concept
+- U-Net as denoiser
+
+### 📅 Day 291 — Stable Diffusion Architecture ⭐🔥
+- Latent Diffusion Models 🔥
+- VAE (Variational Autoencoder) role 🔥
+- CLIP text encoder role 🔥
+- U-Net denoiser
+- Scheduler (DDIM, DPM++) ⭐
+
+### 📅 Day 292 — `diffusers` Library Deep ⭐🔥
+- `StableDiffusionPipeline` ⭐
+- `AutoPipelineForText2Image` ⭐
+- Schedulers ⭐
+- ControlNet ⭐🔥
+- LoRA for diffusion models ⭐🔥
+- Inpainting, img2img ⭐
+
+### 📅 Day 293 — Diffusion Fine-tuning ⭐🔥
+- DreamBooth concept ⭐
+- Textual Inversion ⭐
+- LoRA fine-tuning for SD ⭐🔥
+- `diffusers` training scripts ⭐
+- Running on Colab ⭐
+
+---
+---
+
+# 🎵 PHASE 22 — AUDIO + WHISPER (NEW) ⭐ (Day 294–296)
+
+---
+
+### 📅 Day 294 — Audio Fundamentals + `torchaudio` ⭐🔥
+- Audio as waveforms (1D signals)
+- `torchaudio.load`, `torchaudio.save` ⭐
+- Sample rate, channels
+- Spectrograms 🔥
+- Mel spectrograms 🔥
+- MFCC features 🔥
+- `torchaudio.transforms` ⭐
+
+### 📅 Day 295 — Audio Augmentation + Datasets ⭐
+- Audio augmentation (noise, pitch, speed)
+- `torchaudio.datasets` ⭐
+- HuggingFace audio datasets ⭐
+- Building audio `Dataset` + `DataLoader`
+
+### 📅 Day 296 — Whisper + Speech Models ⭐🔥
+- Whisper architecture ⭐🔥
+- Running Whisper inference ⭐
+- `faster-whisper` ⭐
+- `wav2vec2` for speech ⭐
+- HuggingFace `pipeline` for audio ⭐
+- Speech-to-text in ML pipelines
+
+---
+---
+
+# 💬 PHASE 23 — NLP + LLMS ⭐🔥 (Day 297–326)
+
+---
+
+### 📅 Day 297 — NLP Fundamentals 🔥
+- Tokenization, text preprocessing
+- N-grams, Bag of Words
 - TF-IDF 🔥
 
-### 📅 Day 252 — Word Embeddings 🔥
+### 📅 Day 298 — Word Embeddings 🔥
 - Word2Vec concept 🔥
-- GloVe concept
-- FastText
-- Why embeddings work
+- GloVe, FastText
 - `gensim` basics
 
-### 📅 Day 253 — `spaCy` ⭐🔥
+### 📅 Day 299 — `spaCy` ⭐🔥
 - spaCy v3 pipeline ⭐
 - Tokenization, POS tagging
-- NER (Named Entity Recognition)
-- Dependency parsing
+- NER, dependency parsing
 - Custom pipelines ⭐
 
-### 📅 Day 254 — `NLTK` + Text Processing
-- Stemming, lemmatization
-- Stop words
-- Frequency distributions
-- `NLTK` vs `spaCy` ⭐
-
-### 📅 Day 255 — Classical NLP Models
-- Naive Bayes for text
-- Logistic regression for NLP
-- SVM for text
+### 📅 Day 300 — Classical NLP Models
+- Naive Bayes, Logistic Regression for text
 - Scikit-learn text pipelines
 - `TfidfVectorizer`
 
-### 📅 Day 256 — Sequence Models for NLP 🔥
-- RNN for NLP
-- LSTM for text
+### 📅 Day 301 — Sequence Models 🔥
+- RNN, LSTM, GRU for NLP
 - Seq2Seq architecture 🔥
 - Encoder-decoder for NLP
 
-### 📅 Day 257 — Transformer for NLP 🔥🔥
+### 📅 Day 302 — Transformer for NLP 🔥🔥
 - BERT architecture 🔥🔥
 - `[CLS]`, `[SEP]`, `[MASK]` tokens
 - Masked Language Modeling 🔥
-- Next Sentence Prediction
 - Positional embeddings in BERT
 
-### 📅 Day 258 — HuggingFace `transformers` ⭐🔥🔥
+### 📅 Day 303 — HuggingFace `transformers` ⭐🔥🔥
 - `AutoTokenizer` ⭐🔥
-- `AutoModel`, `AutoModelForSequenceClassification` ⭐
+- `AutoModel`, `AutoModelFor*` ⭐
 - `pipeline()` API ⭐🔥
 - Model hub ⭐
-- Loading models ⭐
 
-### 📅 Day 259 — HuggingFace `datasets` ⭐🔥
+### 📅 Day 304 — HuggingFace `datasets` ⭐🔥
 - `load_dataset` ⭐
-- Dataset operations
 - `map`, `filter`, `select`
 - Streaming datasets ⭐
 - Arrow format ⭐🔥
 
-### 📅 Day 260 — Fine-tuning with `Trainer` ⭐🔥
+### 📅 Day 305 — Fine-tuning with `Trainer` ⭐🔥
 - `TrainingArguments` ⭐🔥
 - `Trainer` API ⭐🔥
 - Custom `compute_metrics`
 - Callbacks ⭐
 - `push_to_hub` ⭐
 
-### 📅 Day 261 — Fine-tuning with PyTorch (Manual) 🔥
+### 📅 Day 306 — Fine-tuning Manual Loop 🔥
 - Custom training loop for NLP
-- Tokenization pipeline
-- Batching variable-length sequences
 - `attention_mask` 🔥
 - Gradient accumulation 🔥
 
-### 📅 Day 262 — PEFT + LoRA ⭐🔥🔥
+### 📅 Day 307 — PEFT + LoRA ⭐🔥🔥
 - Parameter-efficient fine-tuning ⭐🔥
-- LoRA ⭐🔥🔥 — Low-Rank Adaptation
+- LoRA ⭐🔥🔥
 - QLoRA ⭐🔥
 - `peft` library ⭐🔥
-- When to use LoRA vs full fine-tune ⭐
 
-### 📅 Day 263 — LLM Basics ⭐🔥🔥
+### 📅 Day 308 — LLM Basics ⭐🔥🔥
 - GPT architecture 🔥
 - Causal language modeling 🔥
 - Autoregressive generation 🔥
 - Temperature, top-k, top-p ⭐🔥
-- Sampling strategies ⭐
 
-### 📅 Day 264 — Running LLMs Locally ⭐🔥
+### 📅 Day 309 — Running LLMs Locally ⭐🔥
 - `ollama` ⭐🔥
 - `llama.cpp` ⭐
-- `transformers` for LLM inference ⭐
 - Quantized models (GGUF, AWQ, GPTQ) ⭐🔥
-- Memory requirements ⭐
 
-### 📅 Day 265 — Prompt Engineering ⭐🔥
-- Zero-shot, few-shot prompting ⭐🔥
+### 📅 Day 310 — Prompt Engineering ⭐🔥
+- Zero-shot, few-shot ⭐🔥
 - Chain-of-thought (CoT) ⭐🔥
 - System prompts ⭐
 - Structured output prompting ⭐
-- Prompt templates ⭐
 
-### 📅 Day 266 — RAG (Retrieval Augmented Generation) ⭐🔥🔥
+### 📅 Day 311 — RAG Basics ⭐🔥🔥
 - RAG concept ⭐🔥🔥
-- Vector databases (`chromadb`, `faiss`) ⭐🔥
-- Embeddings for retrieval ⭐🔥
-- `langchain` intro ⭐
-- `llama-index` intro ⭐
+- Chunking strategies ⭐🔥
+- Embedding models ⭐🔥
+- Vector databases intro ⭐
 
-### 📅 Day 267 — Vector Databases + Embeddings ⭐🔥
+### 📅 Day 312 — Vector Databases ⭐🔥
 - `sentence-transformers` ⭐🔥
-- Embedding models ⭐
-- Cosine similarity 🔥
 - `FAISS` ⭐🔥
 - `chromadb` ⭐
+- Cosine similarity 🔥
 
-### 📅 Day 268 — LangChain ⭐🔥
-- Chains ⭐
-- Agents ⭐🔥
-- Tools ⭐
-- Memory ⭐
+### 📅 Day 313 — LangChain ⭐🔥
+- Chains, Agents ⭐🔥
+- Tools, Memory ⭐
 - LangChain vs LlamaIndex ⭐
 
-### 📅 Day 269 — LLM Fine-tuning ⭐🔥🔥
-- Full fine-tuning vs LoRA ⭐🔥
-- Instruction tuning ⭐🔥
-- `trl` library ⭐🔥
-- `SFTTrainer` ⭐🔥
-- DPO (Direct Preference Optimization) ⭐🔥
-
-### 📅 Day 270 — Evaluation for NLP/LLMs ⭐🔥
-- BLEU, ROUGE scores
-- Perplexity 🔥
-- `evaluate` library ⭐
-- LLM evaluation frameworks ⭐
-- `lm-evaluation-harness` ⭐
-
-### 📅 Day 271 — Multimodal LLMs ⭐🔥🔥
-- LLaVA ⭐🔥
-- GPT-4V concept ⭐
-- Gemini concept ⭐
-- Vision-language tasks ⭐
-- Image captioning, VQA ⭐
-
-### 📅 Day 272 — Tokenization Deep ⭐🔥
-- BPE (Byte Pair Encoding) 🔥
-- WordPiece
-- SentencePiece ⭐
+### 📅 Day 314 — Tokenization Deep ⭐🔥
+- BPE 🔥
+- WordPiece, SentencePiece ⭐
 - `tokenizers` library ⭐
 - Training custom tokenizers ⭐
 
-### 📅 Day 273 — `accelerate` + Distributed NLP ⭐🔥
+### 📅 Day 315 — Multimodal LLMs ⭐🔥🔥
+- LLaVA ⭐🔥
+- Vision-language tasks ⭐
+- Image captioning, VQA ⭐
+
+### 📅 Day 316 — `accelerate` ⭐🔥
 - `accelerate` library ⭐🔥
 - Multi-GPU training ⭐
-- `deepspeed` intro ⭐
 - Gradient checkpointing ⭐🔥
 
-### 📅 Day 274 — Agents + Tool Use ⭐🔥🔥
-- LLM agents concept ⭐🔥
+### 📅 Day 317 — Agents + Tool Use ⭐🔥🔥
+- LLM agents ⭐🔥
 - Tool calling ⭐🔥
 - ReAct pattern ⭐🔥
-- OpenAI function calling ⭐
-- Anthropic tool use ⭐
 
-### 📅 Day 275–279 — NLP Projects
+### 📅 Day 318–322 — NLP Projects
 
-### 🛠️ PROJECT 15: Fine-tuned Text Classifier
+### 🛠️ PROJECT 16: Fine-tuned Text Classifier
 - HuggingFace dataset ⭐
-- BERT fine-tuning with LoRA ⭐🔥
-- Custom `Trainer` ⭐
+- BERT + LoRA fine-tuning ⭐🔥
 - Full evaluation
 - Push to HuggingFace Hub ⭐
 
-### 🛠️ PROJECT 16: RAG Chatbot
+### 🛠️ PROJECT 17: RAG Chatbot
 - PDF ingestion → chunking → embeddings ⭐
 - `chromadb` vector store ⭐
-- LLM answer generation ⭐
-- `FastAPI` backend ⭐
-- Gradio frontend ⭐
+- LLM answering with citations ⭐
+- `FastAPI` backend + Gradio frontend ⭐
 
-### 📅 Day 280 🔁 — REVISION
+### 📅 Day 323–325 — NLP Deep Practice
+
+### 📅 Day 326 🔁 — REVISION
+
+---
+---
+
+# 🔍 PHASE 24 — RETRIEVAL SYSTEMS DEEP (NEW) ⭐🔥 (Day 327–329)
 
 ---
 
+### 📅 Day 327 — Sparse + Dense Retrieval 🔥
+- BM25 — how it works 🔥
+- `rank_bm25` library
+- Dense retrieval (embedding-based) 🔥
+- Sparse vs dense comparison
+- When to use each
+
+### 📅 Day 328 — Hybrid Search + Re-ranking ⭐🔥
+- Hybrid search (BM25 + dense) ⭐🔥
+- Reciprocal Rank Fusion (RRF) ⭐
+- Cross-encoder re-rankers ⭐🔥
+- `sentence-transformers` re-ranking ⭐
+- Why re-ranking improves RAG quality
+
+### 📅 Day 329 — Advanced RAG Patterns ⭐🔥
+- Chunking strategies deep ⭐🔥
+- Semantic chunking ⭐
+- Hypothetical Document Embeddings (HyDE) ⭐
+- Multi-query retrieval ⭐
+- RAG evaluation (`RAGAS`) ⭐🔥
+
+---
 ---
 
-# ⚙️ PHASE 14 — ML ENGINEERING + DEPLOYMENT (Day 281–295)
+# 🎯 PHASE 25 — RLHF + DPO (NEW) ⭐🔥 (Day 330–333)
 
 ---
 
-### 📅 Day 281 — `FastAPI` ⭐🔥
-- Building REST APIs with FastAPI ⭐🔥
+### 📅 Day 330 — RL Basics for LLMs 🔥
+- Reward, policy, value concept 🔥
+- Why RL is needed for LLMs 🔥
+- PPO concept 🔥
+- RLHF pipeline (SFT → Reward Model → PPO) 🔥
+- How ChatGPT was trained
+
+### 📅 Day 331 — RLHF Implementation ⭐🔥
+- `trl` library ⭐🔥
+- `SFTTrainer` ⭐🔥
+- Reward model training ⭐
+- `PPOTrainer` ⭐
+
+### 📅 Day 332 — DPO ⭐🔥🔥
+- DPO (Direct Preference Optimization) ⭐🔥🔥
+- Why DPO replaced RLHF for many cases ⭐🔥
+- `DPOTrainer` in `trl` ⭐🔥
+- Preference datasets ⭐
+- DPO vs PPO comparison ⭐
+
+### 📅 Day 333 — Modern Alignment Techniques ⭐🔥
+- ORPO ⭐🔥
+- SimPO ⭐
+- KTO ⭐
+- When to use which ⭐
+- Building alignment pipeline ⭐
+
+---
+---
+
+# 📊 PHASE 26 — LLM EVALUATION (NEW) ⭐ (Day 334–335)
+
+---
+
+### 📅 Day 334 — LLM Benchmarks + Metrics ⭐🔥
+- BLEU, ROUGE — when they're not enough
+- Perplexity 🔥
+- MMLU benchmark ⭐
+- HellaSwag, ARC, TruthfulQA ⭐
+- `evaluate` library ⭐
+
+### 📅 Day 335 — Building Eval Pipelines ⭐🔥
+- `lm-evaluation-harness` ⭐🔥
+- Custom evaluation datasets ⭐
+- LLM-as-judge pattern ⭐🔥
+- `RAGAS` for RAG evaluation ⭐🔥
+- Building your own eval suite ⭐
+
+---
+---
+
+# ⚙️ PHASE 27 — ML ENGINEERING + DEPLOYMENT (Day 336–350)
+
+---
+
+### 📅 Day 336 — `FastAPI` ⭐🔥
+- Building REST APIs ⭐🔥
 - Pydantic models ⭐🔥
 - Async endpoints ⭐
 - File upload endpoints
-- API for ML models
+- ML model API
 
-### 📅 Day 282 — Model Serving ⭐🔥
-- Serving PyTorch models with FastAPI ⭐
+### 📅 Day 337 — Model Serving ⭐🔥
+- Serving PyTorch with FastAPI ⭐
 - ONNX export + serving ⭐🔥
-- `torchserve` intro ⭐
 - Batch inference ⭐
 
-### 📅 Day 283 — Docker for ML ⭐🔥
-- Docker basics ⭐
+### 📅 Day 338 — Docker for ML ⭐🔥
 - Dockerfile for Python/ML ⭐
 - `docker-compose`
 - GPU in Docker ⭐
-- Building ML API containers
+- ML API containers
 
-### 📅 Day 284 — `Gradio` + `Streamlit` ⭐🔥
-- `Gradio` — ML demos ⭐🔥
-- `Streamlit` — data apps ⭐
-- Deploying on HuggingFace Spaces ⭐🔥
-- Building model demos
+### 📅 Day 339 — `Gradio` + `Streamlit` ⭐🔥
+- `Gradio` ML demos ⭐🔥
+- `Streamlit` data apps ⭐
+- HuggingFace Spaces ⭐🔥
 
-### 📅 Day 285 — MLflow ⭐🔥
+### 📅 Day 340 — MLflow ⭐🔥
 - Experiment tracking ⭐🔥
 - Model registry ⭐
 - Artifact logging ⭐
-- Model versioning ⭐
 
-### 📅 Day 286 — Data Versioning + DVC ⭐
-- `dvc` — Data Version Control ⭐
-- Tracking datasets ⭐
-- Pipeline reproducibility ⭐
-
-### 📅 Day 287 — Model Optimization ⭐🔥
+### 📅 Day 341 — Model Optimization ⭐🔥
 - Quantization (INT8, FP16) ⭐🔥
 - `torch.quantization` ⭐
-- Pruning ⭐
 - Knowledge distillation ⭐🔥
 - `bitsandbytes` ⭐🔥
 
-### 📅 Day 288 — Cloud ML Basics ⭐
-- AWS/GCP/Azure ML concepts
-- HuggingFace Hub as model store ⭐🔥
-- Google Colab Pro tips ⭐
-- RunPod, vast.ai for GPU ⭐
-
-### 📅 Day 289 — `Pydantic` v2 ⭐🔥
+### 📅 Day 342 — `Pydantic` v2 ⭐🔥
 - Pydantic v2 changes ⭐🔥
-- Data validation for ML pipelines ⭐
+- Data validation for ML ⭐
 - Settings management ⭐
-- Model configs with Pydantic ⭐
 
-### 📅 Day 290 — Production ML Patterns 🔥
-- Feature stores concept ⭐
+### 📅 Day 343 — Production ML Patterns 🔥
 - Model monitoring ⭐
 - Data drift detection ⭐
 - A/B testing models
 - Shadow deployment ⭐
 
-### 📅 Day 291 — Testing ML Systems 🔥
+### 📅 Day 344 — `vLLM` + LLM Serving ⭐🔥
+- `vLLM` ⭐🔥 — fast LLM inference
+- PagedAttention concept ⭐🔥
+- Continuous batching ⭐
+- `vLLM` API server ⭐
+- vs `transformers` inference speed
+
+### 📅 Day 345 — Cloud + GPU Workflow ⭐
+- RunPod / vast.ai ⭐
+- HuggingFace Hub as model store ⭐🔥
+- AWS S3 for datasets ⭐
+- Colab Pro for training ⭐
+
+### 📅 Day 346 — Testing ML Systems 🔥
 - Unit testing ML code
 - Testing data pipelines
-- Model behavior tests
 - `pytest` for ML ⭐
-- `great_expectations` intro ⭐
 
-### 📅 Day 292 — Performance Optimization ⭐🔥
+### 📅 Day 347 — Performance Optimization ⭐🔥
 - `torch.compile` for inference ⭐🔥
-- `vLLM` for LLM serving ⭐🔥
 - TensorRT intro ⭐
 - Batching strategies ⭐
 
-### 📅 Day 293 — Security in ML Systems ⭐
-- Prompt injection ⭐🔥
-- Model stealing attacks ⭐
-- Data poisoning ⭐
-- API security basics
-- Rate limiting
-
-### 📅 Day 294 — ML System Design 🔥
-- Designing end-to-end ML systems
+### 📅 Day 348 — ML System Design 🔥
+- End-to-end ML system design
 - Scalability considerations
 - Latency vs throughput
-- Real-world architecture patterns
 
-### 📅 Day 295 🔁 — REVISION + PROJECT
+### 📅 Day 349 — Security in ML ⭐
+- Prompt injection ⭐🔥
+- Model stealing attacks ⭐
+- API security basics
 
-### 🛠️ PROJECT 17: Production ML API
+### 📅 Day 350 🔁 — REVISION + PROJECT
+
+### 🛠️ PROJECT 18: Production ML API
 - PyTorch model + FastAPI ⭐
 - Docker containerized ⭐
 - ONNX optimized ⭐
@@ -2060,14 +2265,47 @@
 - HuggingFace Spaces demo ⭐
 
 ---
+---
+
+# 📄 PHASE 28 — PAPER READING + IMPLEMENTATION (NEW) 🔥 (Day 351–354)
 
 ---
 
-# 🏆 PHASE 15 — FINAL CAPSTONE PROJECTS (Day 296–300)
+### 📅 Day 351 — How to Read ML Papers 🔥
+- Reading strategy (abstract → conclusion → methods) 🔥
+- Understanding architecture diagrams
+- Finding code implementations
+- Papers With Code ⭐
+- arXiv navigation
+- Building a paper reading habit
+
+### 📅 Day 352 — Implementing a CV Paper 🔥
+- Pick a classic CV paper (ResNet / U-Net / ViT)
+- Implement from scratch in PyTorch
+- Compare with official implementation
+- Write clear code comments
+
+### 📅 Day 353 — Implementing an NLP Paper 🔥
+- Pick a classic NLP paper (Attention is All You Need / BERT)
+- Implement key components from scratch
+- Understand every equation in the paper
+- Run on small dataset
+
+### 📅 Day 354 — Reading Modern Papers ⭐🔥
+- Read 3 recent papers (2024/2025)
+- One CV paper (YOLO11 / ViT variant)
+- One NLP paper (LoRA / DPO / RAG improvement)
+- One multimodal paper (LLaVA / CLIP variant)
+- Write a summary for each
+
+---
+---
+
+# 🏆 PHASE 29 — FINAL CAPSTONE PROJECTS (Day 355–360)
 
 ---
 
-### 🛠️ PROJECT 18: End-to-End Computer Vision App (Day 296–297)
+### 🛠️ PROJECT 19: End-to-End CV App (Day 355–356)
 **Real-time Multi-task CV System**
 - Object detection (YOLOv8/11) ⭐
 - Image segmentation
@@ -2075,79 +2313,94 @@
 - FastAPI backend + Gradio frontend
 - Docker deployed
 - Full OOP design
+- `timm` backbone ⭐
+- `einops` in model code ⭐
+- mAP evaluation ⭐
 
-### 🛠️ PROJECT 19: NLP + LLM Application (Day 298–299)
+### 🛠️ PROJECT 20: NLP + LLM App (Day 357–358)
 **Multimodal RAG System**
 - PDF + image ingestion ⭐
 - Multimodal embeddings (CLIP) ⭐
 - Vector database (ChromaDB) ⭐
+- Hybrid search (BM25 + dense) ⭐
 - LLM answering with citations ⭐
 - LoRA fine-tuned model ⭐
-- Full web interface
+- `RAGAS` evaluation ⭐
+- Full web interface (Gradio)
 
-### 🛠️ PROJECT 20: Complete ML Portfolio (Day 300)
+### 🛠️ PROJECT 21: Complete ML Portfolio (Day 359–360)
 **Polish + Publish Everything**
-- All projects on GitHub
+- All 20 projects on GitHub
 - README + documentation for each
 - HuggingFace model cards ⭐
-- Demo on HuggingFace Spaces ⭐
+- Demos on HuggingFace Spaces ⭐
 - Personal ML portfolio site
-- LinkedIn/blog writeups
+- LinkedIn writeups
 
 ---
-
 ---
 
-# 📚 WHAT TO DO EVERY DAY
+# 📚 DAILY STUDY PLAN
 
 ```
-Hour 1: Study the theory — read docs, take notes
-Hour 2: Code the concept — implement from scratch
-Hour 3: Practice — solve problems, build mini examples
-Hour 4: (On project days) — build the actual project
+Hour 1  → Theory — read docs, take notes
+Hour 2  → Code — implement from scratch
+Hour 3  → Practice — solve problems, mini examples
+Hour 4  → Project days — build actual project
 ```
 
 ---
 
-# 🗺️ LEARNING RESOURCES (All Free)
+# 🗺️ LEARNING RESOURCES
 
-| Resource | Use For |
+| Resource | Phase |
 |---|---|
-| Python docs (docs.python.org) | Phase 1–5 |
-| Real Python (realpython.com) | Phase 1–5 |
-| CS50P | Phase 1–2 |
-| NumPy docs | Phase 7 |
-| Pandas docs | Phase 8 |
-| Scikit-learn docs | Phase 10 |
-| PyTorch docs + tutorials | Phase 11 |
-| HuggingFace course (huggingface.co/learn) ⭐ | Phase 13 |
-| fast.ai ⭐ | Phase 11–12 |
-| Andrej Karpathy's YouTube ⭐🔥 | Phase 11, 13 |
-| Papers With Code ⭐ | Phase 12–13 |
+| Python docs (docs.python.org) | 1–5 |
+| Real Python (realpython.com) | 1–5 |
+| 3Blue1Brown — Essence of Linear Algebra | 6 |
+| 3Blue1Brown — Neural Networks | 6 |
+| Khan Academy — Probability + Statistics | 6 |
+| NumPy docs | 10 |
+| Pandas docs | 12 |
+| Scikit-learn docs | 15 |
+| PyTorch docs + tutorials | 16 |
+| fast.ai ⭐ | 16–18 |
+| Andrej Karpathy YouTube ⭐🔥 | 16, 23 |
+| HuggingFace course ⭐🔥 | 23 |
+| Papers With Code ⭐ | 18, 23, 28 |
+| `diffusers` docs ⭐ | 21 |
+| `trl` docs ⭐ | 25 |
 
 ---
 
-# ⭐ THINGS THAT CHANGE MOST (Watch These)
+# ⭐ THINGS THAT CHANGE MOST — WATCH THESE
 
 1. **PyTorch 2.x** — `torch.compile`, mixed precision ⭐🔥
 2. **HuggingFace ecosystem** — changes every few months ⭐🔥
 3. **LLM landscape** — new models weekly ⭐🔥
-4. **LoRA/PEFT techniques** — evolving fast ⭐🔥
+4. **LoRA/PEFT/DPO** — evolving fast ⭐🔥
 5. **Pandas CoW** — breaking change in 3.0 ⭐🔥
 6. **NumPy 2.0** — breaking changes ⭐🔥
 7. **Python 3.12/3.13** — new syntax, GIL removal ⭐🔥
 8. **YOLO versions** — new versions frequently ⭐🔥
 9. **RAG patterns** — evolving rapidly ⭐🔥
 10. **Scikit-learn API** — metadata routing, set_output ⭐
+11. **`diffusers`** — new models + pipelines constantly ⭐🔥
+12. **`vLLM`** — rapidly improving ⭐🔥
+13. **Alignment techniques** — DPO, ORPO, SimPO evolving ⭐🔥
+14. **`einops`** — becoming standard in all papers ⭐
+15. **`timm`** — new SOTA models added regularly ⭐
 
 ---
 
-# ✅ END GOAL
+# ✅ END GOAL — After 360 Days You Can:
 
-After 300 days you will be able to:
 - Write production-grade Python with full internals knowledge
+- Understand the math behind every ML algorithm
 - Build and train CV models (detection, segmentation, classification)
-- Fine-tune and deploy LLMs (LoRA, RAG, agents)
+- Fine-tune and deploy LLMs (LoRA, QLoRA, DPO, RAG, agents)
+- Generate images with Stable Diffusion + fine-tune with LoRA
+- Process audio with Whisper + torchaudio
 - Deploy ML systems with FastAPI + Docker
-- Contribute to open source ML projects
-- Apply for ML Engineer / CV Engineer / NLP Engineer roles
+- Read and implement research papers
+- Apply for: ML Engineer / CV Engineer / NLP Engineer / LLM Engineer roles
