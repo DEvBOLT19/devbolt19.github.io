@@ -51,12 +51,12 @@
 
 ---
 
-### 📅 Day 1 — How Python Works
+### 📅 Day 1 — How Python Works 🎯
 - How the interpreter runs your code ✅
-- Bytecode overview (`.pyc`) 
-- REPL vs scripts
-- Variables, dynamic typing
-- `print`, `input` basics
+- Bytecode overview (`.pyc`) ✅
+- REPL vs scripts✅
+- Variables, dynamic typing✅
+- `print`, `input` basics✅
 
 ### 📅 Day 2 — Data Types + Memory
 - `int`, `float`, `bool`, `str`
