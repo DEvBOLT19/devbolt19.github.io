@@ -51,7 +51,7 @@
 
 ---
 
-### 📅 Day 1 — How Python Works 🎯
+### 📅 Day 1 — How Python Works 🎯(completed)
 - How the interpreter runs your code ✅
 - Bytecode overview (`.pyc`) ✅
 - REPL vs scripts✅
@@ -60,7 +60,7 @@
 - typecasting ✅
 
 ### 📅 Day 2 — Data Types + Memory
-- `int`, `float`, `bool`, `str`
+- `int`, `float`, `bool`, `str`✅
 - `id()`, `type()`, `isinstance()`
 - Memory references
 - Mutability intro
