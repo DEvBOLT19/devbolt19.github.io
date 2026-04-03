@@ -50,8 +50,8 @@
 ### 🎯 Goal: Build rock-solid base with zero confusion later
 
 ---
-
-### 📅 Day 1 — How Python Works 🎯(completed)
+ 
+### 📅 Day 1 — How Python Works (completed) 🟢
 - How the interpreter runs your code ✅
 - Bytecode overview (`.pyc`) ✅
 - REPL vs scripts✅
