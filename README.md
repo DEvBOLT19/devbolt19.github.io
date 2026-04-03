@@ -59,13 +59,13 @@
 - `print`, `input` basics✅
 - typecasting ✅
 
-### 📅 Day 2 — Data Types + Memory
+### 📅 Day 2 — Data Types + Memory 🟢
 - `int`, `float`, `bool`, `str`✅
-- `id()`, `type()`, `isinstance()`
-- Memory references
-- Mutability intro
-- Integer caching (`-5` to `256`) 🔥
-- String interning 🔥
+- `id()`, `type()`, `isinstance()`✅
+- Memory references✅
+- Mutability intro✅
+- Integer caching (`-5` to `256`) 🔥✅
+- String interning 🔥✅
 
 ### 📅 Day 3 — Operators 🔥
 - Arithmetic, logical, comparison
