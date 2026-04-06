@@ -44,7 +44,7 @@
 | 29 | Final Capstone Projects | 355–360 |
 
 ## date 6 april 2026
-## roadmap day 4
+## roadmap day 5
 ## i am on day 6
 ---
 ---
@@ -84,12 +84,12 @@
 - String concatenation + repetition✅
 - Raw strings, escape characters✅
 
-### 📅 Day 5 — Strings (Part 2)
-- All string methods
-- f-strings deep ⭐
-- String formatting (`.format()`, `%`)
-- Encoding basics (UTF-8, ASCII)
-- `encode()`, `decode()`
+### 📅 Day 5 — Strings (Part 2)🟢
+- All string methods✅
+- f-strings deep ⭐✅
+- String formatting (`.format()`, `%`)✅
+- Encoding basics (UTF-8, ASCII)✅
+- `encode()`, `decode()`✅
 
 ### 📅 Day 6 — Lists + Tuples
 - List creation, indexing, slicing
