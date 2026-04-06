@@ -43,6 +43,9 @@
 | 28 | Paper Reading + Implementation (NEW) 🔥 | 351–354 |
 | 29 | Final Capstone Projects | 355–360 |
 
+## date 6 april 2026
+## roadmap day 4
+## i am on day 5
 ---
 ---
 
@@ -74,12 +77,12 @@
 - Walrus operator (`:=`) ⭐✅
 - Operator precedence✅
 
-### 📅 Day 4 — Strings (Part 1)
-- String creation, indexing, slicing
-- Immutability — why and how
-- `len`, `in`, `not in`
-- String concatenation + repetition
-- Raw strings, escape characters
+### 📅 Day 4 — Strings (Part 1)🟢
+- String creation, indexing, slicing✅
+- Immutability — why and how✅
+- `len`, `in`, `not in`✅
+- String concatenation + repetition✅
+- Raw strings, escape characters✅
 
 ### 📅 Day 5 — Strings (Part 2)
 - All string methods
