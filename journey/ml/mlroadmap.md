@@ -91,12 +91,12 @@
 - Encoding basics (UTF-8, ASCII)✅
 - `encode()`, `decode()`✅
 
-### 📅 Day 6 — Lists + Tuples
-- List creation, indexing, slicing
-- List methods (`append`, `extend`, `insert`, `remove`, `pop`, `sort`, `reverse`)
-- List internals (dynamic array)
-- Tuples — immutability reason and use cases
-- Named tuples intro
+### 📅 Day 6 — Lists + Tuples🟢
+- List creation, indexing, slicing✅
+- List methods (`append`, `extend`, `insert`, `remove`, `pop`, `sort`, `reverse`)✅
+- List internals (dynamic array)✅
+- Tuples — immutability reason and use cases✅
+- Named tuples intro✅
 
 ### 📅 Day 7 — Sets + Dicts 🔥
 - Sets — hashing concept, uniqueness
