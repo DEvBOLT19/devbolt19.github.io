@@ -142,38 +142,38 @@
 
 > 🔁 Note: Stack frames at the CPython level (frame objects, `sys._getframe`) are covered deeply at Day 73. Here just understand the concept of call stack.
 
-### 📅 Day 12 — Functions (Part 2)
-- Positional, keyword arguments
-- `*args`, `**kwargs` 🔥
-- Default argument pitfalls (mutable defaults) 🔥
-- Keyword-only arguments (`*`)
-- Positional-only arguments (`/`) ⭐
-- Function annotations
+### 📅 Day 12 — Functions (Part 2) 🟢
+- Positional, keyword arguments ✅
+- `*args`, `**kwargs` 🔥 ✅
+- Default argument pitfalls (mutable defaults) 🔥 ✅
+- Keyword-only arguments (`*`) ✅
+- Positional-only arguments (`/`) ⭐ ✅
+- Function annotations ✅
 
-### 📅 Day 13 — Built-in Functions 🔥
-- `len`, `sum`, `min`, `max`, `abs`, `round`
-- `sorted(key=)`, `reversed`
-- `zip`, `enumerate`, `map`, `filter`
-- `any`, `all`
-- `range`
-- `isinstance`, `issubclass`, `callable`
+### 📅 Day 13 — Built-in Functions 🔥 🟢
+- `len`, `sum`, `min`, `max`, `abs`, `round` ✅
+- `sorted(key=)`, `reversed` ✅
+- `zip`, `enumerate`, `map`, `filter` ✅
+- `any`, `all` ✅
+- `range` ✅
+- `isinstance`, `issubclass`, `callable` ✅
 
 > 🔁 Note: `iter` and `next` are moved to Day 15 (Iteration Protocol) where they belong and make full sense.
 
 ### 📅 Day 14 — Functional Programming Basics
-- `map`, `filter` deep
-- `functools.reduce`
-- When to use vs comprehensions
-- Pure functions concept
-- Side effects awareness
+- `map`, `filter` deep ✅
+- `functools.reduce` ✅
+- When to use vs comprehensions ✅
+- Pure functions concept ✅
+- Side effects awareness ✅
 
 ### 📅 Day 15 — Iteration Protocol 🔥
-- `__iter__`, `__next__`
-- How `for` loop really works internally
-- `StopIteration`
-- `iter()` and `next()` — now introduced properly here
-- `iter()` with sentinel
-- Custom iterable — concept only here
+- `__iter__`, `__next__` ✅
+- How `for` loop really works internally ✅
+- `StopIteration` ✅
+- `iter()` and `next()` — now introduced properly here ✅
+- `iter()` with sentinel ✅
+- Custom iterable — concept only here ✅
 
 > 🔁 Note: Building a full custom iterable class requires OOP knowledge. You will build one properly on Day 61 after learning classes in Phase 3.
 
