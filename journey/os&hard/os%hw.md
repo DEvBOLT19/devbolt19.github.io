@@ -42,27 +42,36 @@
 
 ### 📅 Day 1 — Number Systems 🔥
 - Binary (base 2) — the language of hardware
-- Decimal → Binary → Hexadecimal conversion
+- Decimal → Binary conversion
+- Binary → Hexadecimal conversion
 - Octal
 - Why computers use binary (voltage levels)
-- Two's complement — how negative numbers work 🔥
-- Overflow, underflow
 
-### 📅 Day 2 — Boolean Algebra 🔥
+> 🔁 Note: Two's complement (negative numbers) requires you to be fully comfortable with binary first. It is introduced on Day 2 after you've practiced binary thoroughly.
+
+### 📅 Day 2 — Signed Numbers + Arithmetic 🔥
+- Two's complement — how negative numbers work 🔥
+- Why two's complement is used (not sign-magnitude)
+- Overflow, underflow — what they mean and when they happen
+- Addition and subtraction in binary
+- Hexadecimal arithmetic
+- Practice: convert, add, subtract in all bases
+
+### 📅 Day 3 — Boolean Algebra 🔥
 - AND, OR, NOT, NAND, NOR, XOR, XNOR
 - Truth tables
 - Boolean laws (De Morgan's, distributive, etc.)
 - Simplifying boolean expressions
 - Why this IS how transistors work 🔥
 
-### 📅 Day 3 — Logic Gates 🔥
+### 📅 Day 4 — Logic Gates 🔥
 - Transistors → logic gates (conceptual)
 - AND, OR, NOT gates physically
 - NAND gate — universal gate 🔥
 - Building any gate from NAND
 - Gate delay concept
 
-### 📅 Day 4 — Combinational Circuits
+### 📅 Day 5 — Combinational Circuits
 - Half adder, full adder 🔥
 - Ripple carry adder
 - Subtractor
@@ -70,35 +79,35 @@
 - Encoder, Decoder
 - Comparator
 
-### 📅 Day 5 — Arithmetic Logic Unit (ALU) 🔥
+### 📅 Day 6 — Arithmetic Logic Unit (ALU) 🔥
 - What the ALU does
 - Building a simple ALU
 - ALU operations (ADD, SUB, AND, OR, NOT, XOR, shift)
 - Flags (zero, carry, overflow, sign) 🔥
 - How Python's `+` operator reaches the ALU ⭐
 
-### 📅 Day 6 — Sequential Circuits + Memory Elements
+### 📅 Day 7 — Sequential Circuits + Memory Elements
 - Latches (SR latch, D latch)
 - Flip-flops (D, JK, T) 🔥
 - Registers — built from flip-flops 🔥
 - Counters
 - Clock signal — synchronizing everything 🔥
 
-### 📅 Day 7 — Memory Basics
+### 📅 Day 8 — Memory Basics
 - SRAM vs DRAM concept
 - How a RAM cell works
 - Addressing memory
 - Read/write cycles
 - Why SRAM is faster but expensive
 
-### 📅 Day 8 — How a CPU Executes Instructions 🔥
+### 📅 Day 9 — How a CPU Executes Instructions 🔥
 - Fetch → Decode → Execute → Write back cycle 🔥
 - Program Counter (PC)
 - Instruction Register (IR)
 - Control Unit
 - Simple CPU execution trace
 
-### 📅 Day 9 — Instruction Set Architecture (ISA) 🔥
+### 📅 Day 10 — Instruction Set Architecture (ISA) 🔥
 - What ISA is
 - x86-64 basics 🔥
 - ARM basics ⭐ (used in Apple Silicon, phones)
@@ -106,7 +115,7 @@
 - Registers in x86-64 (RAX, RBX, RCX, RDX, RSP, RBP, RIP)
 - Why ARM is used in ML accelerators ⭐🎮
 
-### 📅 Day 10 — Assembly Language Basics 🔥
+### 📅 Day 11 — Assembly Language Basics 🔥
 - Why learn assembly
 - x86-64 assembly syntax (AT&T + Intel)
 - `mov`, `add`, `sub`, `mul`, `div`
@@ -114,7 +123,7 @@
 - `jmp`, `je`, `jne` — control flow
 - `call`, `ret` — function calls 🔥
 
-### 📅 Day 11 — Assembly Deep 🔥
+### 📅 Day 12 — Assembly Deep 🔥
 - Registers deep (general, segment, flags)
 - Memory addressing modes
 - Stack frame layout 🔥
@@ -122,7 +131,7 @@
 - Calling conventions (cdecl, System V AMD64) 🔥
 - How Python function calls look in assembly ⭐
 
-### 📅 Day 12 — Floating Point Representation 🔥
+### 📅 Day 13 — Floating Point Representation 🔥
 - IEEE 754 standard 🔥
 - Single precision (FP32) 🔥
 - Double precision (FP64)
@@ -131,7 +140,16 @@
 - FP16, BF16 ⭐🎮 — why ML uses these
 - Precision loss — why this matters in ML training ⭐🎮
 
-### 📅 Day 13 — SIMD + Vectorization 🔥🎮
+> 🔁 Note: SIMD and vectorization (SSE, AVX, AVX-512) are moved to Day 15 — they require comfort with assembly and floating point first. Introducing AVX-512 before you can read assembly is too much.
+
+### 📅 Day 14 — Digital Logic Practice
+- Build adder circuit on paper
+- Trace CPU fetch-decode-execute manually
+- Read simple assembly programs
+- Convert float to IEEE 754 manually
+- Practice: write 5 short assembly programs by hand
+
+### 📅 Day 15 — SIMD + Vectorization 🔥🎮
 - SIMD concept (Single Instruction Multiple Data) 🔥
 - SSE, AVX, AVX-512 instructions
 - How NumPy uses SIMD ⭐🎮
@@ -139,11 +157,7 @@
 - Vectorization in compilers
 - Why loops are slow, vectors are fast 🔥
 
-### 📅 Day 14 — Digital Logic Practice
-- Build adder circuit on paper
-- Trace CPU fetch-decode-execute manually
-- Read simple assembly programs
-- Convert float to IEEE 754 manually
+> 🔁 Note: SIMD lands here after assembly (Days 11–12) and floating point (Day 13) — now you can actually understand what these instructions are doing at the register level.
 
 ### 📅 Day 15 🔁 — REVISION + PROJECT
 
@@ -230,21 +244,22 @@
 - Working set concept
 - How PyTorch moves data through memory ⭐🎮
 
-### 📅 Day 24 — Virtual Memory Intro 🔥
+### 📅 Day 24 — Physical Memory + Address Basics 🔥
+- Physical addresses — what they are
+- How RAM is addressed
+- Memory bus
+- Why the CPU needs to translate addresses
+- Motivation for virtual memory (preview only — full coverage in Phase 3)
+
+> 🔁 Note: Full virtual memory (page tables, TLB, huge pages) is covered in Phase 3 (Days 41–42) after you understand physical memory deeply. Introducing it here in full would require knowledge you don't have yet.
+
+### 📅 Day 25 — Virtual Memory Intro 🔥
 - Why virtual memory exists
 - Physical vs virtual addresses 🔥
-- Address space
+- Address space concept
 - Pages + page size (4KB default)
-- Page table concept
+- Page table concept (surface level — deep coverage Day 41–42)
 - Memory isolation between processes 🔥
-
-### 📅 Day 25 — TLB + Page Tables 🔥
-- TLB (Translation Lookaside Buffer) 🔥
-- TLB hits vs misses
-- Multi-level page tables (4-level in x86-64)
-- Page table walk
-- Huge pages (2MB, 1GB) ⭐🎮
-- Why huge pages matter for ML training ⭐🎮
 
 ### 📅 Day 26 — Instruction-Level Parallelism 🔥
 - ILP concept
@@ -302,19 +317,19 @@
 - PCIe 4.0 vs 5.0 for ML ⭐🎮
 - Chipset role
 
-### 📅 Day 33 — Interrupts + Exceptions 🔥
-- Hardware interrupts
-- Software interrupts (syscalls) 🔥
-- Interrupt Service Routines (ISR)
-- Exception types (fault, trap, abort)
-- Privilege levels (rings 0–3) 🔥
-- Kernel mode vs user mode 🔥
-
-### 📅 Day 34 — Architecture Practice
+### 📅 Day 33 — Architecture Practice
 - Trace a matrix multiply through cache
 - Calculate cache miss rate
 - Analyze memory access patterns
-- Measure IPC with `perf`
+- Measure performance with `time` command
+
+> 🔁 Note: Interrupts, exceptions, privilege rings, and kernel/user mode are moved to Day 81 (OS Fundamentals Phase) where they belong. These concepts require understanding what an OS is first — putting them here in Phase 2 was too early and disconnected.
+
+### 📅 Day 34 — Architecture Revision
+- Review: pipeline, cache, memory hierarchy
+- Review: ILP, multi-core, coherence
+- Review: FLOPS, roofline model
+- Practice problems: cache sizing, bandwidth calculations
 
 ### 📅 Day 35 🔁 — REVISION + PROJECT
 
@@ -384,7 +399,19 @@
 - Copy-on-Write (CoW) 🔥
 - Page faults — major vs minor 🔥
 
-### 📅 Day 42 — Memory Allocation Internals 🔥
+### 📅 Day 42 — TLB + Page Tables Deep 🔥
+- TLB (Translation Lookaside Buffer) 🔥
+- TLB hits vs misses
+- Multi-level page tables (4-level in x86-64)
+- Page table walk
+- 4-level page tables (PML4, PDPT, PD, PT)
+- Page table entry (PTE) flags 🔥
+- Huge pages (2MB, 1GB) ⭐🎮
+- Why huge pages matter for ML training ⭐🎮
+
+> 🔁 Note: TLB and page tables land here after physical memory (Days 36–38) and virtual address space (Day 41) are solid. This is the right place for deep virtual memory — not Day 25.
+
+### 📅 Day 43 — Memory Allocation Internals 🔥
 - `brk()`, `sbrk()` system calls
 - `mmap()` for large allocations
 - Buddy allocator
@@ -392,7 +419,7 @@
 - Python's `pymalloc` ⭐
 - How `gc` module interacts with OS memory ⭐
 
-### 📅 Day 43 — Memory Mapped I/O
+### 📅 Day 44 — Memory Mapped I/O
 - Memory-mapped I/O concept
 - Device registers in memory
 - How GPU memory is mapped ⭐🎮
@@ -400,7 +427,7 @@
 - File-backed memory mapping
 - Anonymous memory mapping
 
-### 📅 Day 44 — NUMA Memory 🔥🎮
+### 📅 Day 45 — NUMA Memory 🔥🎮
 - NUMA topology
 - Local vs remote memory access
 - NUMA nodes
@@ -408,7 +435,7 @@
 - NUMA-aware memory allocation
 - Why NUMA matters for multi-GPU training ⭐🎮
 
-### 📅 Day 45 — Memory Errors + Debugging
+### 📅 Day 46 — Memory Errors + Debugging
 - Segmentation fault — what it really is 🔥
 - Buffer overflow
 - Use-after-free
@@ -417,21 +444,13 @@
 - Address Sanitizer (ASan)
 - How Python protects you from most of these ⭐
 
-### 📅 Day 46 — CPU Caches + ML Performance 🔥🎮
+### 📅 Day 47 — CPU Caches + ML Performance 🔥🎮
 - Cache blocking (tiling) 🔥🎮
 - Tiling matrix multiply 🔥🎮
 - Why BLAS libraries are fast
 - How NumPy/PyTorch use blocking ⭐🎮
 - Prefetching — hardware vs software
 - Cache-oblivious algorithms
-
-### 📅 Day 47 — Memory Ordering + Concurrency 🔥
-- Memory consistency models
-- Sequential consistency
-- x86 memory model (TSO)
-- ARM memory model (weaker)
-- `volatile` in C
-- Memory barriers in Python threading ⭐
 
 ### 📅 Day 48 — GPU Memory Architecture 🔥🎮
 - GPU VRAM (Video RAM) 🔥🎮
@@ -517,6 +536,8 @@
 - Synchronous vs asynchronous I/O 🔥
 - `select`, `poll`, `epoll` 🔥
 - How Python `asyncio` uses `epoll` ⭐
+
+> 🔁 Note: Interrupts land here (Day 56) in the context of I/O — this is where they make the most intuitive sense. The deeper OS-level interrupt handling (ISRs, privilege levels, rings) comes properly at Day 83 after OS fundamentals are established.
 
 ### 📅 Day 57 — PCIe Deep 🔥🎮
 - PCIe lanes and slots
@@ -738,15 +759,34 @@
 
 ---
 
-### 📅 Day 81 — What is an OS 🔥
+### 📅 Day 81 — What is an OS + Practical Linux Survival 🔥
 - OS responsibilities
 - Kernel vs user space 🔥
 - System calls — the interface 🔥
 - OS as resource manager
 - Monolithic vs microkernel vs hybrid
 - Linux kernel overview
+- **Practical Linux survival kit** — tools you need from day 1:
+  - `ls`, `cd`, `pwd`, `mkdir`, `rm`, `cp`, `mv`, `cat`, `less`, `grep`
+  - `ps`, `top`, `htop` — seeing what's running
+  - `ssh` — connecting to remote servers 🔥
+  - `tmux` — keeping sessions alive 🔥
+  - `screen` — alternative to tmux
+  - Why you need these for ML work ⭐🎮
 
-### 📅 Day 82 — Boot Process 🔥
+> 🔁 Note: `tmux`, `ssh`, and `htop` appear here at the start of the OS phase rather than Day 169 — these are tools you will use daily throughout this entire roadmap. Learning them on Day 169 is too late.
+
+### 📅 Day 82 — Interrupts + Exceptions + Privilege Levels 🔥
+- Hardware interrupts
+- Software interrupts (syscalls) 🔥
+- Interrupt Service Routines (ISR)
+- Exception types (fault, trap, abort)
+- Privilege levels (rings 0–3) 🔥
+- Kernel mode vs user mode 🔥
+
+> 🔁 Note: Interrupts and privilege rings land here (Day 82) after you understand what an OS is (Day 81). In Phase 2 these would have been disconnected — now they make full sense in the context of OS + hardware interaction.
+
+### 📅 Day 83 — Boot Process 🔥
 - Power on → BIOS/UEFI → bootloader → kernel
 - BIOS vs UEFI
 - GRUB bootloader
@@ -754,7 +794,7 @@
 - `init` / `systemd`
 - What happens before your Python script runs ⭐
 
-### 📅 Day 83 — System Calls 🔥
+### 📅 Day 84 — System Calls 🔥
 - What system calls are
 - syscall interface (x86-64)
 - Common syscalls (`read`, `write`, `open`, `close`, `fork`, `exec`, `exit`)
@@ -762,7 +802,9 @@
 - Syscall overhead
 - How Python's `open()` becomes a syscall ⭐
 
-### 📅 Day 84 — Processes 🔥
+> 🔁 Note: `strace` is introduced here properly with context. It was referenced on Day 83 in the original roadmap before being taught — now it's taught first.
+
+### 📅 Day 85 — Processes 🔥
 - Process concept
 - Process Control Block (PCB)
 - Process states (running, ready, blocked, zombie)
@@ -771,7 +813,7 @@
 - `wait()` — waiting for children
 - Orphan + zombie processes
 
-### 📅 Day 85 — Process Scheduling 🔥
+### 📅 Day 86 — Process Scheduling 🔥
 - Why scheduling exists
 - Scheduling criteria (CPU utilization, throughput, latency)
 - Scheduling algorithms:
@@ -782,7 +824,7 @@
   - Multilevel feedback queue 🔥
 - Linux CFS (Completely Fair Scheduler) 🔥
 
-### 📅 Day 86 — Context Switching 🔥
+### 📅 Day 87 — Context Switching 🔥
 - What context switching is
 - Context switch cost 🔥
 - Saving/restoring CPU state
@@ -790,7 +832,7 @@
 - Context switch overhead in Python ⭐
 - Why async is better than threads for I/O ⭐
 
-### 📅 Day 87 — Threads (OS Level) 🔥
+### 📅 Day 88 — Threads (OS Level) 🔥
 - Process vs thread 🔥
 - Kernel threads vs user threads
 - Thread creation (`pthread_create`)
@@ -798,7 +840,7 @@
 - Thread pool concept
 - How Python threads map to OS threads ⭐
 
-### 📅 Day 88 — Concurrency + Synchronization 🔥
+### 📅 Day 89 — Concurrency + Synchronization 🔥
 - Race conditions 🔥
 - Critical sections
 - Mutex (mutual exclusion) 🔥
@@ -808,14 +850,14 @@
 - Deadlock conditions (Coffman conditions)
 - Prevention, avoidance, detection
 
-### 📅 Day 89 — Deadlock Deep 🔥
+### 📅 Day 90 — Deadlock Deep 🔥
 - Resource allocation graph
 - Banker's algorithm
 - Deadlock detection algorithms
 - Recovery from deadlock
 - Python threading deadlock examples ⭐
 
-### 📅 Day 90 — Inter-Process Communication (IPC) 🔥
+### 📅 Day 91 — Inter-Process Communication (IPC) 🔥
 - Pipes (anonymous, named)
 - Message queues
 - Shared memory 🔥
@@ -823,7 +865,7 @@
 - Sockets (Unix domain)
 - How Python `multiprocessing` uses IPC ⭐
 
-### 📅 Day 91 — Signals 🔥
+### 📅 Day 92 — Signals 🔥
 - What signals are
 - Common signals (SIGINT, SIGTERM, SIGKILL, SIGSEGV)
 - Signal handlers
@@ -831,14 +873,14 @@
 - Handling Ctrl+C in Python programs ⭐
 - ML training interruption handling ⭐🎮
 
-### 📅 Day 92 — Memory Management (OS Intro)
+### 📅 Day 93 — Memory Management (OS Intro)
 - OS memory manager role
 - Physical memory management
 - Buddy system allocator
 - Slab allocator
 - `free`, `top`, `htop` commands
 
-### 📅 Day 93 — Virtual Memory (OS Side) 🔥
+### 📅 Day 94 — Virtual Memory (OS Side) 🔥
 - OS page table management
 - Demand paging 🔥
 - Page fault handling 🔥
@@ -847,7 +889,7 @@
 - Why ML training OOMs ⭐🎮
 - `vm.overcommit_memory` ⭐🎮
 
-### 📅 Day 94 — File Systems (Intro)
+### 📅 Day 95 — File Systems (Intro)
 - File system concept
 - VFS (Virtual File System) layer
 - Inodes 🔥
@@ -855,7 +897,17 @@
 - File permissions (Unix model) 🔥
 - Hard links vs soft links
 
-### 📅 Day 95 — OS Scheduling for ML 🔥🎮
+### 📅 Day 96 — Docker + Containers (Intro) 🔥🎮
+- What containers are — not VMs
+- Namespaces + cgroups — the two mechanisms behind Docker
+- `docker run`, `docker build`, `docker ps`, `docker exec`
+- Dockerfile basics
+- Why Docker matters for ML ⭐🎮
+- `docker run --gpus all` for GPU work ⭐🎮
+
+> 🔁 Note: Docker gets a proper intro here rather than being assumed knowledge on Day 97 of the original. The internals (namespaces, cgroups deep) come later at Day 97.
+
+### 📅 Day 97 — OS Scheduling for ML 🔥🎮
 - CPU affinity ⭐🎮
 - `taskset` — binding processes to CPUs ⭐🎮
 - `nice` + `ionice` — priority setting ⭐🎮
@@ -863,30 +915,19 @@
 - `numactl` for NUMA-aware ML ⭐🎮
 - Setting up ML training environment ⭐🎮
 
-### 📅 Day 96 — Kernel Modules + Drivers
+### 📅 Day 98 — Kernel Modules + Drivers
 - What kernel modules are
 - Loading/unloading modules (`insmod`, `rmmod`, `modprobe`)
 - GPU drivers (NVIDIA) 🔥🎮
 - CUDA driver vs runtime ⭐🎮
 - Driver installation for ML ⭐🎮
 
-### 📅 Day 97 — OS Virtualization
+### 📅 Day 99 — OS Virtualization Deep
 - Containers vs VMs 🔥
-- Namespaces (pid, net, mnt, user) 🔥
-- cgroups (resource limits) 🔥
-- How Docker uses namespaces + cgroups ⭐🎮
+- Namespaces deep (pid, net, mnt, user) 🔥
+- cgroups deep (resource limits) 🔥
 - GPU passthrough in containers ⭐🎮
-- Docker for ML ⭐🎮
-
-### 📅 Day 98 — OS Security Basics
-- Privilege levels
-- Capabilities (Linux)
-- `setuid`, `setgid`
-- `chroot`
-- SELinux, AppArmor concept
-- Securing ML APIs ⭐🎮
-
-### 📅 Day 99 🔁 — REVISION
+- NVIDIA Container Toolkit ⭐🎮
 
 ### 📅 Day 100 🔁 — REVISION + PROJECT
 
@@ -1049,6 +1090,8 @@
 - LRU algorithm 🔥
 - Clock algorithm
 - Linux's active/inactive lists
+
+> 🔁 Note: LRU is taught here properly. The Cache Simulator project on Day 35 used LRU — that project should be completed after Day 118, or you can revisit and deepen the LRU implementation in the Cache Simulator using what you now know.
 
 ### 📅 Day 119 — Swapping + Paging 🔥
 - Swap space
@@ -1463,23 +1506,20 @@
 - `systemd` services
 - Running ML training as service ⭐🎮
 
-### 📅 Day 169 — `tmux` + `screen` 🔥🎮
-- `tmux` sessions, windows, panes ⭐🎮
-- Detaching + reattaching ⭐🎮
-- `tmux` for long ML training runs ⭐🎮
+### 📅 Day 169 — `tmux` Deep + Remote Workflow 🔥🎮
+- `tmux` sessions, windows, panes deep ⭐🎮
+- Detaching + reattaching for long ML training runs ⭐🎮
 - `.tmux.conf` configuration
 - `screen` as alternative
-- Remote training workflow ⭐🎮
-
-### 📅 Day 170 — SSH Deep 🔥🎮
-- SSH key generation 🔥
-- `~/.ssh/config` ⭐🎮
+- `ssh` config deep (`~/.ssh/config`) ⭐🎮
 - SSH tunneling + port forwarding 🔥🎮
 - `scp`, `rsync` — file transfer 🔥🎮
 - SSH agent
 - Connecting to GPU servers ⭐🎮
 
-### 📅 Day 171 — Linux Performance Tools 🔥
+> 🔁 Note: This day goes deep on tmux and ssh. You were introduced to these on Day 81 for basic survival — here you master them properly for real ML engineering workflow.
+
+### 📅 Day 170 — Linux Performance Tools 🔥
 - `top`, `htop`, `atop`
 - `vmstat` — virtual memory stats
 - `iostat` — I/O stats
@@ -1487,7 +1527,7 @@
 - `dstat`
 - Monitoring ML training ⭐🎮
 
-### 📅 Day 172 — `perf` Tool 🔥🎮
+### 📅 Day 171 — `perf` Tool 🔥🎮
 - `perf stat` — hardware counters 🔥🎮
 - `perf top` — live profiling
 - `perf record` + `perf report` 🔥🎮
@@ -1495,14 +1535,16 @@
 - CPU cycles, cache misses, branch mispredictions ⭐🎮
 - Profiling Python + C extensions ⭐🎮
 
-### 📅 Day 173 — System Configuration
+> 🔁 Note: `perf` is properly taught here. It was referenced early in the original roadmap (Day 34) before being taught — now you learn it when you have the OS and profiling context to use it meaningfully.
+
+### 📅 Day 172 — System Configuration
 - `sysctl` — kernel parameters 🔥
 - Network tuning (`net.core.*`, `net.ipv4.*`)
 - Memory tuning (`vm.*`)
 - File descriptor limits (`ulimit`)
 - Tuning for ML training ⭐🎮
 
-### 📅 Day 174 — Linux Namespaces + cgroups 🔥🎮
+### 📅 Day 173 — Linux Namespaces + cgroups Deep 🔥🎮
 - PID namespace
 - Network namespace
 - Mount namespace
@@ -1511,7 +1553,7 @@
 - GPU cgroups (NVIDIA) ⭐🎮
 - Container internals ⭐🎮
 
-### 📅 Day 175 — Package Management
+### 📅 Day 174 — Package Management
 - `apt` (Debian/Ubuntu) 🔥
 - `pip` interaction with system Python ⭐
 - `conda` / `mamba` ⭐🎮
@@ -1519,7 +1561,7 @@
 - cuDNN installation ⭐🎮
 - Managing ML environments ⭐🎮
 
-### 📅 Day 176 — NVIDIA Tools on Linux 🔥🎮
+### 📅 Day 175 — NVIDIA Tools on Linux 🔥🎮
 - `nvidia-smi` deep ⭐🎮
 - `nvidia-smi dmon` — monitoring ⭐🎮
 - NVML (NVIDIA Management Library) ⭐🎮
@@ -1527,7 +1569,7 @@
 - CUDA installation + verification ⭐🎮
 - Driver vs CUDA toolkit versions ⭐🎮
 
-### 📅 Day 177 — Disk + Storage Management
+### 📅 Day 176 — Disk + Storage Management
 - `lsblk`, `fdisk`, `parted`
 - LVM (Logical Volume Manager)
 - RAID concepts
@@ -1535,14 +1577,14 @@
 - `mount`, `umount`
 - Storage for ML datasets ⭐🎮
 
-### 📅 Day 178 — Network Configuration
+### 📅 Day 177 — Network Configuration
 - `ip` command (modern) 🔥
 - `ifconfig` (legacy)
 - `nmcli`, `nmtui`
 - Bonding + teaming (for InfiniBand) ⭐🎮
 - Static IP setup for ML servers ⭐🎮
 
-### 📅 Day 179 — `systemd` Deep 🔥
+### 📅 Day 178 — `systemd` Deep 🔥
 - Unit files
 - Service, socket, timer units
 - `systemctl` commands
@@ -1550,20 +1592,30 @@
 - Creating ML training services ⭐🎮
 - Watchdog for long training runs ⭐🎮
 
-### 📅 Day 180 — Linux Kernel Configuration
+### 📅 Day 179 — Linux Kernel Configuration
 - `/boot/config-*` — kernel config
 - Kernel modules
 - Building custom kernel (concept)
 - Kernel parameters at boot
 - Disabling mitigations for performance ⭐🎮
 
-### 📅 Day 181 — Docker on Linux 🔥🎮
+### 📅 Day 180 — Docker on Linux Deep 🔥🎮
 - Docker architecture on Linux
 - `containerd`, `runc`
 - Docker + NVIDIA GPU (`nvidia-docker`) 🔥🎮
 - `docker run --gpus all` ⭐🎮
 - NVIDIA Container Toolkit ⭐🎮
 - ML Docker images (NGC) ⭐🎮
+
+### 📅 Day 181 — Makefile + Build Systems 🔥
+- `Makefile` structure 🔥
+- Rules, targets, dependencies
+- Variables, pattern rules
+- `make` for ML projects ⭐
+- `cmake` concept
+- Why build systems matter for C extensions ⭐
+
+> 🔁 Note: Makefile introduced here before C programming (Phase 13) so you have context when you start writing C code on Day 186.
 
 ### 📅 Day 182 — Linux Automation
 - `cron` + `crontab`
@@ -1605,6 +1657,7 @@
 - Why Python extensions are written in C ⭐
 - Why CUDA kernels use C++ ⭐🎮
 - Reading C code strategy
+- Setting up: `gcc`, `gdb`, `valgrind`, `make` (already covered Day 181)
 
 ### 📅 Day 187 — C Basics 🔥
 - Variables, types, operators
@@ -1686,7 +1739,7 @@
 - `#define`, `#include`, `#ifdef`
 - Macros
 - Header files
-- `Makefile` 🔥
+- `Makefile` deep revisit 🔥
 - `cmake` concept
 - How Python C extensions are built ⭐
 
@@ -1803,7 +1856,7 @@
 - Benchmarking methodology
 
 ### 📅 Day 212 — CPU Profiling 🔥
-- `perf` deep revisit
+- `perf` deep revisit (first taught Day 171)
 - Flame graphs 🔥
 - `gprof`
 - Sampling vs instrumentation profiling
