@@ -45,7 +45,7 @@
 
 ## date 13 april 2026
 ## roadmap day 11
-## i am on day 7
+## i am on day 12
 
 ---
 ---
@@ -99,46 +99,46 @@
 - Tuples — immutability reason and use cases ✅
 - Named tuples intro ✅
 
-### 📅 Day 7 — Sets + Dicts 🔥
-- Sets — hashing concept (what makes items unique), practical usage
-- Set operations (union, intersection, difference)
-- Dicts — how to create and use them practically
-- Dict methods (`keys`, `values`, `items`, `get`, `update`, `pop`)
-- Dict ordering (Python 3.7+) ⭐
+### 📅 Day 7 — Sets + Dicts 🔥 🟢
+- Sets — hashing concept (what makes items unique), practical usage ✅
+- Set operations (union, intersection, difference) ✅ 
+- Dicts — how to create and use them practically ✅
+- Dict methods (`keys`, `values`, `items`, `get`, `update`, `pop`) ✅
+- Dict ordering (Python 3.7+) ⭐ ✅
 
 > 🔁 Note: Hash table internals (how dicts work under the hood) will be covered properly in Day 124 (DSA phase) once you understand data structures and memory deeply.
 
-### 📅 Day 8 — Mutability Deep 🔥
-- Mutable vs immutable types — conceptual understanding
-- Why mutability matters (common bugs)
-- Shallow copy vs deep copy — concept only here
-- `copy.copy()` vs `copy.deepcopy()` — what they do (not internals yet)
-- Why this matters when passing data around
+### 📅 Day 8 — Mutability Deep 🔥 🟢
+- Mutable vs immutable types — conceptual understanding ✅
+- Why mutability matters (common bugs) ✅
+- Shallow copy vs deep copy — concept only here ✅
+- `copy.copy()` vs `copy.deepcopy()` — what they do (not internals yet) ✅
+- Why this matters when passing data around ✅
 
 > 🔁 Note: The deeper memory model behind copies (references, object graphs) will make full sense after Day 71 (Memory Management).
 
-### 📅 Day 9 — Control Flow
-- `if`, `elif`, `else`
-- Truthy/falsy values — ALL cases
-- Ternary expressions
-- `__bool__`, `__len__` connection (concept only — full understanding after OOP in Day 46+)
+### 📅 Day 9 — Control Flow 🟢
+- `if`, `elif`, `else` ✅
+- Truthy/falsy values — ALL cases ✅
+- Ternary expressions ✅
+- `__bool__`, `__len__` connection (concept only — full understanding after OOP in Day 46+) ✅
 
 > 🔁 Note: `match` statement (structural pattern matching) is moved to Day 22 — it requires comfort with data types and functions first.
 
-### 📅 Day 10 — Loops
-- `for` loops — iteration model (surface level — deep protocol in Day 15)
-- `while` loops
-- `break`, `continue`, `pass`
-- `else` on loops
-- `range()` internals
-- Nested loops + performance awareness
+### 📅 Day 10 — Loops 🟢
+- `for` loops — iteration model (surface level — deep protocol in Day 15) ✅
+- `while` loops ✅
+- `break`, `continue`, `pass` ✅
+- `else` on loops ✅
+- `range()` internals ✅
+- Nested loops + performance awareness ✅
 
-### 📅 Day 11 — Functions (Part 1)
-- Defining functions
-- Return values (multiple returns)
-- Stack frames concept — what happens when a function is called 🔥
-- Recursion — simple examples (factorial, fibonacci)
-- `sys.setrecursionlimit` — why it exists
+### 📅 Day 11 — Functions (Part 1) 🟢
+- Defining functions ✅
+- Return values (multiple returns) ✅
+- Stack frames concept — what happens when a function is called 🔥 ✅
+- Recursion — simple examples (factorial, fibonacci) ✅
+- `sys.setrecursionlimit` — why it exists ✅
 
 > 🔁 Note: Stack frames at the CPython level (frame objects, `sys._getframe`) are covered deeply at Day 73. Here just understand the concept of call stack.
 
