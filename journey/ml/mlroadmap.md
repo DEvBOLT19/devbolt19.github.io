@@ -45,7 +45,7 @@
 
 ## date 13 april 2026
 ## roadmap day 11
-## i am on day 12
+## i am on day 16
 
 ---
 ---
@@ -160,14 +160,14 @@
 
 > 🔁 Note: `iter` and `next` are moved to Day 15 (Iteration Protocol) where they belong and make full sense.
 
-### 📅 Day 14 — Functional Programming Basics
+### 📅 Day 14 — Functional Programming Basics 🟢
 - `map`, `filter` deep ✅
 - `functools.reduce` ✅
 - When to use vs comprehensions ✅
 - Pure functions concept ✅
 - Side effects awareness ✅
 
-### 📅 Day 15 — Iteration Protocol 🔥
+### 📅 Day 15 — Iteration Protocol 🔥 🟢
 - `__iter__`, `__next__` ✅
 - How `for` loop really works internally ✅
 - `StopIteration` ✅
