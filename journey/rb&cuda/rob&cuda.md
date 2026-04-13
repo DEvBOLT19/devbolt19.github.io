@@ -41,15 +41,20 @@
 
 ---
 
-### 📅 Day 1 — CUDA Review + Setup 🔥🎮
-- Full CUDA toolkit setup (nvcc, cuda-gdb, nsight)
+### 📅 Day 1 — CUDA Environment Setup + First Program 🔥🎮
+- Full CUDA toolkit setup (nvcc, cuda-gdb, nsight) — step by step
 - Verify GPU specs: SM count, VRAM, compute capability
-- Review from hardware roadmap: SM, warps, memory hierarchy ⭐
-- First CUDA program: vector addition end-to-end
-- Understanding compilation pipeline (`nvcc` → PTX → SASS)
+- `nvidia-smi` verification ⭐
+- Understanding CUDA version vs driver version
+- First CUDA program: "Hello from GPU" — making sure everything works
+- Vector addition end-to-end — your first real kernel
+- Understanding the compilation pipeline (`nvcc` → PTX → SASS)
 - Device query — reading GPU properties programmatically
 
+> 🔁 Note: The original Day 1 assumed CUDA was already set up. This day starts from zero setup — you need a working environment before you can write any kernel.
+
 ### 📅 Day 2 — Thread Hierarchy Deep 🔥🎮
+- Review from hardware roadmap: SM, warps, memory hierarchy ⭐
 - Threads, warps, blocks, grids — revisit with code
 - 1D, 2D, 3D thread blocks
 - Thread indexing patterns 🔥
@@ -119,7 +124,16 @@
 - Padding for bank conflict avoidance
 - Reaching 60-80% of cuBLAS performance
 
-### 📅 Day 10 — Tensor Core Programming 🔥🎮
+### 📅 Day 10 — Warp + Block Level Practice 🔥🎮
+- Practice day before Tensor Cores
+- Implement 3 kernels using warp shuffle
+- Implement 2 kernels using shared memory tiling
+- Profile each with `nvprof` / Nsight
+- Understand where time is being spent before moving on
+
+> 🔁 Note: A practice day is inserted here before Tensor Core programming (original Day 10). WMMA is very advanced — going from basic CUDA on Day 1 to WMMA on Day 10 without practice is too fast.
+
+### 📅 Day 11 — Tensor Core Programming 🔥🎮
 - WMMA API (Warp Matrix Multiply Accumulate) 🔥🎮
 - `nvcuda::wmma` namespace
 - Fragment types (matrix_a, matrix_b, accumulator)
@@ -128,7 +142,7 @@
 - WMMA GEMM kernel
 - Performance vs non-Tensor Core version
 
-### 📅 Day 11 — Softmax Kernel 🔥🎮
+### 📅 Day 12 — Softmax Kernel 🔥🎮
 - Naive softmax — numerical instability problem
 - Safe softmax (max subtraction) 🔥
 - Online softmax (single-pass) 🔥
@@ -137,7 +151,7 @@
 - Fused softmax + scale
 - Benchmarking vs PyTorch
 
-### 📅 Day 12 — Layer Normalization Kernel 🔥🎮
+### 📅 Day 13 — Layer Normalization Kernel 🔥🎮
 - LayerNorm math review ⭐
 - Two-pass vs online algorithm
 - Warp reduction for mean + variance
@@ -145,7 +159,7 @@
 - Fused backward pass concept
 - Why fused kernels matter for transformers ⭐🎮
 
-### 📅 Day 13 — Convolution Kernel 🔥🎮
+### 📅 Day 14 — Convolution Kernel 🔥🎮
 - Direct convolution kernel
 - Im2col approach
 - Shared memory tiling for convolution
@@ -153,14 +167,14 @@
 - FFT-based convolution concept
 - Why cuDNN uses different algorithms ⭐
 
-### 📅 Day 14 — Attention Kernel (Part 1) 🔥🎮
+### 📅 Day 15 — Attention Kernel (Part 1) 🔥🎮
 - Naive attention kernel — memory analysis
 - Why naive attention is O(n²) memory 🔥
 - Tiled attention — block-wise computation
 - Online softmax in attention 🔥
 - Memory-efficient attention algorithm
 
-### 📅 Day 15 — FlashAttention Implementation 🔥🎮
+### 📅 Day 16 — FlashAttention Implementation 🔥🎮
 - FlashAttention algorithm from scratch 🔥🎮
 - Forward pass implementation
 - Backward pass — recomputation strategy
@@ -169,7 +183,7 @@
 - Comparing with naive attention memory usage
 - FlashAttention-2 improvements ⭐
 
-### 📅 Day 16 — CUDA Graphs 🔥🎮
+### 📅 Day 17 — CUDA Graphs 🔥🎮
 - Why CUDA graphs exist (kernel launch overhead)
 - Graph capture (`cudaStreamBeginCapture`)
 - Graph instantiation + replay
@@ -177,7 +191,7 @@
 - How PyTorch uses CUDA graphs ⭐🎮
 - `torch.cuda.make_graphed_callables` ⭐
 
-### 📅 Day 17 — Cooperative Groups 🔥🎮
+### 📅 Day 18 — Cooperative Groups 🔥🎮
 - `cooperative_groups` namespace
 - Thread block groups
 - Grid-level groups
@@ -186,7 +200,7 @@
 - Cooperative kernel launch
 - Use cases in ML kernels
 
-### 📅 Day 18 — Atomic Operations Deep 🔥🎮
+### 📅 Day 19 — Atomic Operations Deep 🔥🎮
 - `atomicAdd`, `atomicMax`, `atomicCAS`
 - Atomic performance — when they hurt
 - Lock-free histogram kernel
@@ -194,7 +208,7 @@
 - FP16/BF16 atomic support ⭐🎮
 - Atomic patterns in ML (gradient accumulation)
 
-### 📅 Day 19 — Memory Optimization Techniques 🔥🎮
+### 📅 Day 20 — Memory Optimization Techniques 🔥🎮
 - Memory access pattern analysis
 - Vectorized memory access (`float2`, `float4`) 🔥
 - Structure of Arrays vs Array of Structures ⭐
@@ -202,7 +216,7 @@
 - L2 cache persistence (`cudaAccessPolicyWindow`)
 - Prefetching with async copy (`cp.async`) 🔥
 
-### 📅 Day 20 — `cp.async` + Pipeline Programming 🔥🎮
+### 📅 Day 21 — `cp.async` + Pipeline Programming 🔥🎮
 - Asynchronous copy from global to shared
 - `__pipeline_memcpy_async`
 - Software pipelining — overlapping compute + load
@@ -210,7 +224,7 @@
 - `cuda::pipeline` interface
 - Applying to GEMM kernel
 
-### 📅 Day 21 — CUDA Debugging 🔥🎮
+### 📅 Day 22 — CUDA Debugging 🔥🎮
 - `cuda-gdb` — GPU debugging
 - `printf` in kernels
 - `assert` in kernels
@@ -219,7 +233,7 @@
 - Race condition detection
 - Out-of-bounds detection
 
-### 📅 Day 22 — CUDA Profiling Deep 🔥🎮
+### 📅 Day 23 — CUDA Profiling Deep 🔥🎮
 - Nsight Compute deep 🔥🎮
 - Key metrics: achieved occupancy, memory throughput, SM efficiency
 - Roofline in Nsight Compute ⭐
@@ -228,7 +242,7 @@
 - `ncu` command line profiler
 - Profiling PyTorch custom ops ⭐
 
-### 📅 Day 23 — Occupancy Optimization 🔥🎮
+### 📅 Day 24 — Occupancy Optimization 🔥🎮
 - Occupancy calculator
 - `__launch_bounds__` decorator
 - Register usage control
@@ -236,7 +250,7 @@
 - Auto-tuning block sizes
 - `cudaOccupancyMaxPotentialBlockSize` API
 
-### 📅 Day 24 — Multi-GPU CUDA 🔥🎮
+### 📅 Day 25 — Multi-GPU CUDA 🔥🎮
 - Peer-to-peer access (`cudaDeviceEnablePeerAccess`)
 - Direct GPU-to-GPU memory copy
 - Unified addressing
@@ -244,14 +258,14 @@
 - Multi-GPU reduction kernel
 - NVLink usage from CUDA ⭐
 
-### 📅 Day 25 — CUDA + Python Integration 🔥🎮
+### 📅 Day 26 — CUDA + Python Integration 🔥🎮
 - `pycuda` — CUDA from Python
 - `numba.cuda` — JIT CUDA kernels in Python ⭐
 - CuPy — NumPy on GPU ⭐
 - Calling custom CUDA from PyTorch (`torch.utils.cpp_extension`) ⭐
 - `ctypes` + CUDA shared libraries
 
-### 📅 Day 26 — PTX + SASS (Assembly Level) 🔥🎮
+### 📅 Day 27 — PTX + SASS (Assembly Level) 🔥🎮
 - PTX — virtual ISA
 - Reading PTX output (`nvcc -ptx`)
 - SASS — actual GPU assembly
@@ -260,7 +274,7 @@
 - Understanding compiler decisions
 - Manual optimization with PTX
 
-### 📅 Day 27 — Advanced GEMM Techniques 🎮
+### 📅 Day 28 — Advanced GEMM Techniques 🎮
 - CUTLASS library intro ⭐🎮
 - CUTLASS abstractions (tile iterators, epilogues)
 - Using CUTLASS for custom GEMM
@@ -268,19 +282,13 @@
 - Split-K GEMM for small batch sizes
 - Batched GEMM (`cublasGemmBatchedEx`)
 
-### 📅 Day 28 — Sparse Operations on GPU 🎮
+### 📅 Day 29 — Sparse Operations on GPU 🎮
 - Sparse matrix formats (CSR, CSC, COO)
 - cuSPARSE library
 - Sparse GEMM
 - Structured sparsity (2:4) ⭐🎮
 - Sparse attention concepts
 - When sparse ops help (and when they don't)
-
-### 📅 Day 29 — CUDA Practice Day
-- Implement 5 kernels from scratch
-- Profile each one
-- Optimize each to near-roofline performance
-- Document optimization decisions
 
 ### 📅 Day 30 🔁 — REVISION + PROJECT
 
@@ -766,7 +774,17 @@
 
 ---
 
-### 📅 Day 86 — Distributed Systems Fundamentals 🔥
+### 📅 Day 86 — Distributed ML Practical Overview 🔥🎮
+- Why you need distributed training — model size + data scale
+- `torch.distributed` basics — `init_process_group`, ranks, world size
+- Simple DDP example end-to-end ⭐🎮
+- `torchrun` — launching distributed jobs ⭐🎮
+- What happens at each rank
+- Getting a 2-GPU job running before theory
+
+> 🔁 Note: The original Day 86 started with CAP theorem and Raft — abstract distributed systems theory with no warm-up. Practical `torch.distributed` first (Day 86), then theory (Day 87) makes the theory stick.
+
+### 📅 Day 87 — Distributed Systems Fundamentals 🔥
 - Why distributed systems are hard
 - CAP theorem 🔥
 - Consistency models
@@ -775,7 +793,7 @@
 - Consensus (Raft concept)
 - How these apply to ML training ⭐🎮
 
-### 📅 Day 87 — Distributed ML Overview 🔥🎮
+### 📅 Day 88 — Distributed ML Overview 🔥🎮
 - Data parallelism deep 🔥🎮
 - Model parallelism deep 🔥🎮
 - Tensor parallelism 🔥🎮
@@ -784,7 +802,7 @@
 - Expert parallelism (MoE) ⭐🎮
 - Hybrid parallelism strategies
 
-### 📅 Day 88 — PyTorch DDP Internals 🔥⭐🎮
+### 📅 Day 89 — PyTorch DDP Internals 🔥⭐🎮
 - DDP algorithm — gradient bucketing 🔥🎮
 - AllReduce overlap with backward pass 🔥🎮
 - Gradient compression
@@ -792,7 +810,7 @@
 - DDP + mixed precision
 - DDP debugging
 
-### 📅 Day 89 — FSDP (Fully Sharded Data Parallel) 🔥⭐🎮
+### 📅 Day 90 — FSDP (Fully Sharded Data Parallel) 🔥⭐🎮
 - ZeRO paper — stages 1, 2, 3 🔥🎮
 - FSDP implementation in PyTorch ⭐🎮
 - `FullyShardedDataParallel` API
@@ -801,7 +819,7 @@
 - CPU offloading ⭐🎮
 - FSDP vs DDP — when to use which
 
-### 📅 Day 90 — Tensor Parallelism 🔥🎮
+### 📅 Day 91 — Tensor Parallelism 🔥🎮
 - Megatron-LM tensor parallelism 🔥🎮
 - Column parallel linear
 - Row parallel linear
@@ -809,7 +827,7 @@
 - Sequence parallelism
 - `torch.distributed` primitives for TP
 
-### 📅 Day 91 — Pipeline Parallelism 🔥🎮
+### 📅 Day 92 — Pipeline Parallelism 🔥🎮
 - Naive pipeline — bubble problem 🔥🎮
 - GPipe — micro-batching 🔥🎮
 - PipeDream — 1F1B schedule 🔥🎮
@@ -817,7 +835,7 @@
 - Activation memory in pipeline
 - `torch.distributed.pipeline`
 
-### 📅 Day 92 — `torch.distributed` Deep 🔥⭐🎮
+### 📅 Day 93 — `torch.distributed` Deep 🔥⭐🎮
 - Process groups
 - `dist.init_process_group`
 - Point-to-point: `send`, `recv`, `isend`, `irecv`
@@ -825,7 +843,7 @@
 - Async collectives
 - Process group backends (NCCL, Gloo, MPI)
 
-### 📅 Day 93 — Multi-Node Training Setup 🔥🎮
+### 📅 Day 94 — Multi-Node Training Setup 🔥🎮
 - Multi-node `torchrun` ⭐🎮
 - `MASTER_ADDR`, `MASTER_PORT`, `WORLD_SIZE`, `RANK`
 - Node failure handling
@@ -833,7 +851,7 @@
 - Checkpoint + resume strategies 🔥🎮
 - Slurm cluster basics ⭐🎮
 
-### 📅 Day 94 — Gradient Communication Optimization 🔥🎮
+### 📅 Day 95 — Gradient Communication Optimization 🔥🎮
 - Gradient compression (PowerSGD) ⭐🎮
 - Gradient sparsification
 - 1-bit Adam ⭐
@@ -841,7 +859,7 @@
 - Bucket size tuning
 - NCCL stream scheduling
 
-### 📅 Day 95 — Memory Optimization for Large Models 🔥🎮
+### 📅 Day 96 — Memory Optimization for Large Models 🔥🎮
 - ZeRO-Offload ⭐🎮
 - ZeRO-Infinity ⭐🎮
 - CPU Adam optimizer ⭐🎮
@@ -849,7 +867,7 @@
 - Mixed precision memory analysis
 - Memory profiling distributed training
 
-### 📅 Day 96 — DeepSpeed 🔥⭐🎮
+### 📅 Day 97 — DeepSpeed 🔥⭐🎮
 - DeepSpeed overview ⭐🎮
 - ZeRO integration ⭐🎮
 - DeepSpeed config JSON
@@ -857,7 +875,7 @@
 - Sparse attention in DeepSpeed
 - DeepSpeed inference ⭐🎮
 
-### 📅 Day 97 — Megatron-LM 🔥🎮
+### 📅 Day 98 — Megatron-LM 🔥🎮
 - Megatron-LM architecture
 - 3D parallelism (DP + TP + PP) 🔥🎮
 - Megatron data loading
@@ -865,7 +883,7 @@
 - Distributed checkpointing
 - Megatron-Core ⭐🎮
 
-### 📅 Day 98 — Distributed Checkpointing 🔥🎮
+### 📅 Day 99 — Distributed Checkpointing 🔥🎮
 - `torch.distributed.checkpoint` ⭐🎮
 - Sharded checkpoints
 - Async checkpointing ⭐🎮
@@ -873,14 +891,14 @@
 - Fault-tolerant training
 - `torch.distributed.elastic` ⭐🎮
 
-### 📅 Day 99 — Communication Libraries 🎮
+### 📅 Day 100 — Communication Libraries 🎮
 - MPI basics (OpenMPI)
 - MPI vs NCCL — when to use each
 - Gloo backend — CPU fallback
 - UCX — unified communication framework
 - RDMA in distributed training ⭐
 
-### 📅 Day 100 — Distributed Data Loading 🔥🎮
+### 📅 Day 101 — Distributed Data Loading 🔥🎮
 - Data sharding strategies
 - `DistributedSampler` ⭐🎮
 - WebDataset for distributed training ⭐🎮
@@ -888,7 +906,7 @@
 - Streaming datasets at scale ⭐🎮
 - Storage systems (NFS, Lustre, S3)
 
-### 📅 Day 101 — Large-Scale Training Infrastructure 🔥🎮
+### 📅 Day 102 — Large-Scale Training Infrastructure 🔥🎮
 - GPU cluster topology
 - Spine-leaf network architecture
 - Job scheduling (Slurm, Kubernetes) ⭐🎮
@@ -896,7 +914,7 @@
 - Preemption handling
 - Cost optimization
 
-### 📅 Day 102 — Distributed Training Debugging 🔥🎮
+### 📅 Day 103 — Distributed Training Debugging 🔥🎮
 - NCCL hangs — causes + fixes
 - Gradient explosion in distributed training
 - OOM in distributed settings
@@ -904,22 +922,23 @@
 - `torch.distributed.breakpoint()` ⭐
 - Logging in distributed training
 
-### 📅 Day 103 — Mixture of Experts (MoE) Parallelism ⭐🎮
-- MoE architecture review ⭐
+### 📅 Day 104 — Mixture of Experts (MoE) Parallelism ⭐🎮
+- MoE architecture — what it is and why it exists 🔥🎮
+- How GPT-4, Mixtral, Gemini use MoE ⭐🎮
 - Expert parallelism 🔥🎮
 - All-to-all communication 🔥🎮
 - Load balancing across experts
 - MoE + TP + DP combination
 - Megablocks / Switch Transformer
 
-### 📅 Day 104–106 — Distributed Training Practice 🎮
+### 📅 Day 105–107 — Distributed Training Practice 🎮
 - Train GPT-2 scale model with DDP
 - Scale to FSDP
 - Add tensor parallelism
 - Profile at each stage
 - Document scaling efficiency
 
-### 📅 Day 107–109 — Distributed Systems Theory 🔥
+### 📅 Day 108–109 — Distributed Systems Theory Deep 🔥
 - Lamport clocks
 - Vector clocks
 - Distributed consensus (Raft deep)
@@ -944,15 +963,24 @@
 
 ---
 
-### 📅 Day 111 — Compiler Theory Basics 🔥
-- Compilation pipeline overview ⭐
-- Lexer → Parser → AST → IR → Codegen
+### 📅 Day 111 — Why Compilers Matter for ML 🔥🎮
+- What a compiler does — simple mental model first
+- Why ML needs compilers: `torch.compile`, XLA, TVM, MLIR
+- The problem: writing fast kernels by hand is not scalable
+- How compilers automate optimization 🔥🎮
+- Overview of the full compilation pipeline (high level)
+- What you will be able to read/write after this phase
+
+> 🔁 Note: Original Day 111 jumped straight into SSA form and dominator trees — graduate-level compiler theory with no motivation. This intro day explains WHY before diving into HOW.
+
+### 📅 Day 112 — Compiler Theory Basics 🔥
+- Compilation pipeline: Lexer → Parser → AST → IR → Codegen
 - SSA (Static Single Assignment) form 🔥
 - Basic blocks + control flow graphs
 - Dominance + dominator trees
-- Why ML uses compilers 🔥🎮
+- Common compiler optimizations (constant folding, DCE, CSE)
 
-### 📅 Day 112 — LLVM Overview 🔥
+### 📅 Day 113 — LLVM Overview 🔥
 - LLVM IR — the universal IR
 - LLVM IR syntax + semantics
 - Types, values, instructions
@@ -960,7 +988,7 @@
 - Reading LLVM IR
 - LLVM pass pipeline
 
-### 📅 Day 113 — LLVM IR Deep 🔥
+### 📅 Day 114 — LLVM IR Deep 🔥
 - Functions, basic blocks, phi nodes
 - Memory model (`alloca`, `load`, `store`)
 - Control flow (`br`, `switch`)
@@ -968,7 +996,7 @@
 - Metadata + debug info
 - Writing simple LLVM IR by hand
 
-### 📅 Day 114 — LLVM Passes 🔥
+### 📅 Day 115 — LLVM Passes 🔥
 - Pass manager
 - Analysis passes vs transformation passes
 - Common passes: mem2reg, instcombine, GVN, LICM
@@ -976,7 +1004,7 @@
 - Pass ordering matters
 - How `clang -O2` selects passes
 
-### 📅 Day 115 — LLVM Backend 🔥🎮
+### 📅 Day 116 — LLVM Backend 🔥🎮
 - SelectionDAG — IR to machine code
 - Instruction selection
 - Register allocation
@@ -984,7 +1012,7 @@
 - How NVCC uses LLVM for PTX ⭐🎮
 - LLVM → PTX pipeline
 
-### 📅 Day 116 — MLIR Introduction 🔥🎮
+### 📅 Day 117 — MLIR Introduction 🔥🎮
 - Why MLIR exists — multi-level IR 🔥🎮
 - Dialects — the key concept 🔥
 - Ops, types, attributes, regions, blocks
@@ -992,7 +1020,7 @@
 - Progressive lowering 🔥🎮
 - Why ML compilers use MLIR 🔥🎮
 
-### 📅 Day 117 — MLIR Dialects for ML 🔥🎮
+### 📅 Day 118 — MLIR Dialects for ML 🔥🎮
 - `linalg` dialect — named ops for linear algebra 🔥🎮
 - `tensor` dialect — immutable tensors
 - `memref` dialect — memory references
@@ -1000,7 +1028,7 @@
 - `func` dialect — functions
 - `scf` dialect — structured control flow
 
-### 📅 Day 118 — MLIR Transformations 🔥🎮
+### 📅 Day 119 — MLIR Transformations 🔥🎮
 - Tiling (`linalg.tile`) 🔥🎮
 - Fusion (`linalg.fuse`) 🔥🎮
 - Vectorization (`linalg` → `vector` dialect)
@@ -1008,7 +1036,7 @@
 - Loop transformations
 - How these map to GPU optimizations ⭐🎮
 
-### 📅 Day 119 — XLA (Accelerated Linear Algebra) 🔥🎮
+### 📅 Day 120 — XLA (Accelerated Linear Algebra) 🔥🎮
 - XLA overview — JAX's compiler ⭐🎮
 - HLO (High Level Operations) IR
 - XLA fusion rules
@@ -1016,7 +1044,7 @@
 - HLO optimizations (layout assignment, rematerialization)
 - JAX JIT → XLA compilation ⭐
 
-### 📅 Day 120 — `torch.compile` Internals Deep 🔥⭐🎮
+### 📅 Day 121 — `torch.compile` Internals Deep 🔥⭐🎮
 - Dynamo — graph capture 🔥⭐🎮
 - Symbolic shapes
 - Guards + re-compilation
@@ -1025,7 +1053,7 @@
 - Inductor → C++/OpenMP lowering
 - Reading Inductor source code
 
-### 📅 Day 121 — TorchScript + TorchFX 🔥⭐🎮
+### 📅 Day 122 — TorchScript + TorchFX 🔥⭐🎮
 - TorchScript — eager to graph 🔥⭐
 - `torch.jit.script` vs `torch.jit.trace`
 - TorchFX — Python-level graph transforms ⭐🎮
@@ -1033,7 +1061,7 @@
 - Writing FX passes (quantization, fusion)
 - FX → custom backends
 
-### 📅 Day 122 — Quantization via Compiler 🔥🎮
+### 📅 Day 123 — Quantization via Compiler 🔥🎮
 - Quantization as compiler pass 🔥🎮
 - `torch.ao.quantization` ⭐🎮
 - FX graph mode quantization ⭐🎮
@@ -1041,7 +1069,7 @@
 - ONNX quantization tools
 - TensorRT quantization ⭐🎮
 
-### 📅 Day 123 — Graph Optimization Passes 🔥🎮
+### 📅 Day 124 — Graph Optimization Passes 🔥🎮
 - Constant folding
 - Dead code elimination
 - Common subexpression elimination
@@ -1049,7 +1077,7 @@
 - Operator fusion patterns
 - Writing a custom FX pass
 
-### 📅 Day 124 — IREE Compiler ⭐🎮
+### 📅 Day 125 — IREE Compiler ⭐🎮
 - IREE — ML compiler for edge/mobile ⭐
 - IREE compilation pipeline
 - HAL (Hardware Abstraction Layer)
@@ -1057,14 +1085,14 @@
 - Deploying models with IREE
 - Robotics edge inference ⭐🤖🎮
 
-### 📅 Day 125 — Writing a Simple ML Compiler 🔥🎮
+### 📅 Day 126 — Writing a Simple ML Compiler 🔥🎮
 - Define a tiny IR for tensor ops
 - Implement passes: fusion, tiling
 - Lower to LLVM IR
 - JIT compile + execute
 - This is what `torch.compile` does at a high level ⭐🎮
 
-### 📅 Day 126–130 — Compiler Deep Practice 🔥
+### 📅 Day 127–130 — Compiler Deep Practice 🔥
 - Write 3 LLVM passes
 - Write MLIR dialect + transformation
 - Trace `torch.compile` on a small model end-to-end
@@ -1181,7 +1209,16 @@
 
 ---
 
-### 📅 Day 151 — MLOps Overview 🔥⭐
+### 📅 Day 151 — Orchestration Concepts First 🔥⭐
+- What is workflow orchestration — DAGs, tasks, dependencies
+- Why ML needs orchestration (pipelines break, need retry, scheduling)
+- Simple DAG concepts: nodes, edges, dependencies, triggers
+- Mental model: your ML pipeline as a directed graph
+- Overview of tools: Airflow vs Prefect vs Dagster — when to use each
+
+> 🔁 Note: Original Day 152 jumped straight into Airflow with no intro to orchestration concepts. One day of conceptual grounding first makes Airflow much easier to understand.
+
+### 📅 Day 152 — MLOps Overview 🔥⭐
 - MLOps lifecycle
 - CI/CD for ML 🔥
 - Experiment tracking ⭐
@@ -1190,7 +1227,7 @@
 - Data versioning ⭐
 - Model monitoring ⭐
 
-### 📅 Day 152 — Airflow for ML 🔥
+### 📅 Day 153 — Airflow for ML 🔥
 - Airflow DAGs
 - Operators (Python, Bash, sensor)
 - XCom — task communication
@@ -1198,7 +1235,7 @@
 - ML pipeline as DAG
 - Airflow vs Prefect vs Dagster
 
-### 📅 Day 153 — Prefect / Dagster ⭐
+### 📅 Day 154 — Prefect / Dagster ⭐
 - Prefect flows + tasks
 - Retries, caching, scheduling
 - Prefect deployments
@@ -1206,7 +1243,7 @@
 - Software-defined assets for ML
 - Data lineage
 
-### 📅 Day 154 — Feature Stores 🔥⭐
+### 📅 Day 155 — Feature Stores 🔥⭐
 - Feast — open source feature store ⭐
 - Feature definitions
 - Online vs offline stores
@@ -1214,7 +1251,7 @@
 - Feature serving for inference
 - Tecton concept ⭐
 
-### 📅 Day 155 — Data Version Control 🔥⭐
+### 📅 Day 156 — Data Version Control 🔥⭐
 - DVC deep ⭐
 - Data pipeline as code
 - Experiment versioning
@@ -1222,7 +1259,7 @@
 - Remote storage (S3, GCS)
 - `dvc repro` — reproducibility
 
-### 📅 Day 156 — Model Monitoring 🔥⭐
+### 📅 Day 157 — Model Monitoring 🔥⭐
 - Data drift detection ⭐
 - Concept drift vs data drift
 - Evidently — open source monitoring ⭐
@@ -1230,7 +1267,7 @@
 - Statistical tests for drift
 - Alerting strategies
 
-### 📅 Day 157 — MLflow Deep ⭐🔥
+### 📅 Day 158 — MLflow Deep ⭐🔥
 - MLflow tracking ⭐
 - MLflow projects
 - MLflow models — packaging
@@ -1238,7 +1275,7 @@
 - MLflow deployments
 - Custom MLflow plugins
 
-### 📅 Day 158 — Kubernetes for ML 🔥⭐🎮
+### 📅 Day 159 — Kubernetes for ML 🔥⭐🎮
 - Kubernetes concepts (pods, deployments, services) ⭐🎮
 - `kubectl` basics
 - GPU scheduling in Kubernetes ⭐🎮
@@ -1246,35 +1283,35 @@
 - Kubeflow — ML on Kubernetes ⭐🎮
 - Argo Workflows for ML
 
-### 📅 Day 159 — Kubeflow 🔥🎮
+### 📅 Day 160 — Kubeflow 🔥🎮
 - Kubeflow Pipelines ⭐🎮
 - Training operators (PyTorchJob) ⭐🎮
 - Katib — hyperparameter tuning ⭐
 - KServe — model serving ⭐🎮
 - Multi-GPU jobs in Kubernetes ⭐🎮
 
-### 📅 Day 160 — Infrastructure as Code ⭐
+### 📅 Day 161 — Infrastructure as Code ⭐
 - Terraform basics ⭐
 - Provisioning GPU VMs
 - Ansible for server config
 - Docker Compose for local ML stack
 - Automating ML infrastructure
 
-### 📅 Day 161 — Observability for ML 🔥⭐🎮
+### 📅 Day 162 — Observability for ML 🔥⭐🎮
 - Prometheus + Grafana for ML ⭐🎮
 - GPU metrics (DCGM exporter) ⭐🎮
 - Training metrics dashboards
 - Alerting on OOM, NaN loss, slow throughput
 - OpenTelemetry for ML services
 
-### 📅 Day 162 — Streaming ML ⭐
+### 📅 Day 163 — Streaming ML ⭐
 - Kafka basics ⭐
 - Real-time feature engineering
 - Online learning concept
 - Streaming inference
 - Flink concept
 
-### 📅 Day 163–167 — MLOps Practice
+### 📅 Day 164–167 — MLOps Practice
 - Build full ML pipeline: data → train → monitor → serve
 - Kubernetes deployment with GPU
 - Drift detection on production model
@@ -1314,24 +1351,35 @@
 - Transformation matrices (4×4) 🔥🤖
 - Why homogeneous coords simplify robotics math
 
-### 📅 Day 173 — Rotation Representations 🔥🤖
-- Rotation matrices (SO(3)) 🔥🤖
-- Euler angles (roll, pitch, yaw) 🔥🤖
-- Gimbal lock — why it's a problem 🔥🤖
-- Axis-angle representation
-- Quaternions 🔥🔥🤖
-- Quaternion math: multiplication, conjugate, inverse
-- Converting between representations 🔥🤖
+### 📅 Day 173 — Rotation Matrices First 🔥🤖
+- Rotation matrices (SO(3)) — start here before anything else 🔥🤖
+- What a rotation matrix does geometrically
+- Properties: orthogonal, determinant 1
+- Composing rotations — matrix multiplication
+- Rotation around X, Y, Z axes
+- Practice: implement rotation matrices from scratch
 
-### 📅 Day 174 — Quaternions Deep 🔥🤖
+> 🔁 Note: Original Day 173 introduced Euler angles, gimbal lock, and quaternions all on the same day — too much too fast. Rotation matrices get their own day here. Euler angles and quaternions follow on Days 174–175.
+
+### 📅 Day 174 — Euler Angles + Gimbal Lock 🔥🤖
+- Euler angles (roll, pitch, yaw) 🔥🤖
+- Gimbal lock — what it is and why it matters 🔥🤖
+- Euler → rotation matrix conversion
+- Rotation matrix → Euler angles
+- When Euler angles are fine vs when they fail
+
+### 📅 Day 175 — Quaternions 🔥🔥🤖
+- Why quaternions exist (solving gimbal lock) 🔥🤖
 - Unit quaternions as rotations 🔥🤖
+- Quaternion math: multiplication, conjugate, inverse
 - SLERP — spherical linear interpolation 🔥🤖
 - Quaternion → rotation matrix
 - Rotation matrix → quaternion
-- Quaternion derivative → angular velocity
+- Axis-angle representation
+- Converting between all representations 🔥🤖
 - Why robots use quaternions ⭐🤖
 
-### 📅 Day 175 — Rigid Body Transforms 🔥🤖
+### 📅 Day 176 — Rigid Body Transforms 🔥🤖
 - SE(3) — special Euclidean group 🔥🤖
 - Transformation matrix composition
 - Inverse transformation
@@ -1339,7 +1387,7 @@
 - Adjoint representation
 - Screw theory basics
 
-### 📅 Day 176 — Forward Kinematics 🔥🤖
+### 📅 Day 177 — Forward Kinematics 🔥🤖
 - Kinematic chains 🔥🤖
 - Denavit-Hartenberg (DH) parameters 🔥🤖
 - DH convention (standard + modified)
@@ -1347,7 +1395,7 @@
 - Implementing FK for 6-DOF arm
 - Workspace analysis
 
-### 📅 Day 177 — Inverse Kinematics 🔥🤖
+### 📅 Day 178 — Inverse Kinematics 🔥🤖
 - IK problem formulation 🔥🤖
 - Analytical IK — closed-form solutions
 - Numerical IK — iterative methods 🔥🤖
@@ -1356,7 +1404,7 @@
 - Singularities — what they are + avoiding them 🔥🤖
 - Damped least squares IK
 
-### 📅 Day 178 — Jacobians Deep 🔥🤖
+### 📅 Day 179 — Jacobians Deep 🔥🤖
 - Geometric Jacobian 🔥🤖
 - Analytical Jacobian
 - Velocity kinematics: ẋ = J(q)q̇ 🔥🤖
@@ -1364,7 +1412,7 @@
 - Manipulability measure
 - Jacobian in nullspace control
 
-### 📅 Day 179 — Robot Dynamics (Part 1) 🔥🤖
+### 📅 Day 180 — Robot Dynamics (Part 1) 🔥🤖
 - Newton-Euler method 🔥🤖
 - Inertia tensor
 - Forward dynamics
@@ -1372,7 +1420,7 @@
 - Lagrangian mechanics (intro)
 - Mass matrix, Coriolis matrix, gravity vector
 
-### 📅 Day 180 — Robot Dynamics (Part 2) 🔥🤖
+### 📅 Day 181 — Robot Dynamics (Part 2) 🔥🤖
 - Recursive Newton-Euler algorithm 🔥🤖
 - Implementing RNE from scratch
 - Dynamic simulation
@@ -1380,7 +1428,7 @@
 - Joint space vs task space dynamics
 - Why dynamics matter for control + learning 🤖
 
-### 📅 Day 181 — Control Theory (Part 1) 🔥🤖
+### 📅 Day 182 — Control Theory (Part 1) 🔥🤖
 - Control systems overview
 - Open loop vs closed loop 🔥🤖
 - PID controller 🔥🤖
@@ -1389,7 +1437,7 @@
 - Step response analysis
 - Stability (BIBO, Lyapunov concept)
 
-### 📅 Day 182 — Control Theory (Part 2) 🔥🤖
+### 📅 Day 183 — Control Theory (Part 2) 🔥🤖
 - State space representation 🔥🤖
 - Controllability + observability
 - State feedback control (pole placement)
@@ -1397,7 +1445,7 @@
 - Kalman filter (intro) 🔥🤖
 - Why LQR is used in robotics
 
-### 📅 Day 183 — Robot Control Architectures 🔥🤖
+### 📅 Day 184 — Robot Control Architectures 🔥🤖
 - Joint space control 🔥🤖
 - Task space control
 - Computed torque control (feedforward + feedback)
@@ -1405,7 +1453,7 @@
 - Admittance control
 - Hybrid force/position control
 
-### 📅 Day 184 — Motion Planning (Part 1) 🔥🤖
+### 📅 Day 185 — Motion Planning (Part 1) 🔥🤖
 - Configuration space (C-space) 🔥🤖
 - Obstacle representation in C-space
 - Sampling-based planners 🔥🤖
@@ -1414,7 +1462,7 @@
   - PRM (Probabilistic Roadmap)
 - Completeness + optimality
 
-### 📅 Day 185 — Motion Planning (Part 2) 🔥🤖
+### 📅 Day 186 — Motion Planning (Part 2) 🔥🤖
 - Search-based planners
   - A* on grids 🔥🤖
   - D* Lite — dynamic replanning
@@ -1424,7 +1472,7 @@
 - Potential fields method
 - MoveIt! connection (preview) ⭐🤖
 
-### 📅 Day 186 — Probability + Estimation for Robotics 🔥🤖
+### 📅 Day 187 — Probability + Estimation for Robotics 🔥🤖
 - State estimation problem 🔥🤖
 - Bayes filter 🔥🤖 ⭐
 - Kalman Filter deep 🔥🤖
@@ -1433,7 +1481,7 @@
 - Extended Kalman Filter (EKF) 🔥🤖
 - Unscented Kalman Filter (UKF)
 
-### 📅 Day 187 — SLAM Foundations 🔥🤖
+### 📅 Day 188 — SLAM Foundations 🔥🤖
 - SLAM problem (Simultaneous Localization and Mapping) 🔥🤖
 - Feature-based SLAM
 - Occupancy grid mapping 🔥🤖
@@ -1441,7 +1489,7 @@
 - Factor graphs 🔥🤖
 - GTSAM / g2o concept
 
-### 📅 Day 188 — Sensor Models 🔥🤖
+### 📅 Day 189 — Sensor Models 🔥🤖
 - Camera models 🔥🤖
   - Pinhole camera model
   - Distortion models
@@ -1450,7 +1498,7 @@
 - IMU model + noise 🔥🤖
 - Sensor fusion fundamentals 🔥🤖
 
-### 📅 Day 189 — Computer Vision for Robotics 🔥🤖
+### 📅 Day 190 — Computer Vision for Robotics 🔥🤖
 - Stereo vision + depth 🔥🤖
 - Visual odometry (VO) 🔥🤖
 - Feature tracking (KLT) 🔥🤖
@@ -1458,7 +1506,7 @@
 - 3D point clouds from RGB-D ⭐🤖
 - Plane detection + fitting
 
-### 📅 Day 190 — Path + Trajectory Planning 🔥🤖
+### 📅 Day 191 — Path + Trajectory Planning 🔥🤖
 - Difference: path vs trajectory 🔥🤖
 - Trajectory parametrization
 - Quintic polynomial trajectories 🔥🤖
@@ -1466,7 +1514,7 @@
 - Time-optimal trajectory planning
 - Trapezoidal velocity profile 🔥🤖
 
-### 📅 Day 191 — Implementing Robotics Algorithms in Python 🤖
+### 📅 Day 192 — Implementing Robotics Algorithms in Python 🤖
 - Implementing FK/IK from scratch
 - Implementing A* + RRT
 - Implementing EKF
@@ -1474,31 +1522,29 @@
 - `numpy` + `scipy` for robotics ⭐
 - Visualization with matplotlib ⭐
 
-### 📅 Day 192 — PyBullet / MuJoCo Intro 🔥🤖
-- Physics simulation for robotics 🔥🤖
-- PyBullet — loading URDF, stepping simulation
-- MuJoCo — faster, more accurate ⭐🤖
-- URDF + MJCF robot description formats 🔥🤖
-- Simulating a robot arm
-- Simulating mobile robot
+### 📅 Day 193 — Isaac Lab + Physics Simulation Setup 🔥🤖🎮
+- Physics simulation for robotics — why it matters 🔥🤖
+- PyBullet vs MuJoCo vs Isaac Lab — when to use which 🔥🤖
+- **Isaac Lab setup** — install, verify, first simulation ⭐🎮🤖
+- Loading URDF + MJCF robot description formats 🔥🤖
+- URDF syntax deep (links, joints, inertial, collision, visual)
+- Simulating a robot arm in Isaac Lab
+- `nvidia-smi` verification for GPU sim ⭐🎮
 
-### 📅 Day 193 — Simulation Environments 🔥🤖
+> 🔁 Note: Isaac Lab setup is here in Phase 10 (Day 193) so it's ready well before Phase 13 (Robot Learning, Day 251+) where it's used intensively. The original roadmap set Isaac Lab up on Day 262 — right inside the phase that uses it, which is too late.
+
+### 📅 Day 194 — Simulation Environments 🔥🤖
 - Gymnasium (OpenAI Gym) ⭐🤖
 - Creating custom gym environments 🔥🤖
 - Robotics gym environments (FetchReach, etc.)
-- Isaac Gym / Isaac Lab ⭐🎮🤖
+- MuJoCo — running your first sim ⭐🤖
+- Isaac Lab environments overview ⭐🎮🤖
 - Genesis physics simulator ⭐🤖
-
-### 📅 Day 194 — Robotics Math Practice 🤖
-- Implement full FK/IK for 6-DOF arm
-- Implement RRT path planner
-- Implement EKF for robot localization
-- Simulate in PyBullet
 
 ### 📅 Day 195 🔁 — REVISION + PROJECT
 
 ### 🛠️ PROJECT 10: Robot Arm Simulator 🤖
-- 6-DOF robot arm in PyBullet/MuJoCo
+- 6-DOF robot arm in Isaac Lab / MuJoCo
 - FK + IK implementation
 - PID joint control
 - RRT motion planner
@@ -1555,13 +1601,15 @@
 - Static vs dynamic transforms
 - TF2 + robot URDF
 
-### 📅 Day 201 — URDF + Robot Description 🔥🤖
-- URDF syntax (links, joints) 🔥🤖
-- Joint types (revolute, prismatic, fixed)
-- Inertial + collision + visual tags
+### 📅 Day 201 — Xacro + Advanced URDF 🔥🤖
 - Xacro macros 🔥🤖
+- Parameterized robot descriptions
 - Visualizing in RViz2
 - Loading robot into simulation
+- SDF format (used in Gazebo) 🔥🤖
+- URDF vs SDF — when to use each
+
+> 🔁 Note: SDF format is introduced here properly. The original roadmap mentioned SDF only once without explanation. Now URDF deep (Day 193) and Xacro + SDF (Day 201) are separated for clarity.
 
 ### 📅 Day 202 — RViz2 + Visualization 🔥🤖
 - RViz2 panels + displays
@@ -1617,7 +1665,17 @@
 - Real hardware integration
 - Gazebo + ros2_control
 
-### 📅 Day 209 — Gazebo (Ignition / Modern Gazebo) 🔥🤖
+### 📅 Day 209 — CAN Bus + Real Hardware Interfaces 🔥🤖
+- CAN bus fundamentals — what it is and why robots use it 🔥🤖
+- CAN frames, IDs, arbitration
+- `socketcan` on Linux
+- Serial communication (`pyserial`) for simpler hardware
+- Motor driver interfaces over CAN
+- Emergency stop wiring + software ⭐🤖
+
+> 🔁 Note: CAN bus gets a proper intro day here before real hardware integration (Day 212). The original roadmap introduced CAN bus on Day 212 with no prior context.
+
+### 📅 Day 210 — Gazebo (Modern Gazebo) 🔥🤖
 - Modern Gazebo (Ignition) 🔥🤖
 - ROS2 + Gazebo bridge
 - Simulating sensors (camera, LiDAR, IMU, depth)
@@ -1625,7 +1683,7 @@
 - World SDF files
 - Headless simulation for RL ⭐🤖
 
-### 📅 Day 210 — Perception Pipeline in ROS2 🔥🤖
+### 📅 Day 211 — Perception Pipeline in ROS2 🔥🤖
 - Camera → ROS2 image topics
 - `image_transport`
 - `cv_bridge` — OpenCV ↔ ROS2 🔥🤖⭐
@@ -1633,7 +1691,7 @@
 - `pcl_ros` — point cloud processing
 - Object detection node in ROS2 ⭐🤖
 
-### 📅 Day 211 — SLAM in ROS2 🔥🤖
+### 📅 Day 212 — SLAM in ROS2 🔥🤖
 - SLAM Toolbox — 2D SLAM 🔥🤖
 - Cartographer — 2D/3D SLAM ⭐🤖
 - RTAB-Map — visual SLAM ⭐🤖
@@ -1641,15 +1699,13 @@
 - Visual SLAM setup
 - Map saving + loading
 
-### 📅 Day 212 — ROS2 with Real Hardware 🔥🤖
+### 📅 Day 213 — ROS2 with Real Hardware 🔥🤖
 - Real sensor integration (camera, LiDAR, IMU)
-- Motor driver interfaces
-- CAN bus for robot joints
-- Serial communication (`pyserial`)
+- Motor driver interfaces (using CAN from Day 209)
 - Safety systems
 - Emergency stop handling
 
-### 📅 Day 213 — Behavior Trees in ROS2 🔥🤖
+### 📅 Day 214 — Behavior Trees in ROS2 🔥🤖
 - BehaviorTree.CPP library 🔥🤖
 - Behavior tree concepts (sequence, fallback, decorator)
 - BT in Nav2 ⭐🤖
@@ -1657,14 +1713,14 @@
 - BT + ROS2 actions
 - Complex robot behaviors as BTs
 
-### 📅 Day 214 — ROS2 Security + Quality 🤖
+### 📅 Day 215 — ROS2 Security + Quality 🤖
 - ROS2 security (SROS2)
 - QoS reliability + durability
 - Lifecycle nodes for safe startup
 - Component containers (intra-process)
 - Real-time ROS2 (`rclcpp` real-time patterns)
 
-### 📅 Day 215 — Isaac ROS ⭐🎮🤖
+### 📅 Day 216 — Isaac ROS ⭐🎮🤖
 - NVIDIA Isaac ROS ⭐🎮🤖
 - GPU-accelerated ROS2 packages ⭐🎮🤖
 - Isaac ROS Visual SLAM ⭐🤖
@@ -1672,7 +1728,7 @@
 - Isaac ROS Nitros (zero-copy GPU transport) ⭐🎮🤖
 - Running on Jetson ⭐🎮🤖
 
-### 📅 Day 216 — ROS2 Real-Time Programming 🔥🤖
+### 📅 Day 217 — ROS2 Real-Time Programming 🔥🤖
 - Real-time Linux (PREEMPT_RT)
 - Lock-free programming in ROS2
 - Memory allocation strategies
@@ -1680,7 +1736,7 @@
 - Real-time executors
 - Measuring latency
 
-### 📅 Day 217–222 — ROS2 Practice Projects 🤖
+### 📅 Day 218–222 — ROS2 Practice Projects 🤖
 - Full mobile robot navigation stack
 - Robot arm pick and place in Gazebo
 - SLAM + navigation integration
@@ -1848,15 +1904,26 @@
 - Value functions
 - Model-free vs model-based RL 🔥🤖
 
-### 📅 Day 252 — PPO for Robotics 🔥🤖⭐
+### 📅 Day 252 — Isaac Lab Deep — GPU RL Environment 🔥🎮🤖
+- Isaac Lab architecture deep ⭐🎮🤖
+- Massively parallel RL on GPU 🔥🎮🤖
+- `IsaacEnv` base class
+- Custom Isaac Lab environment — build one from scratch
+- GPU vectorized environments 🔥🎮🤖
+- Training 4096 robots in parallel ⭐🎮🤖
+- Locomotion + manipulation environments ⭐🤖
+
+> 🔁 Note: Isaac Lab deep moves to Day 252 — right at the start of the RL phase where it's immediately used, not on Day 262 mid-phase. Isaac Lab was set up on Day 193 so the tools are already working.
+
+### 📅 Day 253 — PPO for Robotics 🔥🤖⭐
 - PPO algorithm deep ⭐🤖
 - Reward shaping 🔥🤖
 - Observation design
 - Action space design (joint vs Cartesian)
 - PPO hyperparameters for robotics
-- Training a robot arm with PPO
+- Training a robot arm with PPO in Isaac Lab
 
-### 📅 Day 253 — SAC (Soft Actor-Critic) 🔥🤖
+### 📅 Day 254 — SAC (Soft Actor-Critic) 🔥🤖
 - SAC algorithm 🔥🤖
 - Maximum entropy RL 🔥🤖
 - Continuous action spaces
@@ -1864,7 +1931,7 @@
 - SAC for manipulation
 - SAC vs PPO for robotics
 
-### 📅 Day 254 — TD3 + Model-Free Methods 🔥🤖
+### 📅 Day 255 — TD3 + Model-Free Methods 🔥🤖
 - TD3 algorithm
 - DDPG → TD3 improvements
 - Hindsight Experience Replay (HER) 🔥🤖
@@ -1872,7 +1939,7 @@
 - Sparse rewards + HER
 - Multi-goal robotics
 
-### 📅 Day 255 — Model-Based RL 🔥🤖
+### 📅 Day 256 — Model-Based RL 🔥🤖
 - World models 🔥🤖
 - Dyna-style algorithms
 - MBPO (Model-Based Policy Optimization) 🔥🤖
@@ -1880,7 +1947,7 @@
 - Dreamer / DreamerV3 ⭐🤖
 - Why model-based is sample efficient
 
-### 📅 Day 256 — Imitation Learning 🔥🤖
+### 📅 Day 257 — Imitation Learning 🔥🤖
 - Behavioral cloning (BC) 🔥🤖
 - Distribution shift problem 🔥🤖
 - DAgger — dataset aggregation 🔥🤖
@@ -1888,7 +1955,7 @@
 - IRL (Inverse Reinforcement Learning)
 - Learning from human demonstrations ⭐🤖
 
-### 📅 Day 257 — Offline RL 🔥🤖
+### 📅 Day 258 — Offline RL 🔥🤖
 - Offline RL problem 🔥🤖
 - Conservative Q-Learning (CQL) 🔥🤖
 - IQL (Implicit Q-Learning) ⭐🤖
@@ -1896,28 +1963,28 @@
 - D4RL benchmark datasets
 - Offline RL for robot learning ⭐🤖
 
-### 📅 Day 258 — Transformers for Decision Making 🔥🤖⭐
+### 📅 Day 259 — Transformers for Decision Making 🔥🤖⭐
 - Decision Transformer 🔥🤖⭐
 - Trajectory Transformer
 - GATO — generalist agent ⭐🤖
 - Sequence modeling for RL 🔥🤖
 - Offline → online adaptation
 
-### 📅 Day 259 — Diffusion for Robotics ⭐🔥🤖
+### 📅 Day 260 — Diffusion for Robotics ⭐🔥🤖
 - Diffusion Policy 🔥🤖⭐
 - Action chunking 🔥🤖
 - Multi-modal action distributions
 - Diffusion vs Gaussian policy
 - Why diffusion works for manipulation ⭐🤖
 
-### 📅 Day 260 — Learning from Play 🔥🤖
+### 📅 Day 261 — Learning from Play 🔥🤖
 - Play data collection
 - Learning from play (LfP)
 - Latent plans
 - Relay Policy Learning
 - Data collection strategies for robot learning
 
-### 📅 Day 261 — Multi-Task Robot Learning 🔥🤖
+### 📅 Day 262 — Multi-Task Robot Learning 🔥🤖
 - Multi-task RL 🔥🤖
 - Task embeddings
 - Meta-RL 🔥🤖
@@ -1925,15 +1992,7 @@
 - Few-shot adaptation
 - Why multi-task is needed for generalization 🤖
 
-### 📅 Day 262 — Isaac Lab + GPU RL 🔥🎮🤖
-- Isaac Lab architecture ⭐🎮🤖
-- Massively parallel RL on GPU 🔥🎮🤖
-- `IsaacEnv` base class
-- Custom Isaac Lab environment
-- GPU vectorized environments 🔥🎮🤖
-- Training 4096 robots in parallel ⭐🎮🤖
-
-### 📅 Day 263 — Isaac Lab Deep 🔥🎮🤖
+### 📅 Day 263 — Isaac Lab Advanced + Curriculum 🔥🎮🤖
 - Locomotion environments (AnyMAL, Unitree) ⭐🤖
 - Manipulation environments ⭐🤖
 - Terrain generation 🤖
@@ -2247,21 +2306,6 @@
 | Legged Robotics — ETH Zurich YouTube ⭐🤖 | 13 |
 | Boston Dynamics / OpenAI robotics papers ⭐🤖 | 14 |
 | Isaac Lab documentation ⭐🎮🤖 | 13 |
-
----
-
-# ⭐ THINGS THAT CHANGE FASTEST
-
-1. **Foundation model policies** (RT-2, π0, OpenVLA) — new releases monthly ⭐🤖
-2. **Isaac Lab** — rapidly evolving ⭐🎮🤖
-3. **TensorRT-LLM** — new versions frequently ⭐🎮
-4. **FlashAttention** — v3, v4 coming ⭐🎮
-5. **`torch.compile` / Inductor** — improving every release ⭐🎮
-6. **vLLM** — weekly improvements ⭐🎮
-7. **Diffusion Policy** — new variants constantly ⭐🤖
-8. **MLIR dialects** — new dialects added regularly ⭐🎮
-9. **ROS2 releases** — annual LTS releases ⭐🤖
-10. **3D Gaussian Splatting** — rapidly evolving ⭐🤖
 
 ---
 
