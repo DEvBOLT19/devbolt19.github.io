@@ -2,10 +2,10 @@
 ### Goal: Computer Vision + NLP/LLM Engineer
 ### Daily Commitment: 3–4 hours/day
 
-> ⭐ = Changed significantly in recent versions — pay extra attention 
-> 🔥 = Critical concept — must master deeply 
-> 🛠️ = Project day 
-> 🔁 = Revision day 
+> ⭐ = Changed significantly in recent versions — pay extra attention
+> 🔥 = Critical concept — must master deeply
+> 🛠️ = Project day
+> 🔁 = Revision day
 
 ---
 
@@ -46,6 +46,7 @@
 ## date 13 april 2026
 ## roadmap day 11
 ## i am on day 7
+
 ---
 ---
 
@@ -53,74 +54,79 @@
 ### 🎯 Goal: Build rock-solid base with zero confusion later
 
 ---
- 
+
 ### 📅 Day 1 — How Python Works (completed) 🟢
 - How the interpreter runs your code ✅
 - Bytecode overview (`.pyc`) ✅
-- REPL vs scripts✅
-- Variables, dynamic typing✅
-- `print`, `input` basics✅
+- REPL vs scripts ✅
+- Variables, dynamic typing ✅
+- `print`, `input` basics ✅
 - typecasting ✅
 
 ### 📅 Day 2 — Data Types + Memory 🟢
-- `int`, `float`, `bool`, `str`✅
-- `id()`, `type()`, `isinstance()`✅
-- Memory references✅
-- Mutability intro✅
-- Integer caching (`-5` to `256`) 🔥✅
-- String interning 🔥✅
+- `int`, `float`, `bool`, `str` ✅
+- `id()`, `type()`, `isinstance()` ✅
+- Memory references ✅
+- Mutability intro ✅
+- Integer caching (`-5` to `256`) 🔥 ✅
+- String interning 🔥 ✅
 
-### 📅 Day 3 — Operators 🔥🟢
-- Arithmetic, logical, comparison✅
-- Bitwise operators (`&`, `|`, `^`, `~`, `<<`, `>>`)✅
-- `is` vs `==` — identity vs equality✅
-- Walrus operator (`:=`) ⭐✅
-- Operator precedence✅
+### 📅 Day 3 — Operators 🔥 🟢
+- Arithmetic, logical, comparison ✅
+- Bitwise operators (`&`, `|`, `^`, `~`, `<<`, `>>`) ✅
+- `is` vs `==` — identity vs equality ✅
+- Walrus operator (`:=`) ⭐ ✅
+- Operator precedence ✅
 
-### 📅 Day 4 — Strings (Part 1)🟢
-- String creation, indexing, slicing✅
-- Immutability — why and how✅
-- `len`, `in`, `not in`✅
-- String concatenation + repetition✅
-- Raw strings, escape characters✅
+### 📅 Day 4 — Strings (Part 1) 🟢
+- String creation, indexing, slicing ✅
+- Immutability — why and how ✅
+- `len`, `in`, `not in` ✅
+- String concatenation + repetition ✅
+- Raw strings, escape characters ✅
 
-### 📅 Day 5 — Strings (Part 2)🟢
-- All string methods✅
-- f-strings deep ⭐✅
-- String formatting (`.format()`, `%`)✅
-- Encoding basics (UTF-8, ASCII)✅
-- `encode()`, `decode()`✅
+### 📅 Day 5 — Strings (Part 2) 🟢
+- All string methods ✅
+- f-strings deep ⭐ ✅
+- String formatting (`.format()`, `%`) ✅
+- Encoding basics (UTF-8, ASCII) ✅
+- `encode()`, `decode()` ✅
 
-### 📅 Day 6 — Lists + Tuples🟢
-- List creation, indexing, slicing✅
-- List methods (`append`, `extend`, `insert`, `remove`, `pop`, `sort`, `reverse`)✅
-- List internals (dynamic array)✅
-- Tuples — immutability reason and use cases✅
-- Named tuples intro✅
+### 📅 Day 6 — Lists + Tuples 🟢
+- List creation, indexing, slicing ✅
+- List methods (`append`, `extend`, `insert`, `remove`, `pop`, `sort`, `reverse`) ✅
+- List internals (dynamic array) ✅
+- Tuples — immutability reason and use cases ✅
+- Named tuples intro ✅
 
 ### 📅 Day 7 — Sets + Dicts 🔥
-- Sets — hashing concept, uniqueness
+- Sets — hashing concept (what makes items unique), practical usage
 - Set operations (union, intersection, difference)
-- Dicts — hash table internals
+- Dicts — how to create and use them practically
 - Dict methods (`keys`, `values`, `items`, `get`, `update`, `pop`)
 - Dict ordering (Python 3.7+) ⭐
 
+> 🔁 Note: Hash table internals (how dicts work under the hood) will be covered properly in Day 124 (DSA phase) once you understand data structures and memory deeply.
+
 ### 📅 Day 8 — Mutability Deep 🔥
-- Mutable vs immutable types
-- Shallow copy vs deep copy (`copy` module)
-- `copy.copy()` vs `copy.deepcopy()`
-- Why this matters in functions
-- Common bugs from mutability
+- Mutable vs immutable types — conceptual understanding
+- Why mutability matters (common bugs)
+- Shallow copy vs deep copy — concept only here
+- `copy.copy()` vs `copy.deepcopy()` — what they do (not internals yet)
+- Why this matters when passing data around
+
+> 🔁 Note: The deeper memory model behind copies (references, object graphs) will make full sense after Day 71 (Memory Management).
 
 ### 📅 Day 9 — Control Flow
 - `if`, `elif`, `else`
-- `match` statement (structural pattern matching) ⭐🔥
 - Truthy/falsy values — ALL cases
 - Ternary expressions
-- `__bool__`, `__len__` connection
+- `__bool__`, `__len__` connection (concept only — full understanding after OOP in Day 46+)
+
+> 🔁 Note: `match` statement (structural pattern matching) is moved to Day 22 — it requires comfort with data types and functions first.
 
 ### 📅 Day 10 — Loops
-- `for` loops — iteration model
+- `for` loops — iteration model (surface level — deep protocol in Day 15)
 - `while` loops
 - `break`, `continue`, `pass`
 - `else` on loops
@@ -130,9 +136,11 @@
 ### 📅 Day 11 — Functions (Part 1)
 - Defining functions
 - Return values (multiple returns)
-- Stack frames concept 🔥
-- Recursion + recursion limit
-- `sys.setrecursionlimit`
+- Stack frames concept — what happens when a function is called 🔥
+- Recursion — simple examples (factorial, fibonacci)
+- `sys.setrecursionlimit` — why it exists
+
+> 🔁 Note: Stack frames at the CPython level (frame objects, `sys._getframe`) are covered deeply at Day 73. Here just understand the concept of call stack.
 
 ### 📅 Day 12 — Functions (Part 2)
 - Positional, keyword arguments
@@ -147,8 +155,10 @@
 - `sorted(key=)`, `reversed`
 - `zip`, `enumerate`, `map`, `filter`
 - `any`, `all`
-- `range`, `iter`, `next`
+- `range`
 - `isinstance`, `issubclass`, `callable`
+
+> 🔁 Note: `iter` and `next` are moved to Day 15 (Iteration Protocol) where they belong and make full sense.
 
 ### 📅 Day 14 — Functional Programming Basics
 - `map`, `filter` deep
@@ -159,10 +169,13 @@
 
 ### 📅 Day 15 — Iteration Protocol 🔥
 - `__iter__`, `__next__`
-- How `for` loop really works
+- How `for` loop really works internally
 - `StopIteration`
-- Custom iterable class
+- `iter()` and `next()` — now introduced properly here
 - `iter()` with sentinel
+- Custom iterable — concept only here
+
+> 🔁 Note: Building a full custom iterable class requires OOP knowledge. You will build one properly on Day 61 after learning classes in Phase 3.
 
 ### 📅 Day 16 — Comprehensions 🔥
 - List comprehensions
@@ -174,10 +187,11 @@
 
 ### 📅 Day 17 — Lambda + Closures 🔥
 - Lambda functions — limits and anti-patterns
-- Closures — what they capture
+- Closures — what they capture (conceptual understanding)
 - LEGB rule
 - `nonlocal`, `global`
-- Cell variables
+
+> 🔁 Note: Cell variables (the CPython mechanism behind closures) will be covered at Day 63 (Advanced Closures) once you have internals knowledge.
 
 ### 📅 Day 18 — Error Handling (Part 1)
 - `try`, `except`, `else`, `finally`
@@ -215,11 +229,12 @@
 - Relative vs absolute imports
 - Import caching (`sys.modules`)
 
-### 📅 Day 22 — Python Execution Model
+### 📅 Day 22 — Python Execution Model + `match` Statement
 - Bytecode compilation
 - `.pyc` files, `__pycache__`
 - `compile()`, `exec()`, `eval()`
 - Code objects intro
+- `match` statement (structural pattern matching) ⭐🔥 — now introduced here after you are comfortable with data types and functions
 
 ### 📅 Day 23 — File Handling (Part 1)
 - `open()` — all modes
@@ -340,20 +355,21 @@
 
 ### 📅 Day 39 — `enum`, `dataclasses` deep ⭐
 - `enum.Enum`, `IntEnum`, `Flag`
-- `@dataclass`
-- `field()`, `__post_init__`
+- `@dataclass` — basics
+- `field()` — default values, default_factory
 - Frozen dataclasses
 - `dataclasses` vs `namedtuple`
+
+> 🔁 Note: Advanced dataclass patterns (`__post_init__`, `InitVar`, `KW_ONLY`, inheritance with dataclasses) are moved to Day 66 where OOP knowledge is solid.
 
 ### 📅 Day 40 — `typing` Module ⭐🔥
 - Basic annotations
 - `List`, `Dict`, `Tuple`, `Optional`, `Union`
-- `TypeVar`, generics ⭐
-- `Protocol` ⭐🔥
+- `TypeVar` basics
 - `Literal`, `Final`, `ClassVar`
-- `ParamSpec` ⭐
-- `Annotated`, `Self` ⭐
-- `TypeGuard`, `Overload`
+- `Annotated`
+
+> 🔁 Note: Advanced typing (`Protocol`, `ParamSpec`, `TypeGuard`, `Overload`, generic classes) moved to Day 64 — these require OOP and descriptor knowledge first.
 
 ### 📅 Day 41 — `contextlib` + Context Managers 🔥
 - `with` statement deep
@@ -514,7 +530,7 @@
 ---
 
 ### 📅 Day 61 — Advanced Iteration Patterns
-- Custom iterators
+- Custom iterators — now building full class (OOP is solid)
 - Infinite iterators
 - Chaining iterables
 - Memory-efficient pipelines
@@ -526,16 +542,18 @@
 - `throw()` and `close()` patterns
 
 ### 📅 Day 63 — Advanced Closures + Scoping
-- Cell variables deep
+- Cell variables deep — the CPython mechanism behind closures 🔥
 - Late binding in closures 🔥
 - `nonlocal` patterns
 - Factory functions
 
 ### 📅 Day 64 — Advanced Type System ⭐🔥
-- `Protocol` deep
+- `Protocol` deep ⭐🔥
 - `TypeVar` bounds + constraints
 - Generic classes
 - `overload` decorator
+- `ParamSpec` ⭐
+- `TypeGuard`, `Self` ⭐
 - `mypy` — running type checks
 
 ### 📅 Day 65 — `__future__` + Compatibility ⭐
@@ -959,6 +977,7 @@
 - Collision handling
 - Building a HashMap class
 - Why Python dict is O(1)
+- Hash table internals — the deep understanding from Day 7 now fully explained 🔥
 
 ### 📅 Day 125 — Trees (Part 1)
 - Binary tree
