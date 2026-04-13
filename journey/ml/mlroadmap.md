@@ -2,10 +2,10 @@
 ### Goal: Computer Vision + NLP/LLM Engineer
 ### Daily Commitment: 3–4 hours/day
 
-> ⭐ = Changed significantly in recent versions — pay extra attention
-> 🔥 = Critical concept — must master deeply
-> 🛠️ = Project day
-> 🔁 = Revision day
+> ⭐ = Changed significantly in recent versions — pay extra attention 
+> 🔥 = Critical concept — must master deeply 
+> 🛠️ = Project day 
+> 🔁 = Revision day 
 
 ---
 
