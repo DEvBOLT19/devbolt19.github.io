@@ -210,7 +210,6 @@
 ### 📅 Day 20 🔁 — REVISION + MINI PROJECT 🟢
 
 ### 🛠️ PROJECT 1: Pure Python CLI Calculator ✅
-- OOP based
 - Full error handling
 - Supports history, memory
 - Uses: functions, loops, exceptions, f-strings
