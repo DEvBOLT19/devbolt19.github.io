@@ -219,11 +219,11 @@
 ---
 
 ### 📅 Day 21 — Modules + Imports 🔥
-- `import`, `from ... import`
-- `__name__`, `__main__`
-- Module search path (`sys.path`)
-- Relative vs absolute imports
-- Import caching (`sys.modules`)
+- `import`, `from ... import`✅
+- `__name__`, `__main__`✅
+- Module search path (`sys.path`)✅
+- Relative vs absolute imports✅
+- Import caching (`sys.modules`)✅
 
 ### 📅 Day 22 — Python Execution Model + `match` Statement
 - Bytecode compilation
