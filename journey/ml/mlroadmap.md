@@ -43,9 +43,6 @@
 | 28 | Paper Reading + Implementation (NEW) 🔥 | 351–354 |
 | 29 | Final Capstone Projects | 355–360 |
 
-## date 18 april 2026
-## roadmap day 18
-## i am on day 25
 
 ---
 ---
