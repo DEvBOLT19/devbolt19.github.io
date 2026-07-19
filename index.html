@@ -1,859 +1,515 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="bg">
+<!-- ================================================================
+     █████████████████████████████████████████████████████████████████
+     AIDEN COLE — PORTFOLIO (SINGLE STATIC FILE)
+     █████████████████████████████████████████████████████████████████
+
+     THIS ONE FILE CONTAINS THE ENTIRE WEBSITE: html + css + content.
+     No build step needed. Open it in any browser, or host it anywhere.
+
+     ─────────────────────────────────────────────────────────────────
+     ██ FILE / FOLDER STRUCTURE (keep it like this)
+     ─────────────────────────────────────────────────────────────────
+       index.html                        <- this file (everything)
+       images/                           <- put ALL your images here
+         ├─ portrait.png                 <- your photo (About section)
+         ├─ project-lumen.png            <- project 01 thumbnail
+         ├─ project-atelier.png          <- project 02 thumbnail
+         ├─ project-nocturne.png         <- project 03 thumbnail
+         └─ project-halcyon.png          <- project 04 thumbnail
+
+     ─────────────────────────────────────────────────────────────────
+     ██ HOW TO CHANGE AN IMAGE
+     ─────────────────────────────────────────────────────────────────
+       1. Drop your new file into the  images/  folder
+       2. Search this file for  src="images/   (Ctrl+F)
+       3. Replace the filename, e.g.:
+            src="images/project-lumen.png"  ->  src="images/my-app.png"
+       4. Update the  alt="..."  text so it describes YOUR image
+       * You can also paste a full URL: src="https://example.com/pic.jpg"
+
+     ─────────────────────────────────────────────────────────────────
+     ██ HOW TO EDIT LINKS (GitHub, LinkedIn, email, etc.)
+     ─────────────────────────────────────────────────────────────────
+       Search for  ██ EDIT: CONNECT  below. Each channel is one <li>.
+       Change BOTH the  href="..."  (where it goes) and the visible
+       text (what people see). Email lives in href="mailto:...".
+
+     ─────────────────────────────────────────────────────────────────
+     ██ HOW TO ADD A NEW PROJECT
+     ─────────────────────────────────────────────────────────────────
+       1. Search for  ██ EDIT: PROJECT TEMPLATE  below
+       2. Copy the whole commented <article> ... </article> block
+       3. Paste it inside the  <div class="work-grid">  after the
+          last project, and remove the comment wrapper around it
+          (the opening "less-than !" marker and closing marker)
+       4. Change the number badge (05), image, title, description, tags
+       5. Update the "[ 4 Projects ]" counter in the Work heading
+
+     ─────────────────────────────────────────────────────────────────
+     ██ QUICK EDIT INDEX (Ctrl+F these markers)
+     ─────────────────────────────────────────────────────────────────
+       ██ EDIT: HEADER            your logo text + menu labels
+       ██ EDIT: HERO              name, headline, intro, availability
+       ██ EDIT: MARQUEE           the scrolling words strip
+       ██ EDIT: WORK              the 4 project cards
+       ██ EDIT: PROJECT TEMPLATE  copy-paste block for new projects
+       ██ EDIT: ABOUT             bio, services, tools, portrait
+       ██ EDIT: CONNECT           email + social links + form
+       ██ EDIT: FOOTER            copyright + tagline
+     ================================================================ -->
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CozyPixels — Wallpaper Gallery</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-::selection{background:#3B82F6;color:#fff}
-::-webkit-scrollbar{width:6px}
-::-webkit-scrollbar-track{background:#080B12}
-::-webkit-scrollbar-thumb{background:rgba(148,163,184,0.2);border-radius:3px}
-::-webkit-scrollbar-thumb:hover{background:rgba(148,163,184,0.35)}
-html{scroll-behavior:smooth}
-body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:#080B12;color:#F8FAFC;overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;line-height:1.6}
-.loading-screen{position:fixed;inset:0;z-index:9999;background:#080B12;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .6s ease,visibility .6s ease}
-.loading-screen.hidden{opacity:0;visibility:hidden;pointer-events:none}
-.loading-logo{font-size:28px;font-weight:700;letter-spacing:-0.5px;margin-bottom:24px}
-.loading-logo span{color:#3B82F6}
-.loading-bar{width:200px;height:2px;background:rgba(255,255,255,0.06);border-radius:2px;overflow:hidden}
-.loading-bar-inner{height:100%;width:0;background:linear-gradient(90deg,#3B82F6,#60A5FA);border-radius:2px;animation:loadBar 1.8s ease-in-out infinite}
-@keyframes loadBar{0%{width:0;margin-left:0}50%{width:70%;margin-left:15%}100%{width:0;margin-left:100%}}
-.loading-error{display:none;text-align:center;max-width:420px;padding:20px}
-.loading-error h3{font-size:16px;font-weight:600;color:#F87171;margin-bottom:8px}
-.loading-error p{font-size:13px;color:#64748B;margin-bottom:16px;line-height:1.7}
-.loading-error .err-detail{font-size:11px;color:#475569;font-family:'Courier New',monospace;background:rgba(255,255,255,0.03);padding:10px 14px;border-radius:8px;margin-bottom:16px;word-break:break-all;text-align:left;max-height:80px;overflow-y:auto;border:1px solid rgba(255,255,255,0.04)}
-.navbar{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:1000;background:rgba(8,11,18,0.65);backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:6px 8px;display:flex;align-items:center;gap:2px;transition:all .3s ease;box-shadow:0 8px 32px rgba(0,0,0,0.3)}
-.navbar.scrolled{background:rgba(8,11,18,0.85);box-shadow:0 8px 40px rgba(0,0,0,0.5)}
-.nav-logo{font-size:15px;font-weight:700;letter-spacing:-0.3px;padding:8px 14px;cursor:pointer;user-select:none;white-space:nowrap;transition:opacity .2s}
-.nav-logo:hover{opacity:.8}
-.nav-logo span{color:#3B82F6}
-.nav-link{font-size:13px;font-weight:500;color:#94A3B8;padding:8px 14px;border-radius:10px;cursor:pointer;white-space:nowrap;transition:all .2s ease;text-decoration:none}
-.nav-link:hover{color:#F8FAFC;background:rgba(255,255,255,0.06)}
-.nav-link svg{width:15px;height:15px;display:inline-block;vertical-align:-2px;margin-right:5px}
-.nav-divider{width:1px;height:20px;background:rgba(255,255,255,0.08);margin:0 4px;flex-shrink:0}
-.hamburger{display:none;background:none;border:none;color:#94A3B8;padding:8px 12px;cursor:pointer;border-radius:10px;transition:all .2s}
-.hamburger:hover{color:#F8FAFC;background:rgba(255,255,255,0.06)}
-.hamburger svg{width:18px;height:18px;display:block}
-.mobile-menu{display:none;position:fixed;top:76px;left:50%;transform:translateX(-50%);z-index:999;background:rgba(8,11,18,0.9);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:8px;min-width:200px;opacity:0;visibility:hidden;transition:all .25s ease}
-.mobile-menu.open{opacity:1;visibility:visible}
-.mobile-menu .nav-link{display:block;padding:12px 16px;border-radius:10px}
-@media(max-width:768px){.nav-links-desktop{display:none!important}.hamburger{display:block}.navbar{top:12px;padding:6px 6px}}
-.hero{position:relative;min-height:85vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px;overflow:hidden}
-.hero-canvas{position:absolute;inset:0;z-index:0}
-.hero-content{position:relative;z-index:1;max-width:700px}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:#60A5FA;background:rgba(59,130,246,0.08);border:1px solid rgba(59,130,246,0.15);padding:6px 16px;border-radius:100px;margin-bottom:28px}
-.hero-badge .dot{width:6px;height:6px;background:#3B82F6;border-radius:50%;animation:pulse 2s ease infinite}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
-.hero h1{font-size:clamp(40px,8vw,72px);font-weight:800;letter-spacing:-2px;line-height:1.05;margin-bottom:20px;background:linear-gradient(135deg,#F8FAFC 0%,#94A3B8 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero p{font-size:17px;color:#64748B;font-weight:400;max-width:520px;margin:0 auto 40px;line-height:1.7}
-.hero-stats{display:flex;align-items:center;justify-content:center;gap:32px;margin-bottom:36px;flex-wrap:wrap}
-.hero-stat{text-align:center}
-.hero-stat-value{font-size:28px;font-weight:700;letter-spacing:-0.5px}
-.hero-stat-value.blue{color:#3B82F6}
-.hero-stat-label{font-size:12px;color:#475569;font-weight:500;text-transform:uppercase;letter-spacing:0.5px;margin-top:2px}
-.hero-buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:8px;font-family:inherit;font-size:14px;font-weight:600;padding:12px 24px;border-radius:12px;border:none;cursor:pointer;transition:all .25s ease;text-decoration:none}
-.btn-primary{background:#3B82F6;color:#fff;box-shadow:0 0 20px rgba(59,130,246,0.25)}
-.btn-primary:hover{background:#2563EB;box-shadow:0 0 30px rgba(59,130,246,0.4);transform:translateY(-1px)}
-.btn-secondary{background:rgba(255,255,255,0.04);color:#94A3B8;border:1px solid rgba(255,255,255,0.08)}
-.btn-secondary:hover{background:rgba(255,255,255,0.08);color:#F8FAFC;border-color:rgba(255,255,255,0.15)}
-.btn svg{width:16px;height:16px}
-.hero-glow{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(59,130,246,0.06) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);z-index:0;pointer-events:none}
-.main-content{max-width:1400px;margin:0 auto;padding:0 24px 80px}
-.filters-section{margin-bottom:40px;display:flex;flex-direction:column;gap:20px}
-.search-bar{position:relative;max-width:480px}
-.search-bar input{width:100%;padding:14px 20px 14px 48px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:14px;color:#F8FAFC;font-family:inherit;font-size:14px;outline:none;transition:all .25s ease}
-.search-bar input::placeholder{color:#475569}
-.search-bar input:focus{border-color:rgba(59,130,246,0.4);background:rgba(255,255,255,0.05);box-shadow:0 0 0 3px rgba(59,130,246,0.08)}
-.search-bar svg{position:absolute;left:16px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:#475569;pointer-events:none}
-.category-filters{display:flex;gap:8px;flex-wrap:wrap}
-.cat-pill{font-family:inherit;font-size:13px;font-weight:500;padding:8px 18px;border-radius:100px;border:1px solid rgba(255,255,255,0.07);background:transparent;color:#64748B;cursor:pointer;transition:all .2s ease;white-space:nowrap}
-.cat-pill:hover{color:#94A3B8;border-color:rgba(255,255,255,0.12);background:rgba(255,255,255,0.03)}
-.cat-pill.active{color:#fff;background:#3B82F6;border-color:#3B82F6;box-shadow:0 0 12px rgba(59,130,246,0.2)}
-.cat-pill .count{font-size:11px;opacity:.6;margin-left:4px}
-.gallery-wrapper{position:relative;min-height:200px}
-.gallery{columns:4;column-gap:16px}
-@media(max-width:1200px){.gallery{columns:3}}
-@media(max-width:768px){.gallery{columns:2;column-gap:12px}}
-@media(max-width:480px){.gallery{columns:1}}
-.wallpaper-card{break-inside:avoid;margin-bottom:16px;border-radius:12px;overflow:hidden;position:relative;cursor:pointer;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.04);transition:transform .35s cubic-bezier(.22,.61,.36,1),box-shadow .35s ease,border-color .35s ease;opacity:0;animation:cardIn .5s ease forwards}
-.wallpaper-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.4),0 0 30px rgba(59,130,246,0.08);border-color:rgba(59,130,246,0.15)}
-.wallpaper-card img{width:100%;display:block;transition:transform .6s cubic-bezier(.22,.61,.36,1),filter .4s ease;filter:brightness(0.92)}
-.wallpaper-card:hover img{transform:scale(1.04);filter:brightness(1)}
-.card-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.7) 0%,transparent 50%);opacity:0;transition:opacity .3s ease;display:flex;flex-direction:column;justify-content:flex-end;padding:16px}
-.wallpaper-card:hover .card-overlay{opacity:1}
-.card-category{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.8px;color:#60A5FA;margin-bottom:4px}
-.card-name{font-size:13px;font-weight:500;color:#F8FAFC;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.card-download{position:absolute;top:12px;right:12px;width:36px;height:36px;border-radius:10px;background:rgba(0,0,0,0.5);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transform:scale(0.8);transition:all .25s ease;color:#F8FAFC}
-.wallpaper-card:hover .card-download{opacity:1;transform:scale(1)}
-.card-download:hover{background:rgba(59,130,246,0.6);border-color:rgba(59,130,246,0.4)}
-.card-download svg{width:16px;height:16px}
-@keyframes cardIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-.skeleton{break-inside:avoid;margin-bottom:16px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.04);overflow:hidden}
-.skeleton-inner{background:linear-gradient(90deg,rgba(255,255,255,0.02) 25%,rgba(255,255,255,0.06) 50%,rgba(255,255,255,0.02) 75%);background-size:200% 100%;animation:shimmer 1.5s ease infinite}
-@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
-.empty-state{text-align:center;padding:80px 20px;color:#475569;column-span:all}
-.empty-state svg{width:48px;height:48px;margin:0 auto 16px;opacity:.4}
-.empty-state h3{font-size:18px;font-weight:600;color:#64748B;margin-bottom:8px}
-.empty-state p{font-size:14px}
-.error-state{text-align:center;padding:80px 20px;column-span:all}
-.error-state h3{font-size:18px;font-weight:600;color:#F87171;margin-bottom:8px}
-.error-state p{font-size:14px;color:#64748B;margin-bottom:20px;line-height:1.7}
-.error-state .err-detail{font-size:11px;color:#475569;font-family:'Courier New',monospace;background:rgba(255,255,255,0.03);padding:12px 16px;border-radius:8px;margin:0 auto 20px;word-break:break-all;text-align:left;max-width:500px;max-height:100px;overflow-y:auto;border:1px solid rgba(255,255,255,0.04)}
-.viewer-overlay{position:fixed;inset:0;z-index:2000;background:rgba(4,6,10,0.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:all .3s ease}
-.viewer-overlay.open{opacity:1;visibility:visible}
-.viewer-overlay.open .viewer-image-wrapper{transform:scale(1);opacity:1}
-.viewer-close{position:absolute;top:20px;right:20px;width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;cursor:pointer;color:#94A3B8;transition:all .2s;z-index:10}
-.viewer-close:hover{background:rgba(255,255,255,0.12);color:#F8FAFC}
-.viewer-close svg{width:20px;height:20px}
-.viewer-image-wrapper{position:relative;max-width:90vw;max-height:80vh;transform:scale(0.95);opacity:0;transition:all .35s cubic-bezier(.22,.61,.36,1);display:flex;align-items:center;justify-content:center}
-.viewer-image-wrapper img{max-width:90vw;max-height:80vh;border-radius:12px;object-fit:contain;box-shadow:0 20px 60px rgba(0,0,0,0.5)}
-.viewer-spinner{position:absolute;width:32px;height:32px;border:2px solid rgba(255,255,255,0.1);border-top-color:#3B82F6;border-radius:50%;animation:spin .8s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-.viewer-nav{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:14px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;cursor:pointer;color:#94A3B8;transition:all .2s;z-index:10}
-.viewer-nav:hover{background:rgba(255,255,255,0.12);color:#F8FAFC}
-.viewer-nav.prev{left:20px}
-.viewer-nav.next{right:20px}
-.viewer-nav svg{width:20px;height:20px}
-.viewer-bottom{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:10px;z-index:10;background:rgba(8,11,18,0.8);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:8px}
-.viewer-btn{display:inline-flex;align-items:center;gap:6px;font-family:inherit;font-size:13px;font-weight:500;padding:10px 18px;border-radius:10px;border:none;cursor:pointer;transition:all .2s;color:#94A3B8;background:transparent}
-.viewer-btn:hover{color:#F8FAFC;background:rgba(255,255,255,0.06)}
-.viewer-btn.primary{color:#fff;background:#3B82F6}
-.viewer-btn.primary:hover{background:#2563EB}
-.viewer-btn svg{width:15px;height:15px}
-.viewer-info{position:absolute;top:20px;left:20px;z-index:10;display:flex;flex-direction:column;gap:4px}
-.viewer-info .vi-cat{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.8px;color:#60A5FA}
-.viewer-info .vi-name{font-size:14px;font-weight:500;color:#94A3B8;max-width:300px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.viewer-info .vi-res{font-size:12px;color:#475569}
-.viewer-counter{font-size:12px;color:#475569;padding:0 8px;white-space:nowrap}
-.secret-overlay{position:fixed;inset:0;z-index:5000;background:rgba(4,6,10,0.95);backdrop-filter:blur(30px);display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:all .5s ease;cursor:pointer}
-.secret-overlay.open{opacity:1;visibility:visible}
-.secret-content{text-align:center;transform:scale(0.9);transition:transform .5s cubic-bezier(.22,.61,.36,1)}
-.secret-overlay.open .secret-content{transform:scale(1)}
-.secret-content h2{font-size:24px;font-weight:700;margin-bottom:8px;background:linear-gradient(135deg,#3B82F6,#60A5FA,#A78BFA);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.secret-content p{color:#64748B;font-size:14px}
-.pixel-cat{position:fixed;bottom:30px;z-index:4500;pointer-events:none;animation:catWalk 5s linear forwards}
-@keyframes catWalk{0%{left:-60px}100%{left:calc(100vw + 60px)}}
-.footer{border-top:1px solid rgba(255,255,255,0.05);padding:40px 24px;text-align:center}
-.footer-logo{font-size:16px;font-weight:700;margin-bottom:8px}
-.footer-logo span{color:#3B82F6}
-.footer p{font-size:13px;color:#475569;margin-bottom:4px}
-.footer a{color:#64748B;text-decoration:none;transition:color .2s}
-.footer a:hover{color:#60A5FA}
-.footer-stats{display:flex;justify-content:center;gap:24px;margin:16px 0;font-size:12px;color:#475569}
-.footer-stats em{color:#60A5FA;font-weight:600;font-style:normal}
-.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(100px);z-index:6000;background:rgba(8,11,18,0.9);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:12px 20px;font-size:13px;color:#94A3B8;transition:transform .4s cubic-bezier(.22,.61,.36,1);pointer-events:none;white-space:nowrap}
-.toast.show{transform:translateX(-50%) translateY(0)}
-@media(max-width:600px){
-.viewer-nav{width:40px;height:40px;border-radius:12px}
-.viewer-nav.prev{left:8px}
-.viewer-nav.next{right:8px}
-.viewer-bottom{padding:6px;gap:6px}
-.viewer-btn{padding:8px 12px;font-size:12px}
-.viewer-info{top:12px;left:12px}
-.viewer-info .vi-name{max-width:180px}
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aiden Cole — Creative Developer &amp; Designer</title>
+  <meta name="description" content="Portfolio of Aiden Cole — dark, minimal, quietly expressive digital experiences." />
+
+  <!-- Fonts (matches the original design). Remove these 3 lines to use system fonts. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500&family=Space+Mono&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ==============================================================
+       ██ THEME — change the whole site's colors from these 7 lines
+       ============================================================== */
+    :root {
+      --bg: #0a0a0a;            /* page background */
+      --card: #111111;          /* card background */
+      --fg: #ededed;            /* main text */
+      --muted: #8a8a8a;         /* secondary text */
+      --border: #262626;        /* thin lines */
+      --accent: #e8a33d;        /* the amber highlight color */
+      --accent-fg: #0a0a0a;     /* text ON the accent color */
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--bg); }
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      line-height: 1.5;
+    }
+    .mono { font-family: 'Space Mono', monospace; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; }
+    .muted { color: var(--muted); }
+    .accent { color: var(--accent); }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    .container { max-width: 72rem; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* ==============================================================
+       TEXTURES — grain, blueprint grid, halftone dots, hatch, ruled
+       ============================================================== */
+    body::after {                     /* film grain over everything */
+      content: ""; position: fixed; inset: 0; z-index: 50; pointer-events: none; opacity: 0.5;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+    }
+    .texture-grid {                   /* faint blueprint grid */
+      background-image:
+        linear-gradient(rgba(138,138,138,0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(138,138,138,0.07) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+    .texture-dots {                   /* halftone dot field */
+      background-image: radial-gradient(rgba(138,138,138,0.18) 1px, transparent 1px);
+      background-size: 12px 12px;
+    }
+    .texture-hatch {                  /* diagonal hatch strip */
+      background-image: repeating-linear-gradient(-45deg, var(--border) 0 1px, transparent 1px 7px);
+    }
+    .texture-ruled {                  /* ledger ruled lines */
+      background-image: repeating-linear-gradient(transparent 0 27px, rgba(138,138,138,0.12) 27px 28px);
+    }
+
+    /* ============ HEADER ============ */
+    .site-header {
+      position: fixed; inset: 0 0 auto 0; z-index: 40; height: 4rem;
+      border-bottom: 1px solid var(--border);
+      background: rgba(10,10,10,0.85); backdrop-filter: blur(12px);
+    }
+    .site-header .container { display: flex; height: 100%; align-items: center; justify-content: space-between; }
+    .site-header nav ul { display: flex; gap: 2rem; }
+    .site-header nav a { color: var(--muted); transition: color 0.2s; }
+    .site-header nav a:hover { color: var(--accent); }
+
+    /* ============ HERO ============ */
+    .hero {
+      position: relative; display: flex; flex-direction: column; justify-content: center;
+      min-height: 100vh; padding: 8rem 0 4rem; border-bottom: 1px solid var(--border);
+    }
+    .reg-mark { position: absolute; font-family: 'Space Mono', monospace; font-size: 0.7rem; color: var(--muted); }
+    .hero h1 { font-size: clamp(3rem, 8vw, 6rem); font-weight: 500; line-height: 1.02; letter-spacing: -0.02em; text-wrap: balance; }
+    .hero .intro { margin-top: 2rem; max-width: 36rem; color: var(--muted); line-height: 1.6; }
+    .hero .meta { margin-top: 3rem; display: flex; flex-wrap: wrap; gap: 0.75rem 2rem; align-items: center; }
+    .pulse-dot { display: inline-block; width: 6px; height: 6px; background: var(--accent); animation: pulse 2s infinite; }
+    @keyframes pulse { 50% { opacity: 0.3; } }
+    .hatch-strip { margin-top: 4rem; height: 2rem; border: 1px solid var(--border); }
+
+    /* ============ MARQUEE ============ */
+    .marquee { overflow: hidden; border-bottom: 1px solid var(--border); background: var(--card); padding: 0.75rem 0; }
+    .marquee-track { display: flex; width: max-content; white-space: nowrap; letter-spacing: 0.3em; color: var(--muted); animation: marquee 30s linear infinite; }
+    .marquee-track span { padding-right: 1rem; }
+    @keyframes marquee { to { transform: translateX(-50%); } }
+    @media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } }
+
+    /* ============ WORK ============ */
+    .work { border-bottom: 1px solid var(--border); padding: 6rem 0; }
+    .section-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 1rem; margin-bottom: 3rem; }
+    h2 { font-size: clamp(1.9rem, 4vw, 2.5rem); font-weight: 500; letter-spacing: -0.02em; }
+    .work-grid { display: grid; gap: 2.5rem; }
+    @media (min-width: 768px) { .work-grid { grid-template-columns: 1fr 1fr; } }
+    .project { position: relative; border: 1px solid var(--border); background: var(--card); transition: border-color 0.2s; }
+    .project:hover { border-color: rgba(232,163,61,0.5); }
+    .project .badge { position: absolute; top: 0; left: 0; z-index: 10; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--bg); padding: 0.4rem 0.75rem; color: var(--muted); }
+    .project .thumb { aspect-ratio: 4 / 3; overflow: hidden; border-bottom: 1px solid var(--border); }
+    .project .thumb img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1); transition: transform 0.5s ease-out, filter 0.5s ease-out; }
+    .project:hover .thumb img { transform: scale(1.04); filter: grayscale(0); }
+    .project .body { padding: 1.5rem; }
+    .project h3 { margin-top: 0.5rem; font-size: 1.25rem; font-weight: 500; }
+    .project:hover h3 { color: var(--accent); }
+    .project p { margin-top: 0.4rem; font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
+    .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+    .tags span { border: 1px solid var(--border); background: var(--bg); padding: 0.25rem 0.6rem; font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
+
+    /* ============ ABOUT ============ */
+    .about { border-bottom: 1px solid var(--border); padding: 6rem 0; }
+    .about-grid { display: grid; gap: 3rem; }
+    @media (min-width: 768px) { .about-grid { grid-template-columns: 1.2fr 1fr; gap: 4rem; } }
+    .about .bio { margin-top: 2rem; display: flex; flex-direction: column; gap: 1.25rem; color: var(--muted); line-height: 1.6; }
+    .about .lists { margin-top: 2.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .about .lists > div { border-top: 2px solid var(--accent); padding-top: 1rem; }
+    .about .lists ul { margin-top: 1rem; display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.875rem; }
+    .portrait-wrap { position: relative; }
+    .portrait-frame { position: absolute; top: -0.75rem; right: -0.75rem; width: 100%; height: 100%; border: 1px solid var(--border); }
+    .portrait { position: relative; aspect-ratio: 3 / 4; overflow: hidden; border: 1px solid var(--border); }
+    .portrait img { width: 100%; height: 100%; object-fit: cover; }
+    .status-card { margin-top: 2rem; border: 1px solid var(--border); }
+    .status-card .inner { margin: 0.25rem; border: 1px solid var(--border); background: var(--card); padding: 1.5rem; }
+    .status-card p { margin-top: 0.5rem; font-size: 0.875rem; line-height: 1.6; }
+    .status-card a { font-family: 'Space Mono', monospace; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; text-decoration: underline; text-underline-offset: 4px; }
+    .status-card a:hover { color: var(--accent); }
+
+    /* ============ CONNECT ============ */
+    .connect { padding: 6rem 0; }
+    .connect h2 { max-width: 48rem; text-wrap: balance; }
+    .connect-grid { margin-top: 3rem; display: grid; gap: 3rem; }
+    @media (min-width: 768px) { .connect-grid { grid-template-columns: 1fr 1.2fr; gap: 4rem; } }
+    .channels li { display: flex; align-items: center; justify-content: space-between; gap: 1rem; border-bottom: 1px solid var(--border); padding: 1rem 0; }
+    .channels a { font-size: 0.875rem; transition: color 0.2s; }
+    .channels a:hover { color: var(--accent); }
+    .form-card { border: 1px solid var(--border); background: var(--card); padding: 2rem; }
+    .form-card form { display: flex; flex-direction: column; gap: 1.25rem; }
+    .form-card label { display: flex; flex-direction: column; gap: 0.5rem; }
+    .form-card input, .form-card textarea {
+      border: 1px solid var(--border); background: var(--bg); color: var(--fg);
+      padding: 0.75rem 1rem; font-size: 0.875rem; font-family: inherit;
+    }
+    .form-card input:focus, .form-card textarea:focus { outline: 1px solid var(--accent); }
+    .form-card button {
+      align-self: flex-start; border: none; background: var(--accent); color: var(--accent-fg);
+      padding: 0.9rem 2rem; font-family: 'Space Mono', monospace; font-size: 0.7rem;
+      letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer; transition: opacity 0.2s;
+    }
+    .form-card button:hover { opacity: 0.85; }
+
+    /* ============ FOOTER ============ */
+    .site-footer { border-top: 1px solid var(--border); }
+    .site-footer .hatch { height: 1.5rem; border-bottom: 1px solid var(--border); }
+    .site-footer .container { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; padding-top: 2.5rem; padding-bottom: 2.5rem; }
+  </style>
 </head>
 <body>
 
-<div class="loading-screen" id="loadingScreen">
-  <div class="loading-logo" id="loadingLogo">Cozy<span>Pixels</span></div>
-  <div class="loading-bar" id="loadingBar"><div class="loading-bar-inner"></div></div>
-  <div class="loading-error" id="loadingError">
-    <h3>Failed to load wallpapers</h3>
-    <p>Could not connect to the GitHub API. This can happen if GitHub rate limits are hit, or if opening the file directly via <code>file://</code> protocol.</p>
-    <div class="err-detail" id="loadingErrorDetail"></div>
-    <button class="btn btn-primary" onclick="sessionStorage.clear();location.reload()">Clear Cache & Retry</button>
-  </div>
-</div>
+  <!-- ██ EDIT: HEADER — your logo text + menu labels -->
+  <header class="site-header">
+    <div class="container">
+      <a href="#home" class="mono">AC<span class="accent">&reg;</span></a>
+      <nav aria-label="Main navigation">
+        <ul class="mono">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#connect">Connect</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-<nav class="navbar" id="navbar">
-  <div class="nav-logo" id="navLogo">Cozy<span>Pixels</span></div>
-  <div class="nav-divider"></div>
-  <div class="nav-links-desktop" style="display:flex;align-items:center;gap:2px">
-    <a class="nav-link" onclick="window._scrollToTop()">Home</a>
-    <a class="nav-link" onclick="window._scrollToCategories()">Categories</a>
-    <a class="nav-link" onclick="window._openRandom()">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 3 21 8"></polyline><line x1="4" y1="20" x2="21" y2="3"></line><polyline points="21 16 21 21 16 21"></polyline><line x1="15" y1="15" x2="21" y2="21"></line><line x1="4" y1="4" x2="9" y2="9"></line></svg>
-      Random
-    </a>
-    <a class="nav-link" href="https://github.com/SleepyCatHey/CozyPixels" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/></svg>
-      GitHub
-    </a>
-    <a class="nav-link" onclick="window._focusSearch()">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-    </a>
-  </div>
-  <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-  </button>
-</nav>
+  <main>
+    <!-- ██ EDIT: HERO — name, headline, intro, availability, location -->
+    <section id="home" class="hero texture-grid">
+      <span class="reg-mark" style="top:5rem;left:1.5rem" aria-hidden="true">+</span>
+      <span class="reg-mark" style="top:5rem;right:1.5rem" aria-hidden="true">+</span>
+      <span class="reg-mark" style="bottom:1.5rem;left:1.5rem" aria-hidden="true">+</span>
+      <span class="reg-mark" style="bottom:1.5rem;right:1.5rem" aria-hidden="true">+</span>
 
-<div class="mobile-menu" id="mobileMenu">
-  <a class="nav-link" onclick="window._scrollToTop();window._closeMobile()">Home</a>
-  <a class="nav-link" onclick="window._scrollToCategories();window._closeMobile()">Categories</a>
-  <a class="nav-link" onclick="window._openRandom();window._closeMobile()">Random Wallpaper</a>
-  <a class="nav-link" href="https://github.com/SleepyCatHey/CozyPixels" target="_blank" rel="noopener">GitHub Repository</a>
-  <a class="nav-link" onclick="window._focusSearch();window._closeMobile()">Search</a>
-</div>
+      <div class="container">
+        <p class="mono muted" style="margin-bottom:1rem">[ Portfolio — 2026 ]</p>
 
-<section class="hero" id="hero">
-  <canvas class="hero-canvas" id="heroCanvas"></canvas>
-  <div class="hero-glow"></div>
-  <div class="hero-content">
-    <div class="hero-badge"><span class="dot"></span>Open Source Wallpaper Collection</div>
-    <h1>CozyPixels</h1>
-    <p>A curated collection of beautiful wallpapers for creators, developers, and aesthetic desktop setups.</p>
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <div class="hero-stat-value blue" id="statWallpapers">&mdash;</div>
-        <div class="hero-stat-label">Wallpapers</div>
+        <h1>
+          Aiden Cole<br />
+          <span class="muted">Creative Developer <span class="accent">&amp;</span> Designer.</span>
+        </h1>
+
+        <p class="intro">
+          I build dark, minimal, and quietly expressive digital experiences — where typography
+          does the heavy lifting and every pixel earns its place.
+        </p>
+
+        <div class="meta">
+          <span class="mono muted" style="display:flex;align-items:center;gap:0.5rem">
+            <span class="pulse-dot" aria-hidden="true"></span>
+            Available for freelance — Q3 2026
+          </span>
+          <span class="mono muted">Based in GMT+0</span>
+        </div>
+
+        <div class="hatch-strip texture-hatch" aria-hidden="true"></div>
       </div>
-      <div class="hero-stat">
-        <div class="hero-stat-value" id="statCategories">&mdash;</div>
-        <div class="hero-stat-label">Categories</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-value" id="statUpdated">&mdash;</div>
-        <div class="hero-stat-label">Last Updated</div>
+    </section>
+
+    <!-- ██ EDIT: MARQUEE — change the repeating words (keep both spans identical) -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track mono">
+        <span>Design — Code — Typography — Motion — Texture — Restraint — Design — Code — Typography — Motion — Texture — Restraint — </span>
+        <span>Design — Code — Typography — Motion — Texture — Restraint — Design — Code — Typography — Motion — Texture — Restraint — </span>
       </div>
     </div>
-    <div class="hero-buttons">
-      <button class="btn btn-primary" onclick="window._openRandom()">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 3 21 8"></polyline><line x1="4" y1="20" x2="21" y2="3"></line><polyline points="21 16 21 21 16 21"></polyline><line x1="15" y1="15" x2="21" y2="21"></line><line x1="4" y1="4" x2="9" y2="9"></line></svg>
-        Random Wallpaper
-      </button>
-      <a class="btn btn-secondary" href="https://github.com/SleepyCatHey/CozyPixels" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/></svg>
-        View on GitHub
-      </a>
+
+    <!-- ██ EDIT: WORK — each <article class="project"> is one project card -->
+    <section id="work" class="work">
+      <div class="container">
+        <div class="section-head">
+          <h2>Selected Work</h2>
+          <!-- EDIT: update this counter when you add/remove projects -->
+          <span class="mono muted">[ 4 Projects ]</span>
+        </div>
+
+        <div class="work-grid">
+          <!-- ─── PROJECT 01 ─── -->
+          <article class="project">
+            <span class="badge mono">01</span>
+            <div class="thumb">
+              <!-- EDIT IMAGE: change src + alt -->
+              <img src="images/project-lumen.png" alt="Lumen Finance dashboard on a laptop" />
+            </div>
+            <div class="body texture-dots">
+              <span class="mono muted">Product Design — 2026</span>
+              <h3>Lumen Finance</h3>
+              <p>A dark-mode fintech dashboard rethinking how founders track runway and spend.</p>
+              <div class="tags"><span>Design</span><span>Next.js</span><span>Data Viz</span></div>
+            </div>
+          </article>
+
+          <!-- ─── PROJECT 02 ─── -->
+          <article class="project">
+            <span class="badge mono">02</span>
+            <div class="thumb">
+              <img src="images/project-atelier.png" alt="Atelier Noir fashion e-commerce on a phone" />
+            </div>
+            <div class="body texture-dots">
+              <span class="mono muted">E-commerce — 2025</span>
+              <h3>Atelier Noir</h3>
+              <p>E-commerce experience for an independent fashion house — editorial, quiet, deliberate.</p>
+              <div class="tags"><span>Art Direction</span><span>Shopify</span><span>Motion</span></div>
+            </div>
+          </article>
+
+          <!-- ─── PROJECT 03 ─── -->
+          <article class="project">
+            <span class="badge mono">03</span>
+            <div class="thumb">
+              <img src="images/project-nocturne.png" alt="Nocturne generative line art" />
+            </div>
+            <div class="body texture-dots">
+              <span class="mono muted">Creative Coding — 2025</span>
+              <h3>Nocturne</h3>
+              <p>Generative audio-visual experiment translating ambient sound into flowing line fields.</p>
+              <div class="tags"><span>WebGL</span><span>Generative</span><span>Audio</span></div>
+            </div>
+          </article>
+
+          <!-- ─── PROJECT 04 ─── -->
+          <article class="project">
+            <span class="badge mono">04</span>
+            <div class="thumb">
+              <img src="images/project-halcyon.png" alt="Halcyon Studio brand identity stationery" />
+            </div>
+            <div class="body texture-dots">
+              <span class="mono muted">Brand Identity — 2024</span>
+              <h3>Halcyon Studio</h3>
+              <p>Full identity system and site for an architecture studio working in shadow and light.</p>
+              <div class="tags"><span>Branding</span><span>Typography</span><span>Print</span></div>
+            </div>
+          </article>
+
+          <!-- ██ EDIT: PROJECT TEMPLATE ██
+               To add a new project: copy everything between the arrows,
+               paste it above this comment, and delete the comment wrapper.
+
+          <article class="project">
+            <span class="badge mono">05</span>
+            <div class="thumb">
+              <img src="images/YOUR-IMAGE.png" alt="Describe your image here" />
+            </div>
+            <div class="body texture-dots">
+              <span class="mono muted">Category — Year</span>
+              <h3>Project Title</h3>
+              <p>One or two sentences describing the project.</p>
+              <div class="tags"><span>Tag 1</span><span>Tag 2</span><span>Tag 3</span></div>
+            </div>
+          </article>
+
+               Don't forget to update the "[ 4 Projects ]" counter above! -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ██ EDIT: ABOUT — bio paragraphs, services, tools, portrait image -->
+    <section id="about" class="about">
+      <div class="container">
+        <p class="mono muted" style="margin-bottom:1rem">[ About Me ]</p>
+
+        <div class="about-grid">
+          <div>
+            <h2>Creative developer based in <span class="accent">nowhere</span> &amp; everywhere.</h2>
+
+            <div class="bio texture-ruled">
+              <p>
+                I&apos;m Aiden — a designer who codes, or a developer who designs, depending on the
+                day. For the last six years I&apos;ve been helping studios, startups, and independent
+                brands build digital experiences that feel considered rather than loud.
+              </p>
+              <p>
+                My work lives in the dark end of the spectrum: monochrome palettes, generous
+                whitespace, film grain, and typography that does the heavy lifting. I believe
+                restraint is a creative act.
+              </p>
+              <p>
+                When I&apos;m not shipping, I&apos;m making generative art, collecting vinyl, and
+                chasing the perfect cup of black coffee.
+              </p>
+            </div>
+
+            <div class="lists">
+              <div>
+                <h3 class="mono muted">Services</h3>
+                <ul>
+                  <li>/ Art Direction</li>
+                  <li>/ Web Design (UX/UI)</li>
+                  <li>/ Creative Development</li>
+                  <li>/ Brand Identity</li>
+                </ul>
+              </div>
+              <div>
+                <h3 class="mono muted">Tools &amp; Stack</h3>
+                <ul>
+                  <li>/ Next.js / React</li>
+                  <li>/ TypeScript</li>
+                  <li>/ WebGL / Three.js</li>
+                  <li>/ Figma</li>
+                  <li>/ Motion Design</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="portrait-wrap">
+              <div class="portrait-frame texture-dots" aria-hidden="true"></div>
+              <div class="portrait">
+                <!-- EDIT IMAGE: your photo -->
+                <img src="images/portrait.png" alt="Black and white portrait of Aiden Cole" />
+              </div>
+            </div>
+
+            <div class="status-card texture-hatch">
+              <div class="inner">
+                <span class="mono accent">Currently</span>
+                <p>
+                  Taking on select freelance projects for Q3 2026. If you have something dark and
+                  interesting in mind, let&apos;s talk.
+                </p>
+                <p style="margin-top:1rem"><a href="#connect">Connect &rarr;</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ██ EDIT: CONNECT — change your email in BOTH mailto links below,
+         plus each channel's href (link) and visible text -->
+    <section id="connect" class="connect texture-grid">
+      <div class="container">
+        <p class="mono muted" style="margin-bottom:1rem">[ Connect ]</p>
+        <h2>
+          If you&apos;d like to discuss a project or just say hi, I&apos;m always down to
+          <span class="accent">chat</span>.
+        </h2>
+
+        <div class="connect-grid">
+          <div>
+            <h3 class="mono muted" style="margin-bottom:1rem">Channels</h3>
+            <ul class="channels">
+              <li>
+                <span class="mono muted">Email</span>
+                <a href="mailto:hello@aidencole.dev">hello@aidencole.dev</a>
+              </li>
+              <li>
+                <span class="mono muted">GitHub</span>
+                <a href="https://github.com/aidencole" target="_blank" rel="noopener noreferrer">@aidencole</a>
+              </li>
+              <li>
+                <span class="mono muted">LinkedIn</span>
+                <a href="https://linkedin.com/in/aidencole" target="_blank" rel="noopener noreferrer">/in/aidencole</a>
+              </li>
+              <li>
+                <span class="mono muted">X / Twitter</span>
+                <a href="https://x.com/aiden_builds" target="_blank" rel="noopener noreferrer">@aiden_builds</a>
+              </li>
+            </ul>
+            <p class="muted" style="margin-top:2rem;font-size:0.875rem;line-height:1.6">
+              Based in GMT+0, responsive across most timezones. Typical reply time: under 24 hours.
+            </p>
+          </div>
+
+          <div class="form-card">
+            <h3 class="mono muted" style="margin-bottom:1.5rem">Send a Message</h3>
+            <!-- This form opens the visitor's email app addressed to you.
+                 EDIT: replace hello@aidencole.dev with YOUR email. -->
+            <form action="mailto:hello@aidencole.dev" method="get" enctype="text/plain">
+              <label>
+                <span class="mono muted">Name</span>
+                <input type="text" name="name" placeholder="Your name" required />
+              </label>
+              <label>
+                <span class="mono muted">Email</span>
+                <input type="email" name="email" placeholder="you@example.com" required />
+              </label>
+              <label>
+                <span class="mono muted">Message</span>
+                <textarea name="body" rows="5" placeholder="Tell me about your project..." required></textarea>
+              </label>
+              <button type="submit">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ██ EDIT: FOOTER — copyright name + tagline -->
+  <footer class="site-footer">
+    <div class="hatch texture-hatch" aria-hidden="true"></div>
+    <div class="container">
+      <span class="mono muted">&copy; 2026 Aiden Cole. All rights reserved.</span>
+      <span class="mono muted">Designed &amp; built in the dark.</span>
     </div>
-  </div>
-</section>
+  </footer>
 
-<main class="main-content" id="mainContent">
-  <div class="filters-section" id="filtersSection">
-    <div class="search-bar">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-      <input type="text" id="searchInput" placeholder="Search wallpapers by name or category..." autocomplete="off">
-    </div>
-    <div class="category-filters" id="categoryFilters"></div>
-  </div>
-  <div class="gallery-wrapper" id="galleryWrapper">
-    <div class="gallery" id="gallery"></div>
-  </div>
-</main>
-
-<div class="viewer-overlay" id="viewerOverlay">
-  <button class="viewer-close" id="viewerClose" aria-label="Close">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-  </button>
-  <div class="viewer-info" id="viewerInfo">
-    <div class="vi-cat" id="viewerCat"></div>
-    <div class="vi-name" id="viewerName"></div>
-    <div class="vi-res" id="viewerRes"></div>
-  </div>
-  <button class="viewer-nav prev" id="viewerPrev" aria-label="Previous">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-  </button>
-  <div class="viewer-image-wrapper" id="viewerImageWrapper">
-    <div class="viewer-spinner" id="viewerSpinner"></div>
-    <img id="viewerImage" src="" alt="">
-  </div>
-  <button class="viewer-nav next" id="viewerNext" aria-label="Next">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-  </button>
-  <div class="viewer-bottom">
-    <button class="viewer-btn" id="viewerOpenOriginal" title="Open original in new tab">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-      Original
-    </button>
-    <button class="viewer-btn primary" id="viewerDownload" title="Download wallpaper">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-      Download
-    </button>
-    <div class="viewer-counter" id="viewerCounter"></div>
-  </div>
-</div>
-
-<div class="secret-overlay" id="secretOverlay">
-  <div class="secret-content">
-    <h2>Welcome to the CozyPixels hidden room.</h2>
-    <p>You found the secret. You're one of us now.</p>
-  </div>
-</div>
-
-<div class="toast" id="toast"></div>
-
-<footer class="footer">
-  <div class="footer-logo">Cozy<span>Pixels</span></div>
-  <div class="footer-stats" id="footerStats"></div>
-  <p>Made for people who love beautiful desktops.</p>
-  <p style="margin-top:4px"><a href="https://github.com/SleepyCatHey/CozyPixels" target="_blank" rel="noopener">GitHub Repository</a></p>
-</footer>
-
-<script>
-(function(){
-'use strict';
-
-/* ── Config ── */
-var REPO_FULL = 'SleepyCatHey/CozyPixels';
-var API = 'https://api.github.com';
-var IMG_EXTS = ['jpg','jpeg','png','webp','gif','bmp','svg','avif'];
-var CACHE_KEY = 'cozypixels_v3';
-var CACHE_TTL = 10 * 60 * 1000;
-
-/* ── State ── */
-var allWallpapers = [];
-var filteredWallpapers = [];
-var categories = [];
-var currentCategory = 'all';
-var currentSearch = '';
-var viewerIndex = -1;
-var logoClicks = 0;
-var logoClickTimer = null;
-var mobileOpen = false;
-var repoUpdatedAt = '';
-
-/* ── Helpers ── */
-function $(id) { return document.getElementById(id); }
-
-function isImage(name) {
-  if (!name || name.indexOf('.') === -1) return false;
-  var ext = name.split('.').pop().toLowerCase();
-  return IMG_EXTS.indexOf(ext) !== -1;
-}
-
-function formatName(name) {
-  return name.replace(/\.[^.]+$/, '').replace(/[-_]+/g, ' ').replace(/\b\w/g, function(c){ return c.toUpperCase(); }).trim();
-}
-
-function formatCategory(name) {
-  return name.replace(/[-_]+/g, ' ').replace(/\b\w/g, function(c){ return c.toUpperCase(); }).trim();
-}
-
-function relativeTime(dateStr) {
-  if (!dateStr) return '\u2014';
-  var diff = Date.now() - new Date(dateStr).getTime();
-  if (diff < 0) diff = 0;
-  var m = Math.floor(diff / 60000);
-  if (m < 1) return 'Just now';
-  if (m < 60) return m + 'm ago';
-  var h = Math.floor(m / 60);
-  if (h < 24) return h + 'h ago';
-  var d = Math.floor(h / 24);
-  if (d < 30) return d + 'd ago';
-  var mo = Math.floor(d / 30);
-  if (mo < 12) return mo + 'mo ago';
-  return Math.floor(mo / 12) + 'y ago';
-}
-
-/* ── Fetch with timeout ── */
-function fetchTimeout(url, ms) {
-  ms = ms || 15000;
-  return Promise.race([
-    fetch(url),
-    new Promise(function(_, rej) { setTimeout(function(){ rej(new Error('Timeout after ' + ms + 'ms')); }, ms); })
-  ]);
-}
-
-async function fetchJSON(url) {
-  var res = await fetchTimeout(url);
-  if (!res.ok) {
-    var txt = '';
-    try { txt = await res.text(); } catch(e){}
-    throw new Error('HTTP ' + res.status + (txt ? ': ' + txt.substring(0, 300) : ''));
-  }
-  return res.json();
-}
-
-/* ── Main data fetch using Git Trees API (single call, no pagination issues) ── */
-async function fetchAllWallpapers() {
-  // Check sessionStorage cache
-  try {
-    var cached = sessionStorage.getItem(CACHE_KEY);
-    if (cached) {
-      var parsed = JSON.parse(cached);
-      if (parsed.ts && (Date.now() - parsed.ts < CACHE_TTL) && parsed.wallpapers && parsed.wallpapers.length) {
-        repoUpdatedAt = parsed.repoUpdatedAt || '';
-        return parsed.wallpapers;
-      }
-    }
-  } catch(e){}
-
-  // 1) Get repo info for default branch + last update time
-  var repoInfo;
-  try {
-    repoInfo = await fetchJSON(API + '/repos/' + REPO_FULL);
-  } catch(e) {
-    throw new Error('Cannot access repo "' + REPO_FULL + '". ' + e.message);
-  }
-  var branch = repoInfo.default_branch || 'main';
-  repoUpdatedAt = repoInfo.pushed_at || repoInfo.updated_at || '';
-
-  // 2) Get full recursive tree (single request, handles any depth)
-  var treeData;
-  try {
-    treeData = await fetchJSON(API + '/repos/' + REPO_FULL + '/git/trees/' + branch + '?recursive=1');
-  } catch(e) {
-    throw new Error('Cannot fetch file tree. ' + e.message);
-  }
-
-  if (!treeData.tree || treeData.tree.length === 0) {
-    throw new Error('Repository tree is empty.');
-  }
-
-  // 3) Parse images — deduplicate by git blob SHA (content hash)
-  //    This guarantees no duplicates even if the same file exists
-  //    under multiple paths in the repo.
-  var rawBase = 'https://raw.githubusercontent.com/' + REPO_FULL + '/' + branch + '/';
-  var seenSha = {};
-  var wallpapers = [];
-
-  for (var i = 0; i < treeData.tree.length; i++) {
-    var item = treeData.tree[i];
-
-    // Only blobs (files)
-    if (item.type !== 'blob') continue;
-
-    // Must be an image
-    if (!isImage(item.path)) continue;
-
-    // Skip hidden folders/files
-    if (item.path.indexOf('/.') !== -1) continue;
-    if (item.path.charAt(0) === '.') continue;
-
-    // Skip very tiny files (likely icons, not wallpapers) — under 10KB
-    if (item.size && item.size < 10240) continue;
-
-    // ── Dedup by SHA (content hash) ──
-    // Same image content = same SHA, regardless of filename or folder.
-    // This prevents any duplicate display.
-    if (!item.sha) continue;
-    if (seenSha[item.sha]) continue;
-    seenSha[item.sha] = true;
-
-    var parts = item.path.split('/');
-    var fileName = parts[parts.length - 1];
-    var category = parts.length > 1 ? formatCategory(parts[0]) : 'Other';
-
-    wallpapers.push({
-      name: fileName,
-      category: category,
-      path: item.path,
-      url: rawBase + item.path,
-      size: item.size || 0,
-      sha: item.sha
-    });
-  }
-
-  // Sort by category, then name
-  wallpapers.sort(function(a, b) {
-    var c = a.category.localeCompare(b.category);
-    return c !== 0 ? c : a.name.localeCompare(b.name);
-  });
-
-  // Save to cache
-  try {
-    sessionStorage.setItem(CACHE_KEY, JSON.stringify({
-      ts: Date.now(),
-      repoUpdatedAt: repoUpdatedAt,
-      wallpapers: wallpapers
-    }));
-  } catch(e){}
-
-  return wallpapers;
-}
-
-/* ── Render: Skeletons ── */
-function renderSkeletons() {
-  var heights = [180, 240, 200, 280, 220, 260, 190, 250, 210, 270, 230, 200];
-  var html = '';
-  for (var i = 0; i < 12; i++) {
-    html += '<div class="skeleton"><div class="skeleton-inner" style="height:' + heights[i] + 'px"></div></div>';
-  }
-  $('gallery').innerHTML = html;
-}
-
-/* ── Render: Gallery ── */
-function renderGallery() {
-  var q = currentSearch.toLowerCase();
-
-  filteredWallpapers = allWallpapers.filter(function(w) {
-    var matchCat = (currentCategory === 'all') || (w.category === currentCategory);
-    var matchSearch = !q || (w.name.toLowerCase().indexOf(q) !== -1) || (w.category.toLowerCase().indexOf(q) !== -1);
-    return matchCat && matchSearch;
-  });
-
-  if (filteredWallpapers.length === 0) {
-    $('gallery').innerHTML =
-      '<div class="empty-state">' +
-        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><path d="M21 15l-5-5L5 21"></path></svg>' +
-        '<h3>No wallpapers found</h3>' +
-        '<p>Try adjusting your search or filter criteria.</p>' +
-      '</div>';
-    return;
-  }
-
-  var html = '';
-  for (var i = 0; i < filteredWallpapers.length; i++) {
-    var w = filteredWallpapers[i];
-    var delay = Math.min(i * 0.03, 1.5);
-    html +=
-      '<div class="wallpaper-card" data-idx="' + i + '" style="animation-delay:' + delay + 's">' +
-        '<img src="' + w.url + '" alt="' + w.name + '" loading="lazy" decoding="async" ' +
-          'onload="this.style.opacity=1" onerror="this.parentElement.style.display=\'none\'" ' +
-          'style="opacity:0;transition:opacity .5s ease">' +
-        '<div class="card-overlay">' +
-          '<div class="card-category">' + w.category + '</div>' +
-          '<div class="card-name">' + formatName(w.name) + '</div>' +
-        '</div>' +
-        '<div class="card-download" data-dl="' + i + '" title="Download">' +
-          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>' +
-        '</div>' +
-      '</div>';
-  }
-  $('gallery').innerHTML = html;
-}
-
-/* ── Render: Categories ── */
-function renderCategories() {
-  var catMap = {};
-  for (var i = 0; i < allWallpapers.length; i++) {
-    var c = allWallpapers[i].category;
-    catMap[c] = (catMap[c] || 0) + 1;
-  }
-  categories = Object.keys(catMap).sort();
-
-  var html = '<button class="cat-pill active" data-cat="all">All <span class="count">' + allWallpapers.length + '</span></button>';
-  for (var j = 0; j < categories.length; j++) {
-    html += '<button class="cat-pill" data-cat="' + categories[j] + '">' + categories[j] + ' <span class="count">' + catMap[categories[j]] + '</span></button>';
-  }
-  $('categoryFilters').innerHTML = html;
-
-  $('categoryFilters').addEventListener('click', function(e) {
-    var pill = e.target.closest('.cat-pill');
-    if (!pill) return;
-    currentCategory = pill.getAttribute('data-cat');
-    var all = $('categoryFilters').querySelectorAll('.cat-pill');
-    for (var k = 0; k < all.length; k++) all[k].classList.remove('active');
-    pill.classList.add('active');
-    renderGallery();
-  });
-}
-
-/* ── Render: Stats ── */
-function updateStats() {
-  $('statWallpapers').textContent = allWallpapers.length;
-  $('statCategories').textContent = categories.length;
-  $('statUpdated').textContent = relativeTime(repoUpdatedAt);
-  $('footerStats').innerHTML = '<em>' + allWallpapers.length + '</em> wallpapers &middot; <em>' + categories.length + '</em> categories';
-}
-
-/* ── Viewer ── */
-function openViewer(index) {
-  if (index < 0 || index >= filteredWallpapers.length) return;
-  viewerIndex = index;
-  var w = filteredWallpapers[index];
-
-  $('viewerSpinner').style.display = 'block';
-  $('viewerImage').style.opacity = '0';
-  $('viewerImage').removeAttribute('src');
-  $('viewerCat').textContent = w.category;
-  $('viewerName').textContent = formatName(w.name);
-  $('viewerRes').textContent = 'Loading\u2026';
-  $('viewerCounter').textContent = (index + 1) + ' / ' + filteredWallpapers.length;
-
-  $('viewerOverlay').classList.add('open');
-  document.body.style.overflow = 'hidden';
-
-  var img = new Image();
-  img.onload = function() {
-    $('viewerImage').src = w.url;
-    $('viewerImage').style.transition = 'opacity 0.3s ease';
-    $('viewerImage').style.opacity = '1';
-    $('viewerSpinner').style.display = 'none';
-    $('viewerRes').textContent = img.naturalWidth + ' \u00D7 ' + img.naturalHeight;
-  };
-  img.onerror = function() {
-    $('viewerSpinner').style.display = 'none';
-    $('viewerRes').textContent = 'Failed to load image';
-  };
-  img.src = w.url;
-}
-
-function closeViewer() {
-  $('viewerOverlay').classList.remove('open');
-  document.body.style.overflow = '';
-  viewerIndex = -1;
-}
-
-function navigateViewer(dir) {
-  if (filteredWallpapers.length === 0) return;
-  var next = viewerIndex + dir;
-  if (next < 0) next = filteredWallpapers.length - 1;
-  if (next >= filteredWallpapers.length) next = 0;
-  openViewer(next);
-}
-
-/* ── Download ── */
-async function downloadWallpaper(index) {
-  var w = filteredWallpapers[index];
-  if (!w) return;
-  showToast('Downloading ' + w.name + '\u2026');
-  try {
-    var res = await fetchTimeout(w.url, 60000);
-    var blob = await res.blob();
-    var url = URL.createObjectURL(blob);
-    var a = document.createElement('a');
-    a.href = url;
-    a.download = w.name;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    setTimeout(function(){ URL.revokeObjectURL(url); }, 2000);
-  } catch(e) {
-    window.open(w.url, '_blank');
-  }
-}
-
-/* ── Toast ── */
-var toastTimer = null;
-function showToast(msg) {
-  var t = $('toast');
-  t.textContent = msg;
-  t.classList.add('show');
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(function(){ t.classList.remove('show'); }, 3000);
-}
-
-/* ── Particles ── */
-function initParticles() {
-  var canvas = $('heroCanvas');
-  var ctx = canvas.getContext('2d');
-  var particles = [];
-
-  function resize() {
-    canvas.width = $('hero').offsetWidth;
-    canvas.height = $('hero').offsetHeight;
-  }
-  resize();
-  window.addEventListener('resize', resize);
-
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-  for (var i = 0; i < 50; i++) {
-    particles.push({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      r: Math.random() * 1.5 + 0.5,
-      vx: (Math.random() - 0.5) * 0.3,
-      vy: (Math.random() - 0.5) * 0.2 - 0.1,
-      a: Math.random() * 0.25 + 0.05
-    });
-  }
-
-  (function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    for (var i = 0; i < particles.length; i++) {
-      var p = particles[i];
-      p.x += p.vx; p.y += p.vy;
-      if (p.x < 0) p.x = canvas.width;
-      if (p.x > canvas.width) p.x = 0;
-      if (p.y < 0) p.y = canvas.height;
-      if (p.y > canvas.height) p.y = 0;
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(96,165,250,' + p.a + ')';
-      ctx.fill();
-    }
-    requestAnimationFrame(animate);
-  })();
-}
-
-/* ── Konami Code ── */
-function initKonami() {
-  var seq = [38,38,40,40,37,39,37,39,66,65], pos = 0;
-  document.addEventListener('keydown', function(e) {
-    if ($('viewerOverlay').classList.contains('open')) return;
-    if ($('secretOverlay').classList.contains('open')) return;
-    if (e.keyCode === seq[pos]) {
-      pos++;
-      if (pos === seq.length) {
-        pos = 0;
-        $('secretOverlay').classList.add('open');
-        setTimeout(function(){ $('secretOverlay').classList.remove('open'); }, 3500);
-      }
-    } else { pos = 0; }
-  });
-  $('secretOverlay').addEventListener('click', function(){ $(this).classList.remove('open'); });
-}
-
-/* ── Cat Easter Egg ── */
-function initCatEasterEgg() {
-  $('navLogo').addEventListener('click', function() {
-    logoClicks++;
-    clearTimeout(logoClickTimer);
-    logoClickTimer = setTimeout(function(){ logoClicks = 0; }, 2000);
-    if (logoClicks >= 5) {
-      logoClicks = 0;
-      spawnCat();
-    }
-  });
-}
-
-function spawnCat() {
-  var el = document.createElement('div');
-  el.className = 'pixel-cat';
-  var s = 4, w = '#F8FAFC', e = '#3B82F6', n = '#F472B6';
-  el.style.width = '1px'; el.style.height = '1px';
-  el.style.boxShadow = [
-    [3,0,w],[11,0,w],
-    [3,s,w],[7,s,w],[11,s,w],
-    [0,2*s,w],[3,2*s,e],[7,2*s,w],[11,2*s,e],[14,2*s,w],
-    [0,3*s,w],[3,3*s,n],[7,3*s,w],[11,3*s,w],[14,3*s,w],
-    [3,4*s,w],[7,4*s,w],[11,4*s,w],
-    [0,5*s,w],[3,5*s,w],[7,5*s,w],[11,5*s,w],[14,5*s,w],
-    [0,6*s,w],[14,6*s,w],
-    [0,7*s,w],[3,7*s,w],[11,7*s,w],[14,7*s,w]
-  ].map(function(p){ return p[0]*s+'px '+p[1]*s+'px 0 '+p[2]; }).join(',');
-  document.body.appendChild(el);
-  setTimeout(function(){ el.remove(); }, 5500);
-}
-
-/* ── Global functions ── */
-window._scrollToTop = function(){ window.scrollTo({top:0,behavior:'smooth'}); };
-window._scrollToCategories = function(){ $('filtersSection').scrollIntoView({behavior:'smooth',block:'start'}); };
-window._focusSearch = function(){
-  $('filtersSection').scrollIntoView({behavior:'smooth',block:'start'});
-  setTimeout(function(){ $('searchInput').focus(); }, 400);
-};
-window._closeMobile = function(){ mobileOpen=false; $('mobileMenu').classList.remove('open'); };
-window._openRandom = function(){
-  if (!allWallpapers.length) return;
-  var r = Math.floor(Math.random() * allWallpapers.length);
-  currentCategory = 'all'; currentSearch = '';
-  $('searchInput').value = '';
-  var pills = $('categoryFilters').querySelectorAll('.cat-pill');
-  for (var i=0;i<pills.length;i++) pills[i].classList.toggle('active', pills[i].getAttribute('data-cat')==='all');
-  renderGallery();
-  var idx = filteredWallpapers.indexOf(allWallpapers[r]);
-  if (idx >= 0) openViewer(idx);
-};
-
-/* ── Events ── */
-function initEvents() {
-  // Scroll
-  window.addEventListener('scroll', function(){
-    $('navbar').classList.toggle('scrolled', window.scrollY > 50);
-  }, {passive:true});
-
-  // Search
-  $('searchInput').addEventListener('input', function(){
-    currentSearch = this.value.trim();
-    renderGallery();
-  });
-
-  // Gallery click delegation
-  $('gallery').addEventListener('click', function(e) {
-    var dl = e.target.closest('.card-download');
-    if (dl) { e.stopPropagation(); downloadWallpaper(parseInt(dl.getAttribute('data-dl'))); return; }
-    var card = e.target.closest('.wallpaper-card');
-    if (card) openViewer(parseInt(card.getAttribute('data-idx')));
-  });
-
-  // Viewer
-  $('viewerClose').addEventListener('click', closeViewer);
-  $('viewerOverlay').addEventListener('click', function(e){ if(e.target===this) closeViewer(); });
-  $('viewerPrev').addEventListener('click', function(){ navigateViewer(-1); });
-  $('viewerNext').addEventListener('click', function(){ navigateViewer(1); });
-  $('viewerDownload').addEventListener('click', function(){ if(viewerIndex>=0) downloadWallpaper(viewerIndex); });
-  $('viewerOpenOriginal').addEventListener('click', function(){
-    if(viewerIndex>=0){ var w=filteredWallpapers[viewerIndex]; if(w) window.open(w.url,'_blank'); }
-  });
-
-  // Keyboard
-  document.addEventListener('keydown', function(e) {
-    if ($('viewerOverlay').classList.contains('open')) {
-      if (e.key==='Escape') closeViewer();
-      else if (e.key==='ArrowLeft') { e.preventDefault(); navigateViewer(-1); }
-      else if (e.key==='ArrowRight') { e.preventDefault(); navigateViewer(1); }
-      return;
-    }
-    if (e.key==='/' && document.activeElement !== $('searchInput')) {
-      e.preventDefault(); window._focusSearch();
-    }
-  });
-
-  // Mobile
-  $('hamburgerBtn').addEventListener('click', function(){
-    mobileOpen=!mobileOpen; $('mobileMenu').classList.toggle('open',mobileOpen);
-  });
-  document.addEventListener('click', function(e){
-    if (mobileOpen && !$('mobileMenu').contains(e.target) && !$('hamburgerBtn').contains(e.target))
-      window._closeMobile();
-  });
-
-  // Swipe
-  var sx = 0;
-  $('viewerOverlay').addEventListener('touchstart', function(e){ sx=e.changedTouches[0].screenX; }, {passive:true});
-  $('viewerOverlay').addEventListener('touchend', function(e){
-    var d = e.changedTouches[0].screenX - sx;
-    if (Math.abs(d) > 60) navigateViewer(d > 0 ? -1 : 1);
-  }, {passive:true});
-}
-
-/* ── Loading error display ── */
-function showLoadingError(msg) {
-  $('loadingBar').style.display = 'none';
-  $('loadingLogo').style.display = 'none';
-  $('loadingError').style.display = 'block';
-  $('loadingErrorDetail').textContent = msg;
-}
-
-/* ── Init ── */
-async function init() {
-  initParticles();
-  initEvents();
-  initKonami();
-  initCatEasterEgg();
-  renderSkeletons();
-
-  try {
-    allWallpapers = await fetchAllWallpapers();
-    console.log('[CozyPixels] Loaded ' + allWallpapers.length + ' unique wallpapers');
-    renderCategories();
-    renderGallery();
-    updateStats();
-  } catch(e) {
-    console.error('[CozyPixels] Error:', e);
-    showLoadingError(e.message);
-    $('gallery').innerHTML =
-      '<div class="error-state">' +
-        '<h3>Failed to load wallpapers</h3>' +
-        '<p>Could not fetch data from the GitHub API.</p>' +
-        '<div class="err-detail">' + e.message + '</div>' +
-        '<button class="btn btn-primary" onclick="sessionStorage.clear();location.reload()" style="margin-right:8px">Clear Cache & Retry</button>' +
-        '<a class="btn btn-secondary" href="https://github.com/SleepyCatHey/CozyPixels" target="_blank" rel="noopener">Open on GitHub</a>' +
-      '</div>';
-  }
-
-  setTimeout(function(){ $('loadingScreen').classList.add('hidden'); }, 500);
-}
-
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', init);
-} else {
-  init();
-}
-
-})();
-</script>
 </body>
 </html>
