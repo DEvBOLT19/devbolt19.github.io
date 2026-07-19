@@ -52,7 +52,7 @@ Write \`[the text](https://vercel.com)\` and you get [the text](https://vercel.c
 
 Drop an image into the \`images\` folder, then write:
 
-\`![a pixel sunset](images/pixel-sunset.png)\`
+\`![a pixel sunset](images/pfp.png)\`
 
 ![a pixel sunset over a mountain landscape](images/pixel-sunset.png)
 
@@ -65,24 +65,6 @@ And inline \`code\` looks like this.
 ---
 
 That's the whole system. Write, save, publish.
-`,
-  },
-  {
-    slug: "why-minimal-wins",
-    title: "Why minimal wins",
-    date: "2026-07-10",
-    tags: ["design", "opinion"],
-    excerpt: "On the quiet power of removing things until only the essential remains.",
-    content: `
-Every element you remove makes the remaining ones **louder**.
-
-## Less surface, less friction
-
-A blog needs three things: a list, a post, a way back. Everything else is decoration.
-
-> Perfection is achieved not when there is nothing more to add, but when there is nothing left to take away.
-
-That's the whole argument.
 `,
   },
   {
@@ -101,7 +83,7 @@ More soon.
 
 /* Your social links — update the usernames here */
 const SOCIAL_LINKS = {
-  github: "https://github.com/yourusername",
+  github: "https://github.com/DEvBOLT19",
   x: "https://x.com/yourusername",
-  linkedin: "https://www.linkedin.com/in/yourusername",
+  linkedin: "https://www.linkedin.com/in/raghvendra-dodiya-0768413b4/",
 }
