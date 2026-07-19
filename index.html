@@ -75,7 +75,7 @@
 
     /* ============ HEADER ============ */
     header {
-      border-bottom: 1px solid rgba(232, 228, 212, 0.15);
+      border-bottom: none;
     }
     .header-inner {
       display: flex;
@@ -286,7 +286,7 @@
         <span><time id="ist-clock">--:--:--</time> IST</span>
       </div>
     </div>
-    <div class="dither" aria-hidden="true"></div>
+    <!-- Cleaned: The green dither strip div was removed from here -->
   </header>
 
   <main class="wrap" id="app" aria-live="polite">
@@ -334,7 +334,6 @@
 
     /* tiny markdown -> html */
     function inline(s) {
-      /* protect code spans first so markdown inside `backticks` renders literally */
       var codes = []
       s = s.replace(/`([^`]+)`/g, function (_, c) {
         codes.push(c)
