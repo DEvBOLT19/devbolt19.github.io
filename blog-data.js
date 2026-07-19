@@ -75,6 +75,7 @@ That's the whole system. Write, save, publish.
     excerpt: "First post. Testing the pixels.",
     content: `
 This is the first post on **BOLT.** — a small corner of the internet for notes, experiments and half-finished thoughts.
+idk what to write its just a demo post first time testing this shit , is soooooo crazy \`BOLT IS SO PEAK\`
 
 More soon.
 `,
