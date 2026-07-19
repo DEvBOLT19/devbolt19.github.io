@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en" class="bg">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BOLT. — a pixel blog</title>
+  <meta name="description" content="BOLT. — notes, experiments and half-finished thoughts. A minimal pixel blog." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    /* ============ TOKENS ============ */
+    :root {
+      --bg: #0b0d09;          /* deep moss black */
+      --surface: #12150e;     /* card surface */
+      --text: #e8e4d4;        /* bone white */
+      --dim: #7d8069;         /* faded olive gray */
+      --accent: #b6ff2e;      /* acid green */
+      --accent-2: #ff5f1f;    /* signal orange */
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { background: var(--bg); }
+
+    body {
+      font-family: "Space Mono", monospace;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.6;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      /* dot-grid texture */
+      background-image: radial-gradient(rgba(232, 228, 212, 0.05) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+
+    /* CRT scanline overlay texture */
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 50;
+      background: repeating-linear-gradient(
+        to bottom,
+        transparent 0px,
+        transparent 3px,
+        rgba(0, 0, 0, 0.14) 3px,
+        rgba(0, 0, 0, 0.14) 4px
+      );
+    }
+
+    .pixel { font-family: "Press Start 2P", monospace; }
+
+    a { color: inherit; }
+
+    ::selection { background: var(--accent); color: var(--bg); }
+
+    /* dither checkerboard strip texture */
+    .dither {
+      height: 8px;
+      background:
+        conic-gradient(var(--accent) 25%, transparent 0 50%, var(--accent) 0 75%, transparent 0) 0 0 / 8px 8px;
+      opacity: 0.35;
+    }
+    .dither.orange {
+      background:
+        conic-gradient(var(--accent-2) 25%, transparent 0 50%, var(--accent-2) 0 75%, transparent 0) 0 0 / 8px 8px;
+    }
+
+    .wrap { width: 100%; max-width: 680px; margin: 0 auto; padding: 0 20px; }
+
+    /* ============ HEADER ============ */
+    header {
+      border-bottom: 1px solid rgba(232, 228, 212, 0.15);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 0;
+    }
+    .brand {
+      font-size: 16px;
+      color: var(--accent);
+      text-decoration: none;
+      text-shadow: 3px 3px 0 rgba(182, 255, 46, 0.2);
+    }
+    .brand:hover { color: var(--accent-2); text-shadow: 3px 3px 0 rgba(255, 95, 31, 0.25); }
+    .clock {
+      font-size: 9px;
+      color: var(--dim);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-align: right;
+    }
+    .clock .blink-dot {
+      width: 6px; height: 6px;
+      background: var(--accent);
+      animation: blink 1s steps(1) infinite;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+    .clock time { color: var(--text); }
+
+    /* ============ MAIN ============ */
+    main { flex: 1; padding: 48px 0 72px; }
+
+    .section-label {
+      font-size: 8px;
+      color: var(--accent-2);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    /* latest post card */
+    .latest {
+      display: block;
+      text-decoration: none;
+      border: 1px solid rgba(182, 255, 46, 0.35);
+      background: var(--surface);
+      padding: 24px;
+      position: relative;
+      box-shadow: 6px 6px 0 rgba(182, 255, 46, 0.12);
+      transition: transform 80ms steps(2), box-shadow 80ms steps(2);
+    }
+    .latest:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 8px 8px 0 rgba(182, 255, 46, 0.2);
+      border-color: var(--accent);
+    }
+    .latest .new-badge {
+      position: absolute;
+      top: -9px;
+      right: 16px;
+      font-size: 8px;
+      background: var(--accent);
+      color: var(--bg);
+      padding: 4px 8px;
+    }
+    .latest h2 {
+      font-family: "Press Start 2P", monospace;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text);
+      margin-bottom: 12px;
+      text-wrap: balance;
+    }
+    .latest:hover h2 { color: var(--accent); }
+    .latest .meta { font-size: 11px; color: var(--dim); margin-bottom: 12px; }
+    .latest p { color: var(--dim); font-size: 14px; text-wrap: pretty; }
+    .latest .readmore { display: inline-block; margin-top: 16px; font-size: 8px; color: var(--accent-2); }
+
+    /* archive list */
+    .archive { margin-top: 48px; }
+    .archive ul { list-style: none; }
+    .archive li { border-bottom: 1px dashed rgba(232, 228, 212, 0.15); }
+    .archive a {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 4px;
+      text-decoration: none;
+      color: var(--text);
+    }
+    .archive a:hover { color: var(--accent); background: rgba(182, 255, 46, 0.04); }
+    .archive a:hover .title::before { content: "> "; color: var(--accent-2); }
+    .archive .title { font-size: 14px; font-weight: 700; }
+    .archive .date { font-size: 11px; color: var(--dim); white-space: nowrap; }
+
+    /* ============ POST PAGE ============ */
+    .backlink {
+      display: inline-block;
+      font-size: 8px;
+      color: var(--dim);
+      text-decoration: none;
+      margin-bottom: 32px;
+    }
+    .backlink:hover { color: var(--accent); }
+
+    .post-header { margin-bottom: 36px; }
+    .post-header h1 {
+      font-family: "Press Start 2P", monospace;
+      font-size: 19px;
+      line-height: 1.8;
+      color: var(--accent);
+      margin-bottom: 16px;
+      text-wrap: balance;
+    }
+    .post-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; font-size: 11px; color: var(--dim); }
+    .tag {
+      font-size: 9px;
+      border: 1px solid var(--accent-2);
+      color: var(--accent-2);
+      padding: 3px 8px;
+    }
+
+    .post-body h1, .post-body h2, .post-body h3 {
+      font-family: "Press Start 2P", monospace;
+      line-height: 1.8;
+      color: var(--text);
+      margin: 36px 0 14px;
+      text-wrap: balance;
+    }
+    .post-body h1 { font-size: 16px; }
+    .post-body h2 { font-size: 13px; color: var(--accent); }
+    .post-body h3 { font-size: 11px; color: var(--accent-2); }
+    .post-body p { margin: 14px 0; text-wrap: pretty; }
+    .post-body strong { color: var(--accent); font-weight: 700; }
+    .post-body em { color: var(--text); }
+    .post-body a { color: var(--accent-2); text-decoration: underline; text-underline-offset: 3px; }
+    .post-body a:hover { background: var(--accent-2); color: var(--bg); text-decoration: none; }
+    .post-body code {
+      background: var(--surface);
+      border: 1px solid rgba(232, 228, 212, 0.15);
+      padding: 2px 6px;
+      font-size: 13px;
+      color: var(--accent);
+    }
+    .post-body blockquote {
+      border-left: 4px solid var(--accent);
+      background: var(--surface);
+      padding: 12px 16px;
+      margin: 20px 0;
+      color: var(--dim);
+      font-style: italic;
+    }
+    .post-body img {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin: 24px 0;
+      border: 1px solid rgba(232, 228, 212, 0.2);
+      box-shadow: 6px 6px 0 rgba(182, 255, 46, 0.12);
+      image-rendering: pixelated;
+    }
+    .post-body hr {
+      border: none;
+      height: 8px;
+      margin: 32px 0;
+      background: conic-gradient(var(--dim) 25%, transparent 0 50%, var(--dim) 0 75%, transparent 0) 0 0 / 8px 8px;
+      opacity: 0.4;
+    }
+
+    /* ============ FOOTER ============ */
+    footer { margin-top: auto; }
+    .footer-line { height: 1px; background: rgba(232, 228, 212, 0.25); }
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 0 28px;
+    }
+    .footer-brand { font-size: 10px; color: var(--dim); }
+    .socials { display: flex; align-items: center; gap: 18px; }
+    .socials a {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 8px;
+      color: var(--dim);
+      text-decoration: none;
+    }
+    .socials a:hover { color: var(--accent); }
+    .socials a:hover svg { fill: var(--accent); }
+    .socials svg { fill: var(--dim); width: 14px; height: 14px; shape-rendering: crispEdges; }
+
+    @media (max-width: 520px) {
+      .footer-inner { flex-direction: column; gap: 16px; }
+      .archive a { flex-direction: column; gap: 4px; }
+      .post-header h1 { font-size: 15px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap header-inner">
+      <a class="brand pixel" href="#/">BOLT.</a>
+      <div class="clock pixel" aria-label="current time in India Standard Time">
+        <span class="blink-dot" aria-hidden="true"></span>
+        <span><time id="ist-clock">--:--:--</time> IST</span>
+      </div>
+    </div>
+    <div class="dither" aria-hidden="true"></div>
+  </header>
+
+  <main class="wrap" id="app" aria-live="polite">
+    <!-- rendered by JS -->
+  </main>
+
+  <footer>
+    <div class="dither orange" aria-hidden="true"></div>
+    <div class="footer-line" aria-hidden="true"></div>
+    <div class="wrap footer-inner">
+      <span class="footer-brand pixel">BOLT. &copy; 2026</span>
+      <nav class="socials pixel" aria-label="social links">
+        <a id="link-github" href="#" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M4 1h4v1h2v2h1v4h-1v2H9v1H8V9H7v2H5V9H4v2H3v-1H2V8H1V4h1V2h2V1zm0 5H3v2h1V6zm5 0H8v2h1V6z"/></svg>
+          <span>github</span>
+        </a>
+        <a id="link-x" href="#" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1 1h2v1h1v1h1v1h2V3h1V2h1V1h2v1h-1v1h-1v1H8v1H7v1h1v1h1v1h1v1h1v1h1v1h-2v-1H9V9H8V8H7V7H5v1H4v1H3v1H2v1H0v-1h1V9h1V8h1V7h1V6H3V5H2V4H1V3H0V2h1V1z"/></svg>
+          <span>x</span>
+        </a>
+        <a id="link-linkedin" href="#" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1 1h2v2H1V1zm0 3h2v7H1V4zm3 0h2v1h1V4h3v1h1v6H9V6H8v5H6V6H5v5H4V4z"/></svg>
+          <span>linkedin</span>
+        </a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="blog-data.js"></script>
+  <script>
+    /* ============ HELPERS ============ */
+    function sortedPosts() {
+      return [...BLOG_POSTS].sort(function (a, b) { return a.date < b.date ? 1 : -1 })
+    }
+
+    function formatDate(iso) {
+      return new Date(iso + "T00:00:00").toLocaleDateString("en-IN", {
+        day: "2-digit", month: "short", year: "numeric",
+      })
+    }
+
+    function escapeHtml(s) {
+      return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+    }
+
+    /* tiny markdown -> html */
+    function inline(s) {
+      /* protect code spans first so markdown inside `backticks` renders literally */
+      var codes = []
+      s = s.replace(/`([^`]+)`/g, function (_, c) {
+        codes.push(c)
+        return "\u0000" + (codes.length - 1) + "\u0000"
+      })
+      s = s
+        .replace(/!\[([^\]]*)\]\(([^)\s]+)\)/g, '<img src="$2" alt="$1" loading="lazy" />')
+        .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>')
+        .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+        .replace(/\*([^*]+)\*/g, "<em>$1</em>")
+      return s.replace(/\u0000(\d+)\u0000/g, function (_, i) {
+        return "<code>" + codes[Number(i)] + "</code>"
+      })
+    }
+
+    function markdownToHtml(md) {
+      var lines = escapeHtml(md).split("\n")
+      var html = []
+      var para = []
+      function flush() {
+        if (para.length) {
+          html.push("<p>" + inline(para.join(" ")) + "</p>")
+          para = []
+        }
+      }
+      for (var i = 0; i < lines.length; i++) {
+        var line = lines[i]
+        var t = line.trim()
+        if (t === "") { flush(); continue }
+        if (t === "---") { flush(); html.push("<hr />"); continue }
+        if (t.indexOf("### ") === 0) { flush(); html.push("<h3>" + inline(t.slice(4)) + "</h3>"); continue }
+        if (t.indexOf("## ") === 0) { flush(); html.push("<h2>" + inline(t.slice(3)) + "</h2>"); continue }
+        if (t.indexOf("# ") === 0) { flush(); html.push("<h1>" + inline(t.slice(2)) + "</h1>"); continue }
+        if (t.indexOf("&gt; ") === 0) { flush(); html.push("<blockquote>" + inline(t.slice(5)) + "</blockquote>"); continue }
+        para.push(t)
+      }
+      flush()
+      return html.join("\n")
+    }
+
+    /* ============ VIEWS ============ */
+    var app = document.getElementById("app")
+
+    function renderHome() {
+      var posts = sortedPosts()
+      var latest = posts[0]
+      var older = posts.slice(1)
+      var out = ""
+
+      out += '<p class="section-label pixel">/// latest transmission</p>'
+      out += '<a class="latest" href="#/post/' + latest.slug + '">'
+      out += '<span class="new-badge pixel">NEW</span>'
+      out += "<h2>" + escapeHtml(latest.title) + "</h2>"
+      out += '<p class="meta">' + formatDate(latest.date) + "</p>"
+      out += "<p>" + escapeHtml(latest.excerpt) + "</p>"
+      out += '<span class="readmore pixel">read entry &gt;&gt;</span>'
+      out += "</a>"
+
+      if (older.length) {
+        out += '<div class="archive">'
+        out += '<p class="section-label pixel">/// archive</p>'
+        out += "<ul>"
+        older.forEach(function (p) {
+          out += "<li>"
+          out += '<a href="#/post/' + p.slug + '">'
+          out += '<span class="title">' + escapeHtml(p.title) + "</span>"
+          out += '<span class="date">' + formatDate(p.date) + "</span>"
+          out += "</a></li>"
+        })
+        out += "</ul></div>"
+      }
+
+      app.innerHTML = out
+      document.title = "BOLT. — a pixel blog"
+      window.scrollTo(0, 0)
+    }
+
+    function renderPost(slug) {
+      var post = BLOG_POSTS.find(function (p) { return p.slug === slug })
+      if (!post) { renderHome(); return }
+      var out = ""
+      out += '<a class="backlink pixel" href="#/">&lt;&lt; back to index</a>'
+      out += '<article>'
+      out += '<div class="post-header">'
+      out += "<h1>" + escapeHtml(post.title) + "</h1>"
+      out += '<div class="post-meta">'
+      out += "<span>" + formatDate(post.date) + "</span>"
+      post.tags.forEach(function (t) {
+        out += '<span class="tag pixel">#' + escapeHtml(t) + "</span>"
+      })
+      out += "</div></div>"
+      out += '<div class="post-body">' + markdownToHtml(post.content) + "</div>"
+      out += "</article>"
+      app.innerHTML = out
+      document.title = post.title + " — BOLT."
+      window.scrollTo(0, 0)
+    }
+
+    function route() {
+      var hash = window.location.hash
+      if (hash.indexOf("#/post/") === 0) {
+        renderPost(hash.slice(7))
+      } else {
+        renderHome()
+      }
+    }
+    window.addEventListener("hashchange", route)
+    route()
+
+    /* ============ IST CLOCK ============ */
+    var clockEl = document.getElementById("ist-clock")
+    function tick() {
+      clockEl.textContent = new Intl.DateTimeFormat("en-IN", {
+        timeZone: "Asia/Kolkata",
+        hour: "2-digit", minute: "2-digit", second: "2-digit",
+        hour12: false,
+      }).format(new Date())
+    }
+    tick()
+    setInterval(tick, 1000)
+
+    /* ============ SOCIAL LINKS ============ */
+    document.getElementById("link-github").href = SOCIAL_LINKS.github
+    document.getElementById("link-x").href = SOCIAL_LINKS.x
+    document.getElementById("link-linkedin").href = SOCIAL_LINKS.linkedin
+  </script>
+</body>
+</html>
