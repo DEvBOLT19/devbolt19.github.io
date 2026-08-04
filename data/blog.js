@@ -52,9 +52,9 @@ Write \`[the text](https://vercel.com)\` and you get [the text](https://vercel.c
 
 Drop an image into the \`images\` folder, then write:
 
-\`![a pixel sunset](images/pfp.png)\`
+\`![my profile picture](images/pfp.png)\`
 
-![a pixel sunset over a mountain landscape](images/pfp.png)
+![my profile picture](images/pfp.png)
 
 ## Quotes and code
 
