@@ -54,7 +54,7 @@ Drop an image into the \`images\` folder, then write:
 
 \`![my profile picture](images/pfp.jpg)\`
 
-![my profile picture](images/pfp.png)
+![my picture](images/pfp.png)
 
 ## Quotes and code
 
