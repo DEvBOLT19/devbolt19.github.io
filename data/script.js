@@ -9,7 +9,6 @@ const CONFIG = {
 
 // ---------- watchlist ----------
 const WATCHLIST = {
-  const WATCHLIST = {
   currentlyWatching: [],
 
   franchises: [
