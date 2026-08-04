@@ -140,24 +140,24 @@ function markdownToHtml(markdown) {
 }
 
 function renderInlineMarkdown(text) {
-  // Escape HTML first
-  text = escapeHtml(text);
-
-  // Links [text](url)
-  text = text.replace(
-    /\[([^\]]+)\]\(([^)]+)\)/g,
-    function (match, linkText, url) {
-      return '<a href="' + url + '" target="_blank" rel="noopener">' + linkText + "</a>";
-    }
-  );
-
-  // Images ![alt](src)
+  // Process images BEFORE escaping HTML to preserve markdown syntax
   text = text.replace(
     /!\[([^\]]*)\]\(([^)]+)\)/g,
     function (match, alt, src) {
-      return '<img src="' + src + '" alt="' + alt + '" loading="lazy" />';
+      return '<img src="' + src + '" alt="' + escapeHtml(alt) + '" loading="lazy" />';
     }
   );
+
+  // Process links BEFORE escaping HTML to preserve markdown syntax
+  text = text.replace(
+    /\[([^\]]+)\]\(([^)]+)\)/g,
+    function (match, linkText, url) {
+      return '<a href="' + url + '" target="_blank" rel="noopener">' + escapeHtml(linkText) + "</a>";
+    }
+  );
+
+  // Escape HTML for remaining text
+  text = escapeHtml(text);
 
   // Bold **text**
   text = text.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
