@@ -10,7 +10,7 @@ const CONFIG = {
 // ---------- watchlist ----------
 const WATCHLIST = {
   franchises: [
-    {
+      {
       name: "Marvel Cinematic Universe",
       shortName: "MCU",
       movies: [
@@ -19,45 +19,661 @@ const WATCHLIST = {
           releaseDate: "2008",
           availableInIndia: true,
           where: "Disney+ Hotstar",
-          watched: true,
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "The Incredible Hulk",
+          releaseDate: "2008",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Iron Man 2",
+          releaseDate: "2010",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Thor",
+          releaseDate: "2011",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Captain America: The First Avenger",
+          releaseDate: "2011",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Marvel One-Shot: The Consultant",
+          releaseDate: "2011",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Marvel One-Shot: A Funny Thing Happened on the Way to Thor's Hammer",
+          releaseDate: "2011",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "The Avengers",
+          releaseDate: "2012",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Item 47",
+          releaseDate: "2012",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Iron Man 3",
+          releaseDate: "2013",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Thor: The Dark World",
+          releaseDate: "2013",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Marvel One-Shot: Agent Carter",
+          releaseDate: "2013",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Captain America: The Winter Soldier",
+          releaseDate: "2014",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Guardians of the Galaxy",
+          releaseDate: "2014",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Agent Carter – Season 1",
+          releaseDate: "2015",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Avengers: Age of Ultron",
+          releaseDate: "2015",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Ant-Man",
+          releaseDate: "2015",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Agent Carter – Season 2",
+          releaseDate: "2016",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Captain America: Civil War",
+          releaseDate: "2016",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Doctor Strange",
+          releaseDate: "2016",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Guardians of the Galaxy Vol. 2",
+          releaseDate: "2017",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Spider-Man: Homecoming",
+          releaseDate: "2017",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Thor: Ragnarok",
+          releaseDate: "2017",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Black Panther",
+          releaseDate: "2018",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Avengers: Infinity War",
+          releaseDate: "2018",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Ant-Man and the Wasp",
+          releaseDate: "2018",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Captain Marvel",
+          releaseDate: "2019",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Avengers: Endgame",
+          releaseDate: "2019",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Spider-Man: Far From Home",
+          releaseDate: "2019",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "WandaVision",
+          releaseDate: "2021",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "The Falcon and the Winter Soldier",
+          releaseDate: "2021",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Loki – Season 1",
+          releaseDate: "2021",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Black Widow",
+          releaseDate: "2021",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "What If...? – Season 1",
+          releaseDate: "2021",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Shang-Chi and the Legend of the Ten Rings",
+          releaseDate: "2021",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Eternals",
+          releaseDate: "2021",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Hawkeye",
+          releaseDate: "2021",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Spider-Man: No Way Home",
+          releaseDate: "2021",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Moon Knight",
+          releaseDate: "2022",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Doctor Strange in the Multiverse of Madness",
+          releaseDate: "2022",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Ms. Marvel",
+          releaseDate: "2022",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Thor: Love and Thunder",
+          releaseDate: "2022",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "I Am Groot – Season 1",
+          releaseDate: "2022",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "She-Hulk: Attorney at Law",
+          releaseDate: "2022",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Werewolf by Night",
+          releaseDate: "2022",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Black Panther: Wakanda Forever",
+          releaseDate: "2022",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "The Guardians of the Galaxy Holiday Special",
+          releaseDate: "2022",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Ant-Man and the Wasp: Quantumania",
+          releaseDate: "2023",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Guardians of the Galaxy Vol. 3",
+          releaseDate: "2023",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Secret Invasion",
+          releaseDate: "2023",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Loki – Season 2",
+          releaseDate: "2023",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "The Marvels",
+          releaseDate: "2023",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "What If...? – Season 2",
+          releaseDate: "2023",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Echo",
+          releaseDate: "2024",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Deadpool & Wolverine",
+          releaseDate: "2024",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Agatha All Along",
+          releaseDate: "2024",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "What If...? – Season 3",
+          releaseDate: "2024",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Your Friendly Neighborhood Spider-Man",
+          releaseDate: "2025",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Daredevil: Born Again – Season 1",
+          releaseDate: "2025",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Captain America: Brave New World",
+          releaseDate: "2025",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Thunderbolts*",
+          releaseDate: "2025",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Ironheart",
+          releaseDate: "2025",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "The Fantastic Four: First Steps",
+          releaseDate: "2025",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Eyes of Wakanda",
+          releaseDate: "2025",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Wonder Man",
+          releaseDate: "2025",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Marvel Zombies",
+          releaseDate: "2025",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Daredevil: Born Again – Season 2",
+          releaseDate: "2026",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "The Punisher: One Last Kill",
+          releaseDate: "2026",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Spider-Man: Brand New Day",
+          releaseDate: "2026",
+          availableInIndia: true,
+          where: "Disney+ Hotstar",
+          watched: false,
           currentlyWatching: false
         }
       ]
     },
+   {
+  name: "The Dark Knight Trilogy",
+  shortName: "TDK",
+  movies: [
     {
-      name: "The Dark Knight Trilogy",
-      shortName: "TDK",
-      movies: [
-        {
-          title: "Batman Begins",
-          releaseDate: "2005",
-          availableInIndia: true,
-          where: "Prime Video",
-          watched: true,
-          currentlyWatching: false
-        },
-        {
-          title: "The Dark Knight",
-          releaseDate: "2008",
-          availableInIndia: true,
-          where: "Prime Video",
-          watched: false,
-          currentlyWatching: true
-        }
-      ]
-    }
-  ],
-  standalone: [
-    {
-      title: "Inception",
-      releaseDate: "2010",
+      title: "Batman Begins",
+      releaseDate: "2005",
       availableInIndia: true,
-      where: "Netflix",
+      where: "Prime Video",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "The Dark Knight",
+      releaseDate: "2008",
+      availableInIndia: true,
+      where: "Prime Video",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "The Dark Knight Rises",
+      releaseDate: "2012",
+      availableInIndia: true,
+      where: "Prime Video",
       watched: false,
       currentlyWatching: false
     }
   ]
-};
+}
+  ],
+  standalone: [
+    standalone: [
+  {
+    title: "Inception",
+    releaseDate: "2010",
+    availableInIndia: true,
+    where: "Netflix",
+    watched: false,
+    currentlyWatching: false
+  },
+  {
+    title: "The Pursuit of Happyness",
+    releaseDate: "2006",
+    availableInIndia: true,
+    where: "Netflix",
+    watched: true,
+    currentlyWatching: false
+  },
+  {
+    title: "The Wolf of Wall Street",
+    releaseDate: "2013",
+    availableInIndia: true,
+    where: "Prime Video",
+    watched: true,
+    currentlyWatching: false
+  },
+  {
+    title: "The Social Network",
+    releaseDate: "2010",
+    availableInIndia: true,
+    where: "Netflix",
+    watched: true,
+    currentlyWatching: false
+  },
+  {
+    title: "Whiplash",
+    releaseDate: "2014",
+    availableInIndia: true,
+    where: "Prime Video",
+    watched: true,
+    currentlyWatching: false
+  },
+  {
+    title: "The Odyssey",
+    releaseDate: "2026",
+    availableInIndia: false,
+    where: "Theatres",
+    watched: false,
+    currentlyWatching: false
+  },
+  {
+    title: "The Backrooms",
+    releaseDate: "2026",
+    availableInIndia: false,
+    where: "A24 / Theatres",
+    watched: false,
+    currentlyWatching: false
+  },
+  {
+    title: "Obsession",
+    releaseDate: "2026",
+    availableInIndia: false,
+    where: "TBA",
+    watched: false,
+    currentlyWatching: false
+  },
+  {
+    title: "Frankenstein",
+    releaseDate: "2025",
+    availableInIndia: false,
+    where: "TBA",
+    watched: false,
+    currentlyWatching: false
+  }
+];
 
 // ---------- projects (from github.com/DEvBOLT19) ----------
 const PROJECTS = [
