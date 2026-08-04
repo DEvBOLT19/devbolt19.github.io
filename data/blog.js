@@ -54,7 +54,7 @@ Drop an image into the \`images\` folder, then write:
 
 \`![a pixel sunset](images/pfp.png)\`
 
-![a pixel sunset over a mountain landscape](images/pixel-sunset.png)
+![a pixel sunset over a mountain landscape](images/pfp.png)
 
 ## Quotes and code
 
