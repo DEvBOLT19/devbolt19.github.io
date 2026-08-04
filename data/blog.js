@@ -54,7 +54,7 @@ Drop an image into the \`images\` folder, then write:
 
 \`![my profile picture](images/pfp.png)\`
 
-![my profile picture](images/test.jpg)
+![my profile picture](data/images/test.jpg)
 
 ## Quotes and code
 
@@ -143,19 +143,19 @@ function renderInlineMarkdown(text) {
   // Escape HTML first
   text = escapeHtml(text);
 
+  // Images ![alt](src) - must come BEFORE links to prevent link regex matching image syntax
+  text = text.replace(
+    /!\[([^\]]*)\]\(([^)]+)\)/g,
+    function (match, alt, src) {
+      return '<img src="' + src + '" alt="' + alt + '" loading="lazy" />';
+    }
+  );
+
   // Links [text](url)
   text = text.replace(
     /\[([^\]]+)\]\(([^)]+)\)/g,
     function (match, linkText, url) {
       return '<a href="' + url + '" target="_blank" rel="noopener">' + linkText + "</a>";
-    }
-  );
-
-  // Images ![alt](src)
-  text = text.replace(
-    /!\[([^\]]*)\]\(([^)]+)\)/g,
-    function (match, alt, src) {
-      return '<img src="' + src + '" alt="' + alt + '" loading="lazy" />';
     }
   );
 
