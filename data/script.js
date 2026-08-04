@@ -9,8 +9,11 @@ const CONFIG = {
 
 // ---------- watchlist ----------
 const WATCHLIST = {
+  const WATCHLIST = {
+  currentlyWatching: [],
+
   franchises: [
-      {
+    {
       name: "Marvel Cinematic Universe",
       shortName: "MCU",
       movies: [
@@ -568,112 +571,113 @@ const WATCHLIST = {
         }
       ]
     },
-   {
-  name: "The Dark Knight Trilogy",
-  shortName: "TDK",
-  movies: [
     {
-      title: "Batman Begins",
-      releaseDate: "2005",
+      name: "The Dark Knight Trilogy",
+      shortName: "TDK",
+      movies: [
+        {
+          title: "Batman Begins",
+          releaseDate: "2005",
+          availableInIndia: true,
+          where: "Prime Video",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "The Dark Knight",
+          releaseDate: "2008",
+          availableInIndia: true,
+          where: "Prime Video",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "The Dark Knight Rises",
+          releaseDate: "2012",
+          availableInIndia: true,
+          where: "Prime Video",
+          watched: false,
+          currentlyWatching: false
+        }
+      ]
+    }
+  ],
+
+  standalone: [
+    {
+      title: "Inception",
+      releaseDate: "2010",
       availableInIndia: true,
-      where: "Prime Video",
+      where: "Netflix",
       watched: false,
       currentlyWatching: false
     },
     {
-      title: "The Dark Knight",
-      releaseDate: "2008",
+      title: "The Pursuit of Happyness",
+      releaseDate: "2006",
+      availableInIndia: true,
+      where: "Netflix",
+      watched: true,
+      currentlyWatching: false
+    },
+    {
+      title: "The Wolf of Wall Street",
+      releaseDate: "2013",
       availableInIndia: true,
       where: "Prime Video",
+      watched: true,
+      currentlyWatching: false
+    },
+    {
+      title: "The Social Network",
+      releaseDate: "2010",
+      availableInIndia: true,
+      where: "Netflix",
+      watched: true,
+      currentlyWatching: false
+    },
+    {
+      title: "Whiplash",
+      releaseDate: "2014",
+      availableInIndia: true,
+      where: "Prime Video",
+      watched: true,
+      currentlyWatching: false
+    },
+    {
+      title: "The Odyssey",
+      releaseDate: "2026",
+      availableInIndia: false,
+      where: "Theatres",
       watched: false,
       currentlyWatching: false
     },
     {
-      title: "The Dark Knight Rises",
-      releaseDate: "2012",
-      availableInIndia: true,
-      where: "Prime Video",
+      title: "The Backrooms",
+      releaseDate: "2026",
+      availableInIndia: false,
+      where: "A24 / Theatres",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Obsession",
+      releaseDate: "2026",
+      availableInIndia: false,
+      where: "TBA",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Frankenstein",
+      releaseDate: "2025",
+      availableInIndia: false,
+      where: "TBA",
       watched: false,
       currentlyWatching: false
     }
   ]
-}
-  ],
-  standalone: [
-    standalone: [
-  {
-    title: "Inception",
-    releaseDate: "2010",
-    availableInIndia: true,
-    where: "Netflix",
-    watched: false,
-    currentlyWatching: false
-  },
-  {
-    title: "The Pursuit of Happyness",
-    releaseDate: "2006",
-    availableInIndia: true,
-    where: "Netflix",
-    watched: true,
-    currentlyWatching: false
-  },
-  {
-    title: "The Wolf of Wall Street",
-    releaseDate: "2013",
-    availableInIndia: true,
-    where: "Prime Video",
-    watched: true,
-    currentlyWatching: false
-  },
-  {
-    title: "The Social Network",
-    releaseDate: "2010",
-    availableInIndia: true,
-    where: "Netflix",
-    watched: true,
-    currentlyWatching: false
-  },
-  {
-    title: "Whiplash",
-    releaseDate: "2014",
-    availableInIndia: true,
-    where: "Prime Video",
-    watched: true,
-    currentlyWatching: false
-  },
-  {
-    title: "The Odyssey",
-    releaseDate: "2026",
-    availableInIndia: false,
-    where: "Theatres",
-    watched: false,
-    currentlyWatching: false
-  },
-  {
-    title: "The Backrooms",
-    releaseDate: "2026",
-    availableInIndia: false,
-    where: "A24 / Theatres",
-    watched: false,
-    currentlyWatching: false
-  },
-  {
-    title: "Obsession",
-    releaseDate: "2026",
-    availableInIndia: false,
-    where: "TBA",
-    watched: false,
-    currentlyWatching: false
-  },
-  {
-    title: "Frankenstein",
-    releaseDate: "2025",
-    availableInIndia: false,
-    where: "TBA",
-    watched: false,
-    currentlyWatching: false
-  }
-];
+};
 
 // ---------- projects (from github.com/DEvBOLT19) ----------
 const PROJECTS = [
