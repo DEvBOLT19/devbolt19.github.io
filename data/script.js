@@ -13,6 +13,228 @@ const WATCHLIST = {
 
   franchises: [
     {
+  name: "Star Wars",
+  shortName: "SW",
+  movies: [
+    {
+      title: "Episode IV: A New Hope",
+      releaseDate: "1977",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Episode V: The Empire Strikes Back",
+      releaseDate: "1980",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Episode VI: Return of the Jedi",
+      releaseDate: "1983",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Episode I: The Phantom Menace",
+      releaseDate: "1999",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Episode II: Attack of the Clones",
+      releaseDate: "2002",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "The Clone Wars (Movie)",
+      releaseDate: "2008",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "The Clone Wars (Series)",
+      releaseDate: "2008",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Episode III: Revenge of the Sith",
+      releaseDate: "2005",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "The Clone Wars (Series) - Season 7",
+      releaseDate: "2020",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Rebels",
+      releaseDate: "2014",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Rogue One",
+      releaseDate: "2016",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Solo",
+      releaseDate: "2018",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "The Mandalorian Season 1",
+      releaseDate: "2019",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "The Mandalorian Season 2",
+      releaseDate: "2020",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "The Bad Batch",
+      releaseDate: "2021",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "The Book of Boba Fett",
+      releaseDate: "2021",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Obi-Wan Kenobi",
+      releaseDate: "2022",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Andor",
+      releaseDate: "2022",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Tales of the Jedi",
+      releaseDate: "2022",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "The Mandalorian Season 3",
+      releaseDate: "2023",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Ahsoka",
+      releaseDate: "2023",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Tales of the Empire",
+      releaseDate: "2024",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "The Acolyte",
+      releaseDate: "2024",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Skeleton Crew",
+      releaseDate: "2024",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Episode VII: The Force Awakens",
+      releaseDate: "2015",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Episode VIII: The Last Jedi",
+      releaseDate: "2017",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Episode IX: The Rise of Skywalker",
+      releaseDate: "2019",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    }
+  ]
+},
+    {
   name: "DC Animated Universe",
   shortName: "DCAU",
   movies: [
