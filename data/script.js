@@ -1232,7 +1232,6 @@ const WATCHLIST = {
     }
   ]
 },
-    [
   {
     name: "DC Extended Universe",
     shortName: "DCEU",
@@ -1444,7 +1443,6 @@ const WATCHLIST = {
       }
     ]
   }
-]
   ],
 
   standalone: [
