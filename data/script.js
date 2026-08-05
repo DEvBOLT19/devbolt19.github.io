@@ -1207,14 +1207,6 @@ const WATCHLIST = {
       currentlyWatching: false
     },
     {
-      title: "What If...?",
-      releaseDate: "2021",
-      availableInIndia: true,
-      where: "JioHotstar",
-      watched: false,
-      currentlyWatching: false
-    },
-    {
       title: "Moon Girl and Devil Dinosaur",
       releaseDate: "2023",
       availableInIndia: false,
@@ -1239,7 +1231,220 @@ const WATCHLIST = {
       currentlyWatching: false
     }
   ]
-}
+},
+    [
+  {
+    name: "DC Extended Universe",
+    shortName: "DCEU",
+    movies: [
+      {
+        title: "Man of Steel",
+        releaseDate: "2013",
+        availableInIndia: true,
+        where: "JioHotstar",
+        watched: false,
+        currentlyWatching: false
+      },
+      {
+        title: "Batman v Superman: Dawn of Justice",
+        releaseDate: "2016",
+        availableInIndia: true,
+        where: "JioHotstar, Prime Video, Netflix",
+        watched: false,
+        currentlyWatching: false
+      },
+      {
+        title: "Suicide Squad",
+        releaseDate: "2016",
+        availableInIndia: true,
+        where: "JioHotstar",
+        watched: false,
+        currentlyWatching: false
+      },
+      {
+        title: "Wonder Woman",
+        releaseDate: "2017",
+        availableInIndia: true,
+        where: "JioHotstar",
+        watched: false,
+        currentlyWatching: false
+      },
+      {
+        title: "Justice League",
+        releaseDate: "2017",
+        availableInIndia: true,
+        where: "JioHotstar",
+        watched: false,
+        currentlyWatching: false
+      },
+      {
+        title: "Aquaman",
+        releaseDate: "2018",
+        availableInIndia: true,
+        where: "JioHotstar",
+        watched: false,
+        currentlyWatching: false
+      },
+      {
+        title: "Shazam!",
+        releaseDate: "2019",
+        availableInIndia: true,
+        where: "JioHotstar",
+        watched: false,
+        currentlyWatching: false
+      },
+      {
+        title: "Birds of Prey",
+        releaseDate: "2020",
+        availableInIndia: true,
+        where: "JioHotstar",
+        watched: false,
+        currentlyWatching: false
+      },
+      {
+        title: "Wonder Woman 1984",
+        releaseDate: "2020",
+        availableInIndia: true,
+        where: "JioHotstar",
+        watched: false,
+        currentlyWatching: false
+      },
+      {
+        title: "Zack Snyder's Justice League",
+        releaseDate: "2021",
+        availableInIndia: true,
+        where: "JioHotstar",
+        watched: false,
+        currentlyWatching: false
+      },
+      {
+        title: "The Suicide Squad",
+        releaseDate: "2021",
+        availableInIndia: true,
+        where: "JioHotstar",
+        watched: false,
+        currentlyWatching: false
+      },
+      {
+        title: "Peacemaker - Season 1",
+        releaseDate: "2022",
+        availableInIndia: true,
+        where: "JioHotstar",
+        watched: false,
+        currentlyWatching: false
+      },
+      {
+        title: "Black Adam",
+        releaseDate: "2022",
+        availableInIndia: true,
+        where: "JioHotstar",
+        watched: false,
+        currentlyWatching: false
+      },
+      {
+        title: "Shazam! Fury of the Gods",
+        releaseDate: "2023",
+        availableInIndia: true,
+        where: "JioHotstar",
+        watched: false,
+        currentlyWatching: false
+      },
+      {
+        title: "The Flash",
+        releaseDate: "2023",
+        availableInIndia: true,
+        where: "JioHotstar",
+        watched: false,
+        currentlyWatching: false
+      },
+      {
+        title: "Blue Beetle",
+        releaseDate: "2023",
+        availableInIndia: true,
+        where: "JioHotstar",
+        watched: false,
+        currentlyWatching: false
+      },
+      {
+        title: "Aquaman and the Lost Kingdom",
+        releaseDate: "2023",
+        availableInIndia: true,
+        where: "JioHotstar",
+        watched: false,
+        currentlyWatching: false
+      }
+    ]
+  },
+
+  {
+    name: "DC Universe",
+    shortName: "DCU",
+    movies: [
+     
+      {
+        title: "Superman",
+        releaseDate: "2025",
+        availableInIndia: true,
+        where: "JioHotstar",
+        watched: false,
+        currentlyWatching: false
+      },
+      {
+        title: "Supergirl",
+        releaseDate: "2026",
+        availableInIndia: false,
+        where: "Not Available",
+        watched: false,
+        currentlyWatching: false
+      }
+    ]
+  },
+  {
+    name: "The Batman Universe",
+    shortName: "TBU",
+    movies: [
+      {
+        title: "The Batman",
+        releaseDate: "2022",
+        availableInIndia: true,
+        where: "JioHotstar",
+        watched: false,
+        currentlyWatching: false
+      },
+      {
+        title: "The Penguin",
+        releaseDate: "2024",
+        availableInIndia: true,
+        where: "JioHotstar",
+        watched: false,
+        currentlyWatching: false
+      }
+    ]
+  },
+
+  {
+    name: "Joker Universe",
+    shortName: "JOKER",
+    movies: [
+      {
+        title: "Joker",
+        releaseDate: "2019",
+        availableInIndia: true,
+        where: "JioHotstar",
+        watched: false,
+        currentlyWatching: false
+      },
+      {
+        title: "Joker: Folie à Deux",
+        releaseDate: "2024",
+        availableInIndia: true,
+        where: "JioHotstar",
+        watched: false,
+        currentlyWatching: false
+      }
+    ]
+  }
+]
   ],
 
   standalone: [
