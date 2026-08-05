@@ -826,132 +826,420 @@ const WATCHLIST = {
         }
       ]
     },
-        {
-      name: "Marvel Animated Universe",
-      shortName: "MAU",
-      movies: [
-        {
-          title: "X-Men: The Animated Series",
-          releaseDate: "1992",
-          availableInIndia: true,
-          where: "JioHotstar",
-          watched: false,
-          currentlyWatching: false
-        },
-        {
-          title: "Iron Man",
-          releaseDate: "1994",
-          availableInIndia: true,
-          where: "JioHotstar",
-          watched: false,
-          currentlyWatching: false
-        },
-        {
-          title: "Fantastic Four",
-          releaseDate: "1994",
-          availableInIndia: true,
-          where: "JioHotstar",
-          watched: false,
-          currentlyWatching: false
-        },
-        {
-          title: "Spider-Man",
-          releaseDate: "1994",
-          availableInIndia: true,
-          where: "JioHotstar",
-          watched: false,
-          currentlyWatching: false
-        },
-        {
-          title: "The Incredible Hulk",
-          releaseDate: "1996",
-          availableInIndia: true,
-          where: "JioHotstar",
-          watched: false,
-          currentlyWatching: false
-        },
-        {
-          title: "Fantastic Four: World's Greatest Heroes",
-          releaseDate: "2006",
-          availableInIndia: true,
-          where: "JioHotstar",
-          watched: false,
-          currentlyWatching: false
-        },
-        {
-          title: "The Super Hero Squad Show",
-          releaseDate: "2009",
-          availableInIndia: true,
-          where: "JioHotstar",
-          watched: false,
-          currentlyWatching: false
-        },
-        {
-          title: "The Avengers: Earth's Mightiest Heroes",
-          releaseDate: "2010",
-          availableInIndia: true,
-          where: "JioHotstar",
-          watched: false,
-          currentlyWatching: false
-        },
-        {
-          title: "Ultimate Spider-Man",
-          releaseDate: "2012",
-          availableInIndia: true,
-          where: "JioHotstar",
-          watched: false,
-          currentlyWatching: false
-        },
-        {
-          title: "Avengers Assemble",
-          releaseDate: "2013",
-          availableInIndia: true,
-          where: "JioHotstar",
-          watched: false,
-          currentlyWatching: false
-        },
-        {
-          title: "Hulk and the Agents of S.M.A.S.H.",
-          releaseDate: "2013",
-          availableInIndia: true,
-          where: "JioHotstar",
-          watched: false,
-          currentlyWatching: false
-        },
-        {
-          title: "Guardians of the Galaxy",
-          releaseDate: "2015",
-          availableInIndia: true,
-          where: "JioHotstar",
-          watched: false,
-          currentlyWatching: false
-        },
-        {
-          title: "Marvel's Spider-Man",
-          releaseDate: "2017",
-          availableInIndia: true,
-          where: "JioHotstar",
-          watched: false,
-          currentlyWatching: false
-        },
-        {
-          title: "Marvel Future Avengers",
-          releaseDate: "2017",
-          availableInIndia: true,
-          where: "JioHotstar",
-          watched: false,
-          currentlyWatching: false
-        },
-        {
-          title: "X-Men '97",
-          releaseDate: "2024",
-          availableInIndia: true,
-          where: "JioHotstar",
-          watched: false,
-          currentlyWatching: false
-        }
-      ]
+       {
+  name: "Marvel Animation",
+  shortName: "MARVEL",
+  movies: [
+    {
+      title: "Spider-Woman",
+      releaseDate: "1979",
+      availableInIndia: false,
+      where: "Not Available",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Spider-Man",
+      releaseDate: "1981",
+      availableInIndia: false,
+      where: "Not Available",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Spider-Man and His Amazing Friends",
+      releaseDate: "1981",
+      availableInIndia: false,
+      where: "Not Available",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "The Incredible Hulk",
+      releaseDate: "1982",
+      availableInIndia: false,
+      where: "Not Available",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Pryde of the X-Men (Pilot)",
+      releaseDate: "1989",
+      availableInIndia: false,
+      where: "Not Available",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "X-Men: The Animated Series",
+      releaseDate: "1992",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Iron Man",
+      releaseDate: "1994",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Fantastic Four",
+      releaseDate: "1994",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Spider-Man",
+      releaseDate: "1994",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "The Incredible Hulk",
+      releaseDate: "1996",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Silver Surfer",
+      releaseDate: "1998",
+      availableInIndia: false,
+      where: "Not Available",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Spider-Man Unlimited",
+      releaseDate: "1999",
+      availableInIndia: false,
+      where: "Not Available",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Avengers: United They Stand",
+      releaseDate: "1999",
+      availableInIndia: false,
+      where: "Not Available",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "X-Men: Evolution",
+      releaseDate: "2000",
+      availableInIndia: false,
+      where: "Not Available",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Fantastic Four: World's Greatest Heroes",
+      releaseDate: "2006",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Ultimate Avengers",
+      releaseDate: "2006",
+      availableInIndia: false,
+      where: "Not Available",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Ultimate Avengers 2",
+      releaseDate: "2006",
+      availableInIndia: false,
+      where: "Not Available",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "The Invincible Iron Man",
+      releaseDate: "2007",
+      availableInIndia: false,
+      where: "Not Available",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Doctor Strange: The Sorcerer Supreme",
+      releaseDate: "2007",
+      availableInIndia: false,
+      where: "Not Available",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Next Avengers: Heroes of Tomorrow",
+      releaseDate: "2008",
+      availableInIndia: false,
+      where: "Not Available",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "The Spectacular Spider-Man",
+      releaseDate: "2008",
+      availableInIndia: false,
+      where: "Not Available",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Wolverine and the X-Men",
+      releaseDate: "2009",
+      availableInIndia: false,
+      where: "Not Available",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Hulk Vs.",
+      releaseDate: "2009",
+      availableInIndia: false,
+      where: "Not Available",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Planet Hulk",
+      releaseDate: "2010",
+      availableInIndia: false,
+      where: "Not Available",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "The Super Hero Squad Show",
+      releaseDate: "2010",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "The Avengers: Earth's Mightiest Heroes",
+      releaseDate: "2010",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Thor: Tales of Asgard",
+      releaseDate: "2011",
+      availableInIndia: false,
+      where: "Not Available",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Marvel Anime: Iron Man",
+      releaseDate: "2011",
+      availableInIndia: false,
+      where: "Not Available",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Marvel Anime: Wolverine",
+      releaseDate: "2011",
+      availableInIndia: false,
+      where: "Not Available",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Marvel Anime: X-Men",
+      releaseDate: "2011",
+      availableInIndia: false,
+      where: "Not Available",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Marvel Anime: Blade",
+      releaseDate: "2011",
+      availableInIndia: false,
+      where: "Not Available",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Ultimate Spider-Man",
+      releaseDate: "2012",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Iron Man: Rise of Technovore",
+      releaseDate: "2013",
+      availableInIndia: false,
+      where: "Not Available",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Avengers Assemble",
+      releaseDate: "2013",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Iron Man & Hulk: Heroes United",
+      releaseDate: "2013",
+      availableInIndia: false,
+      where: "Not Available",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Avengers Confidential: Black Widow & Punisher",
+      releaseDate: "2014",
+      availableInIndia: false,
+      where: "Not Available",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Iron Man & Captain America: Heroes United",
+      releaseDate: "2014",
+      availableInIndia: false,
+      where: "Not Available",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Hulk and the Agents of S.M.A.S.H.",
+      releaseDate: "2014",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Guardians of the Galaxy",
+      releaseDate: "2015",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Marvel's Spider-Man",
+      releaseDate: "2017",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Marvel Future Avengers",
+      releaseDate: "2017",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Marvel Rising: Secret Warriors",
+      releaseDate: "2018",
+      availableInIndia: false,
+      where: "Not Available",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Marvel Rising: Chasing Ghosts",
+      releaseDate: "2019",
+      availableInIndia: false,
+      where: "Not Available",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Marvel Rising: Heart of Iron",
+      releaseDate: "2019",
+      availableInIndia: false,
+      where: "Not Available",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Marvel Rising: Battle of the Bands",
+      releaseDate: "2019",
+      availableInIndia: false,
+      where: "Not Available",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Marvel Rising: Operation Shuri",
+      releaseDate: "2019",
+      availableInIndia: false,
+      where: "Not Available",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Marvel Rising: Playing with Fire",
+      releaseDate: "2019",
+      availableInIndia: false,
+      where: "Not Available",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "What If...?",
+      releaseDate: "2021",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Moon Girl and Devil Dinosaur",
+      releaseDate: "2023",
+      availableInIndia: false,
+      where: "Not Available",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "X-Men '97",
+      releaseDate: "2024",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Your Friendly Neighborhood Spider-Man",
+      releaseDate: "2025",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
     }
+  ]
+}
   ],
 
   standalone: [
