@@ -599,6 +599,358 @@ const WATCHLIST = {
           currentlyWatching: false
         }
       ]
+    },
+    {
+      name: "Jurassic Park / Jurassic World",
+      shortName: "Jurassic",
+      movies: [
+        {
+          title: "Jurassic Park",
+          releaseDate: "1993",
+          availableInIndia: true,
+          where: "Netflix",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "The Lost World: Jurassic Park",
+          releaseDate: "1997",
+          availableInIndia: true,
+          where: "Netflix",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Jurassic Park III",
+          releaseDate: "2001",
+          availableInIndia: true,
+          where: "Netflix",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Jurassic World",
+          releaseDate: "2015",
+          availableInIndia: true,
+          where: "JioHotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Jurassic World: Fallen Kingdom",
+          releaseDate: "2018",
+          availableInIndia: true,
+          where: "JioHotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Jurassic World: Dominion",
+          releaseDate: "2022",
+          availableInIndia: true,
+          where: "JioHotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Jurassic World: Rebirth",
+          releaseDate: "2025",
+          availableInIndia: true,
+          where: "JioHotstar",
+          watched: false,
+          currentlyWatching: false
+        }
+      ]
+    },
+        {
+      name: "Wizarding World",
+      shortName: "HP",
+      movies: [
+        {
+          title: "Harry Potter and the Philosopher's Stone",
+          releaseDate: "2001",
+          availableInIndia: true,
+          where: "JioHotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Harry Potter and the Chamber of Secrets",
+          releaseDate: "2002",
+          availableInIndia: true,
+          where: "JioHotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Harry Potter and the Prisoner of Azkaban",
+          releaseDate: "2004",
+          availableInIndia: true,
+          where: "JioHotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Harry Potter and the Goblet of Fire",
+          releaseDate: "2005",
+          availableInIndia: true,
+          where: "JioHotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Harry Potter and the Order of the Phoenix",
+          releaseDate: "2007",
+          availableInIndia: true,
+          where: "JioHotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Harry Potter and the Half-Blood Prince",
+          releaseDate: "2009",
+          availableInIndia: true,
+          where: "JioHotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Harry Potter and the Deathly Hallows – Part 1",
+          releaseDate: "2010",
+          availableInIndia: true,
+          where: "JioHotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Harry Potter and the Deathly Hallows – Part 2",
+          releaseDate: "2011",
+          availableInIndia: true,
+          where: "JioHotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Fantastic Beasts and Where to Find Them",
+          releaseDate: "2016",
+          availableInIndia: true,
+          where: "JioHotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Fantastic Beasts: The Crimes of Grindelwald",
+          releaseDate: "2018",
+          availableInIndia: true,
+          where: "JioHotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Fantastic Beasts: The Secrets of Dumbledore",
+          releaseDate: "2022",
+          availableInIndia: true,
+          where: "JioHotstar",
+          watched: false,
+          currentlyWatching: false
+        }
+      ]
+    },
+        {
+      name: "Mission: Impossible",
+      shortName: "MI",
+      movies: [
+        {
+          title: "Mission: Impossible",
+          releaseDate: "1996",
+          availableInIndia: true,
+          where: "JioHotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Mission: Impossible 2",
+          releaseDate: "2000",
+          availableInIndia: true,
+          where: "JioHotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Mission: Impossible III",
+          releaseDate: "2006",
+          availableInIndia: true,
+          where: "JioHotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Mission: Impossible – Ghost Protocol",
+          releaseDate: "2011",
+          availableInIndia: true,
+          where: "JioHotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Mission: Impossible – Rogue Nation",
+          releaseDate: "2015",
+          availableInIndia: true,
+          where: "JioHotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Mission: Impossible – Fallout",
+          releaseDate: "2018",
+          availableInIndia: true,
+          where: "JioHotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Mission: Impossible – Dead Reckoning Part One",
+          releaseDate: "2023",
+          availableInIndia: true,
+          where: "JioHotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Mission: Impossible – The Final Reckoning",
+          releaseDate: "2025",
+          availableInIndia: true,
+          where: "JioHotstar",
+          watched: false,
+          currentlyWatching: false
+        }
+      ]
+    },
+        {
+      name: "Marvel Animated Universe",
+      shortName: "MAU",
+      movies: [
+        {
+          title: "X-Men: The Animated Series",
+          releaseDate: "1992",
+          availableInIndia: true,
+          where: "JioHotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Iron Man",
+          releaseDate: "1994",
+          availableInIndia: true,
+          where: "JioHotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Fantastic Four",
+          releaseDate: "1994",
+          availableInIndia: true,
+          where: "JioHotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Spider-Man",
+          releaseDate: "1994",
+          availableInIndia: true,
+          where: "JioHotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "The Incredible Hulk",
+          releaseDate: "1996",
+          availableInIndia: true,
+          where: "JioHotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Fantastic Four: World's Greatest Heroes",
+          releaseDate: "2006",
+          availableInIndia: true,
+          where: "JioHotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "The Super Hero Squad Show",
+          releaseDate: "2009",
+          availableInIndia: true,
+          where: "JioHotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "The Avengers: Earth's Mightiest Heroes",
+          releaseDate: "2010",
+          availableInIndia: true,
+          where: "JioHotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Ultimate Spider-Man",
+          releaseDate: "2012",
+          availableInIndia: true,
+          where: "JioHotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Avengers Assemble",
+          releaseDate: "2013",
+          availableInIndia: true,
+          where: "JioHotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Hulk and the Agents of S.M.A.S.H.",
+          releaseDate: "2013",
+          availableInIndia: true,
+          where: "JioHotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Guardians of the Galaxy",
+          releaseDate: "2015",
+          availableInIndia: true,
+          where: "JioHotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Marvel's Spider-Man",
+          releaseDate: "2017",
+          availableInIndia: true,
+          where: "JioHotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "Marvel Future Avengers",
+          releaseDate: "2017",
+          availableInIndia: true,
+          where: "JioHotstar",
+          watched: false,
+          currentlyWatching: false
+        },
+        {
+          title: "X-Men '97",
+          releaseDate: "2024",
+          availableInIndia: true,
+          where: "JioHotstar",
+          watched: false,
+          currentlyWatching: false
+        }
+      ]
     }
   ],
 
@@ -608,7 +960,7 @@ const WATCHLIST = {
       releaseDate: "2010",
       availableInIndia: true,
       where: "Netflix",
-      watched: false,
+      watched: true,
       currentlyWatching: false
     },
     {
