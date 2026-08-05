@@ -1142,20 +1142,48 @@ function renderWatchlist() {
 
   // Franchises
   const franchisesList = document.getElementById("franchises-list");
+  const franchisesSummary = document.getElementById("franchises-summary");
   if (franchisesList) {
     franchisesList.innerHTML = WATCHLIST.franchises.map(function (f) {
       return renderFranchise(f);
     }).join("");
+    
+    // Generate summary for franchises
+    if (franchisesSummary) {
+      const franchiseSummaryHtml = generateFranchisesSummary();
+      franchisesSummary.innerHTML = franchiseSummaryHtml;
+      
+      // Add click handler to toggle
+      franchisesSummary.addEventListener("click", function () {
+        const isHidden = franchisesList.style.display === "none";
+        franchisesList.style.display = isHidden ? "block" : "none";
+        franchisesSummary.innerHTML = isHidden ? '<span style="color: var(--muted-2);">Click to collapse ↑</span>' : generateFranchisesSummary();
+      });
+    }
   }
   const franchiseCount = document.getElementById("franchise-count");
   if (franchiseCount) franchiseCount.textContent = WATCHLIST.franchises.length + " franchises";
 
   // Standalone
   const standaloneList = document.getElementById("standalone-list");
+  const standaloneSummary = document.getElementById("standalone-summary");
   if (standaloneList) {
     standaloneList.innerHTML = WATCHLIST.standalone.map(function (m) {
       return renderMovieCard(m);
     }).join("");
+    
+    // Generate summary for standalone
+    if (standaloneSummary) {
+      const standaloneSummaryHtml = generateStandaloneSummary();
+      standaloneSummary.innerHTML = standaloneSummaryHtml;
+      
+      // Add click handler to toggle
+      standaloneSummary.addEventListener("click", function () {
+        const isHidden = standaloneList.style.display === "none";
+        standaloneList.style.display = isHidden ? "block" : "none";
+        standaloneSummary.innerHTML = isHidden ? '<span style="color: var(--muted-2);">Click to collapse ↑</span>' : generateStandaloneSummary();
+      });
+    }
   }
   const standaloneCount = document.getElementById("standalone-count");
   if (standaloneCount) standaloneCount.textContent = WATCHLIST.standalone.length + " films";
@@ -1164,18 +1192,67 @@ function renderWatchlist() {
   updateWatchlistStats();
 }
 
+function toggleFranchise(franchiseId) {
+  const summary = document.getElementById(franchiseId + '-summary');
+  const movies = document.getElementById(franchiseId + '-movies');
+  
+  if (movies.style.display === 'none') {
+    movies.style.display = 'block';
+    summary.style.display = 'none';
+  } else {
+    movies.style.display = 'none';
+    summary.style.display = 'block';
+  }
+}
+
+function generateFranchisesSummary() {
+  const summary = WATCHLIST.franchises.map(function (f) {
+    const totalMovies = f.movies.length;
+    const watched = f.movies.filter(function (m) { return m.watched; }).length;
+    return (
+      '<div style="display: flex; gap: 2rem; align-items: center; padding: 0.5rem 0; border-bottom: 1px solid var(--line-2);">' +
+      '<strong>' + f.name + '</strong>' +
+      '<span style="color: var(--muted-2); font-size: 0.85rem;">Total: ' + totalMovies + ' • Watched: ' + watched + '</span>' +
+      '</div>'
+    );
+  }).join("");
+  return '<span style="color: var(--muted-2);">Click to expand ↓</span><div style="margin-top: 1rem;">' + summary + '</div>';
+}
+
+function generateStandaloneSummary() {
+  const totalMovies = WATCHLIST.standalone.length;
+  const watched = WATCHLIST.standalone.filter(function (m) { return m.watched; }).length;
+  return (
+    '<span style="color: var(--muted-2);">Click to expand ↓</span><div style="margin-top: 1rem;">' +
+    '<div style="display: flex; gap: 2rem; align-items: center; padding: 0.5rem 0;">' +
+    '<strong>Total: ' + totalMovies + ' • Watched: ' + watched + '</strong>' +
+    '</div>' +
+    '</div>'
+  );
+}
+
 function renderFranchise(franchise) {
   const moviesHtml = franchise.movies.map(function (m) {
     return renderMovieInFranchise(m);
   }).join("");
+  
+  const totalMovies = franchise.movies.length;
+  const watched = franchise.movies.filter(function (m) { return m.watched; }).length;
+  const franchiseId = 'franchise-' + franchise.shortName.replace(/\s+/g, '-').toLowerCase();
 
   return (
     '<div class="franchise-card">' +
-    '<div class="franchise-header">' +
+    '<div class="franchise-header" style="cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="toggleFranchise(\'' + franchiseId + '\')">' +
+    '<div style="flex: 1;">' +
     '<h3 class="franchise-name">' + franchise.name + '</h3>' +
     '<span class="franchise-tag mono">' + franchise.shortName + '</span>' +
     '</div>' +
-    '<div class="franchise-movies">' +
+    '</div>' +
+    '<div class="franchise-summary" id="' + franchiseId + '-summary" style="padding: 1rem 0; color: var(--muted-2); cursor: pointer;" onclick="toggleFranchise(\'' + franchiseId + '\')">' +
+    '<p style="margin: 0.25rem 0;">Total movies: <strong>' + totalMovies + '</strong> • Watched: <strong>' + watched + '</strong></p>' +
+    '<p style="margin: 0.5rem 0; font-size: 0.85rem;">Click to expand ↓</p>' +
+    '</div>' +
+    '<div class="franchise-movies" id="' + franchiseId + '-movies" style="display: none;">' +
     moviesHtml +
     '</div>' +
     '</div>'
