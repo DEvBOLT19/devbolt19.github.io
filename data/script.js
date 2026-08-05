@@ -13,6 +13,332 @@ const WATCHLIST = {
 
   franchises: [
     {
+  name: "DC Animated Universe",
+  shortName: "DCAU",
+  movies: [
+    {
+      title: "Batman: The Animated Series",
+      releaseDate: "1992",
+      availableInIndia: true,
+      where: "Prime Video, CN Rewind",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Batman: Mask of the Phantasm",
+      releaseDate: "1993",
+      availableInIndia: false,
+      where: "Not Available",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Superman: The Animated Series",
+      releaseDate: "1996",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "The New Batman Adventures",
+      releaseDate: "1997",
+      availableInIndia: false,
+      where: "Not Available",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Batman & Mr. Freeze: SubZero",
+      releaseDate: "1998",
+      availableInIndia: false,
+      where: "Not Available",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Batman Beyond",
+      releaseDate: "1999",
+      availableInIndia: false,
+      where: "Not Available",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Static Shock",
+      releaseDate: "2000",
+      availableInIndia: false,
+      where: "Not Available",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Justice League",
+      releaseDate: "2001",
+      availableInIndia: true,
+      where: "Limited Availability",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Justice League Unlimited",
+      releaseDate: "2004",
+      availableInIndia: true,
+      where: "Limited Availability",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "The Batman",
+      releaseDate: "2004",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Batman: Gotham Knight",
+      releaseDate: "2008",
+      availableInIndia: false,
+      where: "Not Available",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Batman: The Brave and the Bold",
+      releaseDate: "2008",
+      availableInIndia: false,
+      where: "Not Available",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Young Justice",
+      releaseDate: "2010",
+      availableInIndia: false,
+      where: "Not Available",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Green Lantern: The Animated Series",
+      releaseDate: "2011",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Justice League: The Flashpoint Paradox",
+      releaseDate: "2013",
+      availableInIndia: true,
+      where: "Limited Availability",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Justice League: War",
+      releaseDate: "2014",
+      availableInIndia: true,
+      where: "Limited Availability",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Son of Batman",
+      releaseDate: "2014",
+      availableInIndia: true,
+      where: "Limited Availability",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Justice League: Throne of Atlantis",
+      releaseDate: "2015",
+      availableInIndia: true,
+      where: "Limited Availability",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Batman vs Robin",
+      releaseDate: "2015",
+      availableInIndia: true,
+      where: "Limited Availability",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Batman: Bad Blood",
+      releaseDate: "2016",
+      availableInIndia: true,
+      where: "Limited Availability",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Justice League vs Teen Titans",
+      releaseDate: "2016",
+      availableInIndia: true,
+      where: "Limited Availability",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Justice League Dark",
+      releaseDate: "2017",
+      availableInIndia: true,
+      where: "Limited Availability",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Teen Titans: The Judas Contract",
+      releaseDate: "2017",
+      availableInIndia: true,
+      where: "Limited Availability",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Suicide Squad: Hell to Pay",
+      releaseDate: "2018",
+      availableInIndia: true,
+      where: "Limited Availability",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "The Death of Superman",
+      releaseDate: "2018",
+      availableInIndia: true,
+      where: "Limited Availability",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Reign of the Supermen",
+      releaseDate: "2019",
+      availableInIndia: true,
+      where: "Limited Availability",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Batman: Hush",
+      releaseDate: "2019",
+      availableInIndia: true,
+      where: "Limited Availability",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Justice League Dark: Apokolips War",
+      releaseDate: "2020",
+      availableInIndia: true,
+      where: "Limited Availability",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Superman: Man of Tomorrow",
+      releaseDate: "2020",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Justice Society: World War II",
+      releaseDate: "2021",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Batman: The Long Halloween Part One",
+      releaseDate: "2021",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Batman: The Long Halloween Part Two",
+      releaseDate: "2021",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Green Lantern: Beware My Power",
+      releaseDate: "2022",
+      availableInIndia: true,
+      where: "Limited Availability",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Legion of Super-Heroes",
+      releaseDate: "2023",
+      availableInIndia: true,
+      where: "Limited Availability",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Justice League: Warworld",
+      releaseDate: "2023",
+      availableInIndia: true,
+      where: "Limited Availability",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Justice League: Crisis on Infinite Earths Part One",
+      releaseDate: "2024",
+      availableInIndia: true,
+      where: "Limited Availability",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Justice League: Crisis on Infinite Earths Part Two",
+      releaseDate: "2024",
+      availableInIndia: true,
+      where: "Limited Availability",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Justice League: Crisis on Infinite Earths Part Three",
+      releaseDate: "2024",
+      availableInIndia: true,
+      where: "Limited Availability",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "My Adventures with Superman",
+      releaseDate: "2023",
+      availableInIndia: false,
+      where: "Not Available",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Creature Commandos",
+      releaseDate: "2024",
+      availableInIndia: false,
+      where: "Not Available",
+      watched: false,
+      currentlyWatching: false
+    }
+  ]
+},
+    {
       name: "Marvel Cinematic Universe",
       shortName: "MCU",
       movies: [
