@@ -1192,6 +1192,19 @@ function renderWatchlist() {
   updateWatchlistStats();
 }
 
+function toggleFranchise(franchiseId) {
+  const summary = document.getElementById(franchiseId + '-summary');
+  const movies = document.getElementById(franchiseId + '-movies');
+  
+  if (movies.style.display === 'none') {
+    movies.style.display = 'block';
+    summary.style.display = 'none';
+  } else {
+    movies.style.display = 'none';
+    summary.style.display = 'block';
+  }
+}
+
 function generateFranchisesSummary() {
   const summary = WATCHLIST.franchises.map(function (f) {
     const totalMovies = f.movies.length;
@@ -1222,14 +1235,24 @@ function renderFranchise(franchise) {
   const moviesHtml = franchise.movies.map(function (m) {
     return renderMovieInFranchise(m);
   }).join("");
+  
+  const totalMovies = franchise.movies.length;
+  const watched = franchise.movies.filter(function (m) { return m.watched; }).length;
+  const franchiseId = 'franchise-' + franchise.shortName.replace(/\s+/g, '-').toLowerCase();
 
   return (
     '<div class="franchise-card">' +
-    '<div class="franchise-header">' +
+    '<div class="franchise-header" style="cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="toggleFranchise(\'' + franchiseId + '\')">' +
+    '<div style="flex: 1;">' +
     '<h3 class="franchise-name">' + franchise.name + '</h3>' +
     '<span class="franchise-tag mono">' + franchise.shortName + '</span>' +
     '</div>' +
-    '<div class="franchise-movies">' +
+    '</div>' +
+    '<div class="franchise-summary" id="' + franchiseId + '-summary" style="padding: 1rem 0; color: var(--muted-2); cursor: pointer;" onclick="toggleFranchise(\'' + franchiseId + '\')">' +
+    '<p style="margin: 0.25rem 0;">Total movies: <strong>' + totalMovies + '</strong> • Watched: <strong>' + watched + '</strong></p>' +
+    '<p style="margin: 0.5rem 0; font-size: 0.85rem;">Click to expand ↓</p>' +
+    '</div>' +
+    '<div class="franchise-movies" id="' + franchiseId + '-movies" style="display: none;">' +
     moviesHtml +
     '</div>' +
     '</div>'
