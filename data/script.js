@@ -13,6 +13,92 @@ const WATCHLIST = {
 
   franchises: [
     {
+  name: "Star Trek (Kelvin & Modern TV)",
+  shortName: "TREK",
+  movies: [
+    {
+      title: "Star Trek",
+      releaseDate: "2009",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Star Trek Into Darkness",
+      releaseDate: "2013",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Star Trek Beyond",
+      releaseDate: "2016",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Star Trek: Discovery",
+      releaseDate: "2017",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Short Treks",
+      releaseDate: "2018",
+      availableInIndia: false,
+      where: "Not Available",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Star Trek: Picard",
+      releaseDate: "2020",
+      availableInIndia: false,
+      where: "Not Available",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Star Trek: Lower Decks",
+      releaseDate: "2020",
+      availableInIndia: false,
+      where: "Not Available",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Star Trek: Prodigy",
+      releaseDate: "2021",
+      availableInIndia: false,
+      where: "Not Available",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Star Trek: Strange New Worlds",
+      releaseDate: "2022",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Star Trek: Starfleet Academy",
+      releaseDate: "2025",
+      availableInIndia: false,
+      where: "Not Released Yet",
+      watched: false,
+      currentlyWatching: false
+    }
+  ]
+},
+    {
   name: "Star Wars",
   shortName: "SW",
   movies: [
