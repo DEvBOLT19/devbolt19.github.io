@@ -1479,7 +1479,7 @@ const WATCHLIST = {
       title: "The Matrix Resurrections",
       releaseDate: "2021",
       availableInIndia: true,
-      where: JioHotstar",
+      where: "JioHotstar",
       watched: false,
       currentlyWatching: false
     }
