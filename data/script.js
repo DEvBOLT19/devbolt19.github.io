@@ -1203,7 +1203,740 @@ const WATCHLIST = {
           currentlyWatching: false
         }
       ]
+    },{
+  name: "Planet of the Apes",
+  shortName: "APES",
+  movies: [
+    {
+      title: "Planet of the Apes",
+      releaseDate: "1968",
+      availableInIndia: false,
+      where: "Not Available",
+      watched: false,
+      currentlyWatching: false
     },
+    {
+      title: "Beneath the Planet of the Apes",
+      releaseDate: "1970",
+      availableInIndia: false,
+      where: "Not Available",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Escape from the Planet of the Apes",
+      releaseDate: "1971",
+      availableInIndia: false,
+      where: "Not Available",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Conquest of the Planet of the Apes",
+      releaseDate: "1972",
+      availableInIndia: false,
+      where: "Not Available",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Battle for the Planet of the Apes",
+      releaseDate: "1973",
+      availableInIndia: false,
+      where: "Not Available",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Planet of the Apes",
+      releaseDate: "2001",
+      availableInIndia: false,
+      where: "Not Available",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Rise of the Planet of the Apes",
+      releaseDate: "2011",
+      availableInIndia: true,
+      where: "Disney+ Hotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Dawn of the Planet of the Apes",
+      releaseDate: "2014",
+      availableInIndia: true,
+      where: "Disney+ Hotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "War for the Planet of the Apes",
+      releaseDate: "2017",
+      availableInIndia: true,
+      where: "Disney+ Hotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Kingdom of the Planet of the Apes",
+      releaseDate: "2024",
+      availableInIndia: true,
+      where: "Disney+ Hotstar",
+      watched: false,
+      currentlyWatching: false
+    }
+  ]
+},
+
+{
+  name: "Transformers",
+  shortName: "TF",
+  movies: [
+    {
+      title: "Transformers",
+      releaseDate: "2007",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Transformers: Revenge of the Fallen",
+      releaseDate: "2009",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Transformers: Dark of the Moon",
+      releaseDate: "2011",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Transformers: Age of Extinction",
+      releaseDate: "2014",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Transformers: The Last Knight",
+      releaseDate: "2017",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Bumblebee",
+      releaseDate: "2018",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Transformers: Rise of the Beasts",
+      releaseDate: "2023",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    }
+  ]
+},
+
+{
+  name: "Pirates of the Caribbean",
+  shortName: "POTC",
+  movies: [
+    {
+      title: "The Curse of the Black Pearl",
+      releaseDate: "2003",
+      availableInIndia: true,
+      where: "Disney+ Hotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Dead Man's Chest",
+      releaseDate: "2006",
+      availableInIndia: true,
+      where: "Disney+ Hotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "At World's End",
+      releaseDate: "2007",
+      availableInIndia: true,
+      where: "Disney+ Hotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "On Stranger Tides",
+      releaseDate: "2011",
+      availableInIndia: true,
+      where: "Disney+ Hotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Dead Men Tell No Tales",
+      releaseDate: "2017",
+      availableInIndia: true,
+      where: "Disney+ Hotstar",
+      watched: false,
+      currentlyWatching: false
+    }
+  ]
+},
+
+{
+  name: "Indiana Jones",
+  shortName: "INDY",
+  movies: [
+    {
+      title: "Raiders of the Lost Ark",
+      releaseDate: "1981",
+      availableInIndia: true,
+      where: "Disney+ Hotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Indiana Jones and the Temple of Doom",
+      releaseDate: "1984",
+      availableInIndia: true,
+      where: "Disney+ Hotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Indiana Jones and the Last Crusade",
+      releaseDate: "1989",
+      availableInIndia: true,
+      where: "Disney+ Hotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Indiana Jones and the Kingdom of the Crystal Skull",
+      releaseDate: "2008",
+      availableInIndia: true,
+      where: "Disney+ Hotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Indiana Jones and the Dial of Destiny",
+      releaseDate: "2023",
+      availableInIndia: true,
+      where: "Disney+ Hotstar",
+      watched: false,
+      currentlyWatching: false
+    }
+  ]
+},
+
+{
+  name: "The Matrix",
+  shortName: "MATRIX",
+  movies: [
+    {
+      title: "The Matrix",
+      releaseDate: "1999",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "The Matrix Reloaded",
+      releaseDate: "2003",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "The Matrix Revolutions",
+      releaseDate: "2003",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "The Matrix Resurrections",
+      releaseDate: "2021",
+      availableInIndia: true,
+      where: JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    }
+  ]
+},
+
+{
+  name: "John Wick",
+  shortName: "WICK",
+  movies: [
+    {
+      title: "John Wick",
+      releaseDate: "2014",
+      availableInIndia: true,
+      where: "Prime Video",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "John Wick: Chapter 2",
+      releaseDate: "2017",
+      availableInIndia: true,
+      where: "Prime Video",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "John Wick: Chapter 3 – Parabellum",
+      releaseDate: "2019",
+      availableInIndia: true,
+      where: "Prime Video",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "John Wick: Chapter 4",
+      releaseDate: "2023",
+      availableInIndia: true,
+      where: "Prime Video",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "From the World of John Wick: Ballerina",
+      releaseDate: "2025",
+      availableInIndia: true,
+      where: "Prime Video",
+      watched: false,
+      currentlyWatching: false
+    }
+  ]
+},
+
+{
+  name: "Dune",
+  shortName: "DUNE",
+  movies: [
+    {
+      title: "Dune",
+      releaseDate: "2021",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Dune: Part Two",
+      releaseDate: "2024",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    }
+  ]
+},
+
+{
+  name: "MonsterVerse",
+  shortName: "MONSTER",
+  movies: [
+    {
+      title: "Godzilla",
+      releaseDate: "2014",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Kong: Skull Island",
+      releaseDate: "2017",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Godzilla: King of the Monsters",
+      releaseDate: "2019",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Godzilla vs. Kong",
+      releaseDate: "2021",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Godzilla x Kong: The New Empire",
+      releaseDate: "2024",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    }
+  ]
+},
+
+{
+  name: "Alien",
+  shortName: "ALIEN",
+  movies: [
+    {
+      title: "Alien",
+      releaseDate: "1979",
+      availableInIndia: true,
+      where: "Disney+ Hotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Aliens",
+      releaseDate: "1986",
+      availableInIndia: true,
+      where: "Disney+ Hotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Alien 3",
+      releaseDate: "1992",
+      availableInIndia: true,
+      where: "Disney+ Hotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Alien Resurrection",
+      releaseDate: "1997",
+      availableInIndia: true,
+      where: "Disney+ Hotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Prometheus",
+      releaseDate: "2012",
+      availableInIndia: true,
+      where: "Disney+ Hotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Alien: Covenant",
+      releaseDate: "2017",
+      availableInIndia: true,
+      where: "Disney+ Hotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Alien: Romulus",
+      releaseDate: "2024",
+      availableInIndia: true,
+      where: "Disney+ Hotstar",
+      watched: false,
+      currentlyWatching: false
+    }
+  ]
+},
+
+{
+  name: "Predator",
+  shortName: "PRED",
+  movies: [
+    {
+      title: "Predator",
+      releaseDate: "1987",
+      availableInIndia: true,
+      where: "Disney+ Hotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Predator 2",
+      releaseDate: "1990",
+      availableInIndia: true,
+      where: "Disney+ Hotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Predators",
+      releaseDate: "2010",
+      availableInIndia: true,
+      where: "Disney+ Hotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "The Predator",
+      releaseDate: "2018",
+      availableInIndia: true,
+      where: "Disney+ Hotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Prey",
+      releaseDate: "2022",
+      availableInIndia: true,
+      where: "Disney+ Hotstar",
+      watched: false,
+      currentlyWatching: false
+    }
+  ]
+},
+
+{
+  name: "The Hunger Games",
+  shortName: "HUNGER",
+  movies: [
+    {
+      title: "The Hunger Games",
+      releaseDate: "2012",
+      availableInIndia: true,
+      where: "Prime Video",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "The Hunger Games: Catching Fire",
+      releaseDate: "2013",
+      availableInIndia: true,
+      where: "Prime Video",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "The Hunger Games: Mockingjay – Part 1",
+      releaseDate: "2014",
+      availableInIndia: true,
+      where: "Prime Video",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "The Hunger Games: Mockingjay – Part 2",
+      releaseDate: "2015",
+      availableInIndia: true,
+      where: "Prime Video",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "The Hunger Games: The Ballad of Songbirds & Snakes",
+      releaseDate: "2023",
+      availableInIndia: true,
+      where: "Prime Video",
+      watched: false,
+      currentlyWatching: false
+    }
+  ]
+},
+
+{
+  name: "Maze Runner",
+  shortName: "MAZE",
+  movies: [
+    {
+      title: "The Maze Runner",
+      releaseDate: "2014",
+      availableInIndia: true,
+      where: "Disney+ Hotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Maze Runner: The Scorch Trials",
+      releaseDate: "2015",
+      availableInIndia: true,
+      where: "Disney+ Hotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Maze Runner: The Death Cure",
+      releaseDate: "2018",
+      availableInIndia: true,
+      where: "Disney+ Hotstar",
+      watched: false,
+      currentlyWatching: false
+    }
+  ]
+},
+
+{
+  name: "Back to the Future",
+  shortName: "BTTF",
+  movies: [
+    {
+      title: "Back to the Future",
+      releaseDate: "1985",
+      availableInIndia: true,
+      where: "Prime Video",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Back to the Future Part II",
+      releaseDate: "1989",
+      availableInIndia: true,
+      where: "Prime Video",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Back to the Future Part III",
+      releaseDate: "1990",
+      availableInIndia: true,
+      where: "Prime Video",
+      watched: false,
+      currentlyWatching: false
+    }
+  ]
+},
+
+{
+  name: "Spider-Man – Raimi Trilogy",
+  shortName: "RAIMI",
+  movies: [
+    {
+      title: "Spider-Man",
+      releaseDate: "2002",
+      availableInIndia: true,
+      where: "Netflix",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Spider-Man 2",
+      releaseDate: "2004",
+      availableInIndia: true,
+      where: "Netflix",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Spider-Man 3",
+      releaseDate: "2007",
+      availableInIndia: true,
+      where: "Netflix",
+      watched: false,
+      currentlyWatching: false
+    }
+  ]
+},
+
+{
+  name: "The Amazing Spider-Man",
+  shortName: "TASM",
+  movies: [
+    {
+      title: "The Amazing Spider-Man",
+      releaseDate: "2012",
+      availableInIndia: true,
+      where: "Netflix",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "The Amazing Spider-Man 2",
+      releaseDate: "2014",
+      availableInIndia: true,
+      where: "Netflix",
+      watched: false,
+      currentlyWatching: false
+    }
+  ]
+},
+
+{
+  name: "Venom",
+  shortName: "VENOM",
+  movies: [
+    {
+      title: "Venom",
+      releaseDate: "2018",
+      availableInIndia: true,
+      where: "Netflix",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Venom: Let There Be Carnage",
+      releaseDate: "2021",
+      availableInIndia: true,
+      where: "Netflix",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Venom: The Last Dance",
+      releaseDate: "2024",
+      availableInIndia: true,
+      where: "Netflix",
+      watched: false,
+      currentlyWatching: false
+    }
+  ]
+},
+
+{
+  name: "Sony's Spider-Man Universe",
+  shortName: "SSU",
+  movies: [
+    {
+      title: "Morbius",
+      releaseDate: "2022",
+      availableInIndia: true,
+      where: "Netflix",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Madame Web",
+      releaseDate: "2024",
+      availableInIndia: true,
+      where: "Netflix",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Kraven the Hunter",
+      releaseDate: "2024",
+      availableInIndia: true,
+      where: "Netflix",
+      watched: false,
+      currentlyWatching: false
+    }
+  ]
+},
     {
       name: "The Dark Knight Trilogy",
       shortName: "TDK",
