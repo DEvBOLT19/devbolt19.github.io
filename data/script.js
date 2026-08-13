@@ -2076,7 +2076,283 @@ const WATCHLIST = {
         currentlyWatching: false
       }
     ]
-  }
+  },{
+  name: "Middle-earth / The Lord of the Rings",
+  shortName: "LOTR",
+  movies: [
+    {
+      title: "The Lord of the Rings: The Fellowship of the Ring",
+      releaseDate: "2001",
+      availableInIndia: true,
+      where: "Prime Video",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "The Lord of the Rings: The Two Towers",
+      releaseDate: "2002",
+      availableInIndia: true,
+      where: "Prime Video",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "The Lord of the Rings: The Return of the King",
+      releaseDate: "2003",
+      availableInIndia: true,
+      where: "Prime Video",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "The Hobbit: An Unexpected Journey",
+      releaseDate: "2012",
+      availableInIndia: true,
+      where: "Prime Video",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "The Hobbit: The Desolation of Smaug",
+      releaseDate: "2013",
+      availableInIndia: true,
+      where: "Prime Video",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "The Hobbit: The Battle of the Five Armies",
+      releaseDate: "2014",
+      availableInIndia: true,
+      where: "Prime Video",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "The Lord of the Rings: The Rings of Power – Season 1",
+      releaseDate: "2022",
+      availableInIndia: true,
+      where: "Prime Video",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "The Lord of the Rings: The Rings of Power – Season 2",
+      releaseDate: "2024",
+      availableInIndia: true,
+      where: "Prime Video",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "The Lord of the Rings: The War of the Rohirrim",
+      releaseDate: "2024",
+      availableInIndia: true,
+      where: "Prime Video",
+      watched: false,
+      currentlyWatching: false
+    }
+  ]
+},{
+  name: "Fast & Furious",
+  shortName: "F&F",
+  movies: [
+    {
+      title: "The Fast and the Furious",
+      releaseDate: "2001",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "2 Fast 2 Furious",
+      releaseDate: "2003",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "The Fast and the Furious: Tokyo Drift",
+      releaseDate: "2006",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Fast & Furious",
+      releaseDate: "2009",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Fast Five",
+      releaseDate: "2011",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Fast & Furious 6",
+      releaseDate: "2013",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Furious 7",
+      releaseDate: "2015",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "The Fate of the Furious",
+      releaseDate: "2017",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Fast & Furious Presents: Hobbs & Shaw",
+      releaseDate: "2019",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "F9: The Fast Saga",
+      releaseDate: "2021",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Fast X",
+      releaseDate: "2023",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    }
+  ]
+},{
+  name: "Game of Thrones Universe",
+  shortName: "GOT",
+  movies: [
+    {
+      title: "Game of Thrones – Season 1",
+      releaseDate: "2011",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Game of Thrones – Season 2",
+      releaseDate: "2012",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Game of Thrones – Season 3",
+      releaseDate: "2013",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Game of Thrones – Season 4",
+      releaseDate: "2014",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Game of Thrones – Season 5",
+      releaseDate: "2015",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Game of Thrones – Season 6",
+      releaseDate: "2016",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Game of Thrones – Season 7",
+      releaseDate: "2017",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "Game of Thrones – Season 8",
+      releaseDate: "2019",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "House of the Dragon – Season 1",
+      releaseDate: "2022",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    },
+    {
+      title: "House of the Dragon – Season 2",
+      releaseDate: "2024",
+      availableInIndia: true,
+      where: "JioHotstar",
+      watched: false,
+      currentlyWatching: false
+    }
+  ]
+},{
+  name: "Wednesday",
+  shortName: "WED",
+  movies: [
+    {
+      title: "Wednesday – Season 1",
+      releaseDate: "2022",
+      availableInIndia: true,
+      where: "Netflix",
+      watched: true,
+      currentlyWatching: false
+    },
+    {
+      title: "Wednesday – Season 2",
+      releaseDate: "2025",
+      availableInIndia: true,
+      where: "Netflix",
+      watched: false,
+      currentlyWatching: false
+    }
+  ]
+}
   ],
 
   standalone: [
