@@ -2,7 +2,7 @@
 
 // ---------- config ----------
 const CONFIG = {
-  email: "devbolt19@gmail.com",
+  email: "DEvBOLT@proton.me",
   discordId: "1465964458282188820",
   github: "https://github.com/DEvBOLT19",
 };
