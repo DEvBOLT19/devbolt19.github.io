@@ -1,6 +1,9 @@
 # Reading rn:
 ## Books:
-- the hobbit
+Atomic Habits
+Author: James Clear
+Genre: Self-Help & Personal Development
+Status: To read
 
 ## Novels:
 - the hobbit
