@@ -1,779 +1,292 @@
-# Reading rn:
-
-## Books:
-- Atomic Habits  
-Author: James Clear  
-Genre: Self-Help & Personal Development  
-Status: Reading
-
-## Novels:
-- The Hobbit  
-Author: J.R.R. Tolkien  
-Genre: Fantasy  
-Status: Reading
-
-## Manga:
-- Fullmetal Alchemist  
-Author: Hiromu Arakawa  
-Genre: Fantasy, Adventure  
-Status: Reading
-
----
-
-# Recommendations
-
-## Books (Nonfiction):
-
-- Mindset  
-Author: Carol Dweck  
-Genre: Self-Help & Personal Development  
-Status: To read
-
-- Man’s Search for Meaning  
-Author: Viktor Frankl  
-Genre: Memoir & Autobiography  
-Status: To read
-
-- Meditations  
-Author: Marcus Aurelius  
-Genre: Philosophy  
-Status: To read
-
-- The Subtle Art of Not Giving a F\*ck  
-Author: Mark Manson  
-Genre: Self-Help & Personal Development  
-Status: To read
-
-- How to Win Friends and Influence People  
-Author: Dale Carnegie  
-Genre: Self-Help & Personal Development  
-Status: To read
-
-- The Four Agreements  
-Author: Don Miguel Ruiz  
-Genre: Self-Help & Personal Development  
-Status: To read
-
-- The Psychology of Money  
-Author: Morgan Housel  
-Genre: Self-Help & Personal Development  
-Status: To read
-
-- Deep Work  
-Author: Cal Newport  
-Genre: Self-Help & Personal Development  
-Status: To read
-
-- The 7 Habits of Highly Effective People  
-Author: Stephen R. Covey  
-Genre: Self-Help & Personal Development  
-Status: To read
-
-- Can’t Hurt Me  
-Author: David Goggins  
-Genre: Memoir & Autobiography  
-Status: To read
-
-- Grit  
-Author: Angela Duckworth  
-Genre: Self-Help & Personal Development  
-Status: To read
-
-- Thinking, Fast and Slow  
-Author: Daniel Kahneman  
-Genre: Psychology  
-Status: To read
-
-- Sapiens  
-Author: Yuval Noah Harari  
-Genre: History & Culture  
-Status: To read
-
-- Educated  
-Author: Tara Westover  
-Genre: Memoir & Autobiography  
-Status: To read
-
-- Becoming  
-Author: Michelle Obama  
-Genre: Memoir & Autobiography  
-Status: To read
-
-- Steve Jobs  
-Author: Walter Isaacson  
-Genre: Biography  
-Status: To read
-
-- Long Walk to Freedom  
-Author: Nelson Mandela  
-Genre: Memoir & Autobiography  
-Status: To read
-
-- The Diary of a Young Girl  
-Author: Anne Frank  
-Genre: Memoir & Autobiography  
-Status: To read
-
-- Born a Crime  
-Author: Trevor Noah  
-Genre: Memoir & Autobiography  
-Status: To read
-
-- I Know Why the Caged Bird Sings  
-Author: Maya Angelou  
-Genre: Memoir & Autobiography  
-Status: To read
-
-- Wings of Fire  
-Author: A.P.J. Abdul Kalam  
-Genre: Memoir & Autobiography  
-Status: To read
-
-- The Story of My Experiments with Truth  
-Author: Mahatma Gandhi  
-Genre: Memoir & Autobiography  
-Status: To read
-
-- Ikigai  
-Author: Héctor García and Francesc Miralles  
-Genre: Self-Help & Personal Development  
-Status: To read
-
-- The Power of Now  
-Author: Eckhart Tolle  
-Genre: Self-Help & Personal Development  
-Status: To read
-
-- The Power of Habit  
-Author: Charles Duhigg  
-Genre: Self-Help & Personal Development  
-Status: To read
-
-- Essentialism  
-Author: Greg McKeown  
-Genre: Self-Help & Personal Development  
-Status: To read
-
-- The Almanack of Naval Ravikant  
-Author: Eric Jorgenson  
-Genre: Self-Help & Personal Development  
-Status: To read
-
-- Rich Dad Poor Dad  
-Author: Robert T. Kiyosaki  
-Genre: Self-Help & Personal Development  
-Status: To read
-
-- The Richest Man in Babylon  
-Author: George S. Clason  
-Genre: Self-Help & Personal Development  
-Status: To read
-
-- Think and Grow Rich  
-Author: Napoleon Hill  
-Genre: Self-Help & Personal Development  
-Status: To read
-
-- The 48 Laws of Power  
-Author: Robert Greene  
-Genre: Self-Help & Personal Development  
-Status: To read
-
-- Mastery  
-Author: Robert Greene  
-Genre: Self-Help & Personal Development  
-Status: To read
-
-- Outliers  
-Author: Malcolm Gladwell  
-Genre: Psychology  
-Status: To read
-
-- Range  
-Author: David Epstein  
-Genre: Self-Help & Personal Development  
-Status: To read
-
-- Make Your Bed  
-Author: William H. McRaven  
-Genre: Self-Help & Personal Development  
-Status: To read
-
-- The Obstacle Is the Way  
-Author: Ryan Holiday  
-Genre: Self-Help & Personal Development  
-Status: To read
-
-- Letters from a Stoic  
-Author: Seneca  
-Genre: Philosophy  
-Status: To read
-
-- The Art of War  
-Author: Sun Tzu  
-Genre: Philosophy  
-Status: To read
-
-- Quiet  
-Author: Susan Cain  
-Genre: Psychology  
-Status: To read
-
-- Daring Greatly  
-Author: Brené Brown  
-Genre: Self-Help & Personal Development  
-Status: To read
-
-- The Gifts of Imperfection  
-Author: Brené Brown  
-Genre: Self-Help & Personal Development  
-Status: To read
-
-- Why We Sleep  
-Author: Matthew Walker  
-Genre: Science  
-Status: To read
-
-- Guns, Germs, and Steel  
-Author: Jared Diamond  
-Genre: History & Culture  
-Status: To read
-
-- A Brief History of Time  
-Author: Stephen Hawking  
-Genre: Science  
-Status: To read
-
-- Cosmos  
-Author: Carl Sagan  
-Genre: Science  
-Status: To read
-
-- The Immortal Life of Henrietta Lacks  
-Author: Rebecca Skloot  
-Genre: Biography  
-Status: To read
-
-- Bad Blood  
-Author: John Carreyrou  
-Genre: True Crime  
-Status: To read
-
-- In Cold Blood  
-Author: Truman Capote  
-Genre: True Crime  
-Status: To read
-
-- The Body Keeps the Score  
-Author: Bessel van der Kolk  
-Genre: Psychology  
-Status: To read
-
-- Show Your Work!  
-Author: Austin Kleon  
-Genre: Self-Help & Personal Development  
-Status: To read
-
-## Novels:
-
-- The Little Prince  
-Author: Antoine de Saint-Exupéry  
-Genre: Literary Fiction  
-Status: To read
-
-- Project Hail Mary  
-Author: Andy Weir  
-Genre: Science Fiction  
-Status: To read
-
-- The Alchemist  
-Author: Paulo Coelho  
-Genre: Literary Fiction  
-Status: To read
-
-- The Midnight Library  
-Author: Matt Haig  
-Genre: Literary Fiction  
-Status: To read
-
-- Animal Farm  
-Author: George Orwell  
-Genre: Literary Fiction  
-Status: To read
-
-- Of Mice and Men  
-Author: John Steinbeck  
-Genre: Literary Fiction  
-Status: To read
-
-- 1984  
-Author: George Orwell  
-Genre: Science Fiction  
-Status: To read
-
-- To Kill a Mockingbird  
-Author: Harper Lee  
-Genre: Literary Fiction  
-Status: To read
-
-- The Great Gatsby  
-Author: F. Scott Fitzgerald  
-Genre: Literary Fiction  
-Status: To read
-
-- Pride and Prejudice  
-Author: Jane Austen  
-Genre: Romance  
-Status: To read
-
-- The Catcher in the Rye  
-Author: J.D. Salinger  
-Genre: Literary Fiction  
-Status: To read
-
-- The Fellowship of the Ring  
-Author: J.R.R. Tolkien  
-Genre: Fantasy  
-Status: To read
-
-- Harry Potter and the Sorcerer’s Stone  
-Author: J.K. Rowling  
-Genre: Fantasy  
-Status: To read
-
-- The Name of the Wind  
-Author: Patrick Rothfuss  
-Genre: Fantasy  
-Status: To read
-
-- Mistborn: The Final Empire  
-Author: Brandon Sanderson  
-Genre: Fantasy  
-Status: To read
-
-- Dune  
-Author: Frank Herbert  
-Genre: Science Fiction  
-Status: To read
-
-- Ender’s Game  
-Author: Orson Scott Card  
-Genre: Science Fiction  
-Status: To read
-
-- The Martian  
-Author: Andy Weir  
-Genre: Science Fiction  
-Status: To read
-
-- Dark Matter  
-Author: Blake Crouch  
-Genre: Mystery & Thriller  
-Status: To read
-
-- The Hitchhiker’s Guide to the Galaxy  
-Author: Douglas Adams  
-Genre: Science Fiction  
-Status: To read
-
-- Fahrenheit 451  
-Author: Ray Bradbury  
-Genre: Science Fiction  
-Status: To read
-
-- Brave New World  
-Author: Aldous Huxley  
-Genre: Science Fiction  
-Status: To read
-
-- The Hunger Games  
-Author: Suzanne Collins  
-Genre: Science Fiction  
-Status: To read
-
-- The Girl with the Dragon Tattoo  
-Author: Stieg Larsson  
-Genre: Mystery & Thriller  
-Status: To read
-
-- And Then There Were None  
-Author: Agatha Christie  
-Genre: Mystery & Thriller  
-Status: To read
-
-- Gone Girl  
-Author: Gillian Flynn  
-Genre: Mystery & Thriller  
-Status: To read
-
-- The Da Vinci Code  
-Author: Dan Brown  
-Genre: Mystery & Thriller  
-Status: To read
-
-- A Study in Scarlet  
-Author: Arthur Conan Doyle  
-Genre: Mystery & Thriller  
-Status: To read
-
-- Rebecca  
-Author: Daphne du Maurier  
-Genre: Mystery & Thriller  
-Status: To read
-
-- The Kite Runner  
-Author: Khaled Hosseini  
-Genre: Literary Fiction  
-Status: To read
-
-- A Thousand Splendid Suns  
-Author: Khaled Hosseini  
-Genre: Historical Fiction  
-Status: To read
-
-- The Book Thief  
-Author: Markus Zusak  
-Genre: Historical Fiction  
-Status: To read
-
-- All the Light We Cannot See  
-Author: Anthony Doerr  
-Genre: Historical Fiction  
-Status: To read
-
-- Gone with the Wind  
-Author: Margaret Mitchell  
-Genre: Historical Fiction  
-Status: To read
-
-- People We Meet on Vacation  
-Author: Emily Henry  
-Genre: Romance  
-Status: To read
-
-- Tomorrow, and Tomorrow, and Tomorrow  
-Author: Gabrielle Zevin  
-Genre: Literary Fiction  
-Status: To read
-
-- The Starless Sea  
-Author: Erin Morgenstern  
-Genre: Fantasy  
-Status: To read
-
-- The Night Circus  
-Author: Erin Morgenstern  
-Genre: Fantasy  
-Status: To read
-
-- Norwegian Wood  
-Author: Haruki Murakami  
-Genre: Literary Fiction  
-Status: To read
-
-- Kafka on the Shore  
-Author: Haruki Murakami  
-Genre: Literary Fiction  
-Status: To read
-
-- Crime and Punishment  
-Author: Fyodor Dostoevsky  
-Genre: Literary Fiction  
-Status: To read
-
-- The Master and Margarita  
-Author: Mikhail Bulgakov  
-Genre: Literary Fiction  
-Status: To read
-
-- Anna Karenina  
-Author: Leo Tolstoy  
-Genre: Literary Fiction  
-Status: To read
-
-- The Stranger  
-Author: Albert Camus  
-Genre: Literary Fiction  
-Status: To read
-
-- One Hundred Years of Solitude  
-Author: Gabriel García Márquez  
-Genre: Literary Fiction  
-Status: To read
-
-- Don Quixote  
-Author: Miguel de Cervantes  
-Genre: Literary Fiction  
-Status: To read
-
-- The Count of Monte Cristo  
-Author: Alexandre Dumas  
-Genre: Historical Fiction  
-Status: To read
-
-- Journey to the West  
-Author: Wu Cheng’en  
-Genre: Fantasy  
-Status: To read
-
-- The Old Man and the Sea  
-Author: Ernest Hemingway  
-Genre: Literary Fiction  
-Status: To read
-
-- Life of Pi  
-Author: Yann Martel  
-Genre: Literary Fiction  
-Status: To read
-
-## Manga:
-
-- Vinland Saga  
-Author: Makoto Yukimura  
-Genre: Historical Fiction, Action  
-Status: To read
-
-- Blue Period  
-Author: Tsubasa Yamaguchi  
-Genre: Drama, Slice of Life  
-Status: To read
-
-- Death Note  
-Author: Tsugumi Ohba and Takeshi Obata  
-Genre: Mystery & Thriller, Supernatural  
-Status: To read
-
-- One Piece  
-Author: Eiichiro Oda  
-Genre: Adventure, Fantasy  
-Status: To read
-
-- Naruto  
-Author: Masashi Kishimoto  
-Genre: Action, Adventure  
-Status: To read
-
-- Attack on Titan  
-Author: Hajime Isayama  
-Genre: Action, Dark Fantasy  
-Status: To read
-
-- Berserk  
-Author: Kentaro Miura  
-Genre: Dark Fantasy  
-Status: To read
-
-- Monster  
-Author: Naoki Urasawa  
-Genre: Mystery & Thriller  
-Status: To read
-
-- 20th Century Boys  
-Author: Naoki Urasawa  
-Genre: Mystery & Thriller, Science Fiction  
-Status: To read
-
-- Pluto  
-Author: Naoki Urasawa  
-Genre: Science Fiction, Mystery & Thriller  
-Status: To read
-
-- Vagabond  
-Author: Takehiko Inoue  
-Genre: Historical Fiction, Action  
-Status: To read
-
-- Slam Dunk  
-Author: Takehiko Inoue  
-Genre: Sports, Drama  
-Status: To read
-
-- Real  
-Author: Takehiko Inoue  
-Genre: Sports, Drama  
-Status: To read
-
-- Haikyu!!  
-Author: Haruichi Furudate  
-Genre: Sports  
-Status: To read
-
-- Blue Lock  
-Author: Muneyuki Kaneshiro  
-Genre: Sports  
-Status: To read
-
-- Hunter x Hunter  
-Author: Yoshihiro Togashi  
-Genre: Adventure, Fantasy  
-Status: To read
-
-- Yu Yu Hakusho  
-Author: Yoshihiro Togashi  
-Genre: Action, Supernatural  
-Status: To read
-
-- Dragon Ball  
-Author: Akira Toriyama  
-Genre: Action, Adventure  
-Status: To read
-
-- Bleach  
-Author: Tite Kubo  
-Genre: Action, Supernatural  
-Status: To read
-
-- Jujutsu Kaisen  
-Author: Gege Akutami  
-Genre: Action, Dark Fantasy  
-Status: To read
-
-- Demon Slayer  
-Author: Koyoharu Gotouge  
-Genre: Action, Dark Fantasy  
-Status: To read
-
-- Chainsaw Man  
-Author: Tatsuki Fujimoto  
-Genre: Action, Horror  
-Status: To read
-
-- Spy x Family  
-Author: Tatsuya Endo  
-Genre: Comedy, Action  
-Status: To read
-
-- My Hero Academia  
-Author: Kohei Horikoshi  
-Genre: Action, Superhero  
-Status: To read
-
-- One-Punch Man  
-Author: ONE and Yusuke Murata  
-Genre: Action, Comedy  
-Status: To read
-
-- Dr. Stone  
-Author: Riichiro Inagaki and Boichi  
-Genre: Science Fiction, Adventure  
-Status: To read
-
-- The Promised Neverland  
-Author: Kaiu Shirai and Posuka Demizu  
-Genre: Mystery & Thriller, Dark Fantasy  
-Status: To read
-
-- Tokyo Ghoul  
-Author: Sui Ishida  
-Genre: Dark Fantasy, Horror  
-Status: To read
-
-- Dandadan  
-Author: Yukinobu Tatsu  
-Genre: Action, Supernatural  
-Status: To read
-
-- Frieren: Beyond Journey’s End  
-Author: Kanehito Yamada and Tsukasa Abe  
-Genre: Fantasy, Adventure  
-Status: To read
-
-- Kingdom  
-Author: Yasuhisa Hara  
-Genre: Historical Fiction, Action  
-Status: To read
-
-- Planetes  
-Author: Makoto Yukimura  
-Genre: Science Fiction, Drama  
-Status: To read
-
-- Akira  
-Author: Katsuhiro Otomo  
-Genre: Science Fiction  
-Status: To read
-
-- Nausicaä of the Valley of the Wind  
-Author: Hayao Miyazaki  
-Genre: Fantasy, Science Fiction  
-Status: To read
-
-- Fruits Basket  
-Author: Natsuki Takaya  
-Genre: Romance, Fantasy  
-Status: To read
-
-- Your Lie in April  
-Author: Naoshi Arakawa  
-Genre: Romance, Drama  
-Status: To read
-
-- A Silent Voice  
-Author: Yoshitoki Oima  
-Genre: Drama, Slice of Life  
-Status: To read
-
-- March Comes in Like a Lion  
-Author: Chica Umino  
-Genre: Slice of Life, Drama  
-Status: To read
-
-- Chihayafuru  
-Author: Yuki Suetsugu  
-Genre: Sports, Drama  
-Status: To read
-
-- Barakamon  
-Author: Satsuki Yoshino  
-Genre: Comedy, Slice of Life  
-Status: To read
-
-- Yotsuba&!  
-Author: Kiyohiko Azuma  
-Genre: Comedy, Slice of Life  
-Status: To read
-
-- Oshi no Ko  
-Author: Aka Akasaka and Mengo Yokoyari  
-Genre: Drama, Mystery & Thriller  
-Status: To read
-
-- Kaguya-sama: Love Is War  
-Author: Aka Akasaka  
-Genre: Romance, Comedy  
-Status: To read
-
-- Gintama  
-Author: Hideaki Sorachi  
-Genre: Comedy, Science Fiction  
-Status: To read
-
-- Fire Force  
-Author: Atsushi Ohkubo  
-Genre: Action, Science Fiction  
-Status: To read
-
-- Black Clover  
-Author: Yuki Tabata  
-Genre: Action, Fantasy  
-Status: To read
-
-- Mob Psycho 100  
-Author: ONE  
-Genre: Action, Comedy  
-Status: To read
-
-- Great Teacher Onizuka  
-Author: Tohru Fujisawa  
-Genre: Comedy, Drama  
-Status: To read
-
-- Oyasumi Punpun  
-Author: Inio Asano  
-Genre: Drama, Psychological  
-Status: To read
-
-- Delicious in Dungeon  
-Author: Ryoko Kui  
-Genre: Fantasy, Comedy  
-Status: To read
+# Reading List
+
+✅ = read · ❌ = not read yet
+
+## Books (Nonfiction)
+
+### Self-Help & Personal Development
+
+| Read | Title | Author |
+|:---:|---|---|
+| ❌ | Atomic Habits | James Clear |
+| ❌ | Mindset | Carol Dweck |
+| ❌ | The Subtle Art of Not Giving a F\*ck | Mark Manson |
+| ❌ | How to Win Friends and Influence People | Dale Carnegie |
+| ❌ | The Four Agreements | Don Miguel Ruiz |
+| ❌ | The Psychology of Money | Morgan Housel |
+| ❌ | Deep Work | Cal Newport |
+| ❌ | The 7 Habits of Highly Effective People | Stephen R. Covey |
+| ❌ | Grit | Angela Duckworth |
+| ❌ | Ikigai | Héctor García and Francesc Miralles |
+| ❌ | The Power of Now | Eckhart Tolle |
+| ❌ | The Power of Habit | Charles Duhigg |
+| ❌ | Essentialism | Greg McKeown |
+| ❌ | The Almanack of Naval Ravikant | Eric Jorgenson |
+| ❌ | Rich Dad Poor Dad | Robert T. Kiyosaki |
+| ❌ | The Richest Man in Babylon | George S. Clason |
+| ❌ | Think and Grow Rich | Napoleon Hill |
+| ❌ | The 48 Laws of Power | Robert Greene |
+| ❌ | Mastery | Robert Greene |
+| ❌ | Range | David Epstein |
+| ❌ | Make Your Bed | William H. McRaven |
+| ❌ | The Obstacle Is the Way | Ryan Holiday |
+| ❌ | Daring Greatly | Brené Brown |
+| ❌ | The Gifts of Imperfection | Brené Brown |
+| ❌ | Show Your Work! | Austin Kleon |
+
+### Memoir & Autobiography
+
+| Read | Title | Author |
+|:---:|---|---|
+| ❌ | Man’s Search for Meaning | Viktor Frankl |
+| ❌ | Can’t Hurt Me | David Goggins |
+| ❌ | Educated | Tara Westover |
+| ❌ | Becoming | Michelle Obama |
+| ❌ | Long Walk to Freedom | Nelson Mandela |
+| ❌ | The Diary of a Young Girl | Anne Frank |
+| ❌ | Born a Crime | Trevor Noah |
+| ❌ | I Know Why the Caged Bird Sings | Maya Angelou |
+| ❌ | Wings of Fire | A.P.J. Abdul Kalam |
+| ❌ | The Story of My Experiments with Truth | Mahatma Gandhi |
+
+### Philosophy
+
+| Read | Title | Author |
+|:---:|---|---|
+| ❌ | Meditations | Marcus Aurelius |
+| ❌ | Letters from a Stoic | Seneca |
+| ❌ | The Art of War | Sun Tzu |
+
+### Psychology
+
+| Read | Title | Author |
+|:---:|---|---|
+| ❌ | Thinking, Fast and Slow | Daniel Kahneman |
+| ❌ | Outliers | Malcolm Gladwell |
+| ❌ | Quiet | Susan Cain |
+| ❌ | The Body Keeps the Score | Bessel van der Kolk |
+
+### History & Culture
+
+| Read | Title | Author |
+|:---:|---|---|
+| ❌ | Sapiens | Yuval Noah Harari |
+| ❌ | Guns, Germs, and Steel | Jared Diamond |
+
+### Biography
+
+| Read | Title | Author |
+|:---:|---|---|
+| ❌ | Steve Jobs | Walter Isaacson |
+| ❌ | The Immortal Life of Henrietta Lacks | Rebecca Skloot |
+
+### Science
+
+| Read | Title | Author |
+|:---:|---|---|
+| ❌ | Why We Sleep | Matthew Walker |
+| ❌ | A Brief History of Time | Stephen Hawking |
+| ❌ | Cosmos | Carl Sagan |
+
+### True Crime
+
+| Read | Title | Author |
+|:---:|---|---|
+| ❌ | Bad Blood | John Carreyrou |
+| ❌ | In Cold Blood | Truman Capote |
+
+## Novels
+
+### Fantasy
+
+| Read | Title | Author |
+|:---:|---|---|
+| ❌ | The Hobbit | J.R.R. Tolkien |
+| ❌ | The Fellowship of the Ring | J.R.R. Tolkien |
+| ❌ | Harry Potter and the Sorcerer’s Stone | J.K. Rowling |
+| ❌ | The Name of the Wind | Patrick Rothfuss |
+| ❌ | Mistborn: The Final Empire | Brandon Sanderson |
+| ❌ | The Starless Sea | Erin Morgenstern |
+| ❌ | The Night Circus | Erin Morgenstern |
+| ❌ | Journey to the West | Wu Cheng’en |
+
+### Literary Fiction
+
+| Read | Title | Author |
+|:---:|---|---|
+| ❌ | The Little Prince | Antoine de Saint-Exupéry |
+| ❌ | The Alchemist | Paulo Coelho |
+| ❌ | The Midnight Library | Matt Haig |
+| ❌ | Animal Farm | George Orwell |
+| ❌ | Of Mice and Men | John Steinbeck |
+| ❌ | To Kill a Mockingbird | Harper Lee |
+| ❌ | The Great Gatsby | F. Scott Fitzgerald |
+| ❌ | The Catcher in the Rye | J.D. Salinger |
+| ❌ | The Kite Runner | Khaled Hosseini |
+| ❌ | Tomorrow, and Tomorrow, and Tomorrow | Gabrielle Zevin |
+| ❌ | Norwegian Wood | Haruki Murakami |
+| ❌ | Kafka on the Shore | Haruki Murakami |
+| ❌ | Crime and Punishment | Fyodor Dostoevsky |
+| ❌ | The Master and Margarita | Mikhail Bulgakov |
+| ❌ | Anna Karenina | Leo Tolstoy |
+| ❌ | The Stranger | Albert Camus |
+| ❌ | One Hundred Years of Solitude | Gabriel García Márquez |
+| ❌ | Don Quixote | Miguel de Cervantes |
+| ❌ | The Old Man and the Sea | Ernest Hemingway |
+| ❌ | Life of Pi | Yann Martel |
+
+### Science Fiction
+
+| Read | Title | Author |
+|:---:|---|---|
+| ❌ | Project Hail Mary | Andy Weir |
+| ❌ | 1984 | George Orwell |
+| ❌ | Dune | Frank Herbert |
+| ❌ | Ender’s Game | Orson Scott Card |
+| ❌ | The Martian | Andy Weir |
+| ❌ | The Hitchhiker’s Guide to the Galaxy | Douglas Adams |
+| ❌ | Fahrenheit 451 | Ray Bradbury |
+| ❌ | Brave New World | Aldous Huxley |
+| ❌ | The Hunger Games | Suzanne Collins |
+
+### Romance
+
+| Read | Title | Author |
+|:---:|---|---|
+| ❌ | Pride and Prejudice | Jane Austen |
+| ❌ | People We Meet on Vacation | Emily Henry |
+
+### Mystery & Thriller
+
+| Read | Title | Author |
+|:---:|---|---|
+| ❌ | Dark Matter | Blake Crouch |
+| ❌ | The Girl with the Dragon Tattoo | Stieg Larsson |
+| ❌ | And Then There Were None | Agatha Christie |
+| ❌ | Gone Girl | Gillian Flynn |
+| ❌ | The Da Vinci Code | Dan Brown |
+| ❌ | A Study in Scarlet | Arthur Conan Doyle |
+| ❌ | Rebecca | Daphne du Maurier |
+
+### Historical Fiction
+
+| Read | Title | Author |
+|:---:|---|---|
+| ❌ | A Thousand Splendid Suns | Khaled Hosseini |
+| ❌ | The Book Thief | Markus Zusak |
+| ❌ | All the Light We Cannot See | Anthony Doerr |
+| ❌ | Gone with the Wind | Margaret Mitchell |
+| ❌ | The Count of Monte Cristo | Alexandre Dumas |
+
+## Manga
+
+### Fantasy
+
+| Read | Title | Author | All genres |
+|:---:|---|---|---|
+| ❌ | Fullmetal Alchemist | Hiromu Arakawa | Fantasy, Adventure |
+| ❌ | Frieren: Beyond Journey’s End | Kanehito Yamada and Tsukasa Abe | Fantasy, Adventure |
+| ❌ | Nausicaä of the Valley of the Wind | Hayao Miyazaki | Fantasy, Science Fiction |
+| ❌ | Delicious in Dungeon | Ryoko Kui | Fantasy, Comedy |
+
+### Historical Fiction
+
+| Read | Title | Author | All genres |
+|:---:|---|---|---|
+| ❌ | Vinland Saga | Makoto Yukimura | Historical Fiction, Action |
+| ❌ | Vagabond | Takehiko Inoue | Historical Fiction, Action |
+| ❌ | Kingdom | Yasuhisa Hara | Historical Fiction, Action |
+
+### Drama
+
+| Read | Title | Author | All genres |
+|:---:|---|---|---|
+| ❌ | Blue Period | Tsubasa Yamaguchi | Drama, Slice of Life |
+| ❌ | A Silent Voice | Yoshitoki Oima | Drama, Slice of Life |
+| ❌ | Oshi no Ko | Aka Akasaka and Mengo Yokoyari | Drama, Mystery & Thriller |
+| ❌ | Oyasumi Punpun | Inio Asano | Drama, Psychological |
+
+### Mystery & Thriller
+
+| Read | Title | Author | All genres |
+|:---:|---|---|---|
+| ❌ | Death Note | Tsugumi Ohba and Takeshi Obata | Mystery & Thriller, Supernatural |
+| ❌ | Monster | Naoki Urasawa | Mystery & Thriller |
+| ❌ | 20th Century Boys | Naoki Urasawa | Mystery & Thriller, Science Fiction |
+| ❌ | The Promised Neverland | Kaiu Shirai and Posuka Demizu | Mystery & Thriller, Dark Fantasy |
+
+### Adventure
+
+| Read | Title | Author | All genres |
+|:---:|---|---|---|
+| ❌ | One Piece | Eiichiro Oda | Adventure, Fantasy |
+| ❌ | Hunter x Hunter | Yoshihiro Togashi | Adventure, Fantasy |
+
+### Action
+
+| Read | Title | Author | All genres |
+|:---:|---|---|---|
+| ❌ | Naruto | Masashi Kishimoto | Action, Adventure |
+| ❌ | Attack on Titan | Hajime Isayama | Action, Dark Fantasy |
+| ❌ | Yu Yu Hakusho | Yoshihiro Togashi | Action, Supernatural |
+| ❌ | Dragon Ball | Akira Toriyama | Action, Adventure |
+| ❌ | Bleach | Tite Kubo | Action, Supernatural |
+| ❌ | Jujutsu Kaisen | Gege Akutami | Action, Dark Fantasy |
+| ❌ | Demon Slayer | Koyoharu Gotouge | Action, Dark Fantasy |
+| ❌ | Chainsaw Man | Tatsuki Fujimoto | Action, Horror |
+| ❌ | My Hero Academia | Kohei Horikoshi | Action, Superhero |
+| ❌ | One-Punch Man | ONE and Yusuke Murata | Action, Comedy |
+| ❌ | Dandadan | Yukinobu Tatsu | Action, Supernatural |
+| ❌ | Fire Force | Atsushi Ohkubo | Action, Science Fiction |
+| ❌ | Black Clover | Yuki Tabata | Action, Fantasy |
+| ❌ | Mob Psycho 100 | ONE | Action, Comedy |
+
+### Dark Fantasy
+
+| Read | Title | Author | All genres |
+|:---:|---|---|---|
+| ❌ | Berserk | Kentaro Miura | Dark Fantasy |
+| ❌ | Tokyo Ghoul | Sui Ishida | Dark Fantasy, Horror |
+
+### Science Fiction
+
+| Read | Title | Author | All genres |
+|:---:|---|---|---|
+| ❌ | Pluto | Naoki Urasawa | Science Fiction, Mystery & Thriller |
+| ❌ | Dr. Stone | Riichiro Inagaki and Boichi | Science Fiction, Adventure |
+| ❌ | Planetes | Makoto Yukimura | Science Fiction, Drama |
+| ❌ | Akira | Katsuhiro Otomo | Science Fiction |
+
+### Sports
+
+| Read | Title | Author | All genres |
+|:---:|---|---|---|
+| ❌ | Slam Dunk | Takehiko Inoue | Sports, Drama |
+| ❌ | Real | Takehiko Inoue | Sports, Drama |
+| ❌ | Haikyu!! | Haruichi Furudate | Sports |
+| ❌ | Blue Lock | Muneyuki Kaneshiro | Sports |
+| ❌ | Chihayafuru | Yuki Suetsugu | Sports, Drama |
+
+### Comedy
+
+| Read | Title | Author | All genres |
+|:---:|---|---|---|
+| ❌ | Spy x Family | Tatsuya Endo | Comedy, Action |
+| ❌ | Barakamon | Satsuki Yoshino | Comedy, Slice of Life |
+| ❌ | Yotsuba&! | Kiyohiko Azuma | Comedy, Slice of Life |
+| ❌ | Gintama | Hideaki Sorachi | Comedy, Science Fiction |
+| ❌ | Great Teacher Onizuka | Tohru Fujisawa | Comedy, Drama |
+
+### Romance
+
+| Read | Title | Author | All genres |
+|:---:|---|---|---|
+| ❌ | Fruits Basket | Natsuki Takaya | Romance, Fantasy |
+| ❌ | Your Lie in April | Naoshi Arakawa | Romance, Drama |
+| ❌ | Kaguya-sama: Love Is War | Aka Akasaka | Romance, Comedy |
+
+### Slice of Life
+
+| Read | Title | Author | All genres |
+|:---:|---|---|---|
+| ❌ | March Comes in Like a Lion | Chica Umino | Slice of Life, Drama |
