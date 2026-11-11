@@ -1,4 +1,4 @@
-spanish : ❌
-french : :x:
+- spanish : ❌ 
+- french : :x:
 russian : :x:
 mandarain : :x:
