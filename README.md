@@ -1,6 +1,8 @@
 # Reading List
 
-✅ = read · ❌ = not read yet
+- ✅ = read 
+- ❌ = not read yet 
+- 🔵 = reading now
 
 ## Subjects
 
@@ -91,6 +93,20 @@
 | ❌ | Written in Stone | Brian Switek |
 | ❌ | Dinosaur Paleobiology | Stephen L. Brusatte |
 | ❌ | Lucy: The Beginnings of Humankind | Donald Johanson and Maitland Edey |
+| ❌ | The First Fossil Hunters | Adrienne Mayor |
+| ❌ | Bursting the Limits of Time | Martin J.S. Rudwick |
+| ❌ | Worlds Before Adam | Martin J.S. Rudwick |
+| ❌ | Locked in Time | Dean R. Lomax and Robert Nicholls |
+| ❌ | Dinosaurs: The Most Complete, Up-to-Date Encyclopedia | Thomas R. Holtz Jr. |
+| ❌ | At the Water’s Edge | Carl Zimmer |
+| ❌ | When Life Nearly Died | Michael J. Benton |
+| ❌ | The Ends of the World | Peter Brannen |
+| ❌ | The Tyrannosaur Chronicles | David Hone |
+| ❌ | History of Life | Richard Cowen |
+| ❌ | Extinction: How Life on Earth Nearly Ended 250 Million Years Ago | Douglas H. Erwin |
+| ❌ | A Fish Caught in Time | Samantha Weinberg |
+| ❌ | Neanderthal Man | Svante Pääbo |
+| ❌ | Mammoth: The Resurrection of an Ice Age Giant | Richard Stone |
 
 ### Archaeology
 
@@ -117,13 +133,25 @@
 | ❌ | The Lost World of the Old Ones | David Roberts |
 | ❌ | The Rise and Fall of Ancient Egypt | Toby Wilkinson |
 
+### Astrobiology & Aliens
+
+| Read | Title | Author |
+|:---:|---|---|
+| ❌ | The Little Book of Aliens | Adam Frank |
+| ❌ | Chariots of the Gods | Erich von Däniken |
+| ❌ | Alien Encounters | Rupert Matthews |
+| ❌ | Rare Earth | Peter D. Ward and Donald Brownlee |
+| ❌ | The Eerie Silence | Paul Davies |
+| ❌ | Alien Oceans | Kevin Peter Hand |
+| ❌ | Pale Blue Dot | Carl Sagan |
+
 ## Books (Nonfiction)
 
 ### Self-Help & Personal Development
 
 | Read | Title | Author |
 |:---:|---|---|
-| ❌ | Atomic Habits | James Clear |
+| 🔵 | Atomic Habits | James Clear |
 | ❌ | Mindset | Carol Dweck |
 | ❌ | The Subtle Art of Not Giving a F\*ck | Mark Manson |
 | ❌ | How to Win Friends and Influence People | Dale Carnegie |
@@ -192,6 +220,31 @@
 | ❌ | A Moveable Feast | Ernest Hemingway |
 | ❌ | Know My Name | Chanel Miller |
 | ❌ | The Year of Magical Thinking | Joan Didion |
+| ❌ | I Am Malala | Malala Yousafzai and Christina Lamb |
+| ❌ | Narrative of the Life of Frederick Douglass | Frederick Douglass |
+| ❌ | The Autobiography of Benjamin Franklin | Benjamin Franklin |
+| ❌ | The Story of My Life | Helen Keller |
+| ❌ | Dreams from My Father | Barack Obama |
+| ❌ | A Promised Land | Barack Obama |
+| ❌ | Shoe Dog | Phil Knight |
+| ❌ | Born to Run | Bruce Springsteen |
+| ❌ | Spare | Prince Harry |
+| ❌ | Greenlights | Matthew McConaughey |
+| ❌ | Born Standing Up | Steve Martin |
+| ❌ | Bossypants | Tina Fey |
+| ❌ | Chronicles: Volume One | Bob Dylan |
+| ❌ | My Autobiography | Charlie Chaplin |
+| ❌ | An Autobiography | Agatha Christie |
+| ❌ | Memories, Dreams, Reflections | Carl G. Jung |
+| ❌ | My Life and Work | Henry Ford |
+| ❌ | Speak, Memory | Vladimir Nabokov |
+| ❌ | The Words | Jean-Paul Sartre |
+| ❌ | The Confessions | Jean-Jacques Rousseau |
+| ❌ | Autobiography of an Unknown Indian | Nirad C. Chaudhuri |
+| ❌ | Playing It My Way | Sachin Tendulkar |
+| ❌ | The Autobiography of Mark Twain | Mark Twain |
+| ❌ | Notes of a Native Son | James Baldwin |
+| 🔵 | Mein Kampf | Adolf Hitler |
 
 ### Philosophy
 
@@ -199,7 +252,7 @@
 |:---:|---|---|
 | ❌ | Meditations | Marcus Aurelius |
 | ❌ | Letters from a Stoic | Seneca |
-| ❌ | The Art of War | Sun Tzu |
+| 🔵 | The Art of War | Sun Tzu |
 | ❌ | Antifragile | Nassim Nicholas Taleb |
 | ❌ | The Myth of Sisyphus | Albert Camus |
 | ❌ | Tao Te Ching | Lao Tzu |
@@ -221,7 +274,7 @@
 | ❌ | Outliers | Malcolm Gladwell |
 | ❌ | Quiet | Susan Cain |
 | ❌ | The Body Keeps the Score | Bessel van der Kolk |
-| ❌ | The Dissociation of a Personality | Morton Prince |
+| 🔵 | The Dissociation of a Personality | Morton Prince |
 | ❌ | Flow | Mihaly Csikszentmihalyi |
 | ❌ | The Man Who Mistook His Wife for a Hat | Oliver Sacks |
 | ❌ | The Denial of Death | Ernest Becker |
@@ -250,8 +303,6 @@
 | Read | Title | Author |
 |:---:|---|---|
 | ❌ | Why We Sleep | Matthew Walker |
-| ❌ | A Brief History of Time | Stephen Hawking |
-| ❌ | Cosmos | Carl Sagan |
 | ❌ | Gödel, Escher, Bach | Douglas R. Hofstadter |
 | ❌ | Entangled Life | Merlin Sheldrake |
 | ❌ | Behave | Robert M. Sapolsky |
@@ -281,13 +332,147 @@
 | ❌ | Helter Skelter | Vincent Bugliosi and Curt Gentry |
 | ❌ | Columbine | Dave Cullen |
 
+### Space & Astronomy
+
+| Read | Title | Author |
+|:---:|---|---|
+| ❌ | Cosmos | Carl Sagan |
+| ❌ | A Brief History of Time | Stephen Hawking |
+| ❌ | Astrophysics for People in a Hurry | Neil deGrasse Tyson |
+| ❌ | Death by Black Hole | Neil deGrasse Tyson |
+| ❌ | Welcome to the Universe | Neil deGrasse Tyson, Michael A. Strauss and J. Richard Gott |
+| ❌ | Origins | Neil deGrasse Tyson and Donald Goldsmith |
+| ❌ | Letters from an Astrophysicist | Neil deGrasse Tyson |
+| ❌ | The Universe in a Nutshell | Stephen Hawking |
+| ❌ | Brief Answers to the Big Questions | Stephen Hawking |
+| ❌ | The Elegant Universe | Brian Greene |
+| ❌ | The Fabric of the Cosmos | Brian Greene |
+| ❌ | Until the End of Time | Brian Greene |
+| ❌ | The Hidden Reality | Brian Greene |
+| ❌ | The Right Stuff | Tom Wolfe |
+| ❌ | Carrying the Fire | Michael Collins |
+| ❌ | Endurance | Scott Kelly |
+| ❌ | Hidden Figures | Margot Lee Shetterly |
+| ❌ | Packing for Mars | Mary Roach |
+| ❌ | Black Holes and Time Warps | Kip S. Thorne |
+| ❌ | The Science of Interstellar | Kip Thorne |
+| ❌ | Warped Passages | Lisa Randall |
+| ❌ | Dark Matter and the Dinosaurs | Lisa Randall |
+| ❌ | Our Mathematical Universe | Max Tegmark |
+| ❌ | A Universe from Nothing | Lawrence M. Krauss |
+| ❌ | Spaceman | Mike Massimino |
+| ❌ | The Disordered Cosmos | Chanda Prescod-Weinstein |
+| ❌ | The Planets | Dava Sobel |
+| ❌ | The Glass Universe | Dava Sobel |
+| ❌ | NightWatch | Terence Dickinson |
+
+### Technology & AI
+
+| Read | Title | Author |
+|:---:|---|---|
+| ❌ | Life 3.0 | Max Tegmark |
+| ❌ | Superintelligence | Nick Bostrom |
+| ❌ | Human Compatible | Stuart Russell |
+| ❌ | The Alignment Problem | Brian Christian |
+| ❌ | Algorithms to Live By | Brian Christian and Tom Griffiths |
+| ❌ | Architects of Intelligence | Martin Ford |
+| ❌ | Weapons of Math Destruction | Cathy O’Neil |
+| ❌ | The Master Algorithm | Pedro Domingos |
+| ❌ | AI Superpowers | Kai-Fu Lee |
+| ❌ | The Innovators | Walter Isaacson |
+| ❌ | The Pragmatic Programmer | Andrew Hunt and David Thomas |
+| ❌ | Clean Code | Robert C. Martin |
+| ❌ | Code: The Hidden Language of Computer Hardware and Software | Charles Petzold |
+| ❌ | The Soul of a New Machine | Tracy Kidder |
+| ❌ | Hackers: Heroes of the Computer Revolution | Steven Levy |
+| ❌ | The Information | James Gleick |
+| ❌ | Hello World | Hannah Fry |
+| ❌ | The Age of Surveillance Capitalism | Shoshana Zuboff |
+| ❌ | Artificial Intelligence: A Modern Approach | Stuart Russell and Peter Norvig |
+| ❌ | The Singularity Is Near | Ray Kurzweil |
+| ❌ | Rebooting AI | Gary Marcus and Ernest Davis |
+| ❌ | Genius Makers | Cade Metz |
+| ❌ | Zero to One | Peter Thiel and Blake Masters |
+| ❌ | Atlas of AI | Kate Crawford |
+| ❌ | Co-Intelligence | Ethan Mollick |
+| ❌ | Nexus | Yuval Noah Harari |
+| ❌ | Where Wizards Stay Up Late | Katie Hafner and Matthew Lyon |
+| ❌ | Turing’s Cathedral | George Dyson |
+| ❌ | The Dream Machine | M. Mitchell Waldrop |
+
+### Spirituality & Religion
+
+| Read | Title | Author |
+|:---:|---|---|
+| ❌ | The Bhagavad Gita | Vyasa |
+| ❌ | Autobiography of a Yogi | Paramahansa Yogananda |
+| ❌ | The Tibetan Book of Living and Dying | Sogyal Rinpoche |
+| ❌ | Zen Mind, Beginner’s Mind | Shunryu Suzuki |
+| ❌ | The Way of Zen | Alan Watts |
+| ❌ | The Wisdom of Insecurity | Alan Watts |
+| ❌ | The Upanishads | Eknath Easwaran (translator) |
+| ❌ | The Dhammapada | Gautama Buddha |
+| ❌ | The Varieties of Religious Experience | William James |
+| ❌ | A History of God | Karen Armstrong |
+| ❌ | The Sacred and the Profane | Mircea Eliade |
+| ❌ | The Hero with a Thousand Faces | Joseph Campbell |
+| ❌ | The Power of Myth | Joseph Campbell and Bill Moyers |
+| ❌ | The World’s Religions | Huston Smith |
+| ❌ | Mere Christianity | C.S. Lewis |
+| ❌ | The God Delusion | Richard Dawkins |
+| ❌ | The Yoga Sutras of Patanjali | Patanjali |
+| ❌ | Be Here Now | Ram Dass |
+| ❌ | The Book of Joy | Dalai Lama, Desmond Tutu and Douglas Abrams |
+| ❌ | The Miracle of Mindfulness | Thich Nhat Hanh |
+| ❌ | Peace Is Every Step | Thich Nhat Hanh |
+| ❌ | The Imitation of Christ | Thomas à Kempis |
+| ❌ | The Essential Rumi | Jalal al-Din Rumi, translated by Coleman Barks |
+| ❌ | The Confessions of Saint Augustine | Augustine of Hippo |
+| ❌ | Gitanjali | Rabindranath Tagore |
+| ❌ | Why I Am an Atheist | Bhagat Singh |
+| ❌ | The Gospel of Sri Ramakrishna | Mahendranath Gupta |
+| ❌ | The Qur’an | translated by M.A.S. Abdel Haleem |
+
+### Travel & Exploration
+
+| Read | Title | Author |
+|:---:|---|---|
+| ❌ | Into the Wild | Jon Krakauer |
+| ❌ | Into Thin Air | Jon Krakauer |
+| ❌ | A Walk in the Woods | Bill Bryson |
+| ❌ | Notes from a Small Island | Bill Bryson |
+| ❌ | The Motorcycle Diaries | Ernesto Che Guevara |
+| ❌ | In Patagonia | Bruce Chatwin |
+| ❌ | The Songlines | Bruce Chatwin |
+| ❌ | Travels with Charley | John Steinbeck |
+| ❌ | Kon-Tiki | Thor Heyerdahl |
+| ❌ | Endurance: Shackleton’s Incredible Voyage | Alfred Lansing |
+| ❌ | The Worst Journey in the World | Apsley Cherry-Garrard |
+| ❌ | Annapurna | Maurice Herzog |
+| ❌ | Seven Years in Tibet | Heinrich Harrer |
+| ❌ | The Old Ways | Robert Macfarlane |
+| ❌ | The Great Railway Bazaar | Paul Theroux |
+| ❌ | Dark Star Safari | Paul Theroux |
+| ❌ | Road to Oxiana | Robert Byron |
+| ❌ | The Places in Between | Rory Stewart |
+| ❌ | The Snow Leopard | Peter Matthiessen |
+| ❌ | Arabian Sands | Wilfred Thesiger |
+| ❌ | Desert Solitaire | Edward Abbey |
+| ❌ | Blue Highways | William Least Heat-Moon |
+| ❌ | Tracks | Robyn Davidson |
+| ❌ | The Voyage of the Beagle | Charles Darwin |
+| ❌ | Roughing It | Mark Twain |
+| ❌ | The Innocents Abroad | Mark Twain |
+| ❌ | The Travels of Ibn Battutah | Ibn Battuta |
+| ❌ | The Travels of Marco Polo | Marco Polo |
+
 ## Novels
 
 ### Fantasy
 
 | Read | Title | Author |
 |:---:|---|---|
-| ❌ | The Hobbit | J.R.R. Tolkien |
+| 🔵 | The Hobbit | J.R.R. Tolkien |
 | ❌ | The Fellowship of the Ring | J.R.R. Tolkien |
 | ❌ | Harry Potter and the Sorcerer’s Stone | J.K. Rowling |
 | ❌ | The Name of the Wind | Patrick Rothfuss |
@@ -322,7 +507,6 @@
 | ❌ | The Little Prince | Antoine de Saint-Exupéry |
 | ❌ | The Alchemist | Paulo Coelho |
 | ❌ | The Midnight Library | Matt Haig |
-| ❌ | Animal Farm | George Orwell |
 | ❌ | Of Mice and Men | John Steinbeck |
 | ❌ | To Kill a Mockingbird | Harper Lee |
 | ❌ | The Great Gatsby | F. Scott Fitzgerald |
@@ -330,12 +514,9 @@
 | ❌ | The Kite Runner | Khaled Hosseini |
 | ❌ | Tomorrow, and Tomorrow, and Tomorrow | Gabrielle Zevin |
 | ❌ | Norwegian Wood | Haruki Murakami |
-| ❌ | Kafka on the Shore | Haruki Murakami |
 | ❌ | Crime and Punishment | Fyodor Dostoevsky |
-| ❌ | The Master and Margarita | Mikhail Bulgakov |
 | ❌ | Anna Karenina | Leo Tolstoy |
 | ❌ | The Stranger | Albert Camus |
-| ❌ | One Hundred Years of Solitude | Gabriel García Márquez |
 | ❌ | Don Quixote | Miguel de Cervantes |
 | ❌ | The Old Man and the Sea | Ernest Hemingway |
 | ❌ | Life of Pi | Yann Martel |
@@ -345,7 +526,6 @@
 | ❌ | Blindness | José Saramago |
 | ❌ | Siddhartha | Hermann Hesse |
 | ❌ | Steppenwolf | Hermann Hesse |
-| ❌ | Pedro Páramo | Juan Rulfo |
 | ❌ | No Longer Human | Osamu Dazai |
 | ❌ | Convenience Store Woman | Sayaka Murata |
 | ❌ | Gilead | Marilynne Robinson |
@@ -354,7 +534,6 @@
 | ❌ | The God of Small Things | Arundhati Roy |
 | ❌ | A Fine Balance | Rohinton Mistry |
 | ❌ | Train to Pakistan | Khushwant Singh |
-| ❌ | Midnight’s Children | Salman Rushdie |
 | ❌ | The Unbearable Lightness of Being | Milan Kundera |
 | ❌ | Notes from Underground | Fyodor Dostoevsky |
 | ❌ | The Brothers Karamazov | Fyodor Dostoevsky |
@@ -364,15 +543,11 @@
 | Read | Title | Author |
 |:---:|---|---|
 | ❌ | Project Hail Mary | Andy Weir |
-| ❌ | 1984 | George Orwell |
 | ❌ | Dune | Frank Herbert |
 | ❌ | Ender’s Game | Orson Scott Card |
 | ❌ | The Martian | Andy Weir |
 | ❌ | The Hitchhiker’s Guide to the Galaxy | Douglas Adams |
-| ❌ | Fahrenheit 451 | Ray Bradbury |
-| ❌ | Brave New World | Aldous Huxley |
-| ❌ | The Hunger Games | Suzanne Collins |
-| ❌ | And That’s How It Was, Officer | Ralph Sholto |
+| 🔵 | And That’s How It Was, Officer | Ralph Sholto |
 | ❌ | Solaris | Stanisław Lem |
 | ❌ | The Left Hand of Darkness | Ursula K. Le Guin |
 | ❌ | The Dispossessed | Ursula K. Le Guin |
@@ -394,7 +569,8 @@
 | ❌ | Kindred | Octavia E. Butler |
 | ❌ | The Sparrow | Mary Doria Russell |
 | ❌ | Anathem | Neal Stephenson |
-| ❌ | We | Yevgeny Zamyatin |
+| ❌ | The War of the Worlds | H.G. Wells |
+| ❌ | Contact | Carl Sagan |
 
 ### Romance
 
@@ -465,6 +641,136 @@
 | ❌ | All Quiet on the Western Front | Erich Maria Remarque |
 | ❌ | The Alienist | Caleb Carr |
 | ❌ | The Nightingale | Kristin Hannah |
+| ❌ | Dragon Teeth | Michael Crichton |
+| ❌ | Remarkable Creatures | Tracy Chevalier |
+
+### Dystopian
+
+| Read | Title | Author |
+|:---:|---|---|
+| ❌ | 1984 | George Orwell |
+| ❌ | Brave New World | Aldous Huxley |
+| ❌ | Fahrenheit 451 | Ray Bradbury |
+| ❌ | The Hunger Games | Suzanne Collins |
+| ❌ | We | Yevgeny Zamyatin |
+| ❌ | Animal Farm | George Orwell |
+| ❌ | The Handmaid’s Tale | Margaret Atwood |
+| ❌ | Oryx and Crake | Margaret Atwood |
+| ❌ | A Clockwork Orange | Anthony Burgess |
+| ❌ | The Giver | Lois Lowry |
+| ❌ | The Road | Cormac McCarthy |
+| ❌ | Battle Royale | Koushun Takami |
+| ❌ | Parable of the Sower | Octavia E. Butler |
+| ❌ | The Memory Police | Yoko Ogawa |
+| ❌ | Riddley Walker | Russell Hoban |
+| ❌ | Children of Men | P.D. James |
+| ❌ | Wool | Hugh Howey |
+| ❌ | Lord of the Flies | William Golding |
+| ❌ | Darkness at Noon | Arthur Koestler |
+| ❌ | It Can’t Happen Here | Sinclair Lewis |
+| ❌ | The Power | Naomi Alderman |
+| ❌ | Klara and the Sun | Kazuo Ishiguro |
+| ❌ | The Water Knife | Paolo Bacigalupi |
+| ❌ | Little Brother | Cory Doctorow |
+| ❌ | Anthem | Ayn Rand |
+| ❌ | Player Piano | Kurt Vonnegut |
+| ❌ | Make Room! Make Room! | Harry Harrison |
+
+### Magical Realism
+
+| Read | Title | Author |
+|:---:|---|---|
+| ❌ | One Hundred Years of Solitude | Gabriel García Márquez |
+| ❌ | Kafka on the Shore | Haruki Murakami |
+| ❌ | The Master and Margarita | Mikhail Bulgakov |
+| ❌ | Midnight’s Children | Salman Rushdie |
+| ❌ | Pedro Páramo | Juan Rulfo |
+| ❌ | Love in the Time of Cholera | Gabriel García Márquez |
+| ❌ | Chronicle of a Death Foretold | Gabriel García Márquez |
+| ❌ | Like Water for Chocolate | Laura Esquivel |
+| ❌ | The House of the Spirits | Isabel Allende |
+| ❌ | The Wind-Up Bird Chronicle | Haruki Murakami |
+| ❌ | 1Q84 | Haruki Murakami |
+| ❌ | Hard-Boiled Wonderland and the End of the World | Haruki Murakami |
+| ❌ | The Tin Drum | Günter Grass |
+| ❌ | The Famished Road | Ben Okri |
+| ❌ | Ficciones | Jorge Luis Borges |
+| ❌ | Invisible Cities | Italo Calvino |
+| ❌ | The Baron in the Trees | Italo Calvino |
+| ❌ | The Ocean at the End of the Lane | Neil Gaiman |
+| ❌ | Big Fish | Daniel Wallace |
+| ❌ | The Tiger’s Wife | Téa Obreht |
+| ❌ | Song of Solomon | Toni Morrison |
+| ❌ | The Palace of Illusions | Chitra Banerjee Divakaruni |
+| ❌ | Sula | Toni Morrison |
+
+### Horror
+
+| Read | Title | Author |
+|:---:|---|---|
+| ❌ | Dracula | Bram Stoker |
+| ❌ | Frankenstein | Mary Shelley |
+| ❌ | The Haunting of Hill House | Shirley Jackson |
+| ❌ | We Have Always Lived in the Castle | Shirley Jackson |
+| ❌ | The Shining | Stephen King |
+| ❌ | Pet Sematary | Stephen King |
+| ❌ | Misery | Stephen King |
+| ❌ | ’Salem’s Lot | Stephen King |
+| ❌ | Rosemary’s Baby | Ira Levin |
+| ❌ | The Exorcist | William Peter Blatty |
+| ❌ | Interview with the Vampire | Anne Rice |
+| ❌ | Something Wicked This Way Comes | Ray Bradbury |
+| ❌ | The Turn of the Screw | Henry James |
+| ❌ | Strange Case of Dr Jekyll and Mr Hyde | Robert Louis Stevenson |
+| ❌ | The Picture of Dorian Gray | Oscar Wilde |
+| ❌ | Carmilla | Sheridan Le Fanu |
+| ❌ | House of Leaves | Mark Z. Danielewski |
+| ❌ | Hell House | Richard Matheson |
+| ❌ | I Am Legend | Richard Matheson |
+| ❌ | The Fisherman | John Langan |
+| ❌ | Mexican Gothic | Silvia Moreno-Garcia |
+| ❌ | The Only Good Indians | Stephen Graham Jones |
+| ❌ | The Hellbound Heart | Clive Barker |
+| ❌ | Ring | Koji Suzuki |
+| ❌ | Audition | Ryu Murakami |
+| ❌ | The Little Stranger | Sarah Waters |
+| ❌ | Bird Box | Josh Malerman |
+| ❌ | The Elementals | Michael McDowell |
+
+### Adventure
+
+| Read | Title | Author |
+|:---:|---|---|
+| ❌ | Treasure Island | Robert Louis Stevenson |
+| ❌ | Kidnapped | Robert Louis Stevenson |
+| ❌ | The Three Musketeers | Alexandre Dumas |
+| ❌ | Around the World in Eighty Days | Jules Verne |
+| ❌ | Twenty Thousand Leagues Under the Seas | Jules Verne |
+| ❌ | Journey to the Center of the Earth | Jules Verne |
+| ❌ | King Solomon’s Mines | H. Rider Haggard |
+| ❌ | She | H. Rider Haggard |
+| ❌ | Robinson Crusoe | Daniel Defoe |
+| ❌ | Moby-Dick | Herman Melville |
+| ❌ | The Call of the Wild | Jack London |
+| ❌ | White Fang | Jack London |
+| ❌ | Hatchet | Gary Paulsen |
+| ❌ | The Jungle Book | Rudyard Kipling |
+| ❌ | Kim | Rudyard Kipling |
+| ❌ | The Man Who Would Be King | Rudyard Kipling |
+| ❌ | The Prisoner of Zenda | Anthony Hope |
+| ❌ | The Scarlet Pimpernel | Baroness Orczy |
+| ❌ | Captain Blood | Rafael Sabatini |
+| ❌ | Scaramouche | Rafael Sabatini |
+| ❌ | Heart of Darkness | Joseph Conrad |
+| ❌ | Lord Jim | Joseph Conrad |
+| ❌ | Jurassic Park | Michael Crichton |
+| ❌ | The Lost World | Arthur Conan Doyle |
+| ❌ | A Princess of Mars | Edgar Rice Burroughs |
+| ❌ | Tarzan of the Apes | Edgar Rice Burroughs |
+| ❌ | The Princess Bride | William Goldman |
+| ❌ | Shantaram | Gregory David Roberts |
+| ❌ | Papillon | Henri Charrière |
+| ❌ | The Odyssey | Homer |
 
 ## Manga
 
@@ -472,7 +778,7 @@
 
 | Read | Title | Author | All genres |
 |:---:|---|---|---|
-| ❌ | Fullmetal Alchemist | Hiromu Arakawa | Fantasy, Adventure |
+| 🔵 | Fullmetal Alchemist | Hiromu Arakawa | Fantasy, Adventure |
 | ❌ | Frieren: Beyond Journey’s End | Kanehito Yamada and Tsukasa Abe | Fantasy, Adventure |
 | ❌ | Nausicaä of the Valley of the Wind | Hayao Miyazaki | Fantasy, Science Fiction |
 | ❌ | Delicious in Dungeon | Ryoko Kui | Fantasy, Comedy |
