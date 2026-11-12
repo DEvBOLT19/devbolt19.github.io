@@ -1,8 +1,122 @@
 # Reading List
 
-- ✅ = read 
-- ❌ = not read yet
-- 🟦 = reading rn 
+✅ = read · ❌ = not read yet
+
+## Subjects
+
+### History
+
+| Read | Title | Author |
+|:---:|---|---|
+| ❌ | Sapiens | Yuval Noah Harari |
+| ❌ | Guns, Germs, and Steel | Jared Diamond |
+| ❌ | The Silk Roads | Peter Frankopan |
+| ❌ | Debt: The First 5,000 Years | David Graeber |
+| ❌ | Prisoners of Geography | Tim Marshall |
+| ❌ | India After Gandhi | Ramachandra Guha |
+| ❌ | The Guns of August | Barbara W. Tuchman |
+| ❌ | SPQR | Mary Beard |
+| ❌ | Genghis Khan and the Making of the Modern World | Jack Weatherford |
+| ❌ | Salt: A World History | Mark Kurlansky |
+| ❌ | The Warmth of Other Suns | Isabel Wilkerson |
+| ❌ | The Penguin History of the World | J.M. Roberts and Odd Arne Westad |
+| ❌ | A History of the World | Andrew Marr |
+| ❌ | The Lessons of History | Will Durant and Ariel Durant |
+| ❌ | The Colour of Time | Dan Jones and Marina Amaral |
+| ❌ | India: A History | John Keay |
+| ❌ | Early India | Romila Thapar |
+| ❌ | The Wonder That Was India | A.L. Basham |
+| ❌ | White Mughals | William Dalrymple |
+| ❌ | John Adams | David McCullough |
+| ❌ | The Splendid and the Vile | Erik Larson |
+| ❌ | The Rise and Fall of the Third Reich | William L. Shirer |
+| ❌ | The Bastard Brigade | Sam Kean |
+| ❌ | American Prometheus | Kai Bird and Martin J. Sherwin |
+| ❌ | A Short History of Nearly Everything | Bill Bryson |
+| ❌ | Caste: The Origins of Our Discontents | Isabel Wilkerson |
+| ❌ | The Republic of Pirates | Colin Woodard |
+| ❌ | NeuroTribes | Steve Silberman |
+| ❌ | The Assassination of Julius Caesar | Michael Parenti |
+| ❌ | Postwar | Tony Judt |
+| ❌ | A People’s History of the United States | Howard Zinn |
+| ❌ | The Discovery of India | Jawaharlal Nehru |
+| ❌ | The Anarchy | William Dalrymple |
+| ❌ | The Last Mughal | William Dalrymple |
+| ❌ | Freedom at Midnight | Larry Collins and Dominique Lapierre |
+| ❌ | India Before Europe | Catherine B. Asher and Cynthia Talbot |
+| ❌ | Midnight’s Furies | Nisid Hajari |
+| ❌ | Rubicon | Tom Holland |
+| ❌ | Dominion | Tom Holland |
+| ❌ | Histories | Herodotus |
+| ❌ | History of the Peloponnesian War | Thucydides |
+| ❌ | A Distant Mirror | Barbara W. Tuchman |
+| ❌ | The Great Mortality | John Kelly |
+| ❌ | Gulag: A History | Anne Applebaum |
+| ❌ | The Making of the Atomic Bomb | Richard Rhodes |
+| ❌ | The Wager | David Grann |
+| ❌ | The Ghost Map | Steven Johnson |
+| ❌ | Empire of the Summer Moon | S.C. Gwynne |
+| ❌ | Osman’s Dream | Caroline Finkel |
+| ❌ | Why Nations Fail | Daron Acemoglu and James A. Robinson |
+| ❌ | The Cold War: A New History | John Lewis Gaddis |
+| ❌ | Lords of Finance | Liaquat Ahamed |
+| ❌ | The Storm Before the Storm | Mike Duncan |
+
+### Paleontology
+
+| Read | Title | Author |
+|:---:|---|---|
+| ❌ | Principles of Paleontology | Michael Foote and Arnold I. Miller |
+| ❌ | Dinosaurs Rediscovered | Michael J. Benton |
+| ❌ | The Rise and Fall of the Dinosaurs | Steve Brusatte |
+| ❌ | The Dinosaur Heresies | Robert T. Bakker |
+| ❌ | Your Inner Fish | Neil Shubin |
+| ❌ | Wonderful Life | Stephen Jay Gould |
+| ❌ | Life on a Young Planet | Andrew H. Knoll |
+| ❌ | The Complete Dinosaur | M.K. Brett-Surman, Thomas R. Holtz Jr. and James O. Farlow |
+| ❌ | The Princeton Field Guide to Dinosaurs | Gregory S. Paul |
+| ❌ | Dinosaur Odyssey | Scott D. Sampson |
+| ❌ | T. rex and the Crater of Doom | Walter Alvarez |
+| ❌ | Trilobite! | Richard Fortey |
+| ❌ | Life: An Unauthorised Biography | Richard Fortey |
+| ❌ | The Fossil Hunter | Shelley Emling |
+| ❌ | Otherlands | Thomas Halliday |
+| ❌ | Dinosaurs: A Concise Natural History | David E. Fastovsky and David B. Weishampel |
+| ❌ | The Evolution and Extinction of the Dinosaurs | David E. Fastovsky and David B. Weishampel |
+| ❌ | Vertebrate Palaeontology | Michael J. Benton |
+| ❌ | Digging Dinosaurs | John R. Horner and James Gorman |
+| ❌ | The Dinosaur Hunters | Deborah Cadbury |
+| ❌ | The Last Days of the Dinosaurs | Riley Black |
+| ❌ | Evolution: What the Fossils Say and Why It Matters | Donald R. Prothero |
+| ❌ | Written in Stone | Brian Switek |
+| ❌ | Dinosaur Paleobiology | Stephen L. Brusatte |
+| ❌ | Lucy: The Beginnings of Humankind | Donald Johanson and Maitland Edey |
+
+### Archaeology
+
+| Read | Title | Author |
+|:---:|---|---|
+| ❌ | Archaeology: Theories, Methods and Practice | Colin Renfrew and Paul Bahn |
+| ❌ | Archaeological Theory: An Introduction | Matthew Johnson |
+| ❌ | Gods, Graves and Scholars | C.W. Ceram |
+| ❌ | Ten Discoveries That Rewrote History | Patrick Hunt |
+| ❌ | The Bog People | P.V. Glob |
+| ❌ | Field Archaeology: An Introduction | Peter Drewett |
+| ❌ | Digging Up the Past: An Introduction to Archaeological Excavation | John Collis |
+| ❌ | India: An Archaeological History | Dilip K. Chakrabarty |
+| ❌ | The Handbook of British Archaeology | Lesley Adkins and Roy Adkins |
+| ❌ | Island at the Edge of the World | Mike Pitts |
+| ❌ | 1491 | Charles C. Mann |
+| ❌ | The Dawn of Everything | David Graeber and David Wengrow |
+| ❌ | The Complete Pyramids | Mark Lehner |
+| ❌ | Stonehenge: Exploring the Greatest Stone Age Mystery | Mike Parker Pearson |
+| ❌ | The Ancient Indus Valley | Jane McIntosh |
+| ❌ | Pompeii: The Life of a Roman Town | Mary Beard |
+| ❌ | History Begins at Sumer | Samuel Noah Kramer |
+| ❌ | The Lost City of Z | David Grann |
+| ❌ | The Lost World of the Old Ones | David Roberts |
+| ❌ | The Rise and Fall of Ancient Egypt | Toby Wilkinson |
+
 ## Books (Nonfiction)
 
 ### Self-Help & Personal Development
@@ -85,7 +199,7 @@
 |:---:|---|---|
 | ❌ | Meditations | Marcus Aurelius |
 | ❌ | Letters from a Stoic | Seneca |
-| 🟦 | The Art of War | Sun Tzu |
+| ❌ | The Art of War | Sun Tzu |
 | ❌ | Antifragile | Nassim Nicholas Taleb |
 | ❌ | The Myth of Sisyphus | Albert Camus |
 | ❌ | Tao Te Ching | Lao Tzu |
@@ -107,7 +221,7 @@
 | ❌ | Outliers | Malcolm Gladwell |
 | ❌ | Quiet | Susan Cain |
 | ❌ | The Body Keeps the Score | Bessel van der Kolk |
-| 🟦 | The Dissociation of a Personality | Morton Prince |
+| ❌ | The Dissociation of a Personality | Morton Prince |
 | ❌ | Flow | Mihaly Csikszentmihalyi |
 | ❌ | The Man Who Mistook His Wife for a Hat | Oliver Sacks |
 | ❌ | The Denial of Death | Ernest Becker |
@@ -118,22 +232,6 @@
 | ❌ | The Road Less Traveled | M. Scott Peck |
 | ❌ | Stumbling on Happiness | Daniel Gilbert |
 | ❌ | Emotional Intelligence | Daniel Goleman |
-
-### History & Culture
-
-| Read | Title | Author |
-|:---:|---|---|
-| ❌ | Sapiens | Yuval Noah Harari |
-| ❌ | Guns, Germs, and Steel | Jared Diamond |
-| ❌ | The Silk Roads | Peter Frankopan |
-| ❌ | Debt: The First 5,000 Years | David Graeber |
-| ❌ | Prisoners of Geography | Tim Marshall |
-| ❌ | India After Gandhi | Ramachandra Guha |
-| ❌ | The Guns of August | Barbara W. Tuchman |
-| ❌ | SPQR | Mary Beard |
-| ❌ | Genghis Khan and the Making of the Modern World | Jack Weatherford |
-| ❌ | Salt: A World History | Mark Kurlansky |
-| ❌ | The Warmth of Other Suns | Isabel Wilkerson |
 
 ### Biography
 
@@ -274,7 +372,7 @@
 | ❌ | Fahrenheit 451 | Ray Bradbury |
 | ❌ | Brave New World | Aldous Huxley |
 | ❌ | The Hunger Games | Suzanne Collins |
-| 🟦 | And That’s How It Was, Officer | Ralph Sholto |
+| ❌ | And That’s How It Was, Officer | Ralph Sholto |
 | ❌ | Solaris | Stanisław Lem |
 | ❌ | The Left Hand of Darkness | Ursula K. Le Guin |
 | ❌ | The Dispossessed | Ursula K. Le Guin |
