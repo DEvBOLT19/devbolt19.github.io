@@ -1,7 +1,8 @@
 # Reading List
 
-✅ = read · ❌ = not read yet
-
+- ✅ = read 
+- ❌ = not read yet
+- 🟦 = reading rn 
 ## Books (Nonfiction)
 
 ### Self-Help & Personal Development
