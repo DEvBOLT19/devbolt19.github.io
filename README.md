@@ -84,7 +84,7 @@
 |:---:|---|---|
 | ❌ | Meditations | Marcus Aurelius |
 | ❌ | Letters from a Stoic | Seneca |
-| ❌ | The Art of War | Sun Tzu |
+| 🟦 | The Art of War | Sun Tzu |
 | ❌ | Antifragile | Nassim Nicholas Taleb |
 | ❌ | The Myth of Sisyphus | Albert Camus |
 | ❌ | Tao Te Ching | Lao Tzu |
@@ -106,7 +106,7 @@
 | ❌ | Outliers | Malcolm Gladwell |
 | ❌ | Quiet | Susan Cain |
 | ❌ | The Body Keeps the Score | Bessel van der Kolk |
-| ❌ | The Dissociation of a Personality | Morton Prince |
+| 🟦 | The Dissociation of a Personality | Morton Prince |
 | ❌ | Flow | Mihaly Csikszentmihalyi |
 | ❌ | The Man Who Mistook His Wife for a Hat | Oliver Sacks |
 | ❌ | The Denial of Death | Ernest Becker |
@@ -273,7 +273,7 @@
 | ❌ | Fahrenheit 451 | Ray Bradbury |
 | ❌ | Brave New World | Aldous Huxley |
 | ❌ | The Hunger Games | Suzanne Collins |
-| ❌ | And That’s How It Was, Officer | Ralph Sholto |
+| 🟦 | And That’s How It Was, Officer | Ralph Sholto |
 | ❌ | Solaris | Stanisław Lem |
 | ❌ | The Left Hand of Darkness | Ursula K. Le Guin |
 | ❌ | The Dispossessed | Ursula K. Le Guin |
