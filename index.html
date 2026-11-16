@@ -3,662 +3,278 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0c0c0c">
 <title>BOLT — Discord bot</title>
 <meta name="description" content="BOLT handles tickets, intro channels, AFK and moderation from Discord and the web.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20519%20258%22%20width%3D%22519%22%20height%3D%22258%22%3E%20%3Cpath%20d%3D%22M%20503.57%2C11.15%20C%20502.63%2C11.37%20500.23%2C12.03%20497.96%2C12.65%20C%20495.70%2C13.28%20492.66%2C14.16%20490.00%2C14.91%20C%20487.34%2C15.66%20484.67%2C16.40%20482.00%2C17.14%20C%20479.33%2C17.88%20476.67%2C18.62%20474.00%2C19.36%20C%20471.33%2C20.10%20468.67%2C20.84%20466.00%2C21.58%20C%20463.33%2C22.32%20460.67%2C23.07%20458.00%2C23.81%20C%20455.33%2C24.55%20452.67%2C25.28%20450.00%2C26.02%20C%20447.33%2C26.76%20444.67%2C27.52%20442.00%2C28.26%20C%20439.33%2C29.00%20436.67%2C29.72%20434.00%2C30.46%20C%20431.33%2C31.20%20428.67%2C31.96%20426.00%2C32.70%20C%20423.33%2C33.44%20420.67%2C34.17%20418.00%2C34.91%20C%20415.33%2C35.65%20412.67%2C36.40%20410.00%2C37.14%20C%20407.33%2C37.88%20404.67%2C38.62%20402.00%2C39.36%20C%20399.33%2C40.10%20396.67%2C40.84%20394.00%2C41.58%20C%20391.33%2C42.32%20388.67%2C43.08%20386.00%2C43.81%20C%20383.33%2C44.55%20380.67%2C45.27%20378.00%2C46.00%20C%20375.33%2C46.73%20372.67%2C47.46%20370.00%2C48.18%20C%20367.33%2C48.91%20364.67%2C49.63%20362.00%2C50.36%20C%20359.33%2C51.10%20356.67%2C51.84%20354.00%2C52.58%20C%20351.33%2C53.32%20348.67%2C54.08%20346.00%2C54.81%20C%20343.33%2C55.55%20340.67%2C56.27%20338.00%2C57.00%20C%20335.33%2C57.73%20332.67%2C58.46%20330.00%2C59.18%20C%20327.33%2C59.91%20324.67%2C60.64%20322.00%2C61.36%20C%20319.33%2C62.09%20316.67%2C62.82%20314.00%2C63.54%20C%20311.33%2C64.27%20308.67%2C65.00%20306.00%2C65.73%20C%20303.33%2C66.46%20300.67%2C67.19%20298.00%2C67.91%20C%20295.33%2C68.63%20292.67%2C69.35%20290.00%2C70.07%20C%20287.33%2C70.78%20284.67%2C71.48%20282.00%2C72.20%20C%20279.33%2C72.91%20276.67%2C73.64%20274.00%2C74.36%20C%20271.33%2C75.09%20268.67%2C75.82%20266.00%2C76.54%20C%20263.33%2C77.25%20260.67%2C77.93%20258.00%2C78.63%20C%20255.33%2C79.33%20252.67%2C80.03%20250.00%2C80.73%20C%20247.33%2C81.44%20244.67%2C82.16%20242.00%2C82.85%20C%20239.33%2C83.55%20236.67%2C84.20%20234.00%2C84.89%20C%20231.33%2C85.58%20228.67%2C86.30%20226.00%2C87.00%20C%20223.33%2C87.70%20220.67%2C88.42%20218.00%2C89.11%20C%20215.33%2C89.80%20212.67%2C90.47%20210.00%2C91.12%20C%20207.33%2C91.78%20204.67%2C92.46%20202.00%2C93.06%20C%20199.33%2C93.66%20196.67%2C94.30%20194.00%2C94.75%20C%20191.33%2C95.20%20188.67%2C95.61%20186.00%2C95.77%20C%20183.33%2C95.93%20180.67%2C96.02%20178.00%2C95.71%20C%20175.33%2C95.39%20172.64%2C94.97%20170.00%2C93.88%20C%20167.36%2C92.79%20164.55%2C91.16%20162.14%2C89.18%20C%20159.73%2C87.20%20157.35%2C84.50%20155.55%2C81.97%20C%20153.75%2C79.44%20152.43%2C76.66%20151.32%2C74.00%20C%20150.22%2C71.34%20149.56%2C68.67%20148.93%2C66.00%20C%20148.31%2C63.33%20147.89%2C60.67%20147.58%2C58.00%20C%20147.26%2C55.33%20147.14%2C52.64%20147.05%2C50.00%20C%20146.95%2C47.36%20147.06%2C44.15%20147.00%2C42.18%20C%20146.93%2C40.20%20146.95%2C38.15%20146.65%2C38.15%20C%20146.35%2C38.15%20145.83%2C40.20%20145.21%2C42.18%20C%20144.58%2C44.15%20143.71%2C47.36%20142.92%2C50.00%20C%20142.13%2C52.64%20141.30%2C55.33%20140.46%2C58.00%20C%20139.63%2C60.67%20138.82%2C63.33%20137.91%2C66.00%20C%20137.00%2C68.67%20136.00%2C71.33%20135.00%2C74.00%20C%20134.00%2C76.67%20132.98%2C79.33%20131.91%2C82.00%20C%20130.84%2C84.67%20129.77%2C87.33%20128.57%2C90.00%20C%20127.37%2C92.67%20126.10%2C95.33%20124.73%2C98.00%20C%20123.36%2C100.67%20122.00%2C103.33%20120.36%2C106.00%20C%20118.73%2C108.67%20117.00%2C111.35%20114.93%2C114.00%20C%20112.85%2C116.65%20110.40%2C119.38%20107.91%2C121.89%20C%20105.43%2C124.40%20102.65%2C126.82%20100.00%2C129.05%20C%2097.35%2C131.29%2094.67%2C133.31%2092.00%2C135.30%20C%2089.33%2C137.28%2086.67%2C139.14%2084.00%2C140.95%20C%2081.33%2C142.75%2078.67%2C144.45%2076.00%2C146.12%20C%2073.33%2C147.80%2070.67%2C149.39%2068.00%2C151.00%20C%2065.33%2C152.61%2062.67%2C154.20%2060.00%2C155.76%20C%2057.33%2C157.31%2054.67%2C158.83%2052.00%2C160.33%20C%2049.33%2C161.82%2046.67%2C163.27%2044.00%2C164.73%20C%2041.33%2C166.18%2038.67%2C167.65%2036.00%2C169.07%20C%2033.33%2C170.49%2030.66%2C171.88%2028.00%2C173.24%20C%2025.34%2C174.60%2022.30%2C176.08%2020.04%2C177.23%20C%2017.77%2C178.38%2015.02%2C179.73%2014.43%2C180.15%20C%2013.85%2C180.57%2014.95%2C180.23%2016.54%2C179.75%20C%2018.14%2C179.28%2021.42%2C178.11%2024.00%2C177.30%20C%2026.58%2C176.49%2029.33%2C175.65%2032.00%2C174.88%20C%2034.67%2C174.11%2037.33%2C173.36%2040.00%2C172.67%20C%2042.67%2C171.98%2045.33%2C171.31%2048.00%2C170.72%20C%2050.67%2C170.13%2053.33%2C169.60%2056.00%2C169.13%20C%2058.67%2C168.66%2061.33%2C168.22%2064.00%2C167.89%20C%2066.67%2C167.56%2069.33%2C167.29%2072.00%2C167.15%20C%2074.67%2C167.01%2077.33%2C166.96%2080.00%2C167.05%20C%2082.67%2C167.13%2085.33%2C167.22%2088.00%2C167.65%20C%2090.67%2C168.07%2093.38%2C168.54%2096.00%2C169.61%20C%2098.62%2C170.67%20101.39%2C172.12%20103.74%2C174.03%20C%20106.09%2C175.94%20108.30%2C178.56%20110.10%2C181.05%20C%20111.89%2C183.55%20113.25%2C186.34%20114.50%2C189.00%20C%20115.74%2C191.66%20116.69%2C194.33%20117.54%2C197.00%20C%20118.40%2C199.67%20119.04%2C202.33%20119.62%2C205.00%20C%20120.20%2C207.67%20120.65%2C210.33%20121.04%2C213.00%20C%20121.43%2C215.67%20121.69%2C218.33%20121.95%2C221.00%20C%20122.21%2C223.67%20122.44%2C226.34%20122.61%2C229.00%20C%20122.78%2C231.66%20122.90%2C234.70%20122.97%2C236.96%20C%20123.05%2C239.23%20122.95%2C241.98%20123.07%2C242.57%20C%20123.20%2C243.15%20123.37%2C242.05%20123.71%2C240.46%20C%20124.06%2C238.86%20124.61%2C235.58%20125.14%2C233.00%20C%20125.68%2C230.42%20126.30%2C227.67%20126.95%2C225.00%20C%20127.59%2C222.33%20128.27%2C219.67%20129.02%2C217.00%20C%20129.78%2C214.33%20130.58%2C211.67%20131.47%2C209.00%20C%20132.36%2C206.33%20133.31%2C203.67%20134.37%2C201.00%20C%20135.43%2C198.33%20136.56%2C195.67%20137.84%2C193.00%20C%20139.12%2C190.33%20140.47%2C187.67%20142.07%2C185.00%20C%20143.67%2C182.33%20145.41%2C179.66%20147.44%2C177.00%20C%20149.47%2C174.34%20151.80%2C171.61%20154.23%2C169.01%20C%20156.66%2C166.41%20159.37%2C163.78%20162.00%2C161.40%20C%20164.63%2C159.03%20167.33%2C156.81%20170.00%2C154.75%20C%20172.67%2C152.68%20175.33%2C150.79%20178.00%2C148.99%20C%20180.67%2C147.19%20183.33%2C145.54%20186.00%2C143.94%20C%20188.67%2C142.34%20191.33%2C140.85%20194.00%2C139.41%20C%20196.67%2C137.96%20199.33%2C136.61%20202.00%2C135.25%20C%20204.67%2C133.89%20207.33%2C132.58%20210.00%2C131.25%20C%20212.67%2C129.92%20215.33%2C128.57%20218.00%2C127.25%20C%20220.67%2C125.93%20223.33%2C124.61%20226.00%2C123.34%20C%20228.67%2C122.06%20231.33%2C120.86%20234.00%2C119.60%20C%20236.67%2C118.34%20239.33%2C117.04%20242.00%2C115.78%20C%20244.67%2C114.51%20247.33%2C113.24%20250.00%2C112.00%20C%20252.67%2C110.77%20255.33%2C109.57%20258.00%2C108.37%20C%20260.67%2C107.16%20263.33%2C105.97%20266.00%2C104.78%20C%20268.67%2C103.59%20271.33%2C102.40%20274.00%2C101.22%20C%20276.67%2C100.05%20279.33%2C98.88%20282.00%2C97.74%20C%20284.67%2C96.59%20287.33%2C95.50%20290.00%2C94.37%20C%20292.67%2C93.25%20295.33%2C92.12%20298.00%2C91.00%20C%20300.67%2C89.88%20303.33%2C88.74%20306.00%2C87.64%20C%20308.67%2C86.54%20311.33%2C85.48%20314.00%2C84.40%20C%20316.67%2C83.31%20319.33%2C82.22%20322.00%2C81.12%20C%20324.67%2C80.03%20327.33%2C78.91%20330.00%2C77.82%20C%20332.67%2C76.73%20335.33%2C75.67%20338.00%2C74.60%20C%20340.67%2C73.53%20343.33%2C72.46%20346.00%2C71.40%20C%20348.67%2C70.34%20351.33%2C69.28%20354.00%2C68.24%20C%20356.67%2C67.20%20359.33%2C66.19%20362.00%2C65.15%20C%20364.67%2C64.11%20367.33%2C63.05%20370.00%2C62.00%20C%20372.67%2C60.95%20375.33%2C59.89%20378.00%2C58.85%20C%20380.67%2C57.81%20383.33%2C56.79%20386.00%2C55.77%20C%20388.67%2C54.74%20391.33%2C53.72%20394.00%2C52.69%20C%20396.67%2C51.67%20399.33%2C50.64%20402.00%2C49.62%20C%20404.67%2C48.59%20407.33%2C47.56%20410.00%2C46.54%20C%20412.67%2C45.51%20415.33%2C44.48%20418.00%2C43.46%20C%20420.67%2C42.45%20423.33%2C41.45%20426.00%2C40.44%20C%20428.67%2C39.42%20431.33%2C38.40%20434.00%2C37.39%20C%20436.67%2C36.37%20439.33%2C35.37%20442.00%2C34.37%20C%20444.67%2C33.37%20447.33%2C32.39%20450.00%2C31.38%20C%20452.67%2C30.37%20455.33%2C29.33%20458.00%2C28.32%20C%20460.67%2C27.31%20463.33%2C26.31%20466.00%2C25.31%20C%20468.67%2C24.32%20471.33%2C23.35%20474.00%2C22.36%20C%20476.67%2C21.37%20479.33%2C20.38%20482.00%2C19.38%20C%20484.67%2C18.38%20487.34%2C17.36%20490.00%2C16.37%20C%20492.66%2C15.39%20495.70%2C14.31%20497.96%2C13.47%20C%20500.23%2C12.63%20502.63%2C11.71%20503.57%2C11.33%20C%20504.50%2C10.94%20504.50%2C10.93%20503.57%2C11.15%20Z%22%20fill%3D%22%238a8a8a%22%2F%3E%20%3C%2Fsvg%3E%20">
+<script>try{var t=localStorage.getItem("bolt-theme");document.documentElement.dataset.theme=t==="light"||t==="dark"?t:matchMedia("(prefers-color-scheme: light)").matches?"light":"dark"}catch(e){}</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 519 258'%3E%3Cpath fill='%238a8a8a' d='M503.6%2011.2%20178%2095.7C160%2093%20148%2072%20146.7%2038.2Q119.5%20148.8%2014.4%20180.2L80%20167C104%20167%20117%20190%20121%20213L123.1%20242.6C126%20218%20164%20153.2%20194%20139.4L306%2087.6Z'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#000;--text:#fff;--muted:#a3a3a3;--line:#262626;--line2:#404040;--s1:#0a0a0a;--s2:#111;--hover:#1a1a1a;--pbg:#fff;--ptx:#000;color-scheme:dark}
-[data-theme=light]{--bg:#fff;--text:#000;--muted:#525252;--line:#e5e5e5;--line2:#d4d4d4;--s1:#fafafa;--s2:#f5f5f5;--hover:#f0f0f0;--pbg:#000;--ptx:#fff;color-scheme:light}
+:root{--bg:#0c0c0c;--t:#fafafa;--m:#a3a3a3;--l:#262626;--l2:#404040;--s:#121212;--h:#1a1a1a;color-scheme:dark}
+[data-theme=light]{--bg:#fff;--t:#0c0c0c;--m:#525252;--l:#e5e5e5;--l2:#d4d4d4;--s:#fafafa;--h:#f0f0f0;color-scheme:light}
 *{box-sizing:border-box}
 [hidden]{display:none!important}
-body{margin:0;min-height:100vh;display:flex;flex-direction:column;background:var(--bg);color:var(--text);font:15px/1.6 Geist,system-ui,sans-serif}
-a{color:inherit}button,select,textarea{font:inherit;color:inherit}
-:focus-visible{outline:2px solid var(--text);outline-offset:2px;border-radius:6px}
-main{flex:1;padding-top:84px}
-.page{width:min(1080px,calc(100% - 32px));margin:0 auto;padding:24px 0 56px}
-h1{font-size:clamp(26px,5vw,36px);line-height:1.15;letter-spacing:-.02em;margin:0 0 12px}h2{font-size:20px;margin:32px 0 12px}h3{font-size:15px;margin:0 0 6px}p{margin:0 0 12px}
-.muted{color:var(--muted)}.sm{font-size:13px}
-code{font:13px 'Geist Mono',monospace;background:var(--s2);border:1px solid var(--line);border-radius:6px;padding:2px 6px;word-break:break-all}
-.skip{position:absolute;left:-9999px}.skip:focus{left:12px;top:12px;background:var(--bg);border:1px solid var(--line);padding:8px 12px;z-index:200}
-.btn{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line2);border-radius:999px;padding:10px 16px;font-weight:500;font-size:14px;text-decoration:none;background:transparent;cursor:pointer}
-.btn.p{background:var(--pbg);color:var(--ptx);border-color:var(--pbg)}.btn.sm{padding:7px 12px;font-size:13px}.btn:disabled{opacity:.5;cursor:default}
-.card{border:1px solid var(--line);border-radius:12px;padding:16px;background:var(--s1)}.card p{color:var(--muted);font-size:14px;margin:0}
-/* island nav */
-.wrap{position:fixed;top:12px;left:50%;transform:translateX(-50%);width:min(720px,calc(100% - 24px));z-index:100}
-.island{background:color-mix(in srgb,var(--s1) 88%,transparent);border:1px solid var(--line);border-radius:999px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:6px;transition:transform .18s,border-radius .18s}
-.island.sc{transform:scale(.98)}.island:hover,.island:focus-within{transform:none}
-.top{display:flex;align-items:center;gap:8px}
-.logo{display:flex;align-items:center;gap:8px;text-decoration:none;font-weight:700;padding:4px 8px}
-.mark{width:26px;height:26px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;background:var(--s2)}.mark svg{width:14px;height:14px}
-.links{position:relative;display:flex;gap:2px;margin:0 auto;background:var(--s2);border:1px solid var(--line);border-radius:999px;padding:3px}
-.links a{position:relative;z-index:1;text-decoration:none;font-size:13px;padding:7px 12px;border-radius:999px;color:var(--muted)}.links a[aria-current]{color:var(--text)}
-#hl{position:absolute;top:3px;bottom:3px;border-radius:999px;background:var(--bg);border:1px solid var(--line);transition:left .18s,width .18s}
-.acts{display:flex;align-items:center;gap:6px;margin-left:auto}
-.icon{width:34px;height:34px;border:1px solid var(--line);background:var(--s2);border-radius:50%;cursor:pointer;display:grid;place-items:center}
-.mbtn{display:none}
-.ubtn{display:flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--s2);border-radius:999px;padding:3px 12px 3px 3px;cursor:pointer}
-.ava{width:26px;height:26px;border-radius:50%;object-fit:cover;background:var(--s2);border:1px solid var(--line);display:grid;place-items:center;font-size:11px;font-weight:600;flex:none}
-.uname{font-size:13px;max-width:100px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.umenu{position:absolute;top:calc(100% + 8px);right:0;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:4px;min-width:150px}
-.umenu button{width:100%;text-align:left;background:none;border:0;padding:9px 10px;border-radius:8px;cursor:pointer;font-size:13px}.umenu button:hover{background:var(--hover)}
-.brand{width:52px;height:26px;display:block}.hero-logo{width:129px;height:64px;display:block;margin-bottom:18px}
-.logrow{display:flex;gap:10px;align-items:center;margin:8px 0}.logrow .ava{width:32px;height:32px}
-.mpanel{display:none;flex-direction:column;gap:4px;border-top:1px solid var(--line);margin-top:6px;padding:8px 4px 2px}
-.mpanel a{text-decoration:none;padding:10px;border-radius:8px}.mpanel a[aria-current]{background:var(--hover)}
-.island.open{border-radius:20px}.island.open .mpanel{display:flex}
-/* home */
-.hero{max-width:720px;padding:28px 0 8px}.lead{color:var(--muted);font-size:17px;max-width:560px}.row{display:flex;gap:10px;flex-wrap:wrap}
-.grid{display:grid;gap:12px;grid-template-columns:1fr}
-.msg{display:flex;gap:12px;border:1px solid var(--line);border-radius:12px;background:var(--s1);padding:16px}
-.mav{width:36px;height:36px;flex:none;border-radius:50%;background:var(--s2);border:1px solid var(--line);display:grid;place-items:center;font-weight:700}
-.mname{font-weight:600;font-size:14px}.tag{font-size:10px;border:1px solid var(--line);border-radius:4px;padding:1px 4px;color:var(--muted);margin-left:6px}
-.embed{display:flex;border:1px solid var(--line);border-radius:8px;background:var(--s2);overflow:hidden;margin-top:10px;max-width:520px}
-.embed i{width:4px;background:var(--line2);flex:none}.embed div{padding:12px 14px;min-width:0}
-.et{font-weight:600;font-size:14px;margin:0 0 6px}.ed{font-size:14px;color:var(--muted);margin:0;white-space:pre-wrap;word-break:break-word}.ef{font-size:12px;color:var(--muted);margin:10px 0 0}
-/* docs */
-.dl{display:grid;gap:20px}.dside{display:none}
-.dside nav{position:sticky;top:96px;display:flex;flex-direction:column;gap:2px}
-.dside a,.dnav a{text-decoration:none;padding:8px 10px;border-radius:8px;font-size:14px;color:var(--muted)}.dside a.on,.dnav a.on{background:var(--hover);color:var(--text)}
-select,textarea{width:100%;background:var(--s1);border:1px solid var(--line);border-radius:8px;padding:10px 12px}textarea{min-height:130px;resize:vertical}
-.cmd{border:1px solid var(--line);border-radius:12px;padding:16px;margin:12px 0;background:var(--s1)}.cmd h3{font:600 14px 'Geist Mono',monospace}.cmd>p{color:var(--muted);font-size:14px}
-.cr{display:flex;align-items:center;gap:8px;flex-wrap:wrap;border:1px solid var(--line);border-radius:8px;padding:8px 10px;margin:8px 0;background:var(--bg)}
-.cr span{font-size:12px;color:var(--muted);min-width:56px}.cr code{flex:1;background:none;border:0;padding:0}
-.cp{border:1px solid var(--line);background:var(--s2);border-radius:999px;padding:5px 10px;font-size:12px;cursor:pointer}
-.perm{font-size:13px;color:var(--muted);margin:0}.perm b{color:var(--text);font-weight:600}
-.note{border:1px solid var(--line);border-radius:8px;padding:12px;background:var(--s1);font-size:14px;color:var(--muted)}
-/* dashboard */
-.center{max-width:460px;margin:40px auto;text-align:center;padding:28px}.center h1{font-size:22px}
-.srv{display:flex;gap:12px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:16px;background:var(--s1)}
-.srv .ava{width:44px;height:44px;font-size:14px}.srv>div{flex:1;min-width:0}.srv strong{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.srv.add{border-style:dashed}
+body{margin:0;min-height:100vh;display:flex;flex-direction:column;background:var(--bg);color:var(--t);font:15px/1.7 Geist,system-ui,sans-serif}
+a{color:inherit}
+button,select,textarea,input{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--t);outline-offset:2px;border-radius:6px}
+.w{width:min(1080px,calc(100% - 32px));margin:0 auto}
+header{position:sticky;top:0;z-index:9;background:var(--bg);border-bottom:1px solid var(--l)}
+.bar{display:flex;align-items:center;flex-wrap:wrap;gap:4px 6px;min-height:60px;padding:6px 0}
+.brand{display:flex;align-items:center;gap:8px;font-weight:700;text-decoration:none;margin-right:auto;letter-spacing:.02em}
+.brand svg{width:40px;height:20px;flex:none}
+#nv{display:flex}
+.btn.ic{padding:8px 10px}
+#au{display:inline-block;min-width:84px;visibility:hidden}
+#au .btn{width:100%}
+.nl{text-decoration:none;color:var(--m);padding:7px 12px;border-radius:999px;font-size:14px;white-space:nowrap}
+.nl:hover,.nl[aria-current]{background:var(--h);color:var(--t)}
+main{flex:1;padding:48px 0 64px}
+h1{font-size:clamp(28px,5vw,40px);line-height:1.15;letter-spacing:-.02em;margin:0 0 10px}
+h2{font-size:20px;line-height:1.3;margin:36px 0 6px}
+p{margin:0 0 12px}
+.m{color:var(--m)}
+.btn{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--l2);border-radius:999px;padding:8px 16px;font-weight:500;font-size:14px;text-decoration:none;background:none;cursor:pointer}
+.btn.p{background:var(--t);color:var(--bg);border-color:var(--t)}
+.btn:disabled{opacity:.5;cursor:default}
+.r{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0 8px}
+.lib{list-style:none;margin:10px 0 0;padding:0;border-top:1px solid var(--l)}
+.lib li{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--l)}
+.cd{font:13px 'Geist Mono',monospace;background:var(--s);border:1px solid var(--l);border-radius:6px;padding:2px 8px;cursor:pointer;text-align:left}
+.cd:hover{background:var(--h)}
+.g{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));margin:16px 0}
+.c{display:flex;gap:12px;align-items:center;border:1px solid var(--l);border-radius:12px;padding:14px;background:var(--s);text-decoration:none}
+.ava{width:40px;height:40px;border-radius:50%;object-fit:cover;background:var(--h);border:1px solid var(--l);display:grid;place-items:center;font-size:13px;font-weight:600;flex:none}
 .dash{display:grid;gap:20px}
-.side{border:1px solid var(--line);border-radius:12px;padding:12px;background:var(--s1);height:fit-content}
-.dnav{display:flex;gap:4px;margin-top:10px;overflow-x:auto}
-.ngroup{display:contents}.ntitle{display:none}
-.cont{min-width:0}.stats{display:grid;gap:12px;grid-template-columns:repeat(3,1fr)}.stat strong{display:block;font-size:20px}.stat span{font-size:13px;color:var(--muted)}
-.field{margin:16px 0}.field>label,.field>span{display:block;font-size:13px;font-weight:500;margin-bottom:6px}
-.tg{display:flex;gap:10px;align-items:center;border:1px solid var(--line);border-radius:10px;padding:12px;background:var(--s1);cursor:pointer}.tg input{width:18px;height:18px;accent-color:var(--text)}
-.chips{display:flex;flex-wrap:wrap;gap:8px}.chip{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);border-radius:999px;padding:7px 11px;background:var(--bg);cursor:pointer;font-size:13px}
-.chip[aria-pressed=true]{background:var(--text);color:var(--bg);border-color:var(--text)}.dot{width:10px;height:10px;border-radius:50%;flex:none;border:1px solid var(--line2)}
-.bar{position:sticky;bottom:16px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;border:1px solid var(--line2);border-radius:12px;background:var(--bg);padding:12px 14px;margin-top:24px}
-.err{border:1px solid var(--line2);border-radius:8px;padding:10px 12px;font-size:13px;background:var(--s1);margin:12px 0}
-.empty{border:1px dashed var(--line2);border-radius:12px;padding:24px;text-align:center;color:var(--muted)}
-footer{border-top:1px solid var(--line)}.fi{width:min(1080px,calc(100% - 32px));margin:0 auto;padding:18px 0;display:flex;justify-content:space-between;gap:6px;font-size:13px;color:var(--muted)}
-.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--text);color:var(--bg);border-radius:999px;padding:10px 16px;font-size:13px;z-index:200;max-width:calc(100% - 32px);text-align:center}
-@media(max-width:720px){.links,.acts #auth{display:none}.mbtn{display:grid}.fi{flex-direction:column}.stats{grid-template-columns:1fr}}
-@media(min-width:640px){.grid{grid-template-columns:1fr 1fr}}
-@media(min-width:860px){.grid.g3{grid-template-columns:repeat(3,1fr)}.dl{grid-template-columns:210px 1fr}.dside{display:block}.dmob{display:none}.dash{grid-template-columns:240px 1fr}.dnav{flex-direction:column;overflow:visible}.ngroup{display:flex;flex-direction:column;gap:2px;margin-top:10px}.ntitle{display:block;margin:6px 10px 2px;font-size:12px;color:var(--muted);font-weight:600}}
-@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+.side{border:1px solid var(--l);border-radius:12px;padding:12px;background:var(--s);height:fit-content}
+.side nav{display:flex;gap:2px;margin-top:10px;overflow-x:auto}
+.f{display:block;margin:16px 0}
+.lb{display:block;font-size:13px;font-weight:500;margin-bottom:6px}
+select,textarea,input[type=text],input[type=number]{width:100%;font-size:16px;background:var(--s);border:1px solid var(--l);border-radius:8px;padding:10px 12px}
+textarea{min-height:120px;resize:vertical}
+.tg{display:flex;gap:10px;align-items:center;border:1px solid var(--l);border-radius:10px;padding:12px;background:var(--s);cursor:pointer;margin:8px 0}
+.tg input{width:18px;height:18px;accent-color:var(--t)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--l);border-radius:999px;padding:6px 12px;background:var(--bg);cursor:pointer;font-size:13px}
+.chip[aria-pressed=true]{background:var(--t);color:var(--bg);border-color:var(--t)}
+.sb{position:sticky;bottom:16px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;border:1px solid var(--l2);border-radius:12px;background:var(--bg);padding:12px 14px;margin-top:24px}
+.err{border:1px solid var(--l2);border-radius:8px;padding:10px 12px;font-size:13px;background:var(--s)}
+.legal{max-width:70ch}
+footer{border-top:1px solid var(--l)}
+.fi{display:flex;justify-content:space-between;gap:6px;flex-wrap:wrap;padding:18px 0;font-size:13px;color:var(--m)}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--t);color:var(--bg);border-radius:999px;padding:10px 16px;font-size:13px;z-index:20}
+@media(min-width:860px){.dash{grid-template-columns:220px 1fr}.side nav{flex-direction:column;overflow:visible}}
+@media(max-width:560px){.brand svg{width:28px;height:14px}.nl{padding:7px 8px}.bar{gap:4px}#au{min-width:70px}.btn.ic{padding:8px}}
 </style>
 </head>
 <body>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><symbol id="bolt-logo" viewBox="0 0 519 258"><path d="M 503.57,11.15 C 502.63,11.37 500.23,12.03 497.96,12.65 C 495.70,13.28 492.66,14.16 490.00,14.91 C 487.34,15.66 484.67,16.40 482.00,17.14 C 479.33,17.88 476.67,18.62 474.00,19.36 C 471.33,20.10 468.67,20.84 466.00,21.58 C 463.33,22.32 460.67,23.07 458.00,23.81 C 455.33,24.55 452.67,25.28 450.00,26.02 C 447.33,26.76 444.67,27.52 442.00,28.26 C 439.33,29.00 436.67,29.72 434.00,30.46 C 431.33,31.20 428.67,31.96 426.00,32.70 C 423.33,33.44 420.67,34.17 418.00,34.91 C 415.33,35.65 412.67,36.40 410.00,37.14 C 407.33,37.88 404.67,38.62 402.00,39.36 C 399.33,40.10 396.67,40.84 394.00,41.58 C 391.33,42.32 388.67,43.08 386.00,43.81 C 383.33,44.55 380.67,45.27 378.00,46.00 C 375.33,46.73 372.67,47.46 370.00,48.18 C 367.33,48.91 364.67,49.63 362.00,50.36 C 359.33,51.10 356.67,51.84 354.00,52.58 C 351.33,53.32 348.67,54.08 346.00,54.81 C 343.33,55.55 340.67,56.27 338.00,57.00 C 335.33,57.73 332.67,58.46 330.00,59.18 C 327.33,59.91 324.67,60.64 322.00,61.36 C 319.33,62.09 316.67,62.82 314.00,63.54 C 311.33,64.27 308.67,65.00 306.00,65.73 C 303.33,66.46 300.67,67.19 298.00,67.91 C 295.33,68.63 292.67,69.35 290.00,70.07 C 287.33,70.78 284.67,71.48 282.00,72.20 C 279.33,72.91 276.67,73.64 274.00,74.36 C 271.33,75.09 268.67,75.82 266.00,76.54 C 263.33,77.25 260.67,77.93 258.00,78.63 C 255.33,79.33 252.67,80.03 250.00,80.73 C 247.33,81.44 244.67,82.16 242.00,82.85 C 239.33,83.55 236.67,84.20 234.00,84.89 C 231.33,85.58 228.67,86.30 226.00,87.00 C 223.33,87.70 220.67,88.42 218.00,89.11 C 215.33,89.80 212.67,90.47 210.00,91.12 C 207.33,91.78 204.67,92.46 202.00,93.06 C 199.33,93.66 196.67,94.30 194.00,94.75 C 191.33,95.20 188.67,95.61 186.00,95.77 C 183.33,95.93 180.67,96.02 178.00,95.71 C 175.33,95.39 172.64,94.97 170.00,93.88 C 167.36,92.79 164.55,91.16 162.14,89.18 C 159.73,87.20 157.35,84.50 155.55,81.97 C 153.75,79.44 152.43,76.66 151.32,74.00 C 150.22,71.34 149.56,68.67 148.93,66.00 C 148.31,63.33 147.89,60.67 147.58,58.00 C 147.26,55.33 147.14,52.64 147.05,50.00 C 146.95,47.36 147.06,44.15 147.00,42.18 C 146.93,40.20 146.95,38.15 146.65,38.15 C 146.35,38.15 145.83,40.20 145.21,42.18 C 144.58,44.15 143.71,47.36 142.92,50.00 C 142.13,52.64 141.30,55.33 140.46,58.00 C 139.63,60.67 138.82,63.33 137.91,66.00 C 137.00,68.67 136.00,71.33 135.00,74.00 C 134.00,76.67 132.98,79.33 131.91,82.00 C 130.84,84.67 129.77,87.33 128.57,90.00 C 127.37,92.67 126.10,95.33 124.73,98.00 C 123.36,100.67 122.00,103.33 120.36,106.00 C 118.73,108.67 117.00,111.35 114.93,114.00 C 112.85,116.65 110.40,119.38 107.91,121.89 C 105.43,124.40 102.65,126.82 100.00,129.05 C 97.35,131.29 94.67,133.31 92.00,135.30 C 89.33,137.28 86.67,139.14 84.00,140.95 C 81.33,142.75 78.67,144.45 76.00,146.12 C 73.33,147.80 70.67,149.39 68.00,151.00 C 65.33,152.61 62.67,154.20 60.00,155.76 C 57.33,157.31 54.67,158.83 52.00,160.33 C 49.33,161.82 46.67,163.27 44.00,164.73 C 41.33,166.18 38.67,167.65 36.00,169.07 C 33.33,170.49 30.66,171.88 28.00,173.24 C 25.34,174.60 22.30,176.08 20.04,177.23 C 17.77,178.38 15.02,179.73 14.43,180.15 C 13.85,180.57 14.95,180.23 16.54,179.75 C 18.14,179.28 21.42,178.11 24.00,177.30 C 26.58,176.49 29.33,175.65 32.00,174.88 C 34.67,174.11 37.33,173.36 40.00,172.67 C 42.67,171.98 45.33,171.31 48.00,170.72 C 50.67,170.13 53.33,169.60 56.00,169.13 C 58.67,168.66 61.33,168.22 64.00,167.89 C 66.67,167.56 69.33,167.29 72.00,167.15 C 74.67,167.01 77.33,166.96 80.00,167.05 C 82.67,167.13 85.33,167.22 88.00,167.65 C 90.67,168.07 93.38,168.54 96.00,169.61 C 98.62,170.67 101.39,172.12 103.74,174.03 C 106.09,175.94 108.30,178.56 110.10,181.05 C 111.89,183.55 113.25,186.34 114.50,189.00 C 115.74,191.66 116.69,194.33 117.54,197.00 C 118.40,199.67 119.04,202.33 119.62,205.00 C 120.20,207.67 120.65,210.33 121.04,213.00 C 121.43,215.67 121.69,218.33 121.95,221.00 C 122.21,223.67 122.44,226.34 122.61,229.00 C 122.78,231.66 122.90,234.70 122.97,236.96 C 123.05,239.23 122.95,241.98 123.07,242.57 C 123.20,243.15 123.37,242.05 123.71,240.46 C 124.06,238.86 124.61,235.58 125.14,233.00 C 125.68,230.42 126.30,227.67 126.95,225.00 C 127.59,222.33 128.27,219.67 129.02,217.00 C 129.78,214.33 130.58,211.67 131.47,209.00 C 132.36,206.33 133.31,203.67 134.37,201.00 C 135.43,198.33 136.56,195.67 137.84,193.00 C 139.12,190.33 140.47,187.67 142.07,185.00 C 143.67,182.33 145.41,179.66 147.44,177.00 C 149.47,174.34 151.80,171.61 154.23,169.01 C 156.66,166.41 159.37,163.78 162.00,161.40 C 164.63,159.03 167.33,156.81 170.00,154.75 C 172.67,152.68 175.33,150.79 178.00,148.99 C 180.67,147.19 183.33,145.54 186.00,143.94 C 188.67,142.34 191.33,140.85 194.00,139.41 C 196.67,137.96 199.33,136.61 202.00,135.25 C 204.67,133.89 207.33,132.58 210.00,131.25 C 212.67,129.92 215.33,128.57 218.00,127.25 C 220.67,125.93 223.33,124.61 226.00,123.34 C 228.67,122.06 231.33,120.86 234.00,119.60 C 236.67,118.34 239.33,117.04 242.00,115.78 C 244.67,114.51 247.33,113.24 250.00,112.00 C 252.67,110.77 255.33,109.57 258.00,108.37 C 260.67,107.16 263.33,105.97 266.00,104.78 C 268.67,103.59 271.33,102.40 274.00,101.22 C 276.67,100.05 279.33,98.88 282.00,97.74 C 284.67,96.59 287.33,95.50 290.00,94.37 C 292.67,93.25 295.33,92.12 298.00,91.00 C 300.67,89.88 303.33,88.74 306.00,87.64 C 308.67,86.54 311.33,85.48 314.00,84.40 C 316.67,83.31 319.33,82.22 322.00,81.12 C 324.67,80.03 327.33,78.91 330.00,77.82 C 332.67,76.73 335.33,75.67 338.00,74.60 C 340.67,73.53 343.33,72.46 346.00,71.40 C 348.67,70.34 351.33,69.28 354.00,68.24 C 356.67,67.20 359.33,66.19 362.00,65.15 C 364.67,64.11 367.33,63.05 370.00,62.00 C 372.67,60.95 375.33,59.89 378.00,58.85 C 380.67,57.81 383.33,56.79 386.00,55.77 C 388.67,54.74 391.33,53.72 394.00,52.69 C 396.67,51.67 399.33,50.64 402.00,49.62 C 404.67,48.59 407.33,47.56 410.00,46.54 C 412.67,45.51 415.33,44.48 418.00,43.46 C 420.67,42.45 423.33,41.45 426.00,40.44 C 428.67,39.42 431.33,38.40 434.00,37.39 C 436.67,36.37 439.33,35.37 442.00,34.37 C 444.67,33.37 447.33,32.39 450.00,31.38 C 452.67,30.37 455.33,29.33 458.00,28.32 C 460.67,27.31 463.33,26.31 466.00,25.31 C 468.67,24.32 471.33,23.35 474.00,22.36 C 476.67,21.37 479.33,20.38 482.00,19.38 C 484.67,18.38 487.34,17.36 490.00,16.37 C 492.66,15.39 495.70,14.31 497.96,13.47 C 500.23,12.63 502.63,11.71 503.57,11.33 C 504.50,10.94 504.50,10.93 503.57,11.15 Z" fill="currentColor"/></symbol></svg>
-<a class="skip" href="#app">Skip to content</a>
-<header class="wrap">
-<nav class="island" id="island" aria-label="Main">
-<div class="top">
-<a href="#/" class="logo" aria-label="BOLT home"><svg class="brand" viewBox="0 0 519 258" aria-hidden="true"><use href="#bolt-logo"/></svg><span>BOLT</span></a>
-<div class="links" id="links"><i id="hl" aria-hidden="true"></i><a data-n="home" href="#/">Home</a><a data-n="docs" href="#/docs">Docs</a><a data-n="dashboard" href="#/dashboard">Dashboard</a></div>
-<div class="acts"><button id="theme" class="icon" type="button"></button><span id="auth"></span><button id="mbtn" class="icon mbtn" type="button" aria-expanded="false" aria-label="Open menu">☰</button></div>
-</div>
-<div class="mpanel" id="mpanel"></div>
-</nav>
-<div id="umenu" class="umenu" hidden><button id="out" type="button">Log out</button></div>
-</header>
-<main id="app"></main>
-<footer><div class="fi"><span>© BOLT. 2026</span><span>Made with love by DevBolt</span></div></footer>
+<header><div class="w bar"><a class="brand" href="#/" aria-label="BOLT home"><svg viewBox="0 0 519 258" aria-hidden="true"><path fill="currentColor" d="M503.6 11.2 178 95.7C160 93 148 72 146.7 38.2Q119.5 148.8 14.4 180.2L80 167C104 167 117 190 121 213L123.1 242.6C126 218 164 153.2 194 139.4L306 87.6Z"/></svg>BOLT</a><nav id="nv" aria-label="Main"><a class="nl" data-n="docs" href="#/docs">Docs</a><a class="nl" data-n="dashboard" href="#/dashboard">Dashboard</a></nav><button id="th" class="btn ic" type="button" aria-label="Toggle theme"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M8 2a6 6 0 0 1 0 12z" fill="currentColor"/></svg></button><span id="au"></span></div></header>
+<main id="app"><div class="w"><p class="m">Loading…</p></div></main>
+<footer><div class="w fi"><span>© BOLT. 2026</span><span><a href="#/terms">Terms and Conditions</a> &nbsp;·&nbsp; <a href="#/privacy">Privacy</a></span><span>Made with love by DevBolt</span></div></footer>
 <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-const INVITE_URL = 'https://discord.com/oauth2/authorize?client_id=1570482510067007628&permissions=8&integration_type=0&scope=bot+applications.commands';
-const SUPABASE_URL = 'https://mygdspsqdrwqmqxearyj.supabase.co';
-const SUPABASE_KEY = 'sb_publishable_yNvT07pWq2oCtyCLCam6og_Yl2iRrfw';
+const INVITE='https://discord.com/oauth2/authorize?client_id=1570482510067007628&permissions=8&integration_type=0&scope=bot+applications.commands';
+const sb=window.supabase?supabase.createClient('https://mygdspsqdrwqmqxearyj.supabase.co','sb_publishable_yNvT07pWq2oCtyCLCam6og_Yl2iRrfw',{auth:{flowType:'pkce'}}):null;
+const CONTACT='DevBolt, the developer of BOLT, on Discord';
+const $=i=>document.getElementById(i),clone=o=>JSON.parse(JSON.stringify(o));
+function h(t,a,...k){const e=document.createElement(t);for(const[n,v]of Object.entries(a||{})){if(n==='class')e.className=v;else if(n.startsWith('on'))e.addEventListener(n.slice(2),v);else if(v===true)e.setAttribute(n,'');else if(v!==false&&v!=null)e.setAttribute(n,v)}for(const c of k.flat())if(c!=null&&c!==false)e.append(c.nodeType?c:document.createTextNode(c));return e}
+const ava=(u,n)=>typeof u==='string'&&u.startsWith('https://cdn.discordapp.com/')?h('img',{class:'ava',src:u,alt:''}):h('span',{class:'ava'},(n||'?').split(' ').map(w=>w[0]||'').join('').slice(0,2).toUpperCase());
+let tt;const toast=m=>{const t=$('toast');t.textContent=m;t.hidden=false;clearTimeout(tt);tt=setTimeout(()=>t.hidden=true,3000)};
+const copy=async x=>{try{await navigator.clipboard.writeText(x);toast('Copied')}catch(e){toast('Could not copy')}};
+const ago=i=>{const m=Math.max(0,Math.round((Date.now()-new Date(i))/6e4));return m<1?'just now':m<60?m+' min ago':Math.round(m/60)+' h ago'};
+const roles=g=>g.roles.slice().sort((a,b)=>b.position-a.position);
+const days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 
-/* ---------- Data layer: the only place that talks to Supabase ---------- */
-const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY, { auth: { flowType: 'pkce' } });
-const Data = {
-  async user() {
-    const { data: { session } } = await sb.auth.getSession();
-    if (!session) return null;
-    const m = session.user.user_metadata || {};
-    return { name: m.full_name || m.name || 'You', avatar: m.avatar_url };
-  },
-  async login() {
-    try { sessionStorage.setItem('bolt-return', location.hash || '#/dashboard'); } catch (e) {}
-    const { error } = await sb.auth.signInWithOAuth({ provider: 'discord', options: { redirectTo: location.origin + location.pathname } });
-    if (error) throw error;
-  },
-  async logout() { await sb.auth.signOut(); this._g = null; },
-  async guilds() {
-    if (this._g && Date.now() - this._t < 30000) return this._g;
-    const { data, error } = await sb.from('guild_meta').select('guild_id,name,icon,channels,roles,updated_at').order('name');
-    if (error) throw error;
-    this._g = data; this._t = Date.now();
-    return data;
-  },
-  async postLeaderboardNow(id) {
-    const { data: cur, error } = await sb.from('guild_settings').select('settings').eq('guild_id', id).maybeSingle();
-    if (error) throw error;
-    const base = (cur && cur.settings) || {};
-    const settings = { ...base, leaderboard: { ...(base.leaderboard || {}), postNonce: Date.now() } };
-    const { error: e2 } = await sb.from('guild_settings').upsert({ guild_id: id, settings }, { onConflict: 'guild_id' });
-    if (e2) throw e2;
-  },
-  async points(id) {
-    const top = await sb.from('mod_points').select('user_id,name,avatar,points').eq('guild_id', id).gt('points', 0).order('points', { ascending: false }).limit(10);
-    const log = await sb.from('mod_point_log').select('user_name,user_avatar,voter_name,delta,total,reason,created_at').eq('guild_id', id).order('created_at', { ascending: false }).limit(8);
-    if (top.error) throw top.error;
-    if (log.error) throw log.error;
-    return { top: top.data, log: log.data };
-  },
-  async load(id) {
-    const { data, error } = await sb.from('guild_settings').select('settings').eq('guild_id', id).maybeSingle();
-    if (error) throw error;
-    const s = (data && data.settings) || {}, i = s.intro || {}, t = s.tickets || {}, mp = s.modpoints || {}, mm = s.modmail || {}, lb = s.leaderboard || {}, ml = s.modlog || {}, am = s.automod || {}, wc = s.welcome || {}, rp = s.rolepanel || {}, lv = s.levels || {}, sg = s.suggestions || {};
-    return {
-      intro: { enabled: !!i.channelId, channelId: i.channelId || '', template: i.template || '' },
-      tickets: { panelChannelId: t.panelChannelId || '', logChannelId: t.logChannelId || '', transcriptChannelId: t.transcriptChannelId || '', staffRoleIds: Array.isArray(t.staffRoleIds) ? t.staffRoleIds : [] },
-      modpoints: { voterRoleIds: Array.isArray(mp.voterRoleIds) ? mp.voterRoleIds : [], kickAt: Number(mp.kickAt) || 0, banAt: Number(mp.banAt) || 0 },
-      modlog: { channelId: ml.channelId || '', messageChannelId: ml.messageChannelId || '', memberChannelId: ml.memberChannelId || '', sayChannelId: ml.sayChannelId || '' },
-      levels: { enabled: !!lv.enabled, channelId: lv.channelId || '', rewards: Array.from({ length: 5 }, (_, i) => ({ level: Number((lv.rewards || [])[i] && lv.rewards[i].level) || 0, roleId: ((lv.rewards || [])[i] && lv.rewards[i].roleId) || '' })) },
-      suggestions: { channelId: sg.channelId || '' },
-      automod: { enabled: !!am.enabled, invites: !!am.invites, mentionLimit: Number(am.mentionLimit) || 0, spamLimit: Number(am.spamLimit) || 0, spamSeconds: Number(am.spamSeconds) || 8, words: Array.isArray(am.words) ? am.words.join(', ') : '', muteMinutes: Number(am.muteMinutes) || 0, exemptRoleIds: Array.isArray(am.exemptRoleIds) ? am.exemptRoleIds : [] },
-      welcome: { channelId: wc.channelId || '', message: wc.message || '', goodbye: wc.goodbye || '', autoRoleId: wc.autoRoleId || '' },
-      rolepanel: { enabled: !!rp.channelId, channelId: rp.channelId || '', title: rp.title || '', text: rp.text || '', roleIds: Array.isArray(rp.roleIds) ? rp.roleIds : [] },
-      leaderboard: { enabled: !!lb.channelId, channelId: lb.channelId || '', day: Number.isInteger(lb.day) ? lb.day : 0, hour: Number.isInteger(lb.hour) ? lb.hour : 18 },
-      modmail: { enabled: !!mm.channelId, channelId: mm.channelId || '', create: false, staffRoleIds: Array.isArray(mm.staffRoleIds) ? mm.staffRoleIds : [] }
-    };
-  },
-  async save(id, d) {
-    const { data: cur, error: e1 } = await sb.from('guild_settings').select('settings').eq('guild_id', id).maybeSingle();
-    if (e1) throw e1;
-    const on = d.intro.enabled && d.intro.channelId;
-    const settings = {
-      ...((cur && cur.settings) || {}),
-      intro: { channelId: on ? d.intro.channelId : null, template: on ? d.intro.template.trim() : null },
-      tickets: { categoryId: null, panelChannelId: d.tickets.panelChannelId || null, logChannelId: d.tickets.logChannelId || null, transcriptChannelId: d.tickets.transcriptChannelId || null, staffRoleIds: d.tickets.staffRoleIds },
-      modpoints: { voterRoleIds: d.modpoints.voterRoleIds, kickAt: d.modpoints.kickAt || 0, banAt: d.modpoints.banAt || 0 },
-      modlog: { channelId: d.modlog.channelId || null, messageChannelId: d.modlog.messageChannelId || null, memberChannelId: d.modlog.memberChannelId || null, sayChannelId: d.modlog.sayChannelId || null },
-      levels: { enabled: d.levels.enabled, channelId: d.levels.channelId || null, rewards: d.levels.rewards.filter((r) => r.level >= 1 && r.roleId).map((r) => ({ level: r.level, roleId: r.roleId })) },
-      suggestions: { channelId: d.suggestions.channelId || null },
-      automod: { enabled: d.automod.enabled, invites: d.automod.invites, mentionLimit: d.automod.mentionLimit || 0, spamLimit: d.automod.spamLimit || 0, spamSeconds: d.automod.spamSeconds || 8, words: d.automod.words.split(',').map((w) => w.trim().toLowerCase()).filter(Boolean).slice(0, 50), muteMinutes: d.automod.muteMinutes || 0, exemptRoleIds: d.automod.exemptRoleIds },
-      welcome: { channelId: d.welcome.channelId || null, message: d.welcome.message.trim(), goodbye: d.welcome.goodbye.trim(), autoRoleId: d.welcome.autoRoleId || null },
-      rolepanel: { channelId: d.rolepanel.enabled && d.rolepanel.channelId ? d.rolepanel.channelId : null, title: d.rolepanel.title.trim(), text: d.rolepanel.text.trim(), roleIds: d.rolepanel.roleIds },
-      leaderboard: { channelId: d.leaderboard.enabled && d.leaderboard.channelId ? d.leaderboard.channelId : null, day: d.leaderboard.day, hour: d.leaderboard.hour, tzOffset: -new Date().getTimezoneOffset() },
-      modmail: { channelId: d.modmail.enabled && d.modmail.channelId ? d.modmail.channelId : null, createChannel: !!(d.modmail.enabled && !d.modmail.channelId && d.modmail.create), staffRoleIds: d.modmail.staffRoleIds }
-    };
-    const { error } = await sb.from('guild_settings').upsert({ guild_id: id, settings }, { onConflict: 'guild_id' });
-    if (error) throw error;
-  }
+/* Dashboard schema: [id, storeKey, title, description, hasOnSwitch, fields]
+   field types: t toggle, c channel, r role, R role chips, n number, s text, a textarea, D day, H hour, L level rewards */
+const SEC=[
+['automod','automod','Auto-mod','Remove invites, spam, mass mentions and blocked words.',0,[['enabled','t','Turn on auto-mod'],['invites','t','Block invite links'],['mentionLimit','n','Remove messages with this many mentions (0 = off)'],['spamLimit','n','Spam: remove when someone sends this many messages (0 = off)'],['spamSeconds','n','Spam time window in seconds',8],['words','a','Blocked words (separate with commas)',1000],['muteMinutes','n','Mute offenders for this many minutes (0 = off)'],['exemptRoleIds','R','Roles that are never checked (up to 10)']]],
+['points','modpoints','Mod points','Voters give points with bolt.point. At your limits BOLT kicks or bans and DMs the reason.',0,[['voterRoleIds','R','Voter roles (up to 10)'],['kickAt','n','Kick at this many points (0 = off)'],['banAt','n','Ban at this many points (0 = off)']]],
+['modlog','modlog','Logs','Where BOLT writes its logs. Leave a channel empty to turn that log off.',0,[['channelId','c','Mod log: kicks, bans, mutes, warnings, purges, points, auto-mod','No mod log'],['messageChannelId','c','Message log: deleted and edited messages','No message log'],['memberChannelId','c','Member log: joins and leaves','No member log'],['sayChannelId','c','Say log (required for say as)','No say log']]],
+['tickets','tickets','Tickets','Private threads in the panel channel. A transcript is saved when a ticket closes. After saving, run /ticket setup in Discord.',0,[['panelChannelId','c','Panel channel','Choose a channel'],['logChannelId','c','Logs channel (optional)','No logs'],['transcriptChannelId','c','Transcripts channel (optional)','BOLT creates one when needed'],['staffRoleIds','R','Staff roles (up to 10)']]],
+['mail','modmail','Mod mail','A panel that sends private messages to members from a staff channel.',1,[['channelId','c','Mod mail channel','Choose a channel'],['create','t','Create a channel for me (used when none is chosen)'],['staffRoleIds','R','Staff roles (who can send mail, up to 10)']]],
+['intro','intro','Intro','BOLT keeps a how-to message as the last message in your intro channel.',1,[['channelId','c','Channel','Choose a channel'],['template','a','Template',1500]]],
+['welcome','welcome','Welcome','Use {user}, {name}, {server} and {count}. Leave a message empty to turn it off.',0,[['channelId','c','Channel','Choose a channel'],['message','a','Welcome message',1000],['goodbye','a','Goodbye message (optional)',1000],['autoRoleId','r','Role for new members (optional)','No automatic role']]],
+['roles','rolepanel','Role menu','A card with one button per role. Saving posts a fresh menu.',1,[['channelId','c','Channel','Choose a channel'],['title','s','Title',100],['text','a','Text',500],['roleIds','R','Roles in the menu (up to 10)']]],
+['levels','levels','Levels','XP for chatting, level-up messages and role rewards. BOLT’s role must be above the reward roles.',0,[['enabled','t','Turn on levels'],['channelId','c','Level-up channel','Same channel as the message'],['rewards','L','Role rewards (up to 5): the level, then the role']]],
+['leaderboard','leaderboard','Leaderboard','Post the mod points leaderboard once a week. Times use your browser time zone.',1,[['channelId','c','Channel','Choose a channel'],['day','D','Day'],['hour','H','Time']]],
+['suggestions','suggestions','Suggestions','Where /suggest sends member ideas.',0,[['channelId','c','Suggestions channel','Suggestions off']]]
+];
+function unpack(x,s){const d={};if(x[4])d.on=!!s.channelId;
+for(const f of x[5]){const k=f[0],t=f[1],v=s[k];
+d[k]=t==='t'?!!v:t==='n'?Number(v)||f[3]||0:t==='R'?(Array.isArray(v)?v.slice():[]):t==='D'?(Number.isInteger(v)?v:0):t==='H'?(Number.isInteger(v)?v:18):t==='L'?Array.from({length:5},(_,i)=>{const r=(v||[])[i]||{};return{level:Number(r.level)||0,roleId:r.roleId||''}}):k==='words'?(Array.isArray(v)?v.join(', '):''):(v||'')}
+return d}
+function pack(x,d){const o={};
+for(const f of x[5]){const k=f[0],t=f[1],v=d[k];
+o[k]=t==='t'?!!v:t==='n'?v||f[3]||0:t==='c'||t==='r'?v||null:t==='L'?v.filter(r=>r.level>=1&&r.roleId).map(r=>({level:r.level,roleId:r.roleId})):t==='s'||t==='a'?(k==='words'?v.split(',').map(w=>w.trim().toLowerCase()).filter(Boolean).slice(0,50):v.trim()):v}
+if(x[4]&&!d.on){o.channelId=null;if(x[1]==='intro')o.template=null}
+if(x[1]==='modmail'){o.createChannel=!!(d.on&&!d.channelId&&d.create);delete o.create}
+if(x[1]==='leaderboard')o.tzOffset=-new Date().getTimezoneOffset();
+if(x[1]==='tickets')o.categoryId=null;
+return o}
+
+/* Data layer: the only place that talks to Supabase */
+const D={
+async user(){try{const{data:{session}}=await sb.auth.getSession();if(!session)return null;const m=session.user.user_metadata||{};return{name:m.full_name||m.name||'You',avatar:m.avatar_url}}catch(e){return null}},
+async login(){try{sessionStorage.setItem('bolt-return',location.hash||'#/dashboard')}catch(e){}const{error}=await sb.auth.signInWithOAuth({provider:'discord',options:{redirectTo:location.origin+location.pathname}});if(error)throw error},
+async logout(){await sb.auth.signOut();this.g=null;S.id=null},
+async guilds(){if(this.g&&Date.now()-this.t<3e5)return this.g;const{data,error}=await sb.from('guild_meta').select('guild_id,name,icon,channels,roles,updated_at').order('name');if(error)throw error;this.g=data;this.t=Date.now();return data},
+async raw(id){const{data,error}=await sb.from('guild_settings').select('settings').eq('guild_id',id).maybeSingle();if(error)throw error;return(data&&data.settings)||{}},
+async save(id,d){const s={...await this.raw(id)};for(const x of SEC)s[x[1]]=pack(x,d[x[0]]);const{error}=await sb.from('guild_settings').upsert({guild_id:id,settings:s},{onConflict:'guild_id'});if(error)throw error}
+};
+const loginBtn=(l,c)=>h('button',{class:c||'btn p',type:'button',onclick:async()=>{try{await D.login()}catch(e){toast('Login failed: '+e.message)}}},l||'Log in');
+
+/* Content */
+const FEAT=[['Support','Tickets, mod mail and an intro channel that keeps its how-to message at the bottom.'],['Moderation','Kick, ban, mute and purge, plus mod points, auto-mod and logs.'],['Community','Welcome messages, role menus, levels, suggestions and a weekly leaderboard.'],['Dashboard','Change every setting from your browser. Changes reach BOLT in about 20 seconds.']];
+const DOCS=[
+['Moderation','Prefix commands start with “bolt.” or “bolt ” (both work). Notation: <required> [optional]. Click a command to copy it.',[
+['bolt kick <@user> [reason]','Removes a member.','Kick Members'],
+['bolt ban <@user or ID> [reason]','Bans a member, even one who already left.','Ban Members'],
+['bolt mute <@user> <time> [reason]','Times out a member. Examples: 30s, 10m, 2h, 1d. Maximum 28d.','Moderate Members'],
+['bolt unmute <@user>','Removes a timeout.','Moderate Members'],
+['bolt purge <1-100> [@user]','Deletes recent messages (bolt clear works too). Skips pins and messages older than 14 days.','Manage Messages'],
+['bolt warn <@user> [reason]','Warns a member, keeps a record and DMs them.','Moderate Members'],
+['bolt warnings <user>','Shows a member’s warnings.'],
+['bolt clearwarnings <user>','Removes all of a member’s warnings.','Moderate Members'],
+['bolt unban <user or ID> [reason]','Unbans a user.','Ban Members'],
+['bolt tempban <@user> <time> [reason]','Bans for a set time (up to 28 days), then unbans.','Ban Members'],
+['bolt slowmode <seconds> [channel]','Sets slowmode (0 turns it off).','Manage Channels'],
+['bolt lock [channel]','Stops everyone sending messages. bolt unlock reverses it.','Manage Channels'],
+['bolt nick <@user> [nickname]','Changes or resets a nickname.','Manage Nicknames'],
+['bolt addrole <@user> <role>','Gives a role. bolt removerole takes it away.','Manage Roles']]],
+['AFK and intro','',[
+['bolt afk [reason]','Marks you AFK. Mentions get your reason and time away. Your next message clears it.'],
+['bolt afk remove <@user or name>','Removes someone else’s AFK.','Manage Server'],
+['/intro setup','Pick a channel and a template. BOLT keeps the how-to message last in that channel.','Manage Server']]],
+['Tickets','Members press Open Ticket and give a reason. BOLT opens a private thread, mentions staff, and posts a transcript when it closes. One open ticket per member.',[
+['/ticket setup','Choose the panel channel, staff roles, logs and transcripts, then press Create panel.','Manage Server'],
+['/ticket logs','Choose the channel for ticket logs.','Manage Server']]],
+['Mod points and mod mail','Voter roles and kick and ban limits are set on the dashboard. Mod mail is set up there too.',[
+['bolt point <@user> <+n or -n> [reason]','Gives or removes mod points.','a voter role'],
+['bolt points [@user]','Shows the top points, or one member’s latest changes.'],
+['/leaderboard','Shows the mod points leaderboard (bolt.leaderboard works too).']]],
+['Utility, fun and community','',[
+['bolt help [category]','Shows all commands, or one category.'],
+['avatar, userinfo, serverinfo, roleinfo, channelinfo, botinfo, membercount, invite','Information commands.'],
+['8ball, coinflip, roll, choose, rps, rate, ship','Games and fun.'],
+['poll, suggest, remind, reminders, rank, levels','Polls, suggestions, reminders and levels.'],
+['bolt say <text>','Makes BOLT say something. Your command message is deleted.','Manage Messages'],
+['bolt say as <@user> <text>','Sends a message that looks like it came from that member, through a webhook. Every use is written to the say log.','Manage Server']]]
+];
+const LEGAL={
+terms:['Terms and Conditions','These terms explain the rules for using BOLT, the Discord bot, and this website. By adding BOLT to a server, using its commands, or logging in to the dashboard, you agree to them.',[
+['Who can use BOLT','You must follow the Discord Terms of Service and Community Guidelines, including Discord’s minimum age. If you are not allowed to use Discord, you are not allowed to use BOLT.','To change settings on the dashboard you must be the owner of the server, an administrator, or have the Manage Server permission.'],
+['What BOLT does','BOLT provides moderation, tickets, mod mail, welcome messages, role menus, levels, logs, auto-mod, utility and fun features. Features can change, move, or be removed at any time.'],
+['Server owners and admins','If you add BOLT to a server, you are responsible for how it is used there. You decide which features to turn on, which channels receive logs, and who can use powerful commands.','Tell your members that moderation actions, logs and transcripts exist in your server. Follow the laws and rules that apply to you.'],
+['Acceptable use','Do not use BOLT to harass, threaten, scam, spam, or harm anyone, to break the law, or to break Discord’s rules.','The “say as” feature can only be used with the member’s knowledge or for clearly harmless purposes. Do not use it to deceive, defame or impersonate someone to cause harm. Every use is written to a log channel.','Do not try to attack, overload, reverse engineer or get around the limits of BOLT or the dashboard.'],
+['Automatic actions','BOLT can delete messages, mute, kick or ban members when your rules say so, for example auto-mod rules and mod point limits. These actions follow the settings your server chose. The server team is responsible for reviewing and correcting them.'],
+['Your content','You keep ownership of what you write. You allow BOLT to process and store it as needed to run the features you turn on, as described in the Privacy Policy.'],
+['Availability','BOLT is provided as is and as available. It may be offline, delayed or wrong at times. We do not promise any uptime, and we may stop or change the service without notice.'],
+['No warranty and limits of liability','We give no warranty of any kind. To the extent the law allows, we are not responsible for lost data, lost members, server problems, or any indirect damage that comes from using or not being able to use BOLT.'],
+['Ending access','You can stop using BOLT at any time by removing it from your server. We can block a server or a person from BOLT if these terms are broken or if it is needed to keep BOLT and its users safe.'],
+['Changes','We can update these terms. The date at the top shows the latest version. Using BOLT after a change means you accept the new terms.'],
+['Contact','Questions about these terms: contact '+CONTACT+'.']]],
+privacy:['Privacy Policy','This policy explains what BOLT collects, why, and the choices you have. We only collect what the features need.',[
+['What we collect','Discord data: user IDs, usernames, nicknames, profile picture links, server IDs and names, channel and role names and IDs.','Settings your server admins save on the dashboard.','Feature data: mod points and their history, warnings and reasons, levels and XP, AFK status and reasons, reminders, temporary bans, and the link between a ticket and its owner.','Dashboard login: when you log in with Discord we receive your Discord ID, username, profile picture and email address.'],
+['Messages','BOLT reads messages to run commands, auto-mod, levels and AFK. Normal messages are processed and not saved, except where a feature you turn on records them: message logs (deleted and edited text), ticket transcripts, and mod mail messages. These records are posted to channels that your server team chooses.'],
+['Why we use it','To run the features you turn on, to keep your settings, to show them on the dashboard, to keep the service safe, and to fix problems.'],
+['Where it is stored','Settings and feature data are stored in a database service. Some small working files are stored on the server that runs the bot. The website is hosted on GitHub Pages. Discord provides the platform and the login.'],
+['Who we share it with','We do not sell your data. We only use the services needed to run BOLT: Discord, the database and login provider, the bot host and the website host. We may share information if the law requires it.'],
+['How long we keep it','We keep data while BOLT is in your server or while you use the dashboard. Some records, like warnings and points, stay until a moderator clears them or you ask us to delete them.'],
+['Your choices','You can ask what we hold about you and ask us to delete it. Server admins can remove BOLT, turn features off, and clear warnings, points and levels. You can stop using the dashboard at any time.'],
+['Security','We use access rules so that only server managers can read a server’s dashboard data. No system is perfectly secure, so we cannot promise absolute safety.'],
+['Age','BOLT is for people who may use Discord under Discord’s own age rules. We do not knowingly collect data from anyone below that age.'],
+['Changes and contact','We may update this policy and show the date at the top. Questions or deletion requests: contact '+CONTACT+'.']]]
 };
 
-/* ---------- Helpers ---------- */
-const $ = (id) => document.getElementById(id);
-const clone = (o) => JSON.parse(JSON.stringify(o));
-const okIcon = (u) => typeof u === 'string' && u.startsWith('https://cdn.discordapp.com/');
-const ini = (n) => n.split(' ').map((w) => w[0] || '').join('').slice(0, 2).toUpperCase();
-function h(tag, attrs, ...kids) {
-  const e = document.createElement(tag);
-  for (const [k, v] of Object.entries(attrs || {})) {
-    if (k === 'class') e.className = v;
-    else if (k.startsWith('on')) e.addEventListener(k.slice(2), v);
-    else if (v === true) e.setAttribute(k, '');
-    else if (v !== false && v != null) e.setAttribute(k, v);
-  }
-  for (const c of kids.flat()) if (c != null && c !== false) e.append(c.nodeType ? c : document.createTextNode(c));
-  return e;
-}
-function ava(url, name) {
-  if (okIcon(url)) return h('img', { class: 'ava', src: url, alt: '' });
-  return h('span', { class: 'ava' }, ini(name || '?'));
-}
-function logoSvg(cls) {
-  const ns = 'http://www.w3.org/2000/svg', svg = document.createElementNS(ns, 'svg'), use = document.createElementNS(ns, 'use');
-  svg.setAttribute('viewBox', '0 0 519 258'); svg.setAttribute('class', cls); svg.setAttribute('aria-hidden', 'true');
-  use.setAttribute('href', '#bolt-logo'); svg.append(use);
-  return svg;
-}
-let toastTimer;
-function toast(m) { const t = $('toast'); t.textContent = m; t.hidden = false; clearTimeout(toastTimer); toastTimer = setTimeout(() => (t.hidden = true), 3000); }
-async function copy(txt) {
-  try { await navigator.clipboard.writeText(txt); toast('Copied'); } catch (e) { toast('Could not copy. Select the text instead.'); }
-}
-function ago(iso) {
-  const m = Math.max(0, Math.round((Date.now() - new Date(iso).getTime()) / 60000));
-  if (m < 1) return 'just now';
-  if (m < 60) return m + ' min ago';
-  return Math.round(m / 60) + ' h ago';
-}
-const loginBtn = (cls) => h('button', { class: cls || 'btn p', type: 'button', onclick: doLogin }, 'Log in with Discord');
-async function doLogin() { try { await Data.login(); } catch (e) { toast('Login failed: ' + e.message); } }
-async function doLogout() { await Data.logout(); $('umenu').hidden = true; await render(); toast('Logged out'); }
+/* Pages */
+const home=()=>h('div',{class:'w'},h('h1',{},'A quiet bot for Discord servers.'),h('p',{class:'m',style:'font-size:17px;max-width:56ch'},'BOLT handles tickets, intro channels, AFK and moderation from Discord and the web.'),
+h('div',{class:'r'},h('a',{class:'btn p',href:INVITE,target:'_blank',rel:'noopener noreferrer'},'Add to Discord'),h('a',{class:'btn',href:'#/docs'},'Browse the docs'),h('a',{class:'btn',href:'#/dashboard'},'Open dashboard')),
+FEAT.map(f=>h('section',{},h('h2',{},f[0]),h('p',{class:'m'},f[1]))));
+const pageDocs=()=>h('div',{class:'w'},h('h1',{},'Docs'),h('p',{class:'m'},'Commands and the permissions they need.'),
+DOCS.map(s=>h('section',{},h('h2',{},s[0]),s[1]&&h('p',{class:'m'},s[1]),h('ul',{class:'lib'},s[2].map(c=>h('li',{},h('button',{class:'cd',type:'button',title:'Copy',onclick:()=>copy(c[0])},c[0]),h('span',{class:'m'},'— '+c[1]+(c[2]?' Needs '+c[2]+'.':''))))))));
+function legal(k){const L=LEGAL[k];return h('div',{class:'w'},h('div',{class:'legal'},h('p',{class:'m',style:'font-size:13px'},'Last updated November 15, 2026'),h('h1',{},L[0]),h('p',{class:'m'},L[1]),L[2].map((s,i)=>h('section',{},h('h2',{},(i+1)+'. '+s[0]),s.slice(1).map(t=>h('p',{class:'m'},t)))),h('p',{},h('a',{href:k==='terms'?'#/privacy':'#/terms'},k==='terms'?'Read the Privacy Policy':'Read the Terms and Conditions'))))}
 
-/* ---------- Theme ---------- */
-function setTheme(t) {
-  document.documentElement.setAttribute('data-theme', t);
-  $('theme').textContent = t === 'dark' ? '☀' : '☾';
-  $('theme').setAttribute('aria-label', t === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
-  try { localStorage.setItem('bolt-theme', t); } catch (e) {}
-}
-function initTheme() {
-  let s = null; try { s = localStorage.getItem('bolt-theme'); } catch (e) {}
-  setTheme(s === 'light' || s === 'dark' ? s : (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'));
-}
+/* Dashboard */
+const S={id:null,g:null,o:null,d:null,sec:'overview'};
+const dirty=()=>{const b=$('sb');if(b)b.hidden=JSON.stringify(S.d)===JSON.stringify(S.o)};
+function ctl(g,d,f){
+const[k,t,lab,x]=f,set=v=>{d[k]=v;dirty()};
+if(t==='t')return h('label',{class:'tg'},h('input',{type:'checkbox',checked:d[k],onchange:e=>set(e.target.checked)}),lab);
+let c;
+if(t==='c')c=h('select',{onchange:e=>set(e.target.value)},h('option',{value:''},x),g.channels.filter(z=>z.type==='text').sort((a,b)=>a.position-b.position).map(z=>h('option',{value:z.id,selected:z.id===d[k]},'#'+z.name)));
+else if(t==='r')c=h('select',{onchange:e=>set(e.target.value)},h('option',{value:''},x),roles(g).map(r=>h('option',{value:r.id,selected:r.id===d[k]},r.name)));
+else if(t==='R')c=h('div',{class:'chips'},roles(g).map(r=>{const b=h('button',{class:'chip',type:'button','aria-pressed':String(d[k].includes(r.id))},r.name);b.onclick=()=>{const i=d[k].indexOf(r.id);if(i>-1)d[k].splice(i,1);else if(d[k].length>=10)return toast('You can choose up to 10 roles.');else d[k].push(r.id);b.setAttribute('aria-pressed',String(d[k].includes(r.id)));dirty()};return b}));
+else if(t==='n'){c=h('input',{type:'number',min:'0',max:'10000',value:String(d[k])});c.oninput=e=>set(parseInt(e.target.value,10)||0)}
+else if(t==='s'){c=h('input',{type:'text',maxlength:String(x)});c.value=d[k];c.oninput=e=>set(e.target.value)}
+else if(t==='a'){c=h('textarea',{maxlength:String(x)});c.value=d[k];c.oninput=e=>set(e.target.value)}
+else if(t==='D')c=h('select',{onchange:e=>set(+e.target.value)},days.map((n,i)=>h('option',{value:i,selected:i===d[k]},n)));
+else if(t==='H')c=h('select',{onchange:e=>set(+e.target.value)},Array.from({length:24},(_,i)=>h('option',{value:i,selected:i===d[k]},(i%12||12)+':00 '+(i<12?'AM':'PM'))));
+else c=h('div',{},d[k].map(r=>{const n=h('input',{type:'number',min:'0',max:'500',placeholder:'Level',style:'max-width:110px'});n.value=r.level||'';n.oninput=e=>{r.level=parseInt(e.target.value,10)||0;dirty()};return h('div',{style:'display:flex;gap:8px;margin:8px 0'},n,h('select',{onchange:e=>{r.roleId=e.target.value;dirty()}},h('option',{value:''},'Role reward'),roles(g).map(o=>h('option',{value:o.id,selected:o.id===r.roleId},o.name))))}));
+return h(t==='R'||t==='L'?'div':'label',{class:'f'},h('span',{class:'lb'},lab),c)}
+function form(g,x){const d=S.d[x[0]];
+return h('div',{},h('h1',{},x[2]),h('p',{class:'m'},x[3]),
+x[4]&&h('label',{class:'tg'},h('input',{type:'checkbox',checked:d.on,onchange:e=>{d.on=e.target.checked;dirty()}}),'Turn on '+x[2].toLowerCase()),
+x[5].map(f=>ctl(g,d,f)),
+h('p',{class:'err',id:'er',hidden:true,role:'alert'}),
+h('div',{class:'sb',id:'sb',hidden:true},h('span',{},'You have unsaved changes.'),h('div',{},h('button',{class:'btn',type:'button',onclick:()=>{S.d=clone(S.o);render(true)}},'Reset'),' ',h('button',{class:'btn p',id:'sv',type:'button',onclick:save},'Save changes'))))}
+const overview=g=>h('div',{},h('h1',{},g.name),h('p',{class:'m'},g.channels.length+' channels, '+g.roles.length+' roles. Server data synced '+ago(g.updated_at)+'.'),
+h('ul',{class:'lib'},SEC.map(x=>h('li',{},h('a',{href:'#/dashboard/'+g.guild_id+'/'+x[0]},x[2]),h('span',{class:'m'},'— '+x[3])))),
+h('p',{class:'m',style:'font-size:13px;margin-top:14px'},'Changes reach BOLT in about 20 seconds. Channel and role lists update every 5 minutes.'));
+async function save(){
+const d=S.d,v=d[S.sec],x=SEC.find(z=>z[0]===S.sec),err=m=>{const e=$('er');e.textContent=m;e.hidden=!m};err('');
+if(x[4]&&v.on&&!v.channelId&&!v.create)return err('Choose a channel, or turn this off.');
+if(S.sec==='intro'&&v.on&&!v.template.trim())return err('Write a template for the intro message.');
+if(S.sec==='tickets'&&(!v.panelChannelId||!v.staffRoleIds.length))return err('Choose a panel channel and at least one staff role.');
+if(S.sec==='roles'&&v.on&&!v.roleIds.length)return err('Choose at least one role for the role menu.');
+if(S.sec==='welcome'&&v.message.trim()&&!v.channelId)return err('Choose a channel for the welcome message.');
+const b=$('sv');b.disabled=true;b.textContent='Saving…';
+try{await D.save(S.id,d);S.o=clone(d);dirty();toast('Saved. BOLT applies changes within about 20 seconds.')}catch(e){err('Could not save: '+e.message)}
+b.disabled=false;b.textContent='Save changes'}
+async function pageDash(id,sec){
+const u=await D.user();
+if(!u)return h('div',{class:'w'},h('h1',{},'Log in to manage your servers'),h('p',{class:'m'},'Connect with Discord to choose a server and change its settings.'),loginBtn('Log in with Discord'));
+let gs;try{gs=await D.guilds()}catch(e){return h('div',{class:'w'},h('p',{class:'err'},'Could not load your servers: '+e.message))}
+const add=h('a',{class:'btn',href:INVITE,target:'_blank',rel:'noopener noreferrer'},'Add BOLT to a server');
+if(!id)return h('div',{class:'w'},h('h1',{},'Choose a server'),h('p',{class:'m'},'Only servers where you are the owner, an admin, or have Manage Server are listed.'),
+h('div',{class:'g'},gs.map(g=>h('a',{class:'c',href:'#/dashboard/'+g.guild_id+'/overview'},ava(g.icon,g.name),h('div',{},h('strong',{},g.name),h('div',{class:'m',style:'font-size:13px'},g.channels.length+' channels, '+g.roles.length+' roles'))))),
+gs.length?null:h('p',{class:'m'},'No servers found. BOLT must be in a server where you are the owner, an admin, or have Manage Server. New permissions can take up to 5 minutes to show up.'),h('p',{},add));
+const g=gs.find(z=>z.guild_id===id);
+if(!g)return h('div',{class:'w'},h('p',{},'Server not found.'),h('a',{class:'btn',href:'#/dashboard'},'Back to servers'));
+let raw={};try{if(S.id!==id)raw=await D.raw(id)}catch(e){return h('div',{class:'w'},h('p',{class:'err'},'Could not load settings: '+e.message))}
+S.g=g;S.sec=sec||'overview';
+if(S.id!==id){S.id=id;S.o={};for(const x of SEC)S.o[x[0]]=unpack(x,raw[x[1]]||{});S.d=clone(S.o)}
+const x=SEC.find(z=>z[0]===S.sec);
+const side=h('aside',{class:'side'},h('select',{'aria-label':'Server',onchange:e=>location.hash='#/dashboard/'+e.target.value+'/'+S.sec},gs.map(z=>h('option',{value:z.guild_id,selected:z.guild_id===id},z.name))),
+h('nav',{'aria-label':'Server sections'},[['overview','Overview'],...SEC.map(z=>[z[0],z[2]])].map(n=>h('a',{class:'nl',href:'#/dashboard/'+id+'/'+n[0],'aria-current':S.sec===n[0]?'page':null},n[1]))),
+h('p',{style:'margin:12px 0 0'},add));
+return h('div',{class:'w dash'},side,h('div',{style:'min-width:0'},x?form(g,x):overview(g)))}
 
-/* ---------- Docs content ---------- */
-const r = (c, d, perm, ex) => ['bolt ' + c.split(' ')[0], d, 'bolt ' + c, 'bolt ' + (ex || c), perm || 'None'];
-const MORE_DOCS = [
-  { id: 'more-mod', t: 'Moderation: more commands', b: ['Every command also works as a slash command.'], c: [
-    r('warn <member> [reason]', 'Warns a member, keeps a record and DMs them.', 'Moderate Members', 'warn @user spamming'),
-    r('warnings <user>', "Shows a member's warnings."),
-    r('clearwarnings <user>', "Removes all of a member's warnings.", 'Moderate Members'),
-    r('unban <user or ID> [reason]', 'Unbans a user.', 'Ban Members'),
-    r('tempban <member> <time> [reason]', 'Bans a member for a set time (up to 28 days), then unbans them.', 'Ban Members', 'tempban @user 2d rules'),
-    r('slowmode <seconds> [channel]', 'Sets slowmode (0 turns it off).', 'Manage Channels', 'slowmode 10'),
-    r('lock [channel]', 'Stops everyone from sending messages in a channel.', 'Manage Channels'),
-    r('unlock [channel]', 'Lets everyone send messages again.', 'Manage Channels'),
-    r('nick <member> [nickname]', "Changes or resets a member's nickname.", 'Manage Nicknames', 'nick @user Cool Name'),
-    r('addrole <member> <role>', 'Gives a role to a member.', 'Manage Roles', 'addrole @user @Role'),
-    r('removerole <member> <role>', 'Removes a role from a member.', 'Manage Roles', 'removerole @user @Role')
-  ] },
-  { id: 'utility', t: 'Utility', c: [
-    r('help [category]', 'Shows all commands, or one category.', 'None', 'help moderation'),
-    r('avatar [user]', "Shows someone's profile picture."),
-    r('userinfo [user]', 'Shows information about a member.'),
-    r('serverinfo', 'Shows information about this server.'),
-    r('roleinfo <role>', 'Shows information about a role.'),
-    r('channelinfo [channel]', 'Shows information about a channel.'),
-    r('botinfo', 'Shows BOLT statistics.'),
-    r('membercount', 'Shows how many members the server has.'),
-    r('invite', 'Gets the link to add BOLT to a server.')
-  ] },
-  { id: 'fun', t: 'Fun', c: [
-    r('8ball <question>', 'Ask the magic 8-ball.', 'None', '8ball will it rain?'),
-    r('coinflip', 'Flips a coin.'),
-    r('roll [dice]', 'Rolls dice like 2d6.', 'None', 'roll 2d20'),
-    r('choose <option | option>', 'Picks one of your options.', 'None', 'choose pizza | burger'),
-    r('rps <rock|paper|scissors>', 'Plays rock, paper, scissors.', 'None', 'rps rock'),
-    r('rate <thing>', 'Rates anything out of 10.', 'None', 'rate pizza'),
-    r('ship <user> [user]', 'Checks the match between two people.', 'None', 'ship @user @user'),
-    r('say <text>', 'Makes BOLT say something. Your command message is deleted instantly. Slash version: /say text.', 'Manage Messages', 'say Hello everyone'),
-    r('say as <user> <text>', "Sends a message that looks like it came from that member, through a webhook. Your command message is deleted instantly and every use is written to the say log. Needs a say log channel. Slash version: /say as.", 'Manage Server', 'say as @user Hello everyone')
-  ] },
-  { id: 'community-cmds', t: 'Community and levels', c: [
-    r('poll <question | option | option>', 'Creates a poll with reactions.', 'None', 'poll Best color? | Red | Blue'),
-    r('suggest <idea>', 'Sends a suggestion to the suggestions channel.', 'None', 'suggest Add a music channel'),
-    r('remind <time> <text>', 'Reminds you later (like 30m, 2h, 1d).', 'None', 'remind 30m take a break'),
-    r('reminders', 'Lists your reminders.'),
-    r('rank [user]', 'Shows your level, XP and rank.'),
-    r('levels', 'Shows the top 10 members by level.')
-  ] }
-];
-const DOCS = [
-  { id: 'getting-started', t: 'Getting started', b: ['Add BOLT with the invite button, then run /ticket setup or /intro setup, or use the dashboard.', 'Commands start with "bolt." or "bolt " (both work), like bolt.kick @user or bolt kick @user. Notation: <required> [optional].'] },
-  { id: 'moderation', t: 'Moderation', b: ['Prefix commands.'], c: [
-    ['bolt.kick', 'Removes a member.', 'bolt.kick <@user> [reason]', 'bolt.kick @user spamming', 'Kick Members'],
-    ['bolt.ban', 'Bans a member. Also works for users who already left.', 'bolt.ban <@user or ID> [reason]', 'bolt.ban @user repeated rule breaks', 'Ban Members'],
-    ['bolt.mute', 'Times out a member. Time examples: 30s, 10m, 2h, 1d. Maximum 28d.', 'bolt.mute <@user> <time> [reason]', 'bolt.mute @user 10m spamming', 'Moderate Members'],
-    ['bolt.unmute', 'Removes a timeout.', 'bolt.unmute <@user>', 'bolt.unmute @user', 'Moderate Members'],
-    ['bolt.purge', "Deletes the latest messages in the channel, or only one person's messages. Skips pinned messages and messages older than 14 days. bolt.clear works too.", 'bolt.purge <1-100> [@user]', 'bolt.purge 20 @user', 'Manage Messages'],
-    ['bolt.help', 'Shows all commands.', 'bolt.help', 'bolt.help', 'None']
-  ], n: ["You cannot act on someone whose top role is the same as or higher than yours, or on the server owner. BOLT's role must be above the member's role. Wrong usage shows the correct format."] },
-  { id: 'afk', t: 'AFK', c: [
-    ['?afk', 'Marks you as AFK and adds [AFK] to your nickname. Anyone who mentions you gets a card with your reason and how long you have been away. Your next message removes it.', 'bolt afk [reason]', 'bolt afk in a meeting', 'None'],
-    ['?afk remove', "Removes someone else's AFK.", 'bolt afk remove <@user or name>', 'bolt afk remove @user', 'Manage Server']
-  ], n: ['?afk works too.', "Discord does not let bots change the server owner's nickname."] },
-  { id: 'intro', t: 'Intro channel', b: ['Slash command.'], c: [
-    ['/intro setup', 'Pick a channel and write a template. BOLT keeps the how-to message as the last message in that channel and moves it below every new intro. Can also be set in the dashboard.', '/intro setup', '/intro setup', 'Manage Server']
-  ] },
-  { id: 'tickets', t: 'Tickets', b: ['Slash commands.'], c: [
-    ['/ticket setup', 'Choose the panel channel, the staff roles, the logs channel and the transcripts channel, then press Create panel.', '/ticket setup', '/ticket setup', 'Manage Server'],
-    ['/ticket logs', 'Choose the channel for ticket logs.', '/ticket logs', '/ticket logs', 'Manage Server']
-  ], n: ['How tickets work: members press Open Ticket and fill in a reason. BOLT creates a private thread in the panel channel for that member and mentions the staff roles. One open ticket per member. Buttons inside a ticket: Close (member or staff), Rename (staff), Reopen (staff), Delete (staff). When a ticket closes the member is removed from the thread, and a transcript (one line per message, like sender: content) is posted in the transcripts channel. If none is set, BOLT creates a private one. Created, closed, reopened, renamed and deleted tickets are written to the logs channel.'] },
-  { id: 'points', t: 'Mod points', b: ['Voter roles are chosen on the dashboard. Kick and ban limits are set there too. At a limit, BOLT acts automatically and sends the member the reason by DM.'], c: [
-    ['bolt.point', 'Gives or removes mod points. Voters only.', 'bolt.point <@user> <+number or -number> [reason]', 'bolt.point @user +2 spamming', 'Voter role'],
-    ['bolt.points', 'Shows the top points, or one member with the latest changes.', 'bolt.points [@user]', 'bolt.points @user', 'None'],
-    ['/leaderboard', 'Shows the mod points leaderboard with profile pictures. Anyone can use it. bolt.leaderboard works too. A weekly post can be set up on the dashboard.', '/leaderboard', '/leaderboard', 'None']
-  ] },
-  { id: 'mail', t: 'Mod mail', b: ['Set up on the dashboard only. BOLT keeps a panel as the last message in the mod mail channel. Staff press Send new mail, choose up to 25 members, write the message, and BOLT sends it by DM. You see how many were delivered and how many failed.'] },
-  ...MORE_DOCS,
-  { id: 'automod', t: 'Auto-mod', b: ['Set up on the dashboard. BOLT removes invite links, spam, mass mentions and blocked words, posts a short notice, can mute the person, and writes it to the mod log. Members with Manage Messages and exempt roles are never checked.'] },
-  { id: 'welcome', t: 'Welcome and roles', b: ['Set up on the dashboard. Welcome and goodbye messages can use {user}, {name}, {server} and {count}. New members can get a role automatically. The role menu is a card with buttons, and members press a button to get or remove a role.'] },
-  { id: 'modlog', t: 'Mod log', b: ['Set up on the dashboard. BOLT writes a card for every kick, ban, mute, unmute, purge, point change and auto-mod action.'] },
-  { id: 'other', t: 'Other', c: [['/ping', 'Shows if BOLT is online and its latency.', '/ping', '/ping', 'None']] },
-  { id: 'dashboard', t: 'Dashboard', b: ['Log in with Discord, choose a server, then change the Intro and Ticket settings. Changes reach BOLT in about 20 seconds. Only the owner, admins and members with Manage Server can use it.'] }
-];
-
-/* ---------- Pages (each returns an element) ---------- */
-function pageHome() {
-  const features = [['Tickets', 'Members open a private ticket. Staff reply in one place.'], ['Intro channel', 'New members follow a how-to message that stays at the bottom.'], ['AFK', 'Mark yourself away. Mentions get your reason and how long.'], ['Moderation', 'Kick, ban, mute and purge with clear formats.'], ['Mod points', 'Voters add points. Kick and ban happen at your limits.'], ['Mod mail', 'Send private messages to members from a staff panel.'], ['Auto-mod', 'Removes invites, spam and mass mentions.'], ['Welcome and roles', 'Welcome messages, auto roles and a role menu.'], ['Levels and fun', 'XP, ranks, polls, reminders, games and more.'], ['Web dashboard', 'Change settings from your browser.']];
-  return h('div', { class: 'page' },
-    h('section', { class: 'hero' }, logoSvg('hero-logo'), h('h1', {}, 'A quiet bot for Discord servers.'),
-      h('p', { class: 'lead' }, 'BOLT handles tickets, intro channels, AFK and moderation from Discord and the web.'),
-      h('div', { class: 'row' }, h('a', { class: 'btn p', href: INVITE_URL, target: '_blank', rel: 'noopener noreferrer' }, 'Add to Discord'), h('a', { class: 'btn', href: '#/dashboard' }, 'Open dashboard'))),
-    h('h2', {}, 'What BOLT does'),
-    h('div', { class: 'grid g3' }, features.map((f) => h('div', { class: 'card' }, h('h3', {}, f[0]), h('p', {}, f[1])))),
-    h('h2', {}, 'Preview'),
-    h('div', { class: 'msg' }, h('div', { class: 'mav' }, 'B'), h('div', { style: 'flex:1;min-width:0' },
-      h('div', {}, h('span', { class: 'mname' }, 'BOLT'), h('span', { class: 'tag' }, 'BOT')),
-      embed('📝 How to write your intro', 'Copy this format and fill it in:\n\nName:\nAge:\nHobbies:', 'Post your intro below this message.'),
-      embed('Support Tickets', 'Need help? Click the button below to open a ticket.\nA private channel will be created for you and our staff.', null, 'Open Ticket'))));
-}
-function embed(title, desc, foot, btn) {
-  return h('div', {}, h('div', { class: 'embed' }, h('i'), h('div', {}, h('p', { class: 'et' }, title), h('p', { class: 'ed' }, desc), foot && h('p', { class: 'ef' }, foot))),
-    btn && h('p', { style: 'margin:8px 0 0' }, h('span', { class: 'btn p sm' }, btn)));
-}
-
-function cmdBlock(c) {
-  const row = (label, txt) => h('div', { class: 'cr' }, h('span', {}, label), h('code', {}, txt), h('button', { class: 'cp', type: 'button', onclick: () => copy(txt) }, 'Copy'));
-  return h('article', { class: 'cmd' }, h('h3', {}, c[0]), h('p', {}, c[1]), row('Format', c[2]), row('Example', c[3]), h('p', { class: 'perm' }, 'Permission needed: ', h('b', {}, c[4])));
-}
-function pageDocs(active) {
-  const cur = active || 'getting-started';
-  const sel = h('select', { id: 'dsel', onchange: (e) => (location.hash = '#/docs/' + e.target.value) }, DOCS.map((s) => h('option', { value: s.id, selected: s.id === cur }, s.t)));
-  const page = h('div', { class: 'page' }, h('h1', {}, 'Docs'), h('p', { class: 'muted' }, 'Commands, formats and permissions. Copy a format and paste it into Discord.'),
-    h('div', { class: 'dl' },
-      h('aside', { class: 'dside' }, h('nav', { 'aria-label': 'Docs sections' }, DOCS.map((s) => h('a', { href: '#/docs/' + s.id, class: s.id === cur ? 'on' : '' }, s.t)))),
-      h('div', {}, h('div', { class: 'dmob field' }, h('label', { for: 'dsel' }, 'Section'), sel),
-        DOCS.map((s) => h('section', { id: 'docs-' + s.id }, h('h2', {}, s.t), (s.b || []).map((p) => h('p', {}, p)), (s.c || []).map(cmdBlock), (s.n || []).map((n) => h('p', { class: 'note' }, n)))))));
-  if (active) setTimeout(() => { const t = $('docs-' + active); if (t) t.scrollIntoView({ block: 'start' }); }, 50);
-  return page;
-}
-
-const GROUPS = [
-  ['', [['overview', 'Overview', '']]],
-  ['Moderation', [['automod', 'Auto-mod', 'Remove invites, spam, mass mentions and blocked words.'], ['points', 'Mod points', 'Voters, kick and ban limits, and the points list.'], ['modlog', 'Logs', 'Mod log, message log and member log channels.']]],
-  ['Support', [['tickets', 'Tickets', 'Panel, staff roles, logs and transcripts.'], ['mail', 'Mod mail', 'A panel that sends private messages to members.'], ['intro', 'Intro', 'Keep the how-to message at the bottom of your intro channel.']]],
-  ['Community', [['welcome', 'Welcome', 'Welcome and goodbye messages and an automatic role.'], ['roles', 'Role menu', 'Let members pick their own roles with buttons.'], ['levels', 'Levels', 'XP for chatting, level-up messages and role rewards.'], ['leaderboard', 'Leaderboard', 'Post the mod points leaderboard every week.'], ['suggestions', 'Suggestions', 'Where /suggest sends member ideas.']]]
-];
-const S = { g: null, guilds: [], orig: null, draft: null, sec: 'overview' };
-async function pageDash(gid, sec) {
-  const user = await Data.user();
-  if (!user) return h('div', { class: 'page' }, h('div', { class: 'card center' }, h('h1', {}, 'Log in to manage your servers'), h('p', { class: 'muted' }, 'Connect with Discord to choose a server and change its Intro and Ticket settings.'), loginBtn()));
-  let guilds;
-  try { guilds = await Data.guilds(); } catch (e) { return h('div', { class: 'page' }, h('p', { class: 'err' }, 'Could not load your servers: ' + e.message)); }
-  const addBtn = (cls) => h('a', { class: cls, href: INVITE_URL, target: '_blank', rel: 'noopener noreferrer' }, 'Add BOLT to a server');
-  if (!gid) {
-    return h('div', { class: 'page' }, h('h1', {}, 'Choose a server'), h('p', { class: 'muted' }, 'Only servers where you are the owner, an admin, or have Manage Server are listed.'),
-      guilds.length ? h('div', { class: 'grid g3' }, guilds.map((g) => h('div', { class: 'srv' }, ava(g.icon, g.name), h('div', {}, h('strong', {}, g.name), h('span', { class: 'sm muted' }, g.channels.length + ' channels, ' + g.roles.length + ' roles')), h('a', { class: 'btn sm', href: '#/dashboard/' + g.guild_id + '/overview' }, 'Manage'))), h('div', { class: 'srv add' }, h('div', {}, h('strong', {}, 'Add BOLT to a server'), h('span', { class: 'sm muted' }, 'Then reload this page.')), addBtn('btn p sm')))
-        : h('div', { class: 'empty' }, h('p', {}, 'No servers found. BOLT must be in a server where you are the owner, an admin, or have Manage Server. New permissions can take up to 5 minutes to show up.'), addBtn('btn p')));
-  }
-  const g = guilds.find((x) => x.guild_id === gid);
-  if (!g) return h('div', { class: 'page' }, h('div', { class: 'empty' }, 'Server not found.'), h('p', { style: 'margin-top:12px' }, h('a', { class: 'btn', href: '#/dashboard' }, 'Back to servers')));
-  let settings;
-  try { settings = await Data.load(gid); } catch (e) { return h('div', { class: 'page' }, h('p', { class: 'err' }, 'Could not load settings: ' + e.message)); }
-  S.g = g; S.guilds = guilds; S.sec = sec || 'overview';
-  if (S.id !== gid) { S.id = gid; S.orig = settings; S.draft = clone(settings); }
-  return dashServer(g, S.sec, addBtn);
-}
-
-function dashServer(g, sec, addBtn) {
-  const sw = h('select', { 'aria-label': 'Server', onchange: (e) => (location.hash = '#/dashboard/' + e.target.value + '/' + sec) }, S.guilds.map((x) => h('option', { value: x.guild_id, selected: x.guild_id === g.guild_id }, x.name)));
-  const nav = GROUPS.map(([title, items]) => h('div', { class: 'ngroup' }, title ? h('p', { class: 'ntitle' }, title) : null, items.map((n) => h('a', { href: '#/dashboard/' + g.guild_id + '/' + n[0], class: sec === n[0] ? 'on' : '' }, n[1])))); 
-  const side = h('aside', { class: 'side' }, sw, h('nav', { class: 'dnav', 'aria-label': 'Server sections' }, nav), h('p', { style: 'margin:12px 0 0' }, addBtn('btn sm')));
-  const body = sec === 'intro' ? formIntro(g) : sec === 'tickets' ? formTickets(g) : sec === 'points' ? formPoints(g) : sec === 'leaderboard' ? formLeaderboard(g) : sec === 'automod' ? formAutomod(g) : sec === 'welcome' ? formWelcome(g) : sec === 'roles' ? formRoles(g) : sec === 'modlog' ? formModlog(g) : sec === 'levels' ? formLevels(g) : sec === 'suggestions' ? formSuggestions(g) : sec === 'mail' ? formMail(g) : overview(g);
-  return h('div', { class: 'page' }, h('div', { class: 'dash' }, side, h('div', { class: 'cont' }, body)));
-}
-function overview(g) {
-  const stat = (v, l) => h('div', { class: 'card stat' }, h('strong', {}, v), h('span', {}, l));
-  const quick = (t, d, k) => h('a', { class: 'card', href: '#/dashboard/' + g.guild_id + '/' + k, style: 'text-decoration:none;display:block' }, h('h3', {}, t), h('p', {}, d));
-  return h('div', {}, h('h1', {}, g.name), h('div', { class: 'stats' }, stat(String(g.channels.length), 'Channels'), stat(String(g.roles.length), 'Roles'), stat(ago(g.updated_at), 'Server data synced')),
-    GROUPS.slice(1).map(([title, items]) => h('div', {}, h('h2', {}, title), h('div', { class: 'grid g3' }, items.map((n) => quick(n[1], n[2], n[0]))))),
-    h('p', { class: 'sm muted', style: 'margin-top:14px' }, 'Changes reach BOLT in about 20 seconds. Channel and role lists update every 5 minutes.'));
-}
-function chSelect(g, type, value, onpick, first) {
-  const list = g.channels.filter((c) => c.type === type).sort((a, b) => a.position - b.position);
-  return h('select', { onchange: (e) => { onpick(e.target.value); dirtyCheck(); } }, h('option', { value: '' }, first),
-    list.map((c) => h('option', { value: c.id, selected: c.id === value }, (type === 'text' ? '#' : '') + c.name)));
-}
-function field(label, ctrl, id) { return h('div', { class: 'field' }, h('label', id ? { for: id } : {}, label), ctrl); }
-function formIntro(g) {
-  const d = S.draft.intro;
-  const prev = h('p', { class: 'ed', id: 'pv' }, 'Copy this format and fill it in:\n\n' + (d.template || 'Your template shows here.'));
-  const ta = h('textarea', { id: 'tpl', maxlength: '1500', placeholder: 'Name:\nAge:\nHobbies:', oninput: (e) => { d.template = e.target.value; prev.textContent = 'Copy this format and fill it in:\n\n' + (d.template || 'Your template shows here.'); dirtyCheck(); } });
-  ta.value = d.template;
-  return h('div', {}, h('h1', {}, 'Intro'), h('p', { class: 'muted' }, 'BOLT keeps a how-to message as the last message in your intro channel.'),
-    h('label', { class: 'tg' }, h('input', { type: 'checkbox', checked: d.enabled, onchange: (e) => { d.enabled = e.target.checked; dirtyCheck(); } }), 'Turn on the intro system'),
-    field('Channel', chSelect(g, 'text', d.channelId, (v) => (d.channelId = v), 'Choose a channel')),
-    field('Template', ta, 'tpl'),
-    h('p', { class: 'sm muted' }, 'Members will see it like this:'),
-    h('div', { class: 'embed', style: 'max-width:none' }, h('i'), h('div', {}, h('p', { class: 'et' }, '📝 How to write your intro'), prev, h('p', { class: 'ef' }, 'Post your intro below this message.'))),
-    saveBar());
-}
-function formTickets(g) {
-  const d = S.draft.tickets;
-  const color = (c) => (/^#[0-9a-f]{6}$/i.test(c) && c !== '#000000' ? c : 'var(--muted)');
-  const chips = g.roles.slice().sort((a, b) => b.position - a.position).map((r) => {
-    const chip = h('button', { class: 'chip', type: 'button', 'aria-pressed': String(d.staffRoleIds.includes(r.id)) }, h('span', { class: 'dot', style: 'background:' + color(r.color) }), r.name);
-    chip.addEventListener('click', () => {
-      const i = d.staffRoleIds.indexOf(r.id);
-      if (i > -1) d.staffRoleIds.splice(i, 1);
-      else if (d.staffRoleIds.length >= 10) return toast('You can choose up to 10 staff roles.');
-      else d.staffRoleIds.push(r.id);
-      chip.setAttribute('aria-pressed', String(d.staffRoleIds.includes(r.id)));
-      dirtyCheck();
-    });
-    return chip;
-  });
-  return h('div', {}, h('h1', {}, 'Tickets'), h('p', { class: 'muted' }, 'Tickets open as private threads in the panel channel. A transcript is saved when a ticket closes.'),
-    field('Panel channel', chSelect(g, 'text', d.panelChannelId, (v) => (d.panelChannelId = v), 'Choose a channel')),
-    field('Logs channel (optional)', chSelect(g, 'text', d.logChannelId, (v) => (d.logChannelId = v), 'No logs')),
-    field('Transcripts channel (optional)', chSelect(g, 'text', d.transcriptChannelId, (v) => (d.transcriptChannelId = v), 'BOLT creates one when needed')),
-    h('div', { class: 'field' }, h('span', {}, 'Staff roles (up to 10)'), h('div', { class: 'chips' }, chips)),
-    h('p', { class: 'note' }, 'After saving, run /ticket setup in Discord and press Create panel to post the ticket button.'), saveBar());
-}
-
-function roleChips(g, list, max) {
-  const color = (c) => (/^#[0-9a-f]{6}$/i.test(c) && c !== '#000000' ? c : 'var(--muted)');
-  return g.roles.slice().sort((a, b) => b.position - a.position).map((r) => {
-    const chip = h('button', { class: 'chip', type: 'button', 'aria-pressed': String(list.includes(r.id)) }, h('span', { class: 'dot', style: 'background:' + color(r.color) }), r.name);
-    chip.addEventListener('click', () => {
-      const i = list.indexOf(r.id);
-      if (i > -1) list.splice(i, 1);
-      else if (list.length >= max) return toast('You can choose up to ' + max + ' roles.');
-      else list.push(r.id);
-      chip.setAttribute('aria-pressed', String(list.includes(r.id)));
-      dirtyCheck();
-    });
-    return chip;
-  });
-}
-function numField(label, value, onset) {
-  const input = h('input', { type: 'number', min: '0', max: '10000', value: String(value), oninput: (e) => { onset(parseInt(e.target.value, 10) || 0); dirtyCheck(); } });
-  input.style.cssText = 'width:100%;background:var(--s1);border:1px solid var(--line);border-radius:8px;padding:10px 12px;font:inherit;color:inherit';
-  return field(label, input);
-}
-function formPoints(g) {
-  const d = S.draft.modpoints;
-  const lists = h('div', {}, h('p', { class: 'sm muted' }, 'Loading points…'));
-  Data.points(g.guild_id).then((r) => {
-    lists.replaceChildren(
-      h('h2', {}, 'Top points'),
-      r.top.length ? h('div', { class: 'grid' }, r.top.map((t, i) => h('div', { class: 'srv' }, ava(t.avatar, t.name || '?'), h('div', {}, h('strong', {}, (i + 1) + '. ' + (t.name || t.user_id)), h('span', { class: 'sm muted' }, t.points + ' points'))))) : h('div', { class: 'empty' }, 'Nobody has points yet.'),
-      h('h2', {}, 'Latest changes'),
-      r.log.length ? h('div', {}, r.log.map((l) => h('div', { class: 'logrow' }, ava(l.user_avatar, l.user_name || '?'), h('p', { class: 'sm', style: 'margin:0' }, (l.delta > 0 ? '+' : '') + l.delta + ' for ' + (l.user_name || '?') + ' by ' + (l.voter_name || '?') + ' (total ' + l.total + '): ' + (l.reason || 'No reason'))))) : h('div', { class: 'empty' }, 'No changes yet.'));
-  }).catch((e) => lists.replaceChildren(h('p', { class: 'err' }, 'Could not load points: ' + e.message)));
-  return h('div', {}, h('h1', {}, 'Mod points'),
-    h('p', { class: 'muted' }, 'Voters give or remove points with bolt.point @user +3 reason. At the limits below, BOLT kicks or bans the member automatically and sends them the reason by DM.'),
-    h('div', { class: 'field' }, h('span', {}, 'Voter roles (who can use bolt.point, up to 10)'), h('div', { class: 'chips' }, roleChips(g, d.voterRoleIds, 10))),
-    numField('Kick at this many points (0 = off)', d.kickAt, (v) => (d.kickAt = v)),
-    numField('Ban at this many points (0 = off)', d.banAt, (v) => (d.banAt = v)),
-    saveBar(), lists);
-}
-const INPUT_STYLE = 'width:100%;background:var(--s1);border:1px solid var(--line);border-radius:8px;padding:10px 12px;font:inherit;color:inherit';
-const toggleRow = (label, obj, key) => h('label', { class: 'tg', style: 'margin-top:8px' }, h('input', { type: 'checkbox', checked: obj[key], onchange: (e) => { obj[key] = e.target.checked; dirtyCheck(); } }), label);
-function textArea(label, obj, key, max, ph) {
-  const ta = h('textarea', { maxlength: String(max), placeholder: ph || '', oninput: (e) => { obj[key] = e.target.value; dirtyCheck(); } });
-  ta.value = obj[key];
-  return field(label, ta);
-}
-function textInput(label, obj, key, max, ph) {
-  const input = h('input', { type: 'text', maxlength: String(max), placeholder: ph || '', oninput: (e) => { obj[key] = e.target.value; dirtyCheck(); } });
-  input.value = obj[key]; input.style.cssText = INPUT_STYLE;
-  return field(label, input);
-}
-function roleSelect(g, value, onpick, first) {
-  return h('select', { onchange: (e) => { onpick(e.target.value); dirtyCheck(); } }, h('option', { value: '' }, first),
-    g.roles.slice().sort((a, b) => b.position - a.position).map((r) => h('option', { value: r.id, selected: r.id === value }, r.name)));
-}
-const roleBlock = (g, label, list, max) => h('div', { class: 'field' }, h('span', {}, label), h('div', { class: 'chips' }, roleChips(g, list, max)));
-function formModlog(g) {
-  const d = S.draft.modlog;
-  return h('div', {}, h('h1', {}, 'Logs'),
-    h('p', { class: 'muted' }, 'Choose where BOLT writes its logs. Leave a channel empty to turn that log off.'),
-    field('Mod log: kicks, bans, mutes, warnings, purges, points and auto-mod', chSelect(g, 'text', d.channelId, (v) => (d.channelId = v), 'No mod log')),
-    field('Message log: deleted and edited messages', chSelect(g, 'text', d.messageChannelId, (v) => (d.messageChannelId = v), 'No message log')),
-    field('Member log: joins and leaves', chSelect(g, 'text', d.memberChannelId, (v) => (d.memberChannelId = v), 'No member log')),
-    field('Say log: every say and say as (blue = say, red = say as). Required for say as.', chSelect(g, 'text', d.sayChannelId, (v) => (d.sayChannelId = v), 'No say log')), saveBar());
-}
-function formLevels(g) {
-  const d = S.draft.levels;
-  const rows = d.rewards.map((r) => {
-    const num = h('input', { type: 'number', min: '0', max: '500', placeholder: 'Level', oninput: (e) => { r.level = parseInt(e.target.value, 10) || 0; dirtyCheck(); } });
-    num.value = r.level || ''; num.style.cssText = INPUT_STYLE + ';max-width:120px';
-    return h('div', { class: 'row', style: 'margin:8px 0' }, num, roleSelect(g, r.roleId, (v) => (r.roleId = v), 'Role reward'));
-  });
-  return h('div', {}, h('h1', {}, 'Levels'),
-    h('p', { class: 'muted' }, 'Members earn XP by chatting (once a minute). BOLT announces level ups and can give roles. Members use /rank and /levels.'),
-    toggleRow('Turn on levels', d, 'enabled'),
-    field('Level-up channel', chSelect(g, 'text', d.channelId, (v) => (d.channelId = v), 'Same channel as the message')),
-    h('div', { class: 'field' }, h('span', {}, 'Role rewards (up to 5): the level, then the role'), rows),
-    h('p', { class: 'note' }, "BOLT's role must be above the reward roles."), saveBar());
-}
-function formSuggestions(g) {
-  const d = S.draft.suggestions;
-  return h('div', {}, h('h1', {}, 'Suggestions'),
-    h('p', { class: 'muted' }, 'Members use /suggest to send ideas. BOLT posts each one in this channel with a tick and a cross to vote.'),
-    field('Suggestions channel', chSelect(g, 'text', d.channelId, (v) => (d.channelId = v), 'Suggestions off')), saveBar());
-}
-function formModlog_unused(g) {
-  const d = S.draft.modlog;
-  return h('div', {}, h('h1', {}, 'Mod log'), h('p', { class: 'muted' }, 'BOLT writes a card here for every kick, ban, mute, unmute, purge, point change and auto-mod action.'),
-    field('Mod log channel', chSelect(g, 'text', d.channelId, (v) => (d.channelId = v), 'No mod log')), saveBar());
-}
-function formAutomod(g) {
-  const d = S.draft.automod;
-  return h('div', {}, h('h1', {}, 'Auto-mod'),
-    h('p', { class: 'muted' }, 'BOLT removes messages that break these rules, posts a short notice and writes it to the mod log. Members with Manage Messages are never checked.'),
-    toggleRow('Turn on auto-mod', d, 'enabled'), toggleRow('Block invite links', d, 'invites'),
-    numField('Mass mentions: remove messages with this many mentions (0 = off)', d.mentionLimit, (v) => (d.mentionLimit = v)),
-    numField('Spam: remove when someone sends this many messages (0 = off)', d.spamLimit, (v) => (d.spamLimit = v)),
-    numField('Spam time window in seconds', d.spamSeconds, (v) => (d.spamSeconds = v)),
-    textArea('Blocked words (separate with commas)', d, 'words', 1000, 'word1, word2'),
-    numField('Mute offenders for this many minutes (0 = off)', d.muteMinutes, (v) => (d.muteMinutes = v)),
-    roleBlock(g, 'Roles that are never checked (up to 10)', d.exemptRoleIds, 10), saveBar());
-}
-function formWelcome(g) {
-  const d = S.draft.welcome;
-  return h('div', {}, h('h1', {}, 'Welcome'),
-    h('p', { class: 'muted' }, 'Use {user}, {name}, {server} and {count} in your messages. Leave a message empty to turn it off.'),
-    field('Channel', chSelect(g, 'text', d.channelId, (v) => (d.channelId = v), 'Choose a channel')),
-    textArea('Welcome message', d, 'message', 1000, 'Welcome {user} to {server}! You are member #{count}.'),
-    textArea('Goodbye message (optional)', d, 'goodbye', 1000, '{name} left the server.'),
-    field('Role for new members (optional)', roleSelect(g, d.autoRoleId, (v) => (d.autoRoleId = v), 'No automatic role')),
-    h('p', { class: 'note' }, "BOLT's role must be above the role it gives."), saveBar());
-}
-function formRoles(g) {
-  const d = S.draft.rolepanel;
-  return h('div', {}, h('h1', {}, 'Role menu'),
-    h('p', { class: 'muted' }, 'BOLT posts a card with one button per role. Members press a button to get or remove that role.'),
-    toggleRow('Turn on the role menu', d, 'enabled'),
-    field('Channel', chSelect(g, 'text', d.channelId, (v) => (d.channelId = v), 'Choose a channel')),
-    textInput('Title', d, 'title', 100, 'Choose your roles'),
-    textArea('Text', d, 'text', 500, 'Press a button to get or remove a role.'),
-    roleBlock(g, 'Roles in the menu (up to 10)', d.roleIds, 10),
-    h('p', { class: 'note' }, "BOLT's role must be above these roles. Saving posts a fresh menu."), saveBar());
-}
-async function postNow() {
-  if (!S.orig.leaderboard.enabled || !S.orig.leaderboard.channelId) return toast('Save a leaderboard channel first.');
-  try { await Data.postLeaderboardNow(S.g.guild_id); toast('BOLT will post the leaderboard within about 20 seconds.'); } catch (e) { toast('Could not send: ' + e.message); }
-}
-function formLeaderboard(g) {
-  const d = S.draft.leaderboard;
-  const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-  const fmt = (i) => (i % 12 || 12) + ':00 ' + (i < 12 ? 'AM' : 'PM');
-  const off = -new Date().getTimezoneOffset(), abs = Math.abs(off);
-  const tz = 'UTC' + (off >= 0 ? '+' : '-') + Math.floor(abs / 60) + (abs % 60 ? ':' + String(abs % 60).padStart(2, '0') : '');
-  const daySel = h('select', { id: 'lbday', onchange: (e) => { d.day = parseInt(e.target.value, 10); dirtyCheck(); } }, days.map((n, i) => h('option', { value: i, selected: i === d.day }, n)));
-  const hourSel = h('select', { id: 'lbhour', onchange: (e) => { d.hour = parseInt(e.target.value, 10); dirtyCheck(); } }, Array.from({ length: 24 }, (_, i) => h('option', { value: i, selected: i === d.hour }, fmt(i))));
-  return h('div', {}, h('h1', {}, 'Leaderboard'),
-    h('p', { class: 'muted' }, 'BOLT posts the mod points leaderboard (top 10 with profile pictures) in a channel once a week. Anyone can also use /leaderboard at any time.'),
-    h('label', { class: 'tg' }, h('input', { type: 'checkbox', checked: d.enabled, onchange: (e) => { d.enabled = e.target.checked; dirtyCheck(); } }), 'Post the leaderboard every week'),
-    field('Channel', chSelect(g, 'text', d.channelId, (v) => (d.channelId = v), 'Choose a channel')),
-    field('Day', daySel, 'lbday'), field('Time', hourSel, 'lbhour'),
-    h('p', { class: 'sm muted' }, 'Times use your browser time zone (' + tz + '). BOLT must be online at that hour.'),
-    h('p', {}, h('button', { class: 'btn sm', type: 'button', onclick: postNow }, 'Post the leaderboard now')), saveBar());
-}
-function formMail(g) {
-  const d = S.draft.modmail;
-  return h('div', {}, h('h1', {}, 'Mod mail'),
-    h('p', { class: 'muted' }, 'BOLT keeps a panel as the last message in the mod mail channel. Staff press Send new mail, choose members, write a message, and BOLT sends it by DM and reports how many were delivered.'),
-    h('label', { class: 'tg' }, h('input', { type: 'checkbox', checked: d.enabled, onchange: (e) => { d.enabled = e.target.checked; dirtyCheck(); } }), 'Turn on mod mail'),
-    field('Mod mail channel', chSelect(g, 'text', d.channelId, (v) => (d.channelId = v), 'Choose a channel')),
-    h('label', { class: 'tg', style: 'margin-top:8px' }, h('input', { type: 'checkbox', checked: d.create, onchange: (e) => { d.create = e.target.checked; dirtyCheck(); } }), 'Create a channel for me (used when no channel is chosen)'),
-    h('div', { class: 'field' }, h('span', {}, 'Staff roles (who can send mail, up to 10)'), h('div', { class: 'chips' }, roleChips(g, d.staffRoleIds, 10))),
-    h('p', { class: 'note' }, 'If BOLT creates the channel, reload this page after a minute to see it here.'), saveBar());
-}
-function saveBar() {
-  return h('div', {}, h('p', { class: 'err', id: 'ferr', hidden: true, role: 'alert' }),
-    h('div', { class: 'bar', id: 'bar', hidden: true }, h('span', {}, 'You have unsaved changes.'),
-      h('div', { class: 'row' }, h('button', { class: 'btn sm', type: 'button', onclick: () => { S.draft = clone(S.orig); render(); } }, 'Reset'), h('button', { class: 'btn p sm', id: 'save', type: 'button', onclick: doSave }, 'Save changes'))));
-}
-function dirtyCheck() { const b = $('bar'); if (b) b.hidden = JSON.stringify(S.draft) === JSON.stringify(S.orig); }
-function formError(m) { const e = $('ferr'); if (!e) return; e.hidden = !m; e.textContent = m || ''; }
-async function doSave() {
-  const d = S.draft; formError('');
-  if (d.intro.enabled && !d.intro.channelId) return formError('Choose a channel for the intro system, or turn it off.');
-  if (d.intro.enabled && !d.intro.template.trim()) return formError('Write a template for the intro message.');
-  if (S.sec === 'tickets' && (!d.tickets.panelChannelId || !d.tickets.staffRoleIds.length)) return formError('Choose a panel channel and at least one staff role.');
-  if (S.sec === 'points' && (d.modpoints.kickAt < 0 || d.modpoints.banAt < 0)) return formError('Limits cannot be negative.');
-  if (S.sec === 'leaderboard' && d.leaderboard.enabled && !d.leaderboard.channelId) return formError('Choose a channel for the weekly leaderboard.');
-  if (S.sec === 'welcome' && d.welcome.message.trim() && !d.welcome.channelId) return formError('Choose a channel for the welcome message.');
-  if (S.sec === 'roles' && d.rolepanel.enabled && (!d.rolepanel.channelId || !d.rolepanel.roleIds.length)) return formError('Choose a channel and at least one role for the role menu.');
-  if (S.sec === 'mail' && d.modmail.enabled && !d.modmail.channelId && !d.modmail.create) return formError('Choose a mod mail channel, or tick "Create a channel for me".');
-  const btn = $('save'); btn.disabled = true; btn.textContent = 'Saving…';
-  try { await Data.save(S.g.guild_id, d); S.orig = clone(d); dirtyCheck(); toast('Saved. BOLT applies changes within about 20 seconds.'); }
-  catch (e) { formError('Could not save: ' + e.message); }
-  btn.disabled = false; btn.textContent = 'Save changes';
-}
-
-/* ---------- Router + nav ---------- */
-let tok = 0;
-async function render() {
-  const t = ++tok, parts = (location.hash || '#/').slice(2).split('/').filter(Boolean), area = parts[0] === 'docs' ? 'docs' : parts[0] === 'dashboard' ? 'dashboard' : 'home';
-  $('island').classList.remove('open'); $('mbtn').setAttribute('aria-expanded', 'false'); $('umenu').hidden = true;
-  await renderNav(area);
-  const node = area === 'docs' ? pageDocs(parts[1]) : area === 'dashboard' ? await pageDash(parts[1], parts[2]) : pageHome();
-  if (t !== tok) return;
-  document.title = area === 'docs' ? 'Docs — BOLT' : area === 'dashboard' ? 'Dashboard — BOLT' : 'BOLT — Discord bot';
-  if (area !== 'dashboard') S.id = null;
-  $('app').replaceChildren(node);
-  if (!(area === 'docs' && parts[1])) scrollTo(0, 0);
-}
-async function renderNav(area) {
-  const u = await Data.user(), a = $('auth'), mp = $('mpanel');
-  document.querySelectorAll('#links a').forEach((l) => l.toggleAttribute('aria-current', l.dataset.n === area));
-  const on = document.querySelector('#links a[aria-current]');
-  if (on) { $('hl').style.left = on.offsetLeft + 'px'; $('hl').style.width = on.offsetWidth + 'px'; }
-  const links = [['home', '#/', 'Home'], ['docs', '#/docs', 'Docs'], ['dashboard', '#/dashboard', 'Dashboard']].map((l) => h('a', { href: l[1], 'aria-current': l[0] === area ? 'page' : null }, l[2]));
-  a.replaceChildren(u ? h('button', { class: 'ubtn', type: 'button', onclick: (e) => { e.stopPropagation(); $('umenu').hidden = !$('umenu').hidden; } }, ava(u.avatar, u.name), h('span', { class: 'uname' }, u.name)) : loginBtn('btn p sm'));
-  mp.replaceChildren(...links, u ? h('button', { class: 'btn', type: 'button', onclick: doLogout }, 'Log out') : loginBtn('btn p'));
-}
-
-/* ---------- Boot ---------- */
-initTheme();
-$('theme').addEventListener('click', () => setTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'));
-$('out').addEventListener('click', doLogout);
-$('mbtn').addEventListener('click', (e) => { const o = $('island').classList.toggle('open'); e.currentTarget.setAttribute('aria-expanded', String(o)); });
-document.addEventListener('click', (e) => { if (!e.target.closest('.ubtn,#umenu')) $('umenu').hidden = true; });
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { $('umenu').hidden = true; $('island').classList.remove('open'); } });
-addEventListener('scroll', () => $('island').classList.toggle('sc', scrollY > 8), { passive: true });
-addEventListener('hashchange', render);
-(async () => {
-  await sb.auth.getSession();
-  if (location.search.includes('code=')) history.replaceState(null, '', location.pathname + location.hash);
-  try { const r = sessionStorage.getItem('bolt-return'); if (r && await Data.user()) { sessionStorage.removeItem('bolt-return'); if (r !== location.hash) location.hash = r; } } catch (e) {}
-  render();
-})();
+/* Router, theme, boot */
+let tok=0;
+async function nav(a){const u=await D.user();
+document.querySelectorAll('#nv a').forEach(l=>l.toggleAttribute('aria-current',l.dataset.n===a));
+$('au').replaceChildren(u?h('button',{class:'btn',type:'button',onclick:async()=>{await D.logout();await render();toast('Logged out')}},'Log out'):loginBtn('Log in'));$('au').style.visibility='visible'}
+async function render(keep){
+const t=++tok,p=(location.hash||'#/').slice(2).split('/').filter(Boolean),a=['docs','dashboard','terms','privacy'].includes(p[0])?p[0]:'home';
+await nav(a);
+if(a==='dashboard'&&!D.g)$('app').replaceChildren(h('div',{class:'w'},h('p',{class:'m'},'Loading…')));
+const n=a==='docs'?pageDocs():a==='dashboard'?await pageDash(p[1],p[2]):a==='terms'||a==='privacy'?legal(a):home();
+if(t!==tok)return;
+if(a!=='dashboard')S.id=null;
+document.title=({docs:'Docs',dashboard:'Dashboard',terms:'Terms and Conditions',privacy:'Privacy Policy'}[a]||'BOLT — Discord bot')+(a==='home'?'':' — BOLT');
+$('app').replaceChildren(n);if(!keep)scrollTo(0,0)}
+const theme=t=>{document.documentElement.dataset.theme=t;try{localStorage.setItem('bolt-theme',t)}catch(e){}};
+let saved=null;try{saved=localStorage.getItem('bolt-theme')}catch(e){}
+theme(saved==='light'||saved==='dark'?saved:matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');
+$('th').onclick=()=>theme(document.documentElement.dataset.theme==='dark'?'light':'dark');
+addEventListener('hashchange',()=>render());
+(async()=>{try{await sb.auth.getSession()}catch(e){}
+if(location.search.includes('code='))history.replaceState(null,'',location.pathname+location.hash);
+try{const r=sessionStorage.getItem('bolt-return');if(r&&await D.user()){sessionStorage.removeItem('bolt-return');if(r!==location.hash){location.hash=r;return}}}catch(e){}
+render()})();
 </script>
 </body>
 </html>
