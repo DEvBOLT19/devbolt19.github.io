@@ -49,7 +49,7 @@ p{margin:0 0 12px}
 details{margin-top:8px}
 summary{cursor:pointer;color:var(--m);font-size:14px;width:fit-content}
 details[open]>summary{color:var(--t)}
-input[type=text],textarea{width:100%;font-size:16px;background:var(--s);border:1px solid var(--l);border-radius:8px;padding:10px 12px}
+select,input[type=text],textarea{width:100%;font-size:16px;background:var(--s);border:1px solid var(--l);border-radius:8px;padding:10px 12px}
 textarea{min-height:120px;resize:vertical}
 .tg{display:flex;gap:10px;align-items:center;border:1px solid var(--l);border-radius:10px;padding:12px;background:var(--s);cursor:pointer;margin:10px 0}
 .tg input{width:18px;height:18px;accent-color:var(--t)}
@@ -103,6 +103,10 @@ function row(g,r,mc,bl,pend){
 const by=!r||!r.updated_by?'':r.updated_by===A?' by you':r.updated_by==='bot'?' by the bot':' by Discord ID '+r.updated_by,on=feats(r&&r.settings);
 const blockBtn=bl?h('button',{class:'btn',type:'button',onclick:()=>run(sb.from('blocked_guilds').delete().eq('guild_id',g.guild_id),'Unblocked.')},'Unblock'):h('button',{class:'btn',type:'button',onclick:()=>{const why=prompt('Block '+g.name+' from using BOLT? BOLT will leave and will not stay. Reason (optional):');if(why===null)return;run(sb.from('blocked_guilds').insert({guild_id:g.guild_id,name:g.name,reason:why.trim().slice(0,300)||null}),'Blocked. BOLT leaves within about 20 seconds.')}},'Block');
 const leaveBtn=pend?h('span',{class:'m sm'},'Leave requested'):h('button',{class:'btn',type:'button',onclick:()=>{if(!confirm('Make BOLT leave '+g.name+'? Its members lose BOLT until someone adds it again.'))return;run(sb.from('bot_actions').insert({action:'leave_guild',guild_id:g.guild_id,guild_name:g.name}),'Leave requested. BOLT acts within about 20 seconds.')}},'Make BOLT leave');
+const clr=(w,label)=>h('button',{class:'btn',type:'button',onclick:()=>{if(!confirm('Clear all '+label+' in '+g.name+'? This cannot be undone.'))return;run(sb.from('bot_actions').insert({action:'clear_data',guild_id:g.guild_id,guild_name:g.name,payload:{what:w}}),'Clear requested. BOLT acts within about 20 seconds.')}},'Clear '+label);
+const cnt=h('p',{class:'m sm',style:'margin:8px 0'},'Deletes it for every member of this server. This cannot be undone.');
+const dat=h('details',{},h('summary',{},'Clear server data'),cnt,h('div',{class:'fm'},clr('points','mod points'),clr('warnings','warnings'),clr('levels','levels')));
+dat.addEventListener('toggle',async()=>{if(!dat.open)return;cnt.textContent='Counting…';const c=t=>sb.from(t).select('*',{count:'exact',head:true}).eq('guild_id',g.guild_id);const[a,b,l]=await Promise.all([c('mod_points'),c('warnings'),c('levels')]);cnt.textContent=a.error||b.error||l.error?'Could not count.':(a.count||0)+' members with mod points, '+(b.count||0)+' warnings, '+(l.count||0)+' levelled members. Clearing cannot be undone.'});
 return h('li',{class:'sv','data-q':(g.name+' '+g.guild_id).toLowerCase()},
 h('div',{class:'hd'},ava(g.icon,g.name),
 h('div',{class:'gi'},h('strong',{},g.name),
@@ -110,13 +114,17 @@ h('div',{class:'m sm'},mc+' managers, '+g.channels.length+' channels, '+g.roles.
 h('div',{class:'m sm'},(on.length?'On: '+on.join(', ')+'. ':'No features on. ')+(r?'Settings changed '+ago(r.updated_at)+by+'.':'Settings never saved.')),bl&&h('div',{class:'m sm'},'Blocked '+ago(bl.blocked_at)+(bl.reason?': '+bl.reason:'.'))),
 h('button',{class:'cd',type:'button',title:'Copy server ID',onclick:()=>copy(g.guild_id)},g.guild_id),
 h('a',{class:'btn',href:'./#/dashboard/'+g.guild_id+'/overview'},'Open settings'),blockBtn,leaveBtn),
-editor(g.guild_id,r))}
+editor(g.guild_id,r),dat)}
 
-const run=async(p,ok)=>{const{error}=await p;if(error)return toast(error.code==='23505'?'That server is already blocked.':'Could not save: '+error.message);toast(ok);render()};
-function controls(c,bl,ac){
+const what=a=>a.action==='leave_guild'?'Leave '+(a.guild_name||a.guild_id):a.action==='clear_data'?'Clear '+((a.payload||{}).what||'data')+' in '+(a.guild_name||a.guild_id):'Announcement to '+(a.guild_id?(a.guild_name||a.guild_id):'all servers');
+const run=async(p,ok)=>{const{error}=await p;if(error)return toast(error.code==='23505'?'That ID is already blocked.':'Could not save: '+error.message);toast(ok);render()};
+function controls(c,bl,ac,bu,gs){
 const on=h('input',{type:'checkbox'});on.checked=c.bot_enabled;
 const msg=h('input',{type:'text',maxlength:'200',placeholder:'Message shown when BOLT is off (optional)','aria-label':'Message shown when BOLT is off'});msg.value=c.message||'';
 const idf=h('input',{type:'text',inputmode:'numeric',placeholder:'Server ID','aria-label':'Server ID to block'}),why=h('input',{type:'text',maxlength:'300',placeholder:'Reason (optional)','aria-label':'Reason for blocking'});
+const uid=h('input',{type:'text',inputmode:'numeric',placeholder:'User ID','aria-label':'User ID to block'}),uwhy=h('input',{type:'text',maxlength:'300',placeholder:'Reason (optional)','aria-label':'Reason for blocking'});
+const asel=h('select',{'aria-label':'Where to send'},h('option',{value:''},'All servers ('+gs.length+')'),gs.map(x=>h('option',{value:x.guild_id},x.name)));
+const atx=h('textarea',{maxlength:'1500',placeholder:'Announcement text','aria-label':'Announcement text',style:'margin-top:8px'});
 return h('div',{},h('h2',{},'Controls'),
 h('p',{class:'m sm'},c.bot_seen_at?'BOLT last checked these switches '+ago(c.bot_seen_at)+'.':'BOLT has not read these switches yet. The bot needs the update that reads them.'),
 h('label',{class:'tg'},on,'BOLT is on. When this is off, BOLT stays online but ignores commands and does nothing in every server.'),
@@ -125,8 +133,16 @@ h('h2',{},'Blocked servers'),
 h('p',{class:'m sm'},'BOLT leaves a blocked server and leaves again if someone adds it back.'),
 h('div',{class:'fm'},idf,why,h('button',{class:'btn p',type:'button',onclick:()=>{const id=idf.value.trim();if(!/^\d{17,20}$/.test(id))return toast('Enter a server ID with 17 to 20 digits.');run(sb.from('blocked_guilds').insert({guild_id:id,reason:why.value.trim()||null}),'Blocked. BOLT leaves within about 20 seconds.')}},'Block server')),
 bl.length?h('ul',{class:'lib'},bl.map(b=>h('li',{class:'sv'},h('div',{class:'hd'},h('div',{class:'gi'},h('strong',{},b.name||b.guild_id),h('div',{class:'m sm'},b.guild_id+'. Blocked '+ago(b.blocked_at)+(b.reason?': '+b.reason:'.'))),h('button',{class:'btn',type:'button',onclick:()=>run(sb.from('blocked_guilds').delete().eq('guild_id',b.guild_id),'Unblocked.')},'Unblock'))))):h('p',{class:'m sm'},'No blocked servers.'),
+h('h2',{},'Blocked users'),
+h('p',{class:'m sm'},'BOLT ignores a blocked user in every server.'),
+h('div',{class:'fm'},uid,uwhy,h('button',{class:'btn p',type:'button',onclick:()=>{const id=uid.value.trim();if(!/^\d{17,20}$/.test(id))return toast('Enter a user ID with 17 to 20 digits.');run(sb.from('blocked_users').insert({user_id:id,reason:uwhy.value.trim()||null}),'User blocked.')}},'Block user')),
+bu.length?h('ul',{class:'lib'},bu.map(b=>h('li',{class:'sv'},h('div',{class:'hd'},h('div',{class:'gi'},h('strong',{},b.name||b.user_id),h('div',{class:'m sm'},b.user_id+'. Blocked '+ago(b.blocked_at)+(b.reason?': '+b.reason:'.'))),h('button',{class:'btn',type:'button',onclick:()=>run(sb.from('blocked_users').delete().eq('user_id',b.user_id),'Unblocked.')},'Unblock'))))):h('p',{class:'m sm'},'No blocked users.'),
+h('h2',{},'Announcement'),
+h('p',{class:'m sm'},'BOLT posts this in every server, or only the one you pick.'),
+asel,atx,
+h('div',{style:'margin-top:10px'},h('button',{class:'btn p',type:'button',onclick:()=>{const t=atx.value.trim();if(!t)return toast('Write the announcement first.');const w=asel.value?asel.selectedOptions[0].text:'all '+gs.length+' servers';if(!confirm('Send this announcement to '+w+'?'))return;run(sb.from('bot_actions').insert({action:'announce',guild_id:asel.value||null,guild_name:asel.value?asel.selectedOptions[0].text:null,payload:{message:t}}),'Announcement queued. BOLT sends it within about 20 seconds.')}},'Send announcement')),
 h('h2',{},'Recent actions'),
-ac.length?h('ul',{class:'lib'},ac.map(a=>h('li',{class:'sv m sm'},'Leave '+(a.guild_name||a.guild_id)+': '+a.status+(a.result?' ('+a.result+')':'')+'. '+ago(a.created_at)+'.'))):h('p',{class:'m sm'},'Nothing yet.'))}
+ac.length?h('ul',{class:'lib'},ac.map(a=>h('li',{class:'sv m sm'},what(a)+': '+a.status+(a.result?' ('+a.result+')':'')+'. '+ago(a.created_at)+'.'))):h('p',{class:'m sm'},'Nothing yet.'))}
 
 async function render(){
 const{data:{session}}=await sb.auth.getSession();
@@ -136,7 +152,7 @@ try{
 if(!A){const{data,error}=await sb.from('bot_admins').select('discord_id').limit(1);if(error)throw error;A=data&&data.length?data[0].discord_id:null}
 if(!A)return show(gate('Page not found','This page does not exist.'));
 const q=t=>sb.from(t).select('*',{count:'exact',head:true});
-const R=await Promise.all([sb.from('guild_meta').select('guild_id,name,icon,channels,roles,updated_at').order('name'),sb.from('guild_settings').select('guild_id,settings,updated_at,updated_by'),sb.from('guild_managers').select('guild_id'),q('mod_points'),q('mod_point_log'),q('warnings'),q('levels'),sb.from('bot_control').select('bot_enabled,message,bot_seen_at').eq('id',1).maybeSingle(),sb.from('blocked_guilds').select('*').order('blocked_at',{ascending:false}),sb.from('bot_actions').select('*').order('created_at',{ascending:false}).limit(10)]);
+const R=await Promise.all([sb.from('guild_meta').select('guild_id,name,icon,channels,roles,updated_at').order('name'),sb.from('guild_settings').select('guild_id,settings,updated_at,updated_by'),sb.from('guild_managers').select('guild_id'),q('mod_points'),q('mod_point_log'),q('warnings'),q('levels'),sb.from('bot_control').select('bot_enabled,message,bot_seen_at').eq('id',1).maybeSingle(),sb.from('blocked_guilds').select('*').order('blocked_at',{ascending:false}),sb.from('bot_actions').select('*').order('created_at',{ascending:false}).limit(12),sb.from('blocked_users').select('*').order('blocked_at',{ascending:false})]);
 for(const x of R)if(x.error)throw x.error;
 const[g,st,mg,...n]=R,S={},M={},BL={},PN={};
 st.data.forEach(r=>S[r.guild_id]=r);mg.data.forEach(r=>M[r.guild_id]=(M[r.guild_id]||0)+1);n[5].data.forEach(b=>BL[b.guild_id]=b);n[6].data.forEach(a=>{if(a.status==='pending')PN[a.guild_id]=1});
@@ -146,7 +162,7 @@ f.oninput=()=>{const v=f.value.trim().toLowerCase();for(const li of list.childre
 show(h('div',{class:'w'},h('h1',{},'Admin'),
 h('p',{class:'m',style:'max-width:60ch'},'Open or change any server that has BOLT. Changes reach BOLT in about 20 seconds.'),
 h('div',{class:'st'},[['Servers',g.data.length],['Managers',mg.data.length],['Mod points',n[0].count],['Point log',n[1].count],['Warnings',n[2].count],['Levels',n[3].count]].map(s=>h('div',{},h('b',{},String(s[1]||0)),s[0]))),
-controls(n[4].data||{bot_enabled:true},n[5].data,n[6].data),h('h2',{},'Servers'),f,
+controls(n[4].data||{bot_enabled:true},n[5].data,n[6].data,n[7].data,g.data),h('h2',{},'Servers'),f,
 g.data.length?list:h('p',{class:'m',style:'margin-top:12px'},'No servers yet. A server appears here after BOLT joins it.'),
 h('p',{class:'m sm',style:'margin-top:24px'},'The database enforces access. Only Discord accounts on the bot_admins list can load this data.')))
 }catch(e){show(h('div',{class:'w'},h('p',{class:'err'},'Could not load admin data: '+e.message)))}}
