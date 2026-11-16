@@ -54,7 +54,7 @@ textarea{min-height:120px;resize:vertical}
 .tg{display:flex;gap:10px;align-items:center;border:1px solid var(--l);border-radius:10px;padding:12px;background:var(--s);cursor:pointer;margin:10px 0}
 .tg input{width:18px;height:18px;accent-color:var(--t)}
 .fm{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
-.fm input{flex:1 1 180px;width:auto}
+.fm input,.fm select{flex:1 1 180px;width:auto}
 .err{border:1px solid var(--l2);border-radius:8px;padding:10px 12px;font-size:13px;background:var(--s)}
 .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--t);color:var(--bg);border-radius:999px;padding:10px 16px;font-size:13px;z-index:20}
 @media(min-width:640px){.st{grid-template-columns:repeat(3,1fr)}}
@@ -76,7 +76,7 @@ let tt;const toast=m=>{const t=$('toast');t.textContent=m;t.hidden=false;clearTi
 const copy=async x=>{try{await navigator.clipboard.writeText(x);toast('Copied')}catch(e){toast('Could not copy')}};
 const ago=i=>{const m=Math.max(0,Math.round((Date.now()-new Date(i))/6e4));return m<1?'just now':m<60?m+' min ago':m<2880?Math.round(m/60)+' h ago':Math.round(m/1440)+' d ago'};
 const show=n=>$('app').replaceChildren(n);
-let A=null;
+let A=null,ROLE=null;
 
 /* Which features a server has turned on, read from its saved settings */
 const F=[['automod','Auto-mod',s=>s.enabled],['modpoints','Mod points',s=>s.kickAt||s.banAt],['modlog','Logs',s=>s.channelId||s.messageChannelId||s.memberChannelId||s.sayChannelId],['tickets','Tickets',s=>s.panelChannelId],['modmail','Mod mail',s=>s.channelId],['intro','Intro',s=>s.channelId],['welcome','Welcome',s=>s.channelId],['rolepanel','Role menu',s=>s.channelId],['levels','Levels',s=>s.enabled],['leaderboard','Leaderboard',s=>s.channelId],['suggestions','Suggestions',s=>s.channelId]];
@@ -116,8 +116,8 @@ h('button',{class:'cd',type:'button',title:'Copy server ID',onclick:()=>copy(g.g
 h('a',{class:'btn',href:'./#/dashboard/'+g.guild_id+'/overview'},'Open settings'),blockBtn,leaveBtn),
 editor(g.guild_id,r),dat)}
 
-const what=a=>a.action==='leave_guild'?'Leave '+(a.guild_name||a.guild_id):a.action==='clear_data'?'Clear '+((a.payload||{}).what||'data')+' in '+(a.guild_name||a.guild_id):'Announcement to '+(a.guild_id?(a.guild_name||a.guild_id):'all servers');
-const run=async(p,ok)=>{const{error}=await p;if(error)return toast(error.code==='23505'?'That ID is already blocked.':'Could not save: '+error.message);toast(ok);render()};
+const what=a=>a.action==='leave_guild'?'Leave '+(a.guild_name||a.guild_id):a.action==='clear_data'?'Clear '+((a.payload||{}).what||'data')+' in '+(a.guild_name||a.guild_id):a.action==='send_message'?'Message in #'+((a.payload||{}).channel_name||'channel')+' of '+(a.guild_name||a.guild_id):'Announcement to '+(a.guild_id?(a.guild_name||a.guild_id):'all servers');
+const run=async(p,ok)=>{const{error}=await p;if(error)return toast(error.code==='23505'?'That ID is already on the list.':'Could not save: '+error.message);toast(ok);render()};
 function controls(c,bl,ac,bu,gs){
 const on=h('input',{type:'checkbox'});on.checked=c.bot_enabled;
 const msg=h('input',{type:'text',maxlength:'200',placeholder:'Message shown when BOLT is off (optional)','aria-label':'Message shown when BOLT is off'});msg.value=c.message||'';
@@ -138,21 +138,40 @@ h('p',{class:'m sm'},'A blocked user can’t use BOLT’s commands or buttons in
 h('div',{class:'fm'},uid,uwhy,h('button',{class:'btn p',type:'button',onclick:()=>{const id=uid.value.trim();if(!/^\d{17,20}$/.test(id))return toast('Enter a user ID with 17 to 20 digits.');run(sb.from('blocked_users').insert({user_id:id,reason:uwhy.value.trim()||null}),'User blocked.')}},'Block user')),
 bu.length?h('ul',{class:'lib'},bu.map(b=>h('li',{class:'sv'},h('div',{class:'hd'},h('div',{class:'gi'},h('strong',{},b.name||b.user_id),h('div',{class:'m sm'},b.user_id+'. Blocked '+ago(b.blocked_at)+(b.reason?': '+b.reason:'.'))),h('button',{class:'btn',type:'button',onclick:()=>run(sb.from('blocked_users').delete().eq('user_id',b.user_id),'Unblocked.')},'Unblock'))))):h('p',{class:'m sm'},'No blocked users.'),
 h('h2',{},'Announcement'),
-h('p',{class:'m sm'},'BOLT posts it in each server’s mod log channel, or in another channel it can write to if none is set. Send it to every server or just one.'),
+h('p',{class:'m sm'},'BOLT posts it in each server’s announcements channel, which its mods choose. If none is set it uses the mod log channel, then the system channel. Send it to every server or just one.'),
 asel,atx,
 h('div',{style:'margin-top:10px'},h('button',{class:'btn p',type:'button',onclick:()=>{const t=atx.value.trim();if(!t)return toast('Write the announcement first.');const w=asel.value?asel.selectedOptions[0].text:'all '+gs.length+' servers';if(!confirm('Send this announcement to '+w+'?'))return;run(sb.from('bot_actions').insert({action:'announce',guild_id:asel.value||null,guild_name:asel.value?asel.selectedOptions[0].text:null,payload:{message:t}}),'Announcement queued. BOLT sends it within about 20 seconds.')}},'Send announcement')),
-h('h2',{},'Recent actions'),
+sendbox(gs),h('h2',{},'Recent actions'),
 ac.length?h('ul',{class:'lib'},ac.map(a=>h('li',{class:'sv m sm'},what(a)+': '+a.status+(a.result?' ('+a.result+')':'')+'. '+ago(a.created_at)+'.'))):h('p',{class:'m sm'},'Nothing yet.'))}
+
+function sendbox(gs){
+const srv=h('select',{'aria-label':'Server'},h('option',{value:''},'Choose a server'),gs.map(x=>h('option',{value:x.guild_id},x.name)));
+const chn=h('select',{'aria-label':'Channel',disabled:true},h('option',{value:''},'Choose a channel'));
+const txt=h('textarea',{maxlength:'2000',placeholder:'Message','aria-label':'Message',style:'margin-top:8px'});
+srv.onchange=()=>{const g=gs.find(x=>x.guild_id===srv.value);chn.replaceChildren(h('option',{value:''},'Choose a channel'),...(g?g.channels.filter(c=>c.type==='text').sort((a,b)=>a.position-b.position).map(c=>h('option',{value:c.id},'#'+c.name)):[]));chn.disabled=!g};
+return h('div',{},h('h2',{},'Send a message'),
+h('p',{class:'m sm'},'BOLT posts this as a normal message in the channel you pick. Mentions are switched off.'),
+h('div',{class:'fm'},srv,chn),txt,
+h('div',{style:'margin-top:10px'},h('button',{class:'btn p',type:'button',onclick:()=>{const g=gs.find(x=>x.guild_id===srv.value),t=txt.value.trim();if(!g||!chn.value)return toast('Choose a server and a channel.');if(!t)return toast('Write the message first.');const cn=chn.selectedOptions[0].text;if(!confirm('Send this message in '+cn+' of '+g.name+'?'))return;run(sb.from('bot_actions').insert({action:'send_message',guild_id:g.guild_id,guild_name:g.name,payload:{channel_id:chn.value,channel_name:cn.replace(/^#/,''),message:t}}),'Message queued. BOLT sends it within about 20 seconds.')}},'Send message')))}
+
+function admins(list){
+const uid=h('input',{type:'text',inputmode:'numeric',placeholder:'Discord user ID','aria-label':'Discord user ID of the new admin'}),note=h('input',{type:'text',maxlength:'60',placeholder:'Note, like a name (optional)','aria-label':'Note about this admin'});
+return h('div',{},h('h2',{},'Admins'),
+h('p',{class:'m sm'},'Admins can use this page: open and change any server, pause BOLT, block, send and clear. Only owners can add or remove admins. There is no limit on how many you add.'),
+h('div',{class:'fm'},uid,note,h('button',{class:'btn p',type:'button',onclick:()=>{const id=uid.value.trim();if(!/^\d{17,20}$/.test(id))return toast('Enter a Discord user ID with 17 to 20 digits.');run(sb.from('bot_admins').insert({discord_id:id,note:note.value.trim()||null}),'Admin added. They can open this page right away.')}},'Add admin')),
+h('ul',{class:'lib'},list.map(a=>h('li',{class:'sv'},h('div',{class:'hd'},
+h('div',{class:'gi'},h('strong',{},a.note||a.discord_id),h('div',{class:'m sm'},a.discord_id+(a.discord_id===A?' (you). ':'. ')+(a.role==='owner'?'Owner.':'Admin, added '+ago(a.created_at)+(a.added_by?(a.added_by===A?' by you':' by '+a.added_by):'')+'.'))),
+a.role==='owner'?null:h('button',{class:'btn',type:'button',onclick:()=>{if(!confirm('Remove this admin? They lose access to this page right away.'))return;run(sb.from('bot_admins').delete().eq('discord_id',a.discord_id),'Admin removed.')}},'Remove'))))))}
 
 async function render(){
 const{data:{session}}=await sb.auth.getSession();
-$('au').replaceChildren(session?h('button',{class:'btn',type:'button',onclick:async()=>{await sb.auth.signOut();A=null;render()}},'Log out'):h('button',{class:'btn p',type:'button',onclick:login},'Log in'));
+$('au').replaceChildren(session?h('button',{class:'btn',type:'button',onclick:async()=>{await sb.auth.signOut();A=null;ROLE=null;render()}},'Log out'):h('button',{class:'btn p',type:'button',onclick:login},'Log in'));
 if(!session)return show(gate('Log in to continue','Connect with Discord to open this page.',1));
 try{
-if(!A){const{data,error}=await sb.from('bot_admins').select('discord_id').limit(1);if(error)throw error;A=data&&data.length?data[0].discord_id:null}
+{const{data,error}=await sb.rpc('admin_me');if(error)throw error;A=data&&data.length?data[0].discord_id:null;ROLE=data&&data.length?data[0].role:null}
 if(!A)return show(gate('Page not found','This page does not exist.'));
 const q=t=>sb.from(t).select('*',{count:'exact',head:true});
-const R=await Promise.all([sb.from('guild_meta').select('guild_id,name,icon,channels,roles,updated_at').order('name'),sb.from('guild_settings').select('guild_id,settings,updated_at,updated_by'),sb.from('guild_managers').select('guild_id'),q('mod_points'),q('mod_point_log'),q('warnings'),q('levels'),sb.from('bot_control').select('bot_enabled,message,bot_seen_at').eq('id',1).maybeSingle(),sb.from('blocked_guilds').select('*').order('blocked_at',{ascending:false}),sb.from('bot_actions').select('*').order('created_at',{ascending:false}).limit(12),sb.from('blocked_users').select('*').order('blocked_at',{ascending:false})]);
+const R=await Promise.all([sb.from('guild_meta').select('guild_id,name,icon,channels,roles,updated_at').order('name'),sb.from('guild_settings').select('guild_id,settings,updated_at,updated_by'),sb.from('guild_managers').select('guild_id'),q('mod_points'),q('mod_point_log'),q('warnings'),q('levels'),sb.from('bot_control').select('bot_enabled,message,bot_seen_at').eq('id',1).maybeSingle(),sb.from('blocked_guilds').select('*').order('blocked_at',{ascending:false}),sb.from('bot_actions').select('*').order('created_at',{ascending:false}).limit(12),sb.from('blocked_users').select('*').order('blocked_at',{ascending:false}),ROLE==='owner'?sb.from('bot_admins').select('discord_id,note,role,created_at,added_by').order('created_at',{ascending:true}):Promise.resolve({data:[],error:null})]);
 for(const x of R)if(x.error)throw x.error;
 const[g,st,mg,...n]=R,S={},M={},BL={},PN={};
 st.data.forEach(r=>S[r.guild_id]=r);mg.data.forEach(r=>M[r.guild_id]=(M[r.guild_id]||0)+1);n[5].data.forEach(b=>BL[b.guild_id]=b);n[6].data.forEach(a=>{if(a.status==='pending')PN[a.guild_id]=1});
@@ -162,7 +181,7 @@ f.oninput=()=>{const v=f.value.trim().toLowerCase();for(const li of list.childre
 show(h('div',{class:'w'},h('h1',{},'Admin'),
 h('p',{class:'m',style:'max-width:60ch'},'Open or change any server that has BOLT. Changes reach BOLT in about 20 seconds.'),
 h('div',{class:'st'},[['Servers',g.data.length],['Managers',mg.data.length],['Mod points',n[0].count],['Point log',n[1].count],['Warnings',n[2].count],['Levels',n[3].count]].map(s=>h('div',{},h('b',{},String(s[1]||0)),s[0]))),
-controls(n[4].data||{bot_enabled:true},n[5].data,n[6].data,n[7].data,g.data),h('h2',{},'Servers'),f,
+controls(n[4].data||{bot_enabled:true},n[5].data,n[6].data,n[7].data,g.data),ROLE==='owner'?admins(n[8].data||[]):null,h('h2',{},'Servers'),f,
 g.data.length?list:h('p',{class:'m',style:'margin-top:12px'},'No servers yet. A server appears here after BOLT joins it.'),
 h('p',{class:'m sm',style:'margin-top:24px'},'The database enforces access. Only Discord accounts on the bot_admins list can load this data.')))
 }catch(e){show(h('div',{class:'w'},h('p',{class:'err'},'Could not load admin data: '+e.message)))}}
