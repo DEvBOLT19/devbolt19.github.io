@@ -100,7 +100,7 @@ const SEC=[
 ['roles','rolepanel','Role menu','A card with one button per role. Saving posts a fresh menu.',1,[['channelId','c','Channel','Choose a channel'],['title','s','Title',100],['text','a','Text',500],['roleIds','R','Roles in the menu (up to 10)']]],
 ['levels','levels','Levels','XP for chatting, level-up messages and role rewards. BOLT’s role must be above the reward roles.',0,[['enabled','t','Turn on levels'],['channelId','c','Level-up channel','Same channel as the message'],['rewards','L','Role rewards (up to 5): the level, then the role']]],
 ['leaderboard','leaderboard','Leaderboard','Post the mod points leaderboard once a week. Times use your browser time zone.',1,[['channelId','c','Channel','Choose a channel'],['day','D','Day'],['hour','H','Time']]],
-['suggestions','suggestions','Suggestions','Where /suggest sends member ideas.',0,[['channelId','c','Suggestions channel','Suggestions off']]]
+['announcements','announcements','Announcements','Where BOLT shows news and updates from its developer.',0,[['channelId','c','Announcements channel','Not set']]]
 ];
 function unpack(x,s){const d={};if(x[4])d.on=!!s.channelId;
 for(const f of x[5]){const k=f[0],t=f[1],v=s[k];
